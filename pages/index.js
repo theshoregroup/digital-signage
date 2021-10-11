@@ -5,7 +5,7 @@ import Post from '../components/post'
 export async function getStaticProps() {
   // fetch list of posts
   const response = await fetch(
-    'https://jsonplaceholder.typicode.com/posts?_page=1'
+    'https://feeds.skynews.com/feeds/rss/home.xml'
   )
   const postList = await response.json()
   return {
