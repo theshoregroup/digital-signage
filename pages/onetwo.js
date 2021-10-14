@@ -43,9 +43,8 @@ export async function getStaticProps() {
         <section>
           {/*
           Youtube Player
-          
           */}
-          <YouTubePlayer query={null} />
+          <YouTubePlayer query="9Auq9mYxFEE" params="?autoplay=1&mute=1&cc_load_policy=1&disablekb=1&fs=0&modestBranding=1" />
         </section>
   
         <h1>List of posts</h1>

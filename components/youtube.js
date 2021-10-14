@@ -1,22 +1,21 @@
-export default function YouTubePlayer(uri) {
-  
-  let videoSRC
-  if (uri.query == null) {
-    videoSRC = "https://youtube.com/embed/c4tLZJ1hrNQ"
+export default function YouTubePlayer(props) {
+
+  let query
+  if (props.query == null) {
+    query = "c4tLZJ1hrNQ"
   } else {
-    videoSRC = "https://youtube.com/embed/" + uri.query
+    query = props.query
   }
 
-  console.log(videoSRC)
-  
+  let fullLink = "https://youtube.com/embed/" + query + props.params
 
   return (
-      <iframe
-        className=""
-        src={videoSRC}
-        frameBorder="0"
-        allow="accelerometer; autoplay; encrypted-media;  gyroscope; picture-in-picture"
-        allowFullScreen
+    <iframe
+      width="560"
+      height="315"
+      src={fullLink}
+      title="YouTube video player"
+      allow='autoplay'
       />
   )
 }
