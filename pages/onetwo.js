@@ -1,6 +1,8 @@
 let Parser = require('rss-parser');
 let parser = new Parser();
 import Head from 'next/head';
+import Post from '../components/post';
+import SkyNews from '../components/skynews';
 import YouTubePlayer from '../components/youtube';
 const url = `https://api.openweathermap.org/data/2.5/weather?q=brighton,uk&appid=8b609354454cdb6c5a7092a939861ace&units=metric`;
 
@@ -33,8 +35,8 @@ export async function getStaticProps() {
   
   }());
   }
-  
   export default function IndexPage({ RSSfeed, weather, time }) {
+
     return (
       <main>
         <Head>
@@ -47,10 +49,10 @@ export async function getStaticProps() {
           <YouTubePlayer query="9Auq9mYxFEE" params="?autoplay=1&mute=1&cc_load_policy=1&disablekb=1&fs=0&modestBranding=1" />
         </section>
   
-        <h1>List of posts</h1>
         <section>
-          {RSSfeed.description}
-          {RSSfeed.title}
+        {RSSfeed.items.map((title) => (
+          <SkyNews {...title} id={title.id} />
+        ))}
         </section>
   
         <section>
