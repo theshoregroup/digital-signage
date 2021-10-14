@@ -55,8 +55,8 @@ export async function getStaticProps() {
         </section>
   
         <section>
-          <div class="container">
-            <h1 class="heading"> Weather </h1>
+          <div className="container">
+            <h1 className="heading"> Weather </h1>
           {weather.location.name}
           {weather.current.condition.text}
           {weather.current.temp_c}°C
