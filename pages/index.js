@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import { parse } from 'rss-to-json'
 
 import Post from '../components/post'
 
@@ -17,6 +16,8 @@ export async function getStaticProps() {
     },
   }
 }
+
+
 
 export default function IndexPage({ postList }) {
   return (
