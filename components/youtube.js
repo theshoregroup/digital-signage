@@ -1,13 +1,10 @@
-export default function YouTubePlayer(props) {
+export default function YouTubePlayer({query, params}) {
 
-  let query
-  if (props.query == null) {
+  if (query == null) {
     query = "c4tLZJ1hrNQ"
-  } else {
-    query = props.query
   }
 
-  let fullLink = "https://youtube.com/embed/" + query + props.params
+  let fullLink = "https://youtube.com/embed/" + query + params
 
   return (
     <iframe
