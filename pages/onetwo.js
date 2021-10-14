@@ -3,18 +3,10 @@ let parser = new Parser();
 import Head from 'next/head';
 const url = `https://api.openweathermap.org/data/2.5/weather?q=brighton,uk&appid=8b609354454cdb6c5a7092a939861ace&units=metric`;
 
-<<<<<<< HEAD
 export async function getStaticProps() {
     // fetch list of posts
     const RSSfeed = await parser.parseURL('http://feeds.skynews.com/feeds/rss/uk.xml')
     let url = 'http://api.weatherapi.com/v1/current.json?key=ac517e0edf3142a6ae282635211410&q=BN1&aqi=no';
-=======
-
-export async function getStaticProps() {
-    // fetch list of posts
-    const RSSfeed = await parser.parseURL('http://feeds.skynews.com/feeds/rss/uk.xml')
-    let url = 'https://api.openweathermap.org/data/2.5/weather?q=brighton,uk&appid=8b609354454cdb6c5a7092a939861ace&units=metric';
->>>>>>> fba4865ac6a865fa425286967b989cbf450821fd
     const weather = await (await fetch(url)).json();
 
     return {
@@ -41,11 +33,7 @@ export async function getStaticProps() {
   }());
   }
   
-<<<<<<< HEAD
-  export default function IndexPage({ RSSfeed, weather, clock }) {
-=======
   export default function IndexPage({ RSSfeed, weather, time }) {
->>>>>>> fba4865ac6a865fa425286967b989cbf450821fd
     return (
       <main>
         <Head>
@@ -64,17 +52,10 @@ export async function getStaticProps() {
         <section>
           <div class="container">
             <h1 class="heading"> Weather </h1>
-<<<<<<< HEAD
           {weather.location.name}
           {weather.current.condition.text}
           {weather.current.temp_c}°C
    
-=======
-            {weather.weather.description}
-          {weather.weather.main}
-          {weather.main.feels_like}C
-          {weather.name}
->>>>>>> fba4865ac6a865fa425286967b989cbf450821fd
   
           </div>
         </section>
