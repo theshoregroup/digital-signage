@@ -4,7 +4,7 @@ import Head from 'next/head';
 import Post from '../components/post';
 import SkyNews from '../components/skynews';
 import YouTubePlayer from '../components/youtube';
-
+const url = `https://api.openweathermap.org/data/2.5/weather?q=brighton,uk&appid=8b609354454cdb6c5a7092a939861ace&units=metric`;
 
 export async function getStaticProps() {
     // fetch list of posts
@@ -39,37 +39,44 @@ export async function getStaticProps() {
 
     return (
       <main>
+      
         <Head>
           <title>Home page</title>
         </Head>
-        <section>
-          {/*
-          Youtube Player
-          */}
-          <YouTubePlayer query="9Auq9mYxFEE" params="?autoplay=1&mute=1&cc_load_policy=1&disablekb=1&fs=0&modestBranding=1" />
-        </section>
-  
-        <section>
-        {RSSfeed.items.map((title) => (
-          <SkyNews {...title} id={title.id} />
-        ))}
-        </section>
-  
-        <section>
-          <div className="container">
-            <h1 className="heading"> Weather </h1>
-          {weather.location.name}
-          {weather.current.condition.text}
-          {weather.current.temp_c}°C
-   
-  
+      
+        <div className="font-sans bg-gray-300 grid grid-cols 9 grid-rows-9 gap-12 p-6">
+          <div className="bg-blue-200 col-span-6 row-span-6">
+            {/*
+            Youtube Player
+            */}
+            <YouTubePlayer query="9Auq9mYxFEE" params="?autoplay=1&mute=1&cc_load_policy=1&disablekb=1&fs=0&modestBranding=1" />
           </div>
-        </section>
 
-        <section>
-        <span id="clock"></span>
-        </section>
-      </main>
+    
+          <div className="bg-red-400 col-span-3 row-span-3">
+          {RSSfeed.items.map((title) => (
+            <SkyNews {...title} id={title.id} />
+          ))}
+          </div>
+
+          <div className="bg-blue-600 col-span-2 row-span-3">
+            <h1 className="text-pink-100"> Weather </h1>
+            {weather.location.name}
+            {weather.current.condition.text} 
+            {weather.current.temp_c}°C
+          </div>
+    
+    
+          <div className="bg-red-700 col-span-1 row-span-3">
+          <span id="clock"></span>
+          </div>
+            
+        </div>
+        
+          </main>
+        
+      
+      
 )
 }
 
