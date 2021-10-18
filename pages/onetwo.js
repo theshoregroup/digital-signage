@@ -44,22 +44,26 @@ export async function getStaticProps() {
           <title>Home page</title>
         </Head>
       
-        <div className="font-sans bg-gray-300 grid grid-cols 9 grid-rows-9 gap-12 p-6">
-          <div className="bg-blue-200 col-span-6 row-span-6">
+        <div className="font-sans bg-gray-300 grid grid-cols 9 grid-rows-18 gap-12 p-6">
+          <div className="bg-blue 200 ">
             {/*
             Youtube Player
             */}
             <YouTubePlayer query="9Auq9mYxFEE" params="?autoplay=1&mute=1&cc_load_policy=1&disablekb=1&fs=0&modestBranding=1" />
           </div>
 
+          <div className=" bg-yellow-500 col-span 1 row span 1">
+            COMPANY NEWS PLACEHOLDER 
+          </div>
+
     
-          <div className="bg-red-400 col-span-3 row-span-3">
+          <div className="bg-red-400 col-span-5 row-span-1">
           {RSSfeed.items.map((title) => (
             <SkyNews {...title} id={title.id} />
           ))}
           </div>
 
-          <div className="bg-blue-600 col-span-2 row-span-3">
+          <div className="bg-blue-600 col-span-2 row-span-1">
             <h1 className="text-pink-100"> Weather </h1>
             {weather.location.name}
             {weather.current.condition.text} 
@@ -67,7 +71,7 @@ export async function getStaticProps() {
           </div>
     
     
-          <div className="bg-red-700 col-span-1 row-span-3">
+          <div className="bg-red-700 col-span-2 row-span-1">
           <span id="clock"></span>
           </div>
             
