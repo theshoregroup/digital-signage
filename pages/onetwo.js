@@ -4,7 +4,7 @@ import Head from 'next/head';
 import Post from '../components/post';
 import SkyNews from '../components/skynews';
 import YouTubePlayer from '../components/youtube';
-const url = `https://api.openweathermap.org/data/2.5/weather?q=brighton,uk&appid=8b609354454cdb6c5a7092a939861ace&units=metric`;
+
 
 export async function getStaticProps() {
     // fetch list of posts
