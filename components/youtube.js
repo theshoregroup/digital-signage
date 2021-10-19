@@ -8,8 +8,8 @@ export default function YouTubePlayer({query, params}) {
 
   return (
     <iframe
-      width="560"
-      height="315"
+      width="1140"
+      height="640"
       src={fullLink}
       title="YouTube video player"
       allow='autoplay'
