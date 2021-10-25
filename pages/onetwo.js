@@ -1,6 +1,7 @@
 let Parser = require('rss-parser');
 let parser = new Parser();
 import Head from 'next/head';
+import Image from 'next/image';
 import Post from '../components/post';
 import SkyNews from '../components/skynews';
 import YouTubePlayer from '../components/youtube';
@@ -40,30 +41,44 @@ export async function getStaticProps() {
     return (
       <main>
       
+      
         <Head>
           <title>Home page</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com"/>
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+          <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet"></link>
         </Head>
       
-        <div className="font-sans bg-gray-300 grid grid-cols 9 grid-rows-18 gap-12 p-6">
-          <div className="bg-blue 200 ">
+        <div className="bg-gradient-to-r from-white via-white to-cyan-400 font-Ubuntu grid grid-cols-9 grid-rows-9 p-3">
+          <div className="bg-blue 200 col-span-6 row-span-6 ">
             {/*
             Youtube Player
             */}
             <YouTubePlayer query="9Auq9mYxFEE" params="?autoplay=1&mute=1&cc_load_policy=1&disablekb=1&fs=0&modestBranding=1" />
           </div>
 
-          <div className=" bg-yellow-500 col-span 1 row span 1">
-            COMPANY NEWS PLACEHOLDER 
+          <div className="  col-span-3 row-span-6 p-10">
+            <Image src="/shore_logo_dark.png" alt="Logo" width="400" height="220"/>
+            <h1> [COMPANY NEWS AND ANNOUNCEMENTS HERE]</h1>
           </div>
 
     
-          <div className="bg-red-400 col-span-5 row-span-1">
+          <div className=" col-span-6 row-span-3">
           {RSSfeed.items.map((title) => (
             <SkyNews {...title} id={title.id} />
           ))}
+    
           </div>
 
-          <div className="bg-blue-600 col-span-2 row-span-1">
+
+
+
+
+      
+
+
+
+          <div className="col-span-2 row-span-3">
             <h1 className="text-pink-100"> Weather </h1>
             {weather.location.name}
             {weather.current.condition.text} 
@@ -71,7 +86,7 @@ export async function getStaticProps() {
           </div>
     
     
-          <div className="bg-red-700 col-span-2 row-span-1">
+          <div className="text-3xl bottom-0 right-0 col-span-1 row-span-3">
           <span id="clock"></span>
           </div>
             
