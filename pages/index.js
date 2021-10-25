@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import chalk from 'chalk'
 import { ServerTalk } from '../components/servertalk'
+import fs from 'fs'
 
 export default function IndexPage({ serverStatus }) {
   return (
@@ -10,7 +11,23 @@ export default function IndexPage({ serverStatus }) {
       </Head>
       <div className="h-screen w-screen bg-blue-400 grid place-items-center">
         <h1 className="text-6xl text-center">The Shore Group - Screens App.</h1>
-        <p>v0.1 - connection to CMS is: {serverStatus}</p>
+        <div>
+          <p>
+            Version: 0.1
+          </p>
+          <p>
+            Authentication Status: {serverStatus.authentication}
+          </p>
+          <p>
+            Directus Release: {serverStatus.additionalInfo.release}
+          </p>
+          <p>
+            Database Response Times: {serverStatus.additionalInfo.dbResponseTime}
+          </p>
+          <p>
+            Connection to email: {serverStatus.additionalInfo.email}
+          </p>
+        </div>
       </div>
     </main>
   )
@@ -30,71 +47,72 @@ export async function getStaticProps() {
     // From this point on, it is KNOWN that there are good values in the ENV file
 
     // To remove half of token from console
-    
+
     const halfOfToken = (process.env.BACKEND_USER_TOKEN.length / 2)
     console.log(
       chalk.black.bgWhite.bold("✨ VARIABLES\n"),
       chalk.bold("* Node Enviroment:"), `${process.env.NODE_ENV} \n`,
       chalk.bold("* Connection String:"), `${process.env.BACKEND_URL} \n`,
       chalk.bold("* Assigned CMS User:"), `${process.env.BACKEND_USER} \n`,
-      chalk.bold("* CMS User token:"), `${process.env.BACKEND_USER_TOKEN.slice(0, halfOfToken)}*******`, chalk.italic("- Redacted in console.")
-      )
+      chalk.bold("* CMS User token:"), `${process.env.BACKEND_USER_TOKEN.slice(0, halfOfToken)}*******`, chalk.italic("- partially redacted in console.")
+    )
   } else { // It is known that at least one of the values is unavalaible
-    // The app errors. In build this will stop the build.
-    throw new Error(
-      chalk.white.bgRed("🚨 WARNING 🚨"),
-      chalk.red("BACKEND_USER or BACKEND_USER_TOKEN was unable to be defined from .env - this app requires these values. \n"),
-      "Check your enviroment file is defined correctly and is available to your application."
+    // This will write the contents of .env.sample to .env and then error - stopping the server/build.
+
+    console.warn(
+      chalk.white.bgRed("🚨 ERROR 🚨"),
+      chalk.red("Unable to define required tokens from your enviroment file")
+    )
+    // Checks to see if an enviroment file already exists
+    if (fs.existsSync("./.env")) {
+      // path exists
+      throw Error(
+        chalk.white.bgRed("🚨 FATAL ERROR - APP WILL NOW EXIT 🚨"),
+        chalk.red("BACKEND_USER or BACKEND_USER_TOKEN was unable to be defined from .env - this app requires these values. \n"),
+        "You already have an enviroment file, check to see if the values have been added correctly. To see more information, see the GitHub repo: https://github.com/theshoregroup/screens-frontend. \n",
+        "Also note: There is a sample enviroment file included in the root of this project at", chalk.italic("./.env.sample")
       )
+    } else {
+      // Attempt to write .env with the contents from .env.sample
+      const writeEnv = await fs.copyFile('.env.sample', '.env', (err) => {
+        if (err) throw new err("TEST");
+        console.log(chalk.white.bgRed("🚨 FATAL ERROR - APP WILL NOW EXIT 🚨"),
+          chalk.red("Your enviroment file could not be read from disk."),
+          "env.sample has now been written to .env -", chalk.red.bold("YOU MUST NOW OVERRIDE BACKEND_USER AND BACKEND_USER_TOKEN OR THIS APP WILL STILL FAIL.")
+        )
+      })
+    }
+
+
+
+
   }
 
   // We now have "good" variables - these have to be tested to make sure they are working properly. To do this, we are going to call the same endpoint twice to see if we get more information as an admin.
 
-  // To start with, we are going to get the public /server/health value
-  function testPublic(uri) {
-    const returnFromServer = await ServerTalk(uri)
+  async function testServerAccess() {
+
+
+    const returnFromServer = await ServerTalk("/server/health", process.env.BACKEND_USER_TOKEN)
+
 
     if (returnFromServer.status == "ok") {
-      return true
-    } else {
-      return false
+      // This means that the server is not only responding, but the server accepted the login token.
+      return {
+        "authentication": returnFromServer.status,
+        "additionalInfo": {
+          "release": returnFromServer.releaseId,
+          "dbResponseTime": returnFromServer.checks[`${process.env.BACKEND_DATABASE_TYPE}:responseTime`][0].status,
+          "email": returnFromServer.checks["email:connection"][0].status
+        }
+      }
+    } else if (returnFromServer.errors[0].extensions.code == "INVALID_CREDENTIALS") {
+      return "Unauthenticated"
     }
-  }
-  const publicValue = testPublic("/server/health")
 
-  // Now we are going to perform the same test again, with authentication
-  function testPrivate(uri, token) {
-    const returnFromServer = await ServerTalk(uri, token)
-
-    if (returnFromServer.status == "ok") {
-      return true
-    } else {
-      return false
-    }
-  }
-  const privateValue = testPrivate("/server/health", process.env.BACKEND_USER_TOKEN)
-  
-
-  // The idea of this would be to grab this info and get the admin version. Need to add a clause for if not authorised!
-
-// OLD CODE.
-  const url = `${process.env.BACKEND_URL}/items/ping/?access_token=${process.env.BACKEND_USER_TOKEN}`
-  console.log(`Sending ${process.env.BACKEND_URL} the message of 'items/ping' with the access token in ENV file`)
-  const response = await fetch(url)
-
-  const connectionJSON = await response.json()
-  let serverStatus 
-
-  try {
-    if(connectionJSON.data.reply == 'pong') {
-      serverStatus = `Healthy - server replied with '${connectionJSON.data.reply}'`
-    }
-  } catch {
-    serverStatus = `BROKEN. See logs. Reply: ${JSON.stringify(connectionJSON)}`
   }
 
-
-
+  const serverStatus = await testServerAccess()
 
   return { props: { serverStatus } }
 }
