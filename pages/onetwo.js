@@ -26,22 +26,6 @@ export async function getStaticProps() {
   }
 }
 
-<<<<<<< Updated upstream
-// if (typeof window !== "undefined") {
-//   (function () {
-
-//     var clockElement = document.getElementById("clock");
-
-//     function updateClock(clock) {
-//       clock.innerHTML = new Date().toLocaleTimeString();
-//     }
-
-//     setInterval(function () {
-//       updateClock(clockElement);
-//     }, 1000);
-
-//   }());
-// }
 export default function IndexPage({ RSSfeed, weather }) {
   return (
     <main>
@@ -57,41 +41,6 @@ export default function IndexPage({ RSSfeed, weather }) {
       <div className="bg-gradient-to-r from-white via-white to-cyan-400 font-Ubuntu grid grid-cols-9 grid-rows-9 p-3">
         <div className="bg-blue 200 col-span-6 row-span-6 ">
           {/*
-=======
-  if (typeof window !== "undefined") {
-  (function () {
-
-    var clockElement = document.getElementById( "clock" );
-  
-    function updateClock ( clock ) {
-      clock.innerHTML = new Date().toLocaleTimeString();
-    }
-  
-    setInterval(function () {
-        updateClock( clockElement );
-    }, 1000);
-  
-  }());
-  }
-
-  
-  export default function IndexPage({ RSSfeed, weather, time }) {
-
-    return (
-      <main>
-      
-      
-        <Head>
-          <title>Home page</title>
-          <link rel="preconnect" href="https://fonts.googleapis.com"/>
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-          <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet"></link>
-        </Head>
-      
-        <div className="static m-2 h-48 font-Ubuntu p-3">
-          <div className="absolute top-0 left-0 p-3">
-            {/*
->>>>>>> Stashed changes
             Youtube Player
             */}
           <YouTubePlayer query="9Auq9mYxFEE" params="?autoplay=1&mute=1&cc_load_policy=1&disablekb=1&fs=0&modestBranding=1" />
@@ -102,26 +51,14 @@ export default function IndexPage({ RSSfeed, weather }) {
           <h1> [COMPANY NEWS AND ANNOUNCEMENTS HERE]</h1>
         </div>
 
-<<<<<<< Updated upstream
-
-        <div className=" col-span-6 row-span-3">
-=======
-          <div className="absolute top-0 right-0 p-3">
-            <Image src="/shoreLogo.png" alt="Logo" width="540" height="246"/>
-            <h1> [COMPANY NEWS AND ANNOUNCEMENTS HERE]</h1>
-            <Marquee>
-  I can be a React component, multiple React components, or just some text.
-</Marquee>
-       
-          </div>
-
-    
-          <div className="flex flex-row absolute bottom-0 left-0 p-3">
->>>>>>> Stashed changes
-          {RSSfeed.items.map((title) => (
-            <SkyNews {...title} id={title} />
-          ))}
-<<<<<<< Updated upstream
+        <div className="absolute top-0 right-0 p-3">
+          <Image src="/shoreLogo.png" alt="Logo" width="540" height="246" />
+          <h1> [COMPANY NEWS AND ANNOUNCEMENTS HERE]</h1>
+          <Marquee>
+            {RSSfeed.items.map((title) => (
+              <SkyNews {...title} id={title} />
+            ))}
+          </Marquee>
 
         </div>
 
@@ -134,31 +71,9 @@ export default function IndexPage({ RSSfeed, weather }) {
 
       </div>
 
-    </main>
+    </main >
 
   )
-=======
-           <h1 className="text-xl"> Weather </h1>
-            {weather.location.name}
-            {weather.current.condition.text} 
-            {weather.current.temp_c}°C
-            <div className="text-3xl absolute bottom-0 right-0 p-3">
-          <span id="clock"></span>
-          
-          </div>
-    
-          </div>
-    
-        
-            
-        </div>
-        
-          </main>
-        
-      
-      
-)
->>>>>>> Stashed changes
 }
 
 
