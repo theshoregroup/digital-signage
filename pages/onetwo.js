@@ -42,12 +42,15 @@ export default function IndexPage({ RSSfeed, weather, posts }) {
         <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet"></link>
       </Head>
 
-      <div className="bg-gradient-to-r from-white via-white to-cyan-400 font-Ubuntu grid grid-cols-9 grid-rows-9 p-3">
-        <div className="bg-blue 200 col-span-6 row-span-6 ">
+      <div className="static m-2 h-48 font-Ubuntu p-3">
+          <div className="absolute top-0 left-0 p-3">
+            {/*
+            Youtube Player
+            */}
           <YouTubePlayer query="9Auq9mYxFEE" params="?autoplay=1&mute=1&cc_load_policy=1&disablekb=1&fs=0&modestBranding=1" />
         </div>
 
-        <div className="  col-span-3 row-span-6 p-10">
+ <div className="  col-span-3 row-span-6 p-10">
           <Image src="/shore_logo_dark.png" alt="Logo" width="400" height="220" />
           {posts.data.map((title) => (
             <CompanyPost {...title} {...title.body} id={title.id} />
@@ -62,22 +65,30 @@ export default function IndexPage({ RSSfeed, weather, posts }) {
             <SkyNews {...title} id={index} />
           ))}
           </Marquee>
-
+           <h1 className="text-xl"> Weather </h1>
+            {weather.location.name}
+            {weather.current.condition.text} 
+            {weather.current.temp_c}°C
+            <div className="text-3xl absolute top-0 right-0 p-3">
+          <span id="clock"></span>
+          
+          </div>
+    
+          </div>
+    
+        
+            
         </div>
-
-        <Weather {...weather} />
-
-
-        <div className="text-3xl bottom-0 right-0 col-span-1 row-span-3">
-          <Clock />
-        </div>
-
-      </div>
-
-    </main >
-
-  )
+        
+          </main>
+        
+      
+      
+)
 }
+
+
+
 
 
 
