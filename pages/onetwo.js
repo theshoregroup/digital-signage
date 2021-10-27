@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Post from '../components/post';
 import SkyNews from '../components/skynews';
+import Weather from '../components/Weather';
 import YouTubePlayer from '../components/youtube';
 const url = `https://api.openweathermap.org/data/2.5/weather?q=brighton,uk&appid=8b609354454cdb6c5a7092a939861ace&units=metric`;
 
@@ -69,20 +70,7 @@ export default function IndexPage({ RSSfeed, weather, time }) {
 
         </div>
 
-
-
-
-
-
-
-
-
-        <div className="col-span-2 row-span-3">
-          <h1 className="text-pink-100"> Weather </h1>
-          {weather.location.name}
-          {weather.current.condition.text}
-          {weather.current.temp_c}°C
-        </div>
+        <Weather {...weather} />
 
 
         <div className="text-3xl bottom-0 right-0 col-span-1 row-span-3">
@@ -92,8 +80,6 @@ export default function IndexPage({ RSSfeed, weather, time }) {
       </div>
 
     </main>
-
-
 
   )
 }
