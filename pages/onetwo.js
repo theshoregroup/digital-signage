@@ -2,6 +2,7 @@ let Parser = require('rss-parser');
 let parser = new Parser();
 import Head from 'next/head';
 import Image from 'next/image';
+import Clock from '../components/Clock';
 import Post from '../components/post';
 import SkyNews from '../components/skynews';
 import Weather from '../components/Weather';
@@ -22,22 +23,22 @@ export async function getStaticProps() {
   }
 }
 
-if (typeof window !== "undefined") {
-  (function () {
+// if (typeof window !== "undefined") {
+//   (function () {
 
-    var clockElement = document.getElementById("clock");
+//     var clockElement = document.getElementById("clock");
 
-    function updateClock(clock) {
-      clock.innerHTML = new Date().toLocaleTimeString();
-    }
+//     function updateClock(clock) {
+//       clock.innerHTML = new Date().toLocaleTimeString();
+//     }
 
-    setInterval(function () {
-      updateClock(clockElement);
-    }, 1000);
+//     setInterval(function () {
+//       updateClock(clockElement);
+//     }, 1000);
 
-  }());
-}
-export default function IndexPage({ RSSfeed, weather, time }) {
+//   }());
+// }
+export default function IndexPage({ RSSfeed, weather }) {
   return (
     <main>
 
@@ -74,7 +75,7 @@ export default function IndexPage({ RSSfeed, weather, time }) {
 
 
         <div className="text-3xl bottom-0 right-0 col-span-1 row-span-3">
-          <span id="clock"></span>
+          <Clock />
         </div>
 
       </div>
