@@ -38,43 +38,54 @@ export default function IndexPage({ RSSfeed, weather }) {
         <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet"></link>
       </Head>
 
-      <div className="bg-gradient-to-r from-white via-white to-cyan-400 font-Ubuntu grid grid-cols-9 grid-rows-9 p-3">
-        <div className="bg-blue 200 col-span-6 row-span-6 ">
-          {/*
+      <div className="static m-2 h-48 font-Ubuntu p-3">
+          <div className="absolute top-0 left-0 p-3">
+            {/*
             Youtube Player
             */}
           <YouTubePlayer query="9Auq9mYxFEE" params="?autoplay=1&mute=1&cc_load_policy=1&disablekb=1&fs=0&modestBranding=1" />
         </div>
 
-        <div className="  col-span-3 row-span-6 p-10">
-          <Image src="/shore_logo_dark.png" alt="Logo" width="400" height="220" />
-          <h1> [COMPANY NEWS AND ANNOUNCEMENTS HERE]</h1>
+
+
+          <div className="absolute top-0 right-0 p-12">
+            <Image src="/shoreLogo.png" alt="Logo" width="540" height="246"/>
+            <h1> [COMPANY NEWS AND ANNOUNCEMENTS HERE]</h1>
+        
+       
+          </div>
+
+    
+          <div className="flex flex-row absolute bottom-0 left-0 p-3">
+            <div className="">
+              {RSSfeed.items.map((title) => (
+                <Marquee gradientColor speed="35" gradient="false" > <SkyNews {...title} id={title} /></Marquee>
+              ))}
+            </div>
+           <h1 className="text-xl"> Weather </h1>
+            {weather.location.name}
+            {weather.current.condition.text} 
+            {weather.current.temp_c}°C
+            <div className="text-3xl absolute top-0 right-0 p-3">
+          <span id="clock"></span>
+          
+          </div>
+    
+          </div>
+    
+        
+            
         </div>
-
-        <div className="absolute top-0 right-0 p-3">
-          <Image src="/shoreLogo.png" alt="Logo" width="540" height="246" />
-          <h1> [COMPANY NEWS AND ANNOUNCEMENTS HERE]</h1>
-          <Marquee>
-            {RSSfeed.items.map((title) => (
-              <SkyNews {...title} id={title} />
-            ))}
-          </Marquee>
-
-        </div>
-
-        <Weather {...weather} />
-
-
-        <div className="text-3xl bottom-0 right-0 col-span-1 row-span-3">
-          <Clock />
-        </div>
-
-      </div>
-
-    </main >
-
-  )
+        
+          </main>
+        
+      
+      
+)
 }
+
+
+
 
 
 
