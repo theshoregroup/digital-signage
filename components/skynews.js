@@ -1,16 +1,15 @@
-export default function SkyNews({ title, imageURL, id }) {
-    console.log(imageURL)
-    
-    return (
+import chalk from "chalk"
+
+export default function SkyNews({ title, id }) {
+  console.log(
+    chalk.bgWhite.black.bold("Sky News entry"),
+    chalk.bold("With ID:"), id,
+    chalk.bold("Title:"), title
+  )
+  return (
     <article>
-        <img src={imageURL} />
-      <h2>{title}</h2>
+      <p>{title}</p>
     </article>
   )
 
-  return {
-    props: {
-      postList,
-    },
-  }
 }
