@@ -30,6 +30,7 @@ export async function getStaticProps() {
 }
 
 export default function IndexPage({ RSSfeed, weather, posts }) {
+
   return (
     <main>
 
@@ -53,11 +54,14 @@ export default function IndexPage({ RSSfeed, weather, posts }) {
           ))}
         </div>
 
-
-        <div className=" col-span-6 row-span-3">
-          {RSSfeed.items.map((title, index) => (
+        <div className="absolute top-0 right-0 p-3">
+          <Image src="/shoreLogo.png" alt="Logo" width="540" height="246" />
+          <h1> [COMPANY NEWS AND ANNOUNCEMENTS HERE]</h1>
+          <Marquee>
+            {RSSfeed.items.map((title, index) => (
             <SkyNews {...title} id={index} />
           ))}
+          </Marquee>
 
         </div>
 
@@ -70,7 +74,7 @@ export default function IndexPage({ RSSfeed, weather, posts }) {
 
       </div>
 
-    </main>
+    </main >
 
   )
 }

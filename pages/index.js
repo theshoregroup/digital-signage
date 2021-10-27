@@ -3,7 +3,8 @@ import chalk from 'chalk'
 import { ServerTalk } from '../components/servertalk'
 import fs from 'fs'
 
-export default function IndexPage({ serverStatus }) {
+export default function IndexPage({ postList }) {
+
   return (
     <main>
       <Head>
