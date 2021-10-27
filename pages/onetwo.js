@@ -66,16 +66,13 @@ export default function IndexPage({ RSSfeed, weather, posts }) {
           ))}
           </Marquee>
            <h1 className="text-xl"> Weather </h1>
-            {weather.location.name}
-            {weather.current.condition.text} 
-            {weather.current.temp_c}°C
+            <Weather {...weather} />
             <div className="text-3xl absolute top-0 right-0 p-3">
-          <span id="clock"></span>
+          <Clock />
           
           </div>
     
           </div>
-    
         
             
         </div>
