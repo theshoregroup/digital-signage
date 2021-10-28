@@ -8,6 +8,7 @@ import Weather from '../components/Weather'
 import YouTubePlayer from '../components/youtube'
 import { ServerTalk } from '../components/servertalk'
 import CompanyPost from '../components/CompanyPost'
+import Marquee from 'react-fast-marquee'
 
 export async function getStaticProps() {
   // RSS Feed - Sky News
@@ -50,31 +51,27 @@ export default function IndexPage({ RSSfeed, weather, posts }) {
           <YouTubePlayer query="9Auq9mYxFEE" params="?autoplay=1&mute=1&cc_load_policy=1&disablekb=1&fs=0&modestBranding=1" />
         </div>
 
- <div className="  col-span-3 row-span-6 p-10">
-          <Image src="/shore_logo_dark.png" alt="Logo" width="400" height="220" />
-          {posts.data.map((title) => (
-            <CompanyPost {...title} {...title.body} id={title.id} />
-          ))}
-        </div>
 
-        <div className="absolute top-0 right-0 p-3">
+        <div className="absolute top-0 right-0 p-12">
           <Image src="/shoreLogo.png" alt="Logo" width="540" height="246" />
           <h1> [COMPANY NEWS AND ANNOUNCEMENTS HERE]</h1>
-          <Marquee>
+        
+        </div>
+        <div className="text-2xl absolute bottom-0 left-0">
+          <Marquee gradientColor speed="35" direction="right">
             {RSSfeed.items.map((title, index) => (
             <SkyNews {...title} id={index} />
           ))}
           </Marquee>
-           <h1 className="text-xl"> Weather </h1>
+        </div>
+          <div className="flex flex-row absolute bottom-0 left-0 p-3">
             <Weather {...weather} />
-            <div className="text-3xl absolute top-0 right-0 p-3">
+            <div className="text-3xl">
           <Clock />
           
           </div>
-    
-          </div>
         
-            
+          </div>
         </div>
         
           </main>
