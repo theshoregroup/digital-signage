@@ -6,7 +6,7 @@ import Post from '../components/CompanyPost'
 import SkyNews from '../components/skynews'
 import Weather from '../components/Weather'
 import YouTubePlayer from '../components/youtube'
-import { ServerTalk } from '../components/servertalk'
+import { ServerTalk } from '../components/ServerTalk'
 import CompanyPost from '../components/CompanyPost'
 import Marquee from 'react-fast-marquee'
 
@@ -44,8 +44,8 @@ export default function IndexPage({ RSSfeed, weather, posts }) {
       </Head>
 
       <div className="bg-opacity-50 bg-gray-300 static m-2 h-48 font-Ubuntu p-3">
-          <div className="bg-gray-300 absolute top-0 left-0 p-8">
-            {/*
+        <div className="bg-gray-300 absolute top-0 left-0 p-8">
+          {/*
             Youtube Player
             */}
           <YouTubePlayer query="9Auq9mYxFEE" params="?autoplay=1&mute=1&cc_load_policy=1&disablekb=1&fs=0&modestBranding=1" />
@@ -55,31 +55,31 @@ export default function IndexPage({ RSSfeed, weather, posts }) {
         <div className="bg-gray-300 absolute top-0 right-0 p-16">
           <Image src="/shoreLogo.png" alt="Logo" width="540" height="246" />
           <h1> [COMPANY NEWS AND ANNOUNCEMENTS HERE]</h1>
-        
+
         </div>
         <div className="text-3xl absolute bottom-0 left-0 p-2">
           <Marquee gradientColor speed="75
           ">
             {RSSfeed.items.map((title, index) => (
-            <SkyNews {...title} id={index} />
-          ))}
+              <SkyNews {...title} id={index} />
+            ))}
           </Marquee>
         </div>
-          <div className="flex flex-row absolute bottom-0 left-0 p-2">
-            <Weather {...weather} />
-            <div className="text-3xl p-5">
-          <Clock />
-          
+        <div className="flex flex-row absolute bottom-0 left-0 p-2">
+          <Weather {...weather} />
+          <div className="text-3xl p-5">
+            <Clock />
+
           </div>
-        
-          </div>
+
         </div>
-        
-          </main>
-        
-      
-      
-)
+      </div>
+
+    </main>
+
+
+
+  )
 }
 
 
