@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import chalk from 'chalk'
-import { ServerTalk } from '../components/servertalk'
+import { ServerTalk } from '../components/ServerTalk'
 import fs from 'fs'
 
-export default function IndexPage({ postList }) {
+export default function IndexPage({ serverStatus }) {
 
   return (
     <main>
