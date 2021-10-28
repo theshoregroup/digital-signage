@@ -43,8 +43,8 @@ export default function IndexPage({ RSSfeed, weather, posts }) {
         <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet"></link>
       </Head>
 
-      <div className="static m-2 h-48 font-Ubuntu p-3">
-          <div className="absolute top-0 left-0 p-3">
+      <div className="bg-opacity-50 bg-gray-300 static m-2 h-48 font-Ubuntu p-3">
+          <div className="bg-gray-300 absolute top-0 left-0 p-8">
             {/*
             Youtube Player
             */}
@@ -52,21 +52,22 @@ export default function IndexPage({ RSSfeed, weather, posts }) {
         </div>
 
 
-        <div className="absolute top-0 right-0 p-12">
+        <div className="bg-gray-300 absolute top-0 right-0 p-16">
           <Image src="/shoreLogo.png" alt="Logo" width="540" height="246" />
           <h1> [COMPANY NEWS AND ANNOUNCEMENTS HERE]</h1>
         
         </div>
-        <div className="text-2xl absolute bottom-0 left-0">
-          <Marquee gradientColor speed="35" direction="right">
+        <div className="text-3xl absolute bottom-0 left-0 p-2">
+          <Marquee gradientColor speed="75
+          ">
             {RSSfeed.items.map((title, index) => (
             <SkyNews {...title} id={index} />
           ))}
           </Marquee>
         </div>
-          <div className="flex flex-row absolute bottom-0 left-0 p-3">
+          <div className="flex flex-row absolute bottom-0 left-0 p-2">
             <Weather {...weather} />
-            <div className="text-3xl">
+            <div className="text-3xl p-5">
           <Clock />
           
           </div>
