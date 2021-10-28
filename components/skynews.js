@@ -8,7 +8,7 @@ export default function SkyNews({ title, id }) {
   )
   return (
     <article>
-      <p dangerouslySetInnerHTML={{ __html: title }}></p>
+      <p className="mx-10" dangerouslySetInnerHTML={{ __html: title }}></p>
     </article >
   )
 
