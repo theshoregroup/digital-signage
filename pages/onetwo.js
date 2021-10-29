@@ -59,14 +59,22 @@ export default function IndexPage({ RSSfeed, weather }) {
           <div className="flex flex-row absolute bottom-0 left-0 p-3">
             <div className="">
               {RSSfeed.items.map((title) => (
+<<<<<<< Updated upstream
                 <Marquee gradientColor speed="35" gradient="false" > <SkyNews {...title} id={title} /></Marquee>
+=======
+                <Marquee gradientColor="Red" speed="35" gradient="false" > <SkyNews {...title} id={title} /></Marquee>
+>>>>>>> Stashed changes
               ))}
             </div>
            <h1 className="text-xl"> Weather </h1>
             {weather.location.name}
             {weather.current.condition.text} 
             {weather.current.temp_c}°C
+<<<<<<< Updated upstream
             <div className="text-3xl absolute top-0 right-0 p-3">
+=======
+            <div className="text-3xl absolute bottom-0 right-0 p-3">
+>>>>>>> Stashed changes
           <span id="clock"></span>
           
           </div>
