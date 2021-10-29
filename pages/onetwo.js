@@ -54,7 +54,9 @@ export default function IndexPage({ RSSfeed, weather, posts }) {
 
         <div className=" absolute top-0 right-0 p-16">
           <Image src="/shoreLogo.png" alt="Logo" width="540" height="246" />
-          <h1> [COMPANY NEWS AND ANNOUNCEMENTS HERE]</h1>
+          {posts.data.map((title) => (
+            <CompanyPost {...title} {...title.body} id={title.id} />
+          ))}
 
         </div>
         <div className="text-3xl absolute bottom-0 left-0 p-2">
