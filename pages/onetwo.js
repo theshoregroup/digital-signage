@@ -6,7 +6,7 @@ import Post from '../components/CompanyPost'
 import SkyNews from '../components/skynews'
 import Weather from '../components/Weather'
 import YouTubePlayer from '../components/youtube'
-import { ServerTalk } from '../components/servertalk'
+import { ServerTalk } from '../components/ServerTalk'
 import CompanyPost from '../components/CompanyPost'
 import Marquee from 'react-fast-marquee'
 
@@ -54,15 +54,17 @@ export default function IndexPage({ RSSfeed, weather, posts }) {
 
         <div className=" absolute top-0 right-0 p-16">
           <Image src="/shoreLogo.png" alt="Logo" width="540" height="246" />
-          <h1> [COMPANY NEWS AND ANNOUNCEMENTS HERE]</h1>
-        
+          {posts.data.map((title) => (
+            <CompanyPost {...title} {...title.body} id={title.id} />
+          ))}
+
         </div>
         <div className="text-3xl absolute bottom-0 left-0 p-2">
           <Marquee gradientColor speed="75
           ">
             {RSSfeed.items.map((title, index) => (
-            <SkyNews {...title} id={index} />
-          ))}
+              <SkyNews {...title} id={index} />
+            ))}
           </Marquee>
         </div>
           <div className="flex flex-row absolute bottom-0 right-0 p-10 text-2xl mx-10">
@@ -73,13 +75,15 @@ export default function IndexPage({ RSSfeed, weather, posts }) {
           </div>
         
           </div>
+
         </div>
-        
-          </main>
-        
-      
-      
-)
+    
+
+    </main>
+
+
+
+  )
 }
 
 
