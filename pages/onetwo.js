@@ -65,9 +65,9 @@ export default function IndexPage({ RSSfeed, weather, posts }) {
           ))}
           </Marquee>
         </div>
-          <div className="flex flex-row absolute bottom-0 left-0 p-2">
+          <div className="flex flex-row absolute bottom-0 right-0 p-10 text-2xl mx-10">
             <Weather {...weather} />
-            <div className="text-3xl p-5">
+            <div className="text-3xl p-10">
           <Clock />
           
           </div>
