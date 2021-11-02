@@ -43,7 +43,7 @@ export default function IndexPage({ RSSfeed, weather, posts }) {
         <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet"></link>
       </Head>
 
-      <div className=" static m-2 h-48 font-Ubuntu p-3">
+      <div className=" static m-2 h-48 font-Ubuntu p-9">
           <div className=" absolute top-0 left-0 p-8">
             {/*
             Youtube Player
@@ -59,7 +59,7 @@ export default function IndexPage({ RSSfeed, weather, posts }) {
           ))}
 
         </div>
-        <div className="text-3xl absolute bottom-0 left-0 p-2">
+        <div className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 text-3xl absolute bottom-0 left-0 p-2">
           <Marquee gradientColor speed="75
           ">
             {RSSfeed.items.map((title, index) => (
@@ -67,13 +67,11 @@ export default function IndexPage({ RSSfeed, weather, posts }) {
             ))}
           </Marquee>
         </div>
-          <div className="flex flex-row absolute bottom-0 right-0 p-10 text-2xl mx-10">
+          <div className="flexbox flex-right absolute bottom-0 right-0 text-2xl p-12">
             <Weather {...weather} />
-            <div className="text-3xl p-10">
-          <Clock />
-          
+          <div className="text-3xl ">
+           <Clock />
           </div>
-        
           </div>
 
         </div>

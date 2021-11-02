@@ -4,6 +4,7 @@ export default function Weather(weatherData) {
             {weatherData.location.name}
             {weatherData.current.condition.text}
             {weatherData.current.temp_c}°C
+           
         </>
     )
 }
