@@ -8,8 +8,8 @@ export default function SkyNews({ title, id }) {
   )
   return (
     <article>
-      <p>{title}</p>
-    </article>
+      <p className="mx-10" dangerouslySetInnerHTML={{ __html: title }}></p>
+    </article >
   )
 
 }

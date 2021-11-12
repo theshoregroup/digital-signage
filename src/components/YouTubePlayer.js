@@ -1,4 +1,4 @@
-export default function YouTubePlayer({query, params}) {
+function YouTubePlayer({query, params}) {
 
   if (query == null) {
     query = "c4tLZJ1hrNQ"
@@ -16,3 +16,5 @@ export default function YouTubePlayer({query, params}) {
       />
   )
 }
+
+export default YouTubePlayer;
