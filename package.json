@@ -1,25 +1,31 @@
 {
-  "name": "screens-frontend",
-  "license": "GPL-3.0-only",
+  "name": "digital-signage",
+  "version": "1.0.0",
+  "description": "Powerful digital signage solution built with modern web technologies",
+  "main": "electron/main.js",
+  "repository": "https://github.com/theshoregroup/digital-signage.git",
+  "author": "Liam Doyle <limegorilla@gmail.com>",
+  "license": "MIT",
   "private": true,
-  "dependencies": {
-    "autoprefixer": "^10.3.7",
-    "chalk": "^4.1.2",
-    "next": "latest",
-    "postcss": "^8.3.9",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-fast-marquee": "^1.2.1",
-    "rss-parser": "^3.12.0",
-    "serve": "^12.0.1",
-    "tailwindcss": "^2.2.19"
-  },
   "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "preexport": "npm run build",
-    "export": "next export",
-    "prestart": "npm run export",
-    "start": "serve out"
+    "dev": "webpack-dev-server --mode development"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "@babel/preset-react": "^7.16.0",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.1",
+    "babel-loader": "^8.2.3",
+    "css-loader": "^6.5.1",
+    "react-refresh": "^0.11.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.64.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.5.0"
   }
 }
