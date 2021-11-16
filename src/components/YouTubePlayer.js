@@ -8,8 +8,8 @@ function YouTubePlayer({query, params}) {
 
   return (
     <iframe
-      width="1140"
-      height="640"
+      width="1350"
+      height="759"
       src={fullLink}
       title="YouTube video player"
       allow='autoplay'

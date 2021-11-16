@@ -1,5 +1,6 @@
 import chalk from "chalk"
 
+
 export default function SkyNews({ title, id }) {
   console.log(
     chalk.bgWhite.black.bold("Sky News entry"),
@@ -13,3 +14,12 @@ export default function SkyNews({ title, id }) {
   )
 
 }
+
+async function SkyRSS() {
+  let parser = new Parser();
+  const RSSfeed = await parser.parseURL(
+    "http://feeds.skynews.com/feeds/rss/uk.xml"
+  );
+}
+
+export default SkyRSS;
