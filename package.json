@@ -40,6 +40,10 @@
       "last 1 safari version"
     ]
   },
+  "engines": {
+    "npm": "please-use-yarn",
+    "yarn": ">= 1.22"
+  },
   "dependencies": {
     "@craco/craco": "^6.4.0",
     "@testing-library/jest-dom": "^5.11.4",
