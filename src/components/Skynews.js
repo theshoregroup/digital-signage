@@ -1,25 +1,23 @@
-import chalk from "chalk"
+
+import React from "react";
+
+import Feed from 'rss-to-json'
+
+const App = () => {    
+
+const getFeed = () => {
+  Feed.load('http://feeds.skynews.com/feeds/rss/uk.xml', function(err, rss){
+    console.log(rss);
+    return(
+      <h6>
+        {rss}
+      </h6>
+     ) 
+    });
+}
 
 
-export default function SkyNews({ title, id }) {
-  console.log(
-    chalk.bgWhite.black.bold("Sky News entry"),
-    chalk.bold("With ID:"), id,
-    chalk.bold("Title:"), title
-  )
-  return (
-    <article>
-      <p className="mx-10" dangerouslySetInnerHTML={{ __html: title }}></p>
-    </article >
-  )
 
 }
 
-async function SkyRSS() {
-  let parser = new Parser();
-  const RSSfeed = await parser.parseURL(
-    "http://feeds.skynews.com/feeds/rss/uk.xml"
-  );
-}
-
-export default SkyRSS;
+export default App;

@@ -5,7 +5,7 @@ const Weather = () => {
   useEffect(() => {
     const getWeatherFromApi = async () => {
       const response = await fetch(
-        "http://api.weatherapi.com/v1/current.json?key=ac517e0edf3142a6ae282635211410&q=BN1&aqi=no"
+        "http://api.weatherapi.com/v1/forecast.json?key=ac517e0edf3142a6ae282635211410&q=Brighton&days=3&aqi=no&alerts=yes"
       );
       const responseJson = await response.json();
       console.log("json", responseJson);
@@ -16,13 +16,18 @@ const Weather = () => {
 
   return (
     <div className="App">
-      <h6>{data?.location?.name}, {data?.current?.temp_c}°C</h6>
- 
-
+      <h6>{data?.location?.name}</h6>
+      <h6>Today</h6>
+      <h6>
+        {" "}
+        {data?.current?.temp_c}°C, {data?.current?.condition?.text},{" "}
+        {data?.current?.wind_mph}mph
+   
+  
+        {data?.forecast?.forecastday?.day?.maxtemp_c}
+        </h6>
     </div>
   );
 };
 
 export default Weather;
-
-      

@@ -4,10 +4,8 @@ import Clock from "./components/Clock";
 import "./App.css";
 import logo from "./images/shoreLogo.png";
 import Marquee from "react-fast-marquee";
-import { comment } from "postcss";
-
+//import Skynews from './components/Skynews';
   
-
 
 
 function App() {
@@ -15,31 +13,31 @@ function App() {
 
   return (
 
-    <parent>
-      <div className="absolute top-0 right-0 center p-10">
+    <div>
+      <div className="absolute top-0 right-0 center p-9 shadow-md ">
         <YouTubePlayer
           query="9Auq9mYxFEE"
           params="?autoplay=1&mute=1&cc_load_policy=1&disablekb=1&fs=0&modestBranding=1"
         />
       </div>
       
-      <div className="absolute top-0 right-0 opacity-60 ">
+      <div className="absolute top-0 right-0 opacity-70 p-10 ">
         <img src={logo} alt="" />
       </div>
-      <div className="absolute bottom-0 right-0 text-6xl">
+      <div className="absolute bottom-0 right-0 text-7xl p-6 shadow-md">
         <Clock />
       </div>
-      <div className="absolute top-0 left-20 text-4xl p-14">
+      <div className="absolute top-0 left-20 text-4xl p-14 shadow-md bg-gradient-to-br from-green-400 to-cyan-500">
         <Weather/>
       </div>
-      <div className="absolute bottom-0 text-6xl">
+      <div className="absolute bottom-0 text-6xl p-6 shadow-md">
         <Marquee gradientColor speed="90">
-          IMPORT SKY NEWS RSS FEED
+            (MARQUEE DOESNT WORK)
         </Marquee>
         
         
       </div>
-    </parent>
+    </div>
   );
 }
 
