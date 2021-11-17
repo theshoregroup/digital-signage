@@ -27,7 +27,7 @@ function App() {
       <div className="absolute bottom-0 right-0 text-7xl p-6 shadow-md">
         <Clock />
       </div>
-      <div className="absolute top-0 left-20 text-4xl p-14 shadow-md bg-gradient-to-br from-green-400 to-cyan-500">
+      <div className="absolute top-0 left-20 ">
         <Weather/>
       </div>
       <div className="absolute bottom-0 text-6xl p-6 shadow-md">
