@@ -1,70 +1,29 @@
-# Getting Started with Create React App
+# Digital Signage
+> This project is currently in pre-release state.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> **Note**: This project will probably change names before release `1.0` as I refuse to make something with a name as generic as _digital-signage_
 
-## Available Scripts
+Welcome to The Shore Group's open source digital signage client! This is a powerful, extensible project, written in TypeScript. It wraps a React app with an electron-builder wrapper for some system level intergration not possible with a PWA. It comes with automatic deployment via GitHub releases for Windows, Linux & macOS.
 
-In the project directory, you can run:
+## Development
+This project was bootstrapped with [create-react-app](https://github.com/facebook/create-react-app) roughly following [this guide](https://medium.com/@devesu/how-to-build-a-react-based-electron-app-d0f27413f17f) and a fully public template of the base of this project is available [here](https://github.com/theshoregroup/electron-react-tailwind-starter)
 
-### `yarn start`
+> This project uses Yarn (v1) - for a number of reasons. NPM, NPX _should_ work, but are not supported. You will need to install yarn globally with npm with `npm install -g yarn`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+You can clone this repository with `git clone https://github.com/theshoregroup/digital-signage`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Once on your local machine, you will need to run `yarn` in the project's root directory to grab all the applicable node_modules.
 
-### `yarn test`
+### Scripts
+`start:react` - starts the react development server on port 3000\
+`start` - starts the full project in development mode\
+`build:react` - builds the react part of the project to `/build/`\
+`build:electron` - builds the electron part of the project\
+`build` - builds the full project\
+`release` - builds and packages the full project (by default on the platform you run the command on)\
+`test:react` - runs the intergrated `react-scripts` tests\
+`eject:react` - **ADVANCED** Runs the `react-scripts eject` command. This is irreversible - **MAKE SURE YOU KNOW WHAT YOU ARE DOING!**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Essentially:
+- If you are running this in development mode, either to test or develop on, run `yarn start`
+- If you are packaging this - please read the section on packaging below - however for testing a packaged version, run `yarn release`
