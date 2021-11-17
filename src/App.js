@@ -1,23 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import Weather from "./components/Weather";
+import YouTubePlayer from "./components/YouTubePlayer";
+import Clock from "./components/Clock";
+import "./App.css";
+import Marquee from "react-fast-marquee";
+//import Skynews from './components/Skynews';
+  
+
 
 function App() {
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p className="text-3xl">
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div>
+      <div className="absolute top-0 right-0 center p-9 shadow-md ">
+        <YouTubePlayer
+          query="9Auq9mYxFEE"
+          params="?autoplay=1&mute=1&cc_load_policy=1&disablekb=1&fs=0&modestBranding=1"
+        />
+      </div>
+      
+      <div className="absolute top-0 right-0 opacity-70 p-10 ">
+        <img src="/public/logo.png" alt="" />
+      </div>
+      <div className="absolute bottom-0 right-0 text-7xl p-6 shadow-md">
+        <Clock />
+      </div>
+      <div className="absolute top-0 left-20 text-4xl p-14 shadow-md bg-gradient-to-br from-green-400 to-cyan-500">
+        <Weather/>
+      </div>
+      <div className="absolute bottom-0 text-6xl p-6 shadow-md">
+        <Marquee gradientColor speed="90">
+            (MARQUEE DOESNT WORK)
+        </Marquee>
+        
+        
+      </div>
     </div>
   );
 }
