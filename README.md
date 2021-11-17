@@ -6,7 +6,7 @@
 Welcome to The Shore Group's open source digital signage client! This is a powerful, extensible project, written in TypeScript. It wraps a React app with an electron-builder wrapper for some system level intergration not possible with a PWA. It comes with automatic deployment via GitHub releases for Windows, Linux & macOS.
 
 ## Development
-This project was bootstrapped with [create-react-app](https://github.com/facebook/create-react-app) roughly following [this guide](https://medium.com/@devesu/how-to-build-a-react-based-electron-app-d0f27413f17f) and a fully public template of the base of this project is available [here](https://github.com/theshoregroup/electron-react-tailwind-starter)
+This project was bootstrapped with [create-react-app](https://github.com/facebook/create-react-app) roughly following [this guide](https://medium.com/@devesu/how-to-build-a-react-based-electron-app-d0f27413f17f), as well as the offical [TailwindCSS guide for create-react-app](https://tailwindcss.com/docs/guides/create-react-app) and a fully public template of the base of this project is available [here](https://github.com/theshoregroup/electron-react-tailwind-starter)
 
 > This project uses Yarn (v1) - for a number of reasons. NPM, NPX _should_ work, but are not supported. You will need to install yarn globally with npm with `npm install -g yarn`
 
