@@ -1,31 +1,60 @@
 {
   "name": "digital-signage",
-  "version": "1.0.0",
-  "description": "Powerful digital signage solution built with modern web technologies",
-  "main": "electron/main.js",
-  "repository": "https://github.com/theshoregroup/digital-signage.git",
-  "author": "Liam Doyle <limegorilla@gmail.com>",
-  "license": "MIT",
+  "description": "A powerful Digital Signage solution, built with React, Electron & TailwindCSS",
+  "author": {
+    "name": "The Shore Group",
+    "email": "software@theshoregroup.co.uk"
+  },
+  "version": "0.1.0",
   "private": true,
+  "main": "public/electron.js",
+  "homepage": "./",
   "scripts": {
-    "dev": "webpack-dev-server --mode development"
+    "start:react": "react-scripts start",
+    "start": "concurrently \"cross-env BROWSER=none yarn start:react\" \"wait-on http://localhost:3000 && electron .\"",
+    "build:react": "react-scripts build",
+    "build:electron": "electron-builder",
+    "build": "yarn build:react && build:electron",
+    "release": "yarn build:react && build:electron --publish=always",
+    "test:react": "react-scripts test --env=jsdom",
+    "eject:react": "react-scripts eject"
+  },
+  "build": {
+    "appId": "com.theshoregroup.co.uk"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "dependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "cross-env": "^7.0.3",
+    "electron-is-dev": "^2.0.0",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.0.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.16.0",
-    "@babel/core": "^7.16.0",
-    "@babel/preset-env": "^7.16.0",
-    "@babel/preset-react": "^7.16.0",
-    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.1",
-    "babel-loader": "^8.2.3",
-    "css-loader": "^6.5.1",
-    "react-refresh": "^0.11.0",
-    "style-loader": "^3.3.1",
-    "webpack": "^5.64.0",
-    "webpack-cli": "^4.9.1",
-    "webpack-dev-server": "^4.5.0"
+    "concurrently": "^6.4.0",
+    "electron": "^16.0.0",
+    "electron-builder": "^22.13.1",
+    "wait-on": "^6.0.0"
   }
 }
