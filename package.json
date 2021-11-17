@@ -10,13 +10,13 @@
   "main": "public/electron.js",
   "homepage": "./",
   "scripts": {
-    "start:react": "react-scripts start",
+    "start:react": "craco start",
     "start": "concurrently \"cross-env BROWSER=none yarn start:react\" \"wait-on http://localhost:3000 && electron .\"",
-    "build:react": "react-scripts build",
+    "build:react": "craco build",
     "build:electron": "electron-builder",
     "build": "yarn build:react && yarn build:electron",
     "release": "yarn build:react && build:electron --publish=always",
-    "test:react": "react-scripts test --env=jsdom",
+    "test:react": "craco test --env=jsdom",
     "eject:react": "react-scripts eject"
   },
   "build": {
@@ -41,6 +41,7 @@
     ]
   },
   "dependencies": {
+    "@craco/craco": "^6.4.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -52,9 +53,12 @@
     "web-vitals": "^1.0.1"
   },
   "devDependencies": {
+    "autoprefixer": "^9",
     "concurrently": "^6.4.0",
     "electron": "^16.0.0",
     "electron-builder": "^22.13.1",
+    "postcss": "^7",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "wait-on": "^6.0.0"
   }
 }
