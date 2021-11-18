@@ -15,17 +15,31 @@ const Weather = () => {
   }, []);
 
   return (
-    <div className="text-2xl p-14 shadow-md bg-gradient-to-br from-green-400 to-cyan-500">
+    <div>
+      <div className="text-2xl p-14 shadow-md bg-gradient-to-br from-green-400 to-cyan-500">
       <h6>{data?.location?.name}</h6>
       <h6>Today</h6>
       <h6>
         {" "}
         {data?.current?.temp_c}°C, {data?.current?.condition?.text},{" "}
-        {data?.current?.wind_mph}mph
-        {data?.forecast?.forecastday?.day?.text}
+        {data?.current?.wind_mph}wind
         </h6>
-      
-    </div>
+        </div>
+        <div className="text-2xl p-14 shadow-md bg-gradient-to-br from-red-400 to-cyan-500">
+        <h6>
+        {data?.forecast?.forecastday[1]?.date},
+        {data?.forecast?.forecastday[1]?.day?.avgtemp_c}°C, 
+        {data?.forecast?.forecastday[1]?.day?.condition?.text}, 
+        </h6>
+        </div>
+        <div className="text-2xl p-14 shadow-md bg-gradient-to-br from-blue-400 to-cyan-500">
+        <h6>
+        {data?.forecast?.forecastday[2]?.date},
+        {data?.forecast?.forecastday[2]?.day?.avgtemp_c}°C, 
+        {data?.forecast?.forecastday[2]?.day?.condition?.text}, 
+        </h6>
+        </div>
+      </div>
   );
 };
 
