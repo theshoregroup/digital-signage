@@ -24,7 +24,12 @@
     "version:patch": "versiony package.json --patch",
     "version:minor": "versiony package.json --minor",
     "version:major": "versiony package.json --major",
-    "eject:react": "react-scripts eject"
+    "eject:react": "react-scripts eject",
+    "clear:dist": "rm -rf dist/",
+    "clear:build": "rm -rf build/",
+    "clear:node_modules": "rm -rf node_modules/",
+    "clear:release_files": "yarn clear:dist && yarn clear:build",
+    "refresh": "yarn clear:node_modules && yarn"
   },
   "eslintConfig": {
     "extends": [
