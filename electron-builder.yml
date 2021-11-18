@@ -21,4 +21,6 @@ dmg:
   sign: false
 
 linux:
-  executableName: '${productName}'
+  executableName: '${appId}'
+  target: "AppImage"
+  
