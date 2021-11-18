@@ -20,12 +20,15 @@ jobs:
       - name: Check out Git repository
         uses: actions/checkout@v1
 
-      - name: Install Node.js, NPM and Yarn
-        uses: actions/setup-node@v1
+      - name: Setup Yarn
+        # You may pin to the exact commit or the version.
+        # uses: mskelton/setup-yarn@aa37049724856b4e0b13739cd2b5e69686a29403
+        uses: mskelton/setup-yarn@v1.1.0
         with:
-          node-version: 16.13.0
+          # Node version to use, defaults to the current LTS version.
+          node-version: 16.x
 
-       - name: Build/release Electron app
+      - name: 'Build/release Electron app'
         uses: samuelmeuli/action-electron-builder@v1
         with:
           # GitHub token, automatically provided to the action
