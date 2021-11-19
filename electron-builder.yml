@@ -7,12 +7,6 @@ appId: "com.theshoregroup.digital-signage"
 artifactName: '${productName}-${version}-${os}-${arch}.${ext}'
 copyright: "Copyright © 2021 The Shore Group"
 
-# Publishing informaation
-publish:
-  provider: 'github'
-  private: false
-  releaseType: 'draft'
-
 mac:
   target: "default"
   hardenedRuntime: true
@@ -23,4 +17,15 @@ dmg:
 linux:
   executableName: '${appId}'
   target: "AppImage"
-  
+
+  # Publishing informaation
+publish:
+  - github:
+      owner: "theshoregroup"
+      repo: "digital-signage"
+      releaseName: "${version}"
+      draft: true
+      prerelease: true
+      target: "github"
+      # The following is required for the GitHub release to be created
+      #
