@@ -20,12 +20,12 @@ linux:
 
   # Publishing informaation
 publish:
-  - github:
-      owner: "theshoregroup"
-      repo: "digital-signage"
-      releaseName: "${version}"
-      draft: true
-      prerelease: true
-      target: "github"
-      # The following is required for the GitHub release to be created
-      #
+  provider: 'github'
+    owner: "theshoregroup"
+    repo: "digital-signage"
+    releaseName: "${version}"
+    draft: true
+    prerelease: true
+    target: "github"
+    # The following is required for the GitHub release to be created
+    #
