@@ -9,6 +9,13 @@
     "name": "The Shore Group",
     "email": "software@theshoregroup.co.uk"
   },
+  "contributors": [
+    {
+      "name": "Liam Doyle",
+      "email": "limegorilla@gmail.com",
+      "url": "https://limegorilla.co.uk"
+    }
+  ],
   "version": "0.5.5",
   "private": true,
   "main": "public/electron.js",
