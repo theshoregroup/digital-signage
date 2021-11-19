@@ -3,8 +3,9 @@ import YouTubePlayer from "./components/YouTubePlayer";
 import Clock from "./components/Clock";
 import "./App.css";
 import logo from "./images/shoreLogo.png";
-import Marquee from "react-fast-marquee";
-import SkyNews from "./components/Skynews";
+import Marquee from 'react-double-marquee';
+import News from './components/News'
+
 
 function App() {
   return (
@@ -25,10 +26,11 @@ function App() {
       <div className="absolute top-0 left-20 ">
         <Weather />
       </div>
-      <div className="absolute bottom-0 text-6xl p-6 shadow-md">
-        <Marquee gradientColor speed="90">
-          <SkyNews/>
+      <div className="bottom-0 left-0">
+        <Marquee>
+          <News/>
         </Marquee>
+
       </div>
     </div>
   );
