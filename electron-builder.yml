@@ -18,11 +18,11 @@ linux:
   executableName: '${appId}'
   target: "AppImage"
 
-// Publish to github
-publish:
-  provider: github
-  owner: theshoregroup
-  repo: '${productName}'
-  releaseType: 'draft'
-  github:
-    token: '${GITHUB_TOKEN}'
+# // Publish to github
+# publish:
+#   provider: github
+#   owner: theshoregroup
+#   repo: '${productName}'
+#   releaseType: 'draft'
+#   github:
+#     token: '${GITHUB_TOKEN}'
