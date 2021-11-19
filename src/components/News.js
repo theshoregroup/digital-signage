@@ -16,6 +16,14 @@ const News = () => {
   
 
   return (
-    <h1></h1>
+    <div>
+    <h1>{data?.response?.results[0]?.webTitle}</h1>
+    <h1>{data?.response?.results[1]?.webTitle}</h1>
+    <h1>{data?.response?.results[2]?.webTitle}</h1>
+    <h1>{data?.response?.results[3]?.webTitle}</h1>
+    <h1>{data?.response?.results[4]?.webTitle}</h1>
+    </div>
   )
 }
+
+export default News
