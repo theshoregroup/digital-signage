@@ -4,6 +4,7 @@ import YouTubePlayer from "./YouTubePlayer";
 
 function RenderView(render) {
     setInterval(render, 5000);
+    render = "yt"
     switch(render) {
         case 'yt':
             return (
