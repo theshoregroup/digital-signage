@@ -18,7 +18,7 @@ const News = () => {
 
   return (
     <div >
-      <Marquee  speed="80">
+      <Marquee  speed="120">
     <h1>{data?.response?.results[0]?.webTitle} |</h1>
     <h1>{data?.response?.results[1]?.webTitle} |</h1>
     <h1>{data?.response?.results[2]?.webTitle} |</h1>
