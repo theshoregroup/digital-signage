@@ -3,28 +3,25 @@ import Clock from "./components/Clock";
 //import "./App.css";
 import logo from "./images/shoreLogo.png";
 import News from "./components/News";
-import RenderView from "./components/RenderView"
-
-
+import RenderView from "./components/RenderView";
 
 function App() {
   return (
-    <div>
-      <div className="absolute top-0 right-0 center p-9 shadow-md ">
-        <RenderView/>
-      </div>
-
-      <div className="absolute top-0 right-0 opacity-70 p-10 ">
+    <div className="grid grid-cols-9 grid-rows-9 ">
+      <div className="col-span-3 row-span-3 opacity-70  ">
         <img src={logo} alt="" />
-      </div>
-      <div className="absolute bottom-20 right-0 text-7xl ">
-        <Clock />
-      </div>
-      <div className="absolute top-0 left-20 ">
         <Weather />
       </div>
-      <div className= "absolute bottom-0 left-0 text-6xl w-screen h-auto">
-        <News/>
+ 
+      <div className="col-span6 row-span-6 text-7xl ">
+        <RenderView />
+        <Clock />
+      </div>
+     
+
+      
+      <div className="absolute bottom-0 row-span-1 col-span-6 text-6xl ">
+        <News />
       </div>
     </div>
   );
