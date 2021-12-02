@@ -4,10 +4,11 @@ import React, { useState } from 'react';
 
 
 function RenderView(render) {
-    setInterval(renderTime, 100)
     function renderTime() {
-    render = (render == "cp" ? "yt" : "cp")
-    }
+        render = (render == "cp" ? "yt" : "cp")
+        }
+    setInterval(renderTime, 1000)
+  
 
     switch (render) {
         case 'yt':
