@@ -1,26 +1,33 @@
 import CompanyPost from './CompanyPost';
 import YouTubePlayer from "./YouTubePlayer";
+import React, { useState } from 'react';
 
 
 function RenderView(render) {
-    setInterval(render, 5000);
-    render = "yt"
-    switch(render) {
+    setInterval(renderTime, 100)
+    function renderTime() {
+    render = (render == "cp" ? "yt" : "cp")
+    }
+
+    switch (render) {
         case 'yt':
             return (
-                <YouTubePlayer/>
+                <YouTubePlayer />
             )
         case 'cp':
             return (
-                <CompanyPost/>
+                <CompanyPost />
             )
         default:
-            return(
-                <YouTubePlayer/>
+            return (
+                <YouTubePlayer />
             )
 
     }
 }
+
+
+
 
 
 
