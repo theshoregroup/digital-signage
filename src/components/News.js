@@ -14,26 +14,27 @@ const News = () => {
     };
     getNewsFromApi();
   }, []);
-  
+
 
   return (
     <div >
-      <Marquee  speed="120">
-    <h1>{data?.response?.results[0]?.webTitle} |</h1>
-    <h1>{data?.response?.results[1]?.webTitle} |</h1>
-    <h1>{data?.response?.results[2]?.webTitle} |</h1>
-    <h1>{data?.response?.results[3]?.webTitle} |</h1>
-    <h1>{data?.response?.results[4]?.webTitle} |</h1>   
-    <h1>{data?.response?.results[5]?.webTitle} |</h1>
-    <h1>{data?.response?.results[6]?.webTitle} |</h1>
-    <h1>{data?.response?.results[7]?.webTitle} |</h1>
-    <h1>{data?.response?.results[8]?.webTitle} |</h1>
-    <h1>{data?.response?.results[9]?.webTitle} |</h1>
-    <h1>{data?.response?.results[10]?.webTitle} |</h1>
-    </Marquee>
+    
+      <Marquee speed="120">
+        <h1>{data?.response?.results[0]?.webTitle} |</h1>
+        <h1>{data?.response?.results[1]?.webTitle} |</h1>
+        <h1>{data?.response?.results[2]?.webTitle} |</h1>
+        <h1>{data?.response?.results[3]?.webTitle} |</h1>
+        <h1>{data?.response?.results[4]?.webTitle} |</h1>
+        <h1>{data?.response?.results[5]?.webTitle} |</h1>
+        <h1>{data?.response?.results[6]?.webTitle} |</h1>
+        <h1>{data?.response?.results[7]?.webTitle} |</h1>
+        <h1>{data?.response?.results[8]?.webTitle} |</h1>
+        <h1>{data?.response?.results[9]?.webTitle} |</h1>
+        <h1>{data?.response?.results[10]?.webTitle} |</h1>
+      </Marquee>
     </div>
-   
-   
+
+
   )
 }
 
