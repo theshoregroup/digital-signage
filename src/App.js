@@ -8,7 +8,7 @@ import RenderView from "./components/RenderView";
 function App() {
   return (
     <div className="grid grid-cols-9 grid-rows-9 ">
-      <div className="col-span-3 row-span-3 opacity-70  ">
+      <div className="col-span-3 row-span-3 ">
         <img src={logo} alt="" />
         <Weather />
       </div>
