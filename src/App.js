@@ -9,9 +9,14 @@ import bg from './images/bg_test.png';
 
 function App() {
   return (
+<<<<<<< HEAD
     <div className="grid grid-cols-9 grid-rows-9 bg-shoreblue-500">
       
       <div className="col-span-3 row-span-3 ">
+=======
+    <div className="grid grid-cols-9 grid-rows-9 ">
+      <div className="col-span-3 row-span-3 opacity-70  ">
+>>>>>>> parent of ca5c410 (Implemented switching view (its broken though))
         <img src={logo} alt="" />
         <Weather />
       </div>
