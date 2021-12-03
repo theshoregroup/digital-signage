@@ -9,28 +9,23 @@ import bg from './images/bg_test.png';
 
 function App() {
   return (
-<<<<<<< HEAD
-    <div className="grid grid-cols-9 grid-rows-9 bg-shoreblue-500">
+    <div className="grid grid-cols-9 grid-rows-9 gap-5 bg-shoreblue-500">
       
-      <div className="col-span-3 row-span-3 ">
-=======
-    <div className="grid grid-cols-9 grid-rows-9 ">
-      <div className="col-span-3 row-span-3 opacity-70  ">
->>>>>>> parent of ca5c410 (Implemented switching view (its broken though))
+      <div className="col-span-3 row-span-9 text-white">
         <img src={logo} alt="" />
         <Weather />
       </div>
 
-      <div className="col-span6 row-span-6 text-7xl ">
+      <div className="col-span6 row-span-6 text-7xl text-white ">
         <RenderView />
         <Clock />
       </div>
 
-      <div className="row-span-1 col-span-1">
-        <h1> Guardian </h1>
+      <div className="absolute bottom-0 left-0 text-6xl text-white bg-gradient-to-br from-blue-400 to-cyan-500">
+        <h1>Guardian </h1>
       </div>
 
-      <div className="absolute bottom-0 row-span-1 col-span-5 text-6xl ">
+      <div className="absolute bottom-0 left-60 text-6xl text-white">
     
           <News />
         
