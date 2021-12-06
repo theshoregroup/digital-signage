@@ -15,34 +15,45 @@ const Weather = () => {
   }, []);
 
   return (
-    <div className="flex flex-col ">
-      <div className="text-xl p-14 shadow-md bg-gradient-to-br from-green-400 to-cyan-500 ">
-        <h6>{data?.location?.name}</h6>
-        <h6>Today</h6>
-        <h6>
-          {data?.current?.temp_c}°C, {data?.current?.condition?.text},{" "}
-          {data?.current?.wind_mph}wind
-          <img src={data?.current?.condition?.icon} alt="icon"/>
-        </h6>
+    <div className="inline-flex-col text-center justify-center p-8">
+      <div className="text-xl p-14 shadow-md bg-white rounded-full items-center">
+        <img src={data?.current?.condition?.icon} alt="icon" />
+        <div className="text-3xl">
+          <h6>{data?.location?.name}</h6>
+        </div>
+        <div className="text-5xl">{data?.current?.temp_c}°C</div>
+
+        <div className="text-3xl">{data?.current?.condition?.text}</div>
+
+        <h6></h6>
       </div>
-      <div className="text-xl p-14 shadow-md bg-gradient-to-br from-red-400 to-cyan-500 ">
-        <h6>
-          {data?.forecast?.forecastday[1]?.date},
-          {data?.forecast?.forecastday[1]?.day?.avgtemp_c}°C,
-          {data?.forecast?.forecastday[1]?.day?.condition?.text},
-          <img src={data?.forecast?.forecastday[1]?.day?.condition?.icon} alt="icon"/>
-        </h6>
-      </div>
-      <div className="text-xl p-14 shadow-md bg-gradient-to-br from-blue-400 to-cyan-500 ">
-        <h6>
-          {data?.forecast?.forecastday[2]?.date},
-          {data?.forecast?.forecastday[2]?.day?.avgtemp_c}°C,
-          {data?.forecast?.forecastday[2]?.day?.condition?.text},
-          <img src={data?.forecast?.forecastday[2]?.day?.condition?.icon} alt="icon"/>
-        </h6>
-      </div>
-    </div>
+  </div>
   );
 };
 
 export default Weather;
+
+
+/*    <div className="text-xl p-14 shadow-md bg-gradient-to-br from-red-400 to-cyan-500 rounded-full items-center">
+<h6>
+<img
+ / src={data?.forecast?.forecastday[1]?.day?.condition?.icon}
+  alt="icon"
+/>
+{data?.forecast?.forecastday[1]?.date},
+{data?.forecast?.forecastday[1]?.day?.avgtemp_c}°C,
+{data?.forecast?.forecastday[1]?.day?.condition?.text},
+</h6>
+</div>
+<div className="text-xl p-14 shadow-md bg-gradient-to-br from-blue-400 to-cyan-500 rounded-full items-center">
+<h6>
+<img
+  src={data?.forecast?.forecastday[2]?.day?.condition?.icon}
+  alt="icon"
+/>
+{data?.forecast?.forecastday[2]?.date},
+{data?.forecast?.forecastday[2]?.day?.avgtemp_c}°C,
+{data?.forecast?.forecastday[2]?.day?.condition?.text},
+</h6>
+</div>
+</div>*/
