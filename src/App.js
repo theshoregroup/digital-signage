@@ -8,13 +8,22 @@ import Marquee from "react-fast-marquee";
 
 function App() {
   return (
-    <div className="max-w-screen max-h-screen grid grid-cols-9 grid-rows-9 min-w-screen min-h-screen p-10 gap-10 bg-shoreblue-500">
+    <div
+      className="max-w-screen max-h-screen grid grid-cols-9 grid-rows-9 min-w-screen min-h-screen p-10 gap-10 Direction
+    bg-gradient-to-r
+    From
+    from-shoreblue-500
+    Via
+    via-shoreblue-300
+    To
+    to-white
+    "
+    >
       <div className="col-span-2 row-span-1 text-white ">
         <img src={logo} alt="" />
       </div>
-      <div className="col-span-7 row-span-3 text-7xl gap-3 bg-white  max-w-auto max-h-16 ">
+      <div className="col-span-7 row-span-6 text-7xl gap-3 bg-white  max-w-auto max-h-16 ">
         <RenderView />
-     
       </div>
       <div className="col-span-2 row-span-7 text-6xl  ">
         <Weather />
@@ -23,7 +32,7 @@ function App() {
         <Clock />
       </div>
       <div className="col-span-6 row-span-7 text-8xl  ">
-      <News />
+        <News />
       </div>
     </div>
   );
