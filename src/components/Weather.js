@@ -15,14 +15,14 @@ const Weather = () => {
   }, []);
 
   return (
-    <div className="flex flex-col w-3/4 h-screen ">
+    <div className="flex flex-col ">
       <div className="text-xl p-14 shadow-md bg-gradient-to-br from-green-400 to-cyan-500 ">
         <h6>{data?.location?.name}</h6>
         <h6>Today</h6>
         <h6>
           {data?.current?.temp_c}°C, {data?.current?.condition?.text},{" "}
           {data?.current?.wind_mph}wind
-          <img src={data?.current?.condition?.icon}/>
+          <img src={data?.current?.condition?.icon} alt="icon"/>
         </h6>
       </div>
       <div className="text-xl p-14 shadow-md bg-gradient-to-br from-red-400 to-cyan-500 ">
@@ -30,7 +30,7 @@ const Weather = () => {
           {data?.forecast?.forecastday[1]?.date},
           {data?.forecast?.forecastday[1]?.day?.avgtemp_c}°C,
           {data?.forecast?.forecastday[1]?.day?.condition?.text},
-          <img src={data?.forecast?.forecastday[1]?.day?.condition?.icon}/>
+          <img src={data?.forecast?.forecastday[1]?.day?.condition?.icon} alt="icon"/>
         </h6>
       </div>
       <div className="text-xl p-14 shadow-md bg-gradient-to-br from-blue-400 to-cyan-500 ">
@@ -38,7 +38,7 @@ const Weather = () => {
           {data?.forecast?.forecastday[2]?.date},
           {data?.forecast?.forecastday[2]?.day?.avgtemp_c}°C,
           {data?.forecast?.forecastday[2]?.day?.condition?.text},
-          <img src={data?.forecast?.forecastday[2]?.day?.condition?.icon}/>
+          <img src={data?.forecast?.forecastday[2]?.day?.condition?.icon} alt="icon"/>
         </h6>
       </div>
     </div>
