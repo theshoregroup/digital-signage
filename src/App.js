@@ -1,41 +1,43 @@
-import Weather from "./components/Weather";
-import Clock from "./components/Clock";
-//import "./App.css";
-import logo from "./images/shoreLogo.png";
-import News from "./components/News";
-import RenderView from "./components/RenderView";
-import Marquee from "react-fast-marquee";
+// Old import statements to be brought over to new elements
+// import Weather from "./components/Weather";
+// import Clock from "./components/Clock";
+// //import "./App.css";
+// import logo from "./images/shoreLogo.png";
+// import News from "./components/News";
+// import RenderView from "./components/RenderView";
+// import Marquee from "react-fast-marquee";
+
+// Imports for components
+import Header from "./components/base/Header";
 
 function App() {
   return (
-    <div
-      className="max-w-screen max-h-screen grid grid-cols-9 grid-rows-9 min-w-screen min-h-screen p-10 gap-10 Direction
-    bg-gradient-to-r
-    From
-    from-shoreblue-500
-    Via
-    via-shoreblue-300
-    To
-    to-white
-    "
-    >
-      <div className="col-span-2 row-span-1 text-white ">
-        <img src={logo} alt="" />
+    <>
+      {/* Main content wrapper */}
+      <div className="h-screen w-screen grid grid-cols-3 grid-rows-6">
+
+        {/* Header */}
+        <div className="col-span-2">
+          <Header location="Brighton"/>
+        </div>
+        
+        {/* Main-Left */}
+        <div className="col-span-2 row-span-4 row-start-2">
+          
+        </div>
+
+        {/* Main-Right Element */}
+        <div className="col-start-3 row-span-5">
+          
+        </div>
+
+        {/* Bottom Element */}
+        <div className="col-span-3 row-start-6">
+          
+        </div>
       </div>
-      <div className="col-span-7 row-span-6 text-7xl gap-3 bg-white  max-w-auto max-h-16 ">
-        <RenderView />
-      </div>
-      <div className="col-span-2 row-span-7 text-6xl  ">
-        <Weather />
-      </div>
-      <div className="col-span-3 row-span-7 text-8xl  ">
-        <Clock />
-      </div>
-      <div className="col-span-6 row-span-7 text-8xl  ">
-        <News />
-      </div>
-    </div>
-  );
+    </>
+  )
 }
 
 export default App;
