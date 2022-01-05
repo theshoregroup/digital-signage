@@ -16,7 +16,7 @@
       "url": "https://limegorilla.co.uk"
     }
   ],
-  "version": "0.5.11",
+  "version": "1.0",
   "private": true,
   "main": "public/electron.js",
   "homepage": "./",
