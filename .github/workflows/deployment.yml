@@ -3,9 +3,6 @@ name: Build & Release
 # Adding in a comment here to just see if this damn thing works
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
       - main
