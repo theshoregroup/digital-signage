@@ -2993,9 +2993,9 @@ export default function Header() {
     }, []);
     
     return (
-        <div className="h-full w-full flex bg-gray-300 justify-between">
-            <div>
-                <span className="block">
+        <div className="h-full w-full flex justify-between">
+            <div className="px-4 py-5">
+                <span className="block text-5xl font-semibold">
                     {currentDate.toLocaleString('en-US', {
                         hour: 'numeric',
                         minute: 'numeric',
@@ -3008,8 +3008,8 @@ export default function Header() {
                     })}
                 </span>
             </div>
-            <div>
-                <span>
+            <div className='px-4 py-5'>
+                <span className='block text-5xl font-semibold'>
                     {currentWeather.current.temp_c}°C
                 </span>
                 <span>
