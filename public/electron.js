@@ -14,7 +14,7 @@ let mainWindow;
 
 function createWindow() {
     mainWindow = new BrowserWindow({
-        show: false,
+        show: false, fullscreen: true
     });
 
     mainWindow.maximize()
