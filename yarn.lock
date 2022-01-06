@@ -4121,7 +4121,7 @@ electron-updater@^4.3.9:
     lodash.isequal "^4.5.0"
     semver "^7.3.5"
 
-electron@^16.0.0:
+electron@^16.0.6:
   version "16.0.6"
   resolved "https://registry.yarnpkg.com/electron/-/electron-16.0.6.tgz#d7a420ef2cb39d7d0a4d8760c03d72b137a033d5"
   integrity sha512-Xs9dYLYhcJf3wXn8m2gDqFTb1L862KEhMxOx9swfFBHj6NoUPPtUgw/RyPQ0tXN1XPxG9vnBkoI0BdcKwrLKuQ==
