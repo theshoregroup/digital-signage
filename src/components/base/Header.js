@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+
+
 export default function Header() {
   // Define date
   const [currentDate, setDateState] = useState(new Date());
@@ -3013,9 +3015,9 @@ export default function Header() {
         </span>
         <span className="text-2xl ">
           <img src={currentWeather.current.condition.icon} alt="" />
-          {currentWeather.location.name} - {currentWeather.current.condition.text}
+          {currentWeather.location.name} -{" "}
+          {currentWeather.current.condition.text}
         </span>
-       
       </div>
       <div className="px-4 py-5  ">
         <span className="block text-5xl font-semibold">
@@ -3041,8 +3043,11 @@ export default function Header() {
           />
           {currentWeather.location.name} -{" "}
           {currentWeather.forecast.forecastday[2].day.condition.text}
+         
         </span>
+       
       </div>
+      
     </div>
   );
 }
