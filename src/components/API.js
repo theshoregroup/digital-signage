@@ -16,7 +16,8 @@ const Compost = () => {
 
   return (
     <div>
-       <h6>{apiData?.data[2]?.title}</h6>
+       <h6>{apiData?.data[1]?.title}</h6>
+
 
     </div>
   );
