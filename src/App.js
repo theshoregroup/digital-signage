@@ -11,6 +11,7 @@
 import Main from "./components/base/Main";
 import Header from "./components/base/Header";
 import Bottom from "./components/base/Bottom";
+import Compost from "./components/API";
 
 // What this file does
 // This is the main view of the App.
@@ -45,6 +46,12 @@ function App() {
         {/* Bottom Element */}
         <div className="col-span-2 row-start-6">
           <Bottom />
+          
+          
+          
+          <Compost/>
+          
+         
         </div>
       </div>
     </>
