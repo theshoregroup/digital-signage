@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const Compost = () => {
+export const Compost = () => {
   const [apiData, setAPIData] = useState({});
   useEffect(() => {
     const getDataFromApi = async () => {
@@ -16,11 +16,13 @@ const Compost = () => {
 
   return (
     <div>
-       <h6>{apiData?.data[1]?.title}</h6>
-
-
+  
     </div>
   );
 };
 
-export default Compost;
+
+/*
+<h6>{apiData?.data[1]?.title}</h6>
+
+*/

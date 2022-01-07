@@ -7,11 +7,18 @@ export default function Bottom(props) {
         // This is passed through to the subcomponent.
         // This is an example used for testing, remove for release.
         'type': 'text',
-        'data': [
-            'Hello!',
-            'This is a marquee!',
-            'Each element is seperated.'
+        'data': [ 
+           " one",
+            "two",
+           " three",
         ]
+            
+
+
+
+        
+        
+        
     }
 
     

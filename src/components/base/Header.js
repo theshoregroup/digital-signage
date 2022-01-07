@@ -2989,7 +2989,7 @@ export default function Header() {
       console.log("json", responseJson);
       setWeatherState(responseJson);
     };
-    getWeatherFromApi();
+    setInterval(getWeatherFromApi, 50000)
   }, []);
 
   return (
