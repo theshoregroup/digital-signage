@@ -13,6 +13,7 @@ import Header from "./components/base/Header";
 import Bottom from "./components/base/Bottom";
 import logo from "./images/shoreLogo.png";
 import { Sonos } from "./components/Sonos"
+import { Compost} from "./components/API"
 
 
 
@@ -38,18 +39,18 @@ function App() {
 
         {/*LOGO*/}
         <div className="col-span-2 ">
-          <img src={logo} alt="logo"></img>
+          <img src={logo} alt="logo" height="128" width="300"></img>
          
         </div>
 
         {/* Main-Left */}
-        <div className="col-span-6 row-span-4 row-start-2 bg-blue-100">
+        <div className="col-span-6 row-span-4 row-start-2 drop-shadow-2xl ">
           <Main state="left" />
         </div>
 
         {/* Main-Right Element */}
-        <div className="col-span-3 row-span-3 bg-red-200 text-center">
-          <h1>Company Posts</h1>
+        <div className="col-span-3 row-span-3  text-center shadow-2xl ">
+          <Compost />
           
         </div>
 
@@ -60,7 +61,11 @@ function App() {
         </div>
 
         {/*Bottom-left element*/}
-        <div className="text-2xl"></div>
+        <div className="text-2xl shadow-2xl col-start-1 col-span-6" >
+        <Bottom/>
+        </div>
+       
+        
       </div>
     </>
   );

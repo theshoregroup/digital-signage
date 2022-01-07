@@ -9,27 +9,28 @@ export const Sonos = () => {
       console.log("json", responseJson);
       setSonosData(responseJson);
     };
-    setInterval(getMusicFromApi, 5000)
+    setInterval(getMusicFromApi, 3000);
   }, []);
 
   return (
     <parent>
-      <div className="flex flex-row-reverse text-gray-700 rounded-full text-center text-3xl">
+      <div className=" text-gray-700 rounded-full text-center text-3xl ">
         <div className="bg-gradient-to-r from-green-400 to-blue-500  ">
           <h1> {sonosData[1].coordinator.roomName}</h1>
           <div className="text-5xl font-semibold">
             <h1>{sonosData[1].coordinator.state.currentTrack.title}</h1>
           </div>
           <h1>{sonosData[1].coordinator.state.currentTrack.artist}</h1>
-
-          <img
-            src={
-              sonosData[1].coordinator.state.currentTrack.absoluteAlbumArtUri
-            }
-            alt=""
-            height="256"
-            width="256"
-          />
+          <div classname="rounded-lg">
+            <img
+              src={
+                sonosData[1].coordinator.state.currentTrack.absoluteAlbumArtUri
+              }
+              alt=""
+              height="192"
+              width="192"
+            />
+          </div>
         </div>
       </div>
     </parent>
@@ -50,5 +51,24 @@ STYLE SONOS
 sport information - financial info.
 
 BBC Sports RSS - financial RSS - Guardian News JSON - take requests
+
+  <div className=" text-gray-700 rounded-full text-center text-3xl">
+        <div className="bg-gradient-to-r from-green-400 to-blue-500  ">
+          <h1> {sonosData[1].coordinator.roomName}</h1>
+          <div className="text-5xl font-semibold">
+            <h1>{sonosData[1].coordinator.state.currentTrack.title}</h1>
+          </div>
+          <h1>{sonosData[1].coordinator.state.currentTrack.artist}</h1>
+
+          <img
+            src={
+              sonosData[1].coordinator.state.currentTrack.absoluteAlbumArtUri
+            }
+            alt=""
+            height="192"
+            width="192"
+          />
+        </div>
+      </div>
 
 */
