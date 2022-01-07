@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 
-
 export default function Header() {
   // Define date
   const [currentDate, setDateState] = useState(new Date());
@@ -3043,9 +3042,7 @@ export default function Header() {
           />
           {currentWeather.location.name} -{" "}
           {currentWeather.forecast.forecastday[2].day.condition.text}
-         
         </span>
-       
       </div>
       
     </div>

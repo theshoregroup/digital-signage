@@ -11,15 +11,12 @@ const Compost = () => {
       console.log("json", responseJson);
       setAPIData(responseJson);
     };
-    getDataFromApi();
+    setInterval(getDataFromApi, 5000)
   }, []);
 
   return (
     <div>
        <h6>{apiData?.data[1]?.title}</h6>
-       <h6>{apiData?.data[2]?.title}</h6>
-       <h6>{apiData?.data[1]?.id}</h6>
-       
 
 
     </div>
