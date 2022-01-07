@@ -16,7 +16,12 @@ export const Compost = () => {
 
   return (
     <div>
-  
+       <div className="text-4xl font-semibold">
+       <h6>{apiData?.data[3]?.title}</h6>
+       </div>
+       <div className="text-2xl">
+       <h6>{apiData?.data[3]?.body}</h6>
+       </div>
     </div>
   );
 };
