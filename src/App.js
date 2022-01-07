@@ -12,7 +12,9 @@ import Main from "./components/base/Main";
 import Header from "./components/base/Header";
 import Bottom from "./components/base/Bottom";
 import logo from "./images/shoreLogo.png";
-import Compost from "./components/API";
+import { Sonos } from "./components/Sonos"
+
+
 
 // What this file does
 // This is the main view of the App.
@@ -26,33 +28,39 @@ function App() {
   return (
     <>
       {/* Main content wrapper */}
-      <div className="h-screen w-screen grid grid-cols-3 grid-rows-6">
+      <div className="h-screen w-screen grid grid-cols-9 grid-rows-6 gap-2 p-5 max-w-screen max-h-screen ">
         {/* Header */}
-        <div className="col-span-2">
+        <div className="col-span-7 row-start-1">
           <Header location="Brighton" />
+        
+         
         </div>
 
-        {/*logo*/}
-        <div className="col-span-1 ">
-          <img src={logo} alt="" />
+        {/*LOGO*/}
+        <div className="col-span-2 ">
+          <img src={logo} alt="logo"></img>
+         
         </div>
 
         {/* Main-Left */}
-        <div className="col-span-2 row-span-4 row-start-2">
+        <div className="col-span-6 row-span-4 row-start-2 bg-blue-100">
           <Main state="left" />
         </div>
 
         {/* Main-Right Element */}
-        <div className="col-start-3 row-span-6 text-center ">
-          <h1> COMPANY POSTsdsS</h1>
-          <Compost/>
-
+        <div className="col-span-3 row-span-3 bg-red-200 text-center">
+          <h1>Company Posts</h1>
+          
         </div>
 
-        {/* Bottom Element */}
-        <div className="col-span-2 row-start-6">
-          <Bottom />
+        {/* Bottom-Right Element */}
+        <div className="col-span-3 row-start-5 row-span-2 ">
+          <Sonos/>
+         
         </div>
+
+        {/*Bottom-left element*/}
+        <div className="text-2xl"></div>
       </div>
     </>
   );
