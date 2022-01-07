@@ -14,6 +14,7 @@ import Bottom from "./components/base/Bottom";
 import logo from "./images/shoreLogo.png";
 import { Sonos } from "./components/Sonos"
 import { Compost} from "./components/API"
+import News from "./components/tempNews";
 
 
 
@@ -61,8 +62,8 @@ function App() {
         </div>
 
         {/*Bottom-left element*/}
-        <div className="text-2xl shadow-2xl col-start-1 col-span-6" >
-        <Bottom/>
+        <div className="text-6xl shadow-2xl col-start-1 col-span-6" >
+        <News/>
         </div>
        
         
