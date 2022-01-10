@@ -15,10 +15,10 @@ export default function MainComponent(props) {
                         className=""
                         src="https://www.youtube.com/embed/9Auq9mYxFEE?autohide=1&autoplay=1&cc_load_policy=1&mute=1"
                         title="YouTube video player"
-                        frameborder="0"
+                        frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen
-                        autoplay="True"
+                        allowFullScreen
+                        autoPlay="True"
 
 
                     />
