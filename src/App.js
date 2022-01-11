@@ -9,11 +9,11 @@
 
 // Imports for components
 import Main from "./components/base/Main";
-import Header from "./components/base/Header";
+
 import Bottom from "./components/base/Bottom";
 import logo from "./images/shoreLogo.png";
 import { Sonos } from "./components/Sonos"
-import { Compost} from "./components/API"
+import {Compost} from "./components/API"
 import News from "./components/tempNews";
 
 
@@ -33,7 +33,7 @@ function App() {
       <div className="h-screen w-screen grid grid-cols-9 grid-rows-6 gap-2 p-5 max-w-screen max-h-screen ">
         {/* Header */}
         <div className="col-span-7 row-start-1">
-          <Header location="Brighton" />
+       
         
          
         </div>
@@ -64,6 +64,7 @@ function App() {
         {/*Bottom-left element*/}
         <div className="text-6xl shadow-2xl col-start-1 col-span-6" >
         <News/>
+        <Bottom/>
         </div>
        
         

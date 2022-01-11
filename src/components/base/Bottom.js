@@ -12,13 +12,6 @@ export default function Bottom(props) {
             "two",
            " three",
         ]
-            
-
-
-
-        
-        
-        
     }
 
     

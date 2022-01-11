@@ -1,67 +1,67 @@
-import { useEffect, useState } from "react";
+import React from "react";
+import axios from "axios";
 
-export const Compost = () => {
-  const [apiData, setAPIData] = useState({
-    "data": [
-        {
-            "id": 9,
-            "status": "published",
-            "sort": null,
-            "user_created": "b2f328f3-c74d-4ffd-bbf7-6d0db5d021c0",
-            "date_created": "2022-01-07T13:56:32.000Z",
-            "user_updated": "b2f328f3-c74d-4ffd-bbf7-6d0db5d021c0",
-            "date_updated": "2022-01-07T16:07:28.000Z",
-            "title": "version-1",
-            "body": "Version 1.0 of the Shore Group Screens App!\n\n\n You can use a handy web app to write basically anything you'd like on these screens.\n\n I'm sure this power will be used responsibly.\n \n \n \n Big up the mainframe massive",
-            "availability": "internal"
-        },
-        {
-            "id": 10,
-            "status": "published",
-            "sort": null,
-            "user_created": "b2f328f3-c74d-4ffd-bbf7-6d0db5d021c0",
-            "date_created": "2022-01-10T11:21:32.000Z",
-            "user_updated": "b2f328f3-c74d-4ffd-bbf7-6d0db5d021c0",
-            "date_updated": "",
-            "title": "",
-            "body": "",
-            "availability": ""
-        }
-    ]
-});
-  useEffect(() => {
-    const getDataFromApi = async () => {
-      const response = await fetch(
-        "https://cms.theshoregroup.co.uk/items/posts?access_token=w3vytpbZvEf69LZmiyoNX8h"
-      );
-      const responseJson = await response.json();
-      console.log("json", responseJson);
-      setAPIData(responseJson);
+const Loader = () => (
+  <div class="divLoader">
+    <svg class="svgLoader" viewBox="0 0 100 100" width="10em" height="10em">
+      <path
+        stroke="none"
+        d="M10 50A40 40 0 0 0 90 50A40 42 0 0 1 10 50"
+        fill="#51CACC"
+        transform="rotate(179.719 50 51)"
+      >
+        <animateTransform
+          attributeName="transform"
+          type="rotate"
+          calcMode="linear"
+          values="0 50 51;360 50 51"
+          keyTimes="0;1"
+          dur="1s"
+          begin="0s"
+          repeatCount="indefinite"
+        ></animateTransform>
+      </path>
+    </svg>
+  </div>
+);
+
+class Compost extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: true,
+      data: [],
     };
-    setInterval(getDataFromApi, 1500)
-   
-  }, []);
+  }
 
+  componentDidMount() {
+    axios
+      .get(
+        "https://cms.theshoregroup.co.uk/items/posts?access_token=w3vytpbZvEf69LZmiyoNX8h"
+      )
+      .then((res) => {
+        const data = res.data
+        this.setState({ data, loading: false });
+        console.log(data);
+      });
+  }
 
+  render() {
+    return (
+      <div>
+        {this.state.loading ? <Loader /> : null}
+        <table border="1">
+          <tbody>
+           
+             
+           
+      
+          
+          </tbody>
+        </table>
+      </div>
+    );
+  }
+}
 
-  return (
-    <div>
-    <div className="text-5xl font-semibold">
-     <h6>{apiData?.data[1]?.title}</h6>
-     </div>
-     <div className="text-2xl">
-     <h6>{apiData?.data[1]?.body}</h6>
-     </div>
-     <div className="text-xl font-semibold text-center-left">
-       <h6>-{apiData?.data[1].posted_by}</h6>
-     </div>
-     </div>
-    
-  );
-};
-
-
-/*
-<h6>{apiData?.data[1]?.title}</h6>
-
-*/
+export { Compost };
