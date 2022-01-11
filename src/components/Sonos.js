@@ -1,262 +1,88 @@
-import { useEffect, useState } from "react";
+import React from "react";
+import axios from "axios";
+import { parseJson } from "builder-util-runtime";
 
-  export const Sonos = () => {
-    const [sonosData, setSonosData] = useState([
-      {
-          "uuid": "RINCON_949F3E70867601400",
-          "coordinator": {
-              "uuid": "RINCON_949F3E70867601400",
-              "state": {
-                  "volume": 35,
-                  "mute": false,
-                  "equalizer": {
-                      "bass": 0,
-                      "treble": 0,
-                      "loudness": true
-                  },
-                  "currentTrack": {
-                      "artist": "Elbow",
-                      "title": "One Day Like This",
-                      "album": "The Seldom Seen Kid",
-                      "albumArtUri": "https://i.scdn.co/image/ab67616d0000b273967a417ba6b1db017324e8a8",
-                      "duration": 394,
-                      "uri": "x-sonos-spotify:spotify:track:1OZSVl0JJ1MBzibpuhmmXb?sid=9&flags=0&sn=46",
-                      "trackUri": "x-sonos-spotify:spotify:track:1OZSVl0JJ1MBzibpuhmmXb?sid=9&flags=0&sn=46",
-                      "type": "track",
-                      "stationName": "",
-                      "absoluteAlbumArtUri": "https://i.scdn.co/image/ab67616d0000b273967a417ba6b1db017324e8a8"
-                  },
-                  "nextTrack": {
-                      "artist": "Squeeze",
-                      "title": "Cool For Cats",
-                      "album": "Cool For Cats",
-                      "duration": 0
-                  },
-                  "trackNo": 1,
-                  "elapsedTime": 294,
-                  "elapsedTimeFormatted": "00:04:54",
-                  "playbackState": "PLAYING",
-                  "playMode": {
-                      "repeat": "none",
-                      "shuffle": false,
-                      "crossfade": false
-                  }
-              },
-              "roomName": "Geezers Need Excitement",
-              "coordinator": "RINCON_949F3E70867601400",
-              "groupState": {
-                  "volume": 35,
-                  "mute": false
-              }
-          },
-          "members": [
-              {
-                  "uuid": "RINCON_949F3E70867601400",
-                  "state": {
-                      "volume": 35,
-                      "mute": false,
-                      "equalizer": {
-                          "bass": 0,
-                          "treble": 0,
-                          "loudness": true
-                      },
-                      "currentTrack": {
-                          "artist": "Elbow",
-                          "title": "One Day Like This",
-                          "album": "The Seldom Seen Kid",
-                          "albumArtUri": "https://i.scdn.co/image/ab67616d0000b273967a417ba6b1db017324e8a8",
-                          "duration": 394,
-                          "uri": "x-sonos-spotify:spotify:track:1OZSVl0JJ1MBzibpuhmmXb?sid=9&flags=0&sn=46",
-                          "trackUri": "x-sonos-spotify:spotify:track:1OZSVl0JJ1MBzibpuhmmXb?sid=9&flags=0&sn=46",
-                          "type": "track",
-                          "stationName": "",
-                          "absoluteAlbumArtUri": "https://i.scdn.co/image/ab67616d0000b273967a417ba6b1db017324e8a8"
-                      },
-                      "nextTrack": {
-                          "artist": "Squeeze",
-                          "title": "Cool For Cats",
-                          "album": "Cool For Cats",
-                          "duration": 0
-                      },
-                      "trackNo": 1,
-                      "elapsedTime": 294,
-                      "elapsedTimeFormatted": "00:04:54",
-                      "playbackState": "PLAYING",
-                      "playMode": {
-                          "repeat": "none",
-                          "shuffle": false,
-                          "crossfade": false
-                      }
-                  },
-                  "roomName": "Geezers Need Excitement",
-                  "coordinator": "RINCON_949F3E70867601400",
-                  "groupState": {
-                      "volume": 35,
-                      "mute": false
-                  }
-              }
-          ]
-      },
-      {
-          "uuid": "RINCON_542A1BC826C001400",
-          "coordinator": {
-              "uuid": "RINCON_542A1BC826C001400",
-              "state": {
-                  "volume": 19,
-                  "mute": false,
-                  "equalizer": {
-                      "bass": 1,
-                      "treble": -1,
-                      "loudness": true
-                  },
-                  "currentTrack": {
-                      "duration": 0,
-                      "uri": "x-sonos-vli:RINCON_542A1BC826C001400:2,spotify:0646e7c39048671ff95ed2a2913a914c",
-                      "trackUri": "x-sonos-vli:RINCON_542A1BC826C001400:2,spotify:0646e7c39048671ff95ed2a2913a914c",
-                      "type": "track",
-                      "stationName": ""
-                  },
-                  "nextTrack": {
-                      "artist": "",
-                      "title": "",
-                      "album": "",
-                      "albumArtUri": "",
-                      "duration": 0,
-                      "uri": ""
-                  },
-                  "trackNo": 1,
-                  "elapsedTime": 0,
-                  "elapsedTimeFormatted": "00:00:00",
-                  "playbackState": "PAUSED_PLAYBACK",
-                  "playMode": {
-                      "repeat": "none",
-                      "shuffle": false,
-                      "crossfade": false
-                  }
-              },
-              "roomName": "Goons",
-              "coordinator": "RINCON_542A1BC826C001400",
-              "groupState": {
-                  "volume": 19,
-                  "mute": false
-              }
-          },
-          "members": [
-              {
-                  "uuid": "RINCON_542A1BC826C001400",
-                  "state": {
-                      "volume": 19,
-                      "mute": false,
-                      "equalizer": {
-                          "bass": 1,
-                          "treble": -1,
-                          "loudness": true
-                      },
-                      "currentTrack": {
-                          "duration": 0,
-                          "uri": "x-sonos-vli:RINCON_542A1BC826C001400:2,spotify:0646e7c39048671ff95ed2a2913a914c",
-                          "trackUri": "x-sonos-vli:RINCON_542A1BC826C001400:2,spotify:0646e7c39048671ff95ed2a2913a914c",
-                          "type": "track",
-                          "stationName": ""
-                      },
-                      "nextTrack": {
-                          "artist": "",
-                          "title": "",
-                          "album": "",
-                          "albumArtUri": "",
-                          "duration": 0,
-                          "uri": ""
-                      },
-                      "trackNo": 1,
-                      "elapsedTime": 0,
-                      "elapsedTimeFormatted": "00:00:00",
-                      "playbackState": "PAUSED_PLAYBACK",
-                      "playMode": {
-                          "repeat": "none",
-                          "shuffle": false,
-                          "crossfade": false
-                      }
-                  },
-                  "roomName": "Goons",
-                  "coordinator": "RINCON_542A1BC826C001400",
-                  "groupState": {
-                      "volume": 19,
-                      "mute": false
-                  }
-              }
-          ]
-      }
-  ]);
-    const [loading, setLoading] = useState(true);
-    useEffect(() => {
-      setLoading(true);
-      (async function getMusicFromApi(){
-        const response = await fetch("http://localhost:5005/zones");
-          
-        
-        const responseJson = await response.json();
-        console.log("json", responseJson);
-        setSonosData(responseJson);
-        setInterval(getMusicFromApi,3000)
-      })();
-      setLoading(false);
+const Loader = () => (
+  <div class="divLoader">
+    <svg class="svgLoader" viewBox="0 0 100 100" width="10em" height="10em">
+      <path
+        stroke="none"
+        d="M10 50A40 40 0 0 0 90 50A40 42 0 0 1 10 50"
+        fill="#51CACC"
+        transform="rotate(179.719 50 51)"
+      >
+        <animateTransform
+          attributeName="transform"
+          type="rotate"
+          calcMode="linear"
+          values="0 50 51;360 50 51"
+          keyTimes="0;1"
+          dur="1s"
+          begin="0s"
+          repeatCount="indefinite"
+        ></animateTransform>
+      </path>
+    </svg>
+  </div>
+);
+
+class Sonos extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: true,
+      data: [],
+    };
+  }
+
+  componentDidMount() {
+    axios.get("http://localhost:5005/zones").then((res) => {
+      const data = res.data;
+      this.setState({ data, loading: false });
+      console.log(data);
+      console.log(JSON.parse(JSON.stringify(data)));
       
-    }, []);
-  
-    if (loading) {
-      return <h1> Data is loading...</h1>
-    }
+    });
+  }
 
-  return (
-    <parent>
-      <div className=" text-gray-700 rounded-full items-center text-3xl ">
-        <div className="bg-gradient-to-r from-green-400 to-blue-500  ">
-          <h1> Speaker - {sonosData[0].coordinator.roomName}</h1>
-          <div className="text-4xl font-semibold">
-            <h1>{sonosData[0].coordinator.state.currentTrack.title}</h1>
-          </div>
-          <h1>{sonosData[0].coordinator.state.currentTrack.artist}</h1>
-          <div classname="rounded-lg mx-auto items-center">
-            <img
-              src={
-                sonosData[0].coordinator.state.currentTrack.absoluteAlbumArtUri
-              }
-              alt=""
-              height="192"
-              width="192"
-            />
-          </div>
-        </div>
+  render() {
+    return (
+      <div>
+        {this.state.loading ? <Loader /> : null}
+        <table border="1">
+          <parent>
+            <div className=" text-gray-700 rounded-full items-center text-3xl ">
+              <div className="bg-gradient-to-r from-green-400 to-blue-500  ">
+                <div className="text-4xl font-semibold"></div>
+              
+             
+              </div>
+            </div>
+          </parent>
+        </table>
       </div>
-    </parent>
-  );
-};
+    );
+  }
+}
 
-/*DISPLAY 
--Speaker name   /
--Artist               /
--Current track    / 
--Volume               
--Album /Artist art  /
+export { Sonos };
 
-FIX API LOAD ERROR
+/*
 
 
-sport information - financial info.
-
-BBC Sports RSS - financial RSS - Guardian News JSON - take requests
-
-  <div className=" text-gray-700 rounded-full text-center text-3xl">
-        <div className="bg-gradient-to-r from-green-400 to-blue-500  ">
-          <h1> {sonosData[1].coordinator.roomName}</h1>
-          <div className="text-5xl font-semibold">
-            <h1>{sonosData[1].coordinator.state.currentTrack.title}</h1>
-          </div>
-          <h1>{sonosData[1].coordinator.state.currentTrack.artist}</h1>
-
+return (
+  <parent>
+    <div className=" text-gray-700 rounded-full items-center text-3xl ">
+      <div className="bg-gradient-to-r from-green-400 to-blue-500  ">
+        <h1> Speaker - {sonosData[0].coordinator.roomName}</h1>
+        <div className="text-4xl font-semibold">
+          <h1>{sonosData[0].coordinator.state.currentTrack.title}</h1>
+        </div>
+        <h1>{sonosData[0].coordinator.state.currentTrack.artist}</h1>
+        <div classname="rounded-lg mx-auto items-center">
           <img
             src={
-              sonosData[1].coordinator.state.currentTrack.absoluteAlbumArtUri
+              sonosData[0].coordinator.state.currentTrack.absoluteAlbumArtUri
             }
             alt=""
             height="192"
@@ -264,5 +90,8 @@ BBC Sports RSS - financial RSS - Guardian News JSON - take requests
           />
         </div>
       </div>
+    </div>
+  </parent>
+);
 
 */
