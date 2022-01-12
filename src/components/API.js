@@ -53,16 +53,15 @@ class Compost extends React.Component {
     if (this.state.loading) {
       return <Loader />
     }
-    // return table if loading is false
-    // handling error goes with the same logic
-    // table will only render if loading is false
+
     else 
     return (
       
-       this.state.data.data[0]).map((item) => (
+       this.state.data.data).map((item) => (
           <>
-            <p key={item.id}>{item.title}</p>
+            <p key={item.id}>{item.id}</p>
           </>
+          
         ))
      
     

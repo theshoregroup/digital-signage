@@ -2993,7 +2993,7 @@ export default function Header() {
       setWeatherState(responseJson);
     };
     setInterval(getWeatherFromApi, 50000)
-  }, []);
+  }, []))
 
   return (
     <div className="h-full w-full flex justify-between">
