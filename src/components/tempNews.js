@@ -1,5 +1,5 @@
 import axios from "axios";
-import Marquee from "react-fast-marquee";
+
 import React from "react";
 
 
