@@ -65,6 +65,7 @@ function App() {
         <div className="text-6xl shadow-2xl col-start-1 col-span-6" >
         <News/>
         <Bottom/>
+    
         </div>
        
         

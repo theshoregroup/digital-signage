@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { parseJson } from "builder-util-runtime";
+
 
 const Loader = () => (
   <div class="divLoader">
@@ -37,10 +37,12 @@ class Sonos extends React.Component {
 
   componentDidMount() {
     axios.get("http://localhost:5005/zones").then((res) => {
-      const data = res.data;
+      let data = res.data;
+      console.log(data);
+     
       this.setState({ data, loading: false });
       console.log(data);
-      console.log(JSON.parse(JSON.stringify(data)));
+      
       
     });
   }
