@@ -25,17 +25,7 @@ class Sonos extends React.Component {
     });
   }
 
-  render() {
-    return (
-      <div>
-        {this.state.loading ? <Loader /> : null}
-        <table border="1">
-
-        </table>
-      </div>
-    );
-  }
-
+ 
 
 
   render() {
