@@ -40,28 +40,34 @@ class Compost extends React.Component {
         "https://cms.theshoregroup.co.uk/items/posts?access_token=w3vytpbZvEf69LZmiyoNX8h"
       )
       .then((res) => {
-        const data = res.data
+        let data = res.data
+
+
         this.setState({ data, loading: false });
-        console.log(data);
+
+        console.log(data)
       });
   }
 
   render() {
+    if (this.state.loading) {
+      return <Loader />
+    }
+    // return table if loading is false
+    // handling error goes with the same logic
+    // table will only render if loading is false
+    else 
     return (
-      <div>
-        {this.state.loading ? <Loader /> : null}
-        <table border="1">
-          <tbody>
-           
-             
-           
       
-          
-          </tbody>
-        </table>
-      </div>
-    );
+       this.state.data.data[0]).map((item) => (
+          <>
+            <p key={item.id}>{item.title}</p>
+          </>
+        ))
+     
+    
   }
 }
+
 
 export { Compost };
