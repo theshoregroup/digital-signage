@@ -1,8 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Loader } from "./functional/Loader"
-
-
+import { Loader } from "./functional/Loader";
 
 class Sonos extends React.Component {
   constructor(props) {
@@ -20,68 +18,84 @@ class Sonos extends React.Component {
 
       this.setState({ data, loading: false });
       console.log(data);
-
-
     });
   }
 
- 
-
-
   render() {
     if (this.state.loading) {
-      return <Loader />
-    }
+      return <Loader />;
+    } else {
+      //Front office speaker variables
+      let frontSpeakerName = this.state.data[0].coordinator?.roomName;
+      let frontSpeakerArtist =
+        this.state.data[0].coordinator?.state?.currentTrack?.artist;
+      let frontSpeakerTitle =
+        this.state.data[0].coordinator?.state?.currentTrack?.title;
+      let frontSpeakerArt =
+        this.state.data[0].coordinator?.state?.currentTrack?.albumArtUri;
 
-    else
-      return (
+      //Back office speaker variables
+      let backSpeakerName = this.state.data[1].coordinator?.roomName;
+      let backSpeakerArtist =
+        this.state.data[1].coordinator?.state?.currentTrack?.artist;
+      let backSpeakerTitle =
+        this.state.data[1].coordinator?.state?.currentTrack?.title;
+      let backSpeakerArt =
+        this.state.data[1].coordinator?.state?.currentTrack?.albumArtUri;
 
 
 
-        this.state.data).map((item) => (
-          <>
+          return (
             <div className=" text-gray-700 rounded-full items-center text-3xl ">
               <div className="bg-gradient-to-r from-green-400 to-blue-500  ">
                 <div className="text-4xl font-semibold">
-                <p key={item.uuid}>{item.uuid}</p>
-
+                  {frontSpeakerName}
+                  {frontSpeakerArtist}
+                  {frontSpeakerTitle}
+                  {frontSpeakerArt}
                 </div>
               </div>
             </div>
-          </>
-        ))
-
-
-  }
-
+          );
+          
+          }
 }
+}
+
 export { Sonos };
-
 /*
-
-
-return (
-  <parent>
-    <div className=" text-gray-700 rounded-full items-center text-3xl ">
-      <div className="bg-gradient-to-r from-green-400 to-blue-500  ">
-        <h1> Speaker - {sonosData[0].coordinator.roomName}</h1>
-        <div className="text-4xl font-semibold">
-          <h1>{sonosData[0].coordinator.state.currentTrack.title}</h1>
-        </div>
-        <h1>{sonosData[0].coordinator.state.currentTrack.artist}</h1>
-        <div classname="rounded-lg mx-auto items-center">
-          <img
-            src={
-              sonosData[0].coordinator.state.currentTrack.absoluteAlbumArtUri
-            }
-            alt=""
-            height="192"
-            width="192"
-          />
-        </div>
-      </div>
-    </div>
-  </parent>
-);
+   switchSpeaker(){
+      switch () {
+        case "backOffice":
+          return (
+            <div className=" text-gray-700 rounded-full items-center text-3xl ">
+              <div className="bg-gradient-to-r from-green-400 to-blue-500  ">
+                <div className="text-4xl font-semibold">
+                  {backSpeakerName}
+                  {backSpeakerArtist}
+                  {backSpeakerTitle}
+                  {backSpeakerArt}
+                </div>
+              </div>
+            </div>
+          );
+        case "frontOffice":
+          return (
+            <div className=" text-gray-700 rounded-full items-center text-3xl ">
+              <div className="bg-gradient-to-r from-green-400 to-blue-500  ">
+                <div className="text-4xl font-semibold">
+                  {frontSpeakerName}
+                  {frontSpeakerArtist}
+                  {frontSpeakerTitle}
+                  {frontSpeakerArt}
+                </div>
+              </div>
+            </div>
+          );
+          
+        default:
+          "frontOffice";
+      }
+    }
 
 */

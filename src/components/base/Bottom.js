@@ -1,5 +1,6 @@
 import Marquee from "../subcomponents/Marquee"
 
+
 export default function Bottom(props) {
     // Define props
     const elementType = props.elementType || 'marquee' // i.e 'marquee' | This should eventially use JS React Use State to be able to change on-fly
@@ -26,5 +27,7 @@ export default function Bottom(props) {
         default:
             return <div>No element selected</div>
     }
+
+    
 
 }
