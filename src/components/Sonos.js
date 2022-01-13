@@ -34,14 +34,15 @@ class Sonos extends React.Component {
       let frontSpeakerArt =
         this.state.data[0].coordinator?.state?.currentTrack?.albumArtUri;
 
-      //Back office speaker variables
-      let backSpeakerName = this.state.data[1].coordinator?.roomName;
-      let backSpeakerArtist =
-        this.state.data[1].coordinator?.state?.currentTrack?.artist;
-      let backSpeakerTitle =
-        this.state.data[1].coordinator?.state?.currentTrack?.title;
-      let backSpeakerArt =
-        this.state.data[1].coordinator?.state?.currentTrack?.albumArtUri;
+        // Commented out to fix no-unused-vars - @liamdoyle
+      // //Back office speaker variables
+      // let backSpeakerName = this.state.data[1].coordinator?.roomName;
+      // let backSpeakerArtist =
+      //   this.state.data[1].coordinator?.state?.currentTrack?.artist;
+      // let backSpeakerTitle =
+      //   this.state.data[1].coordinator?.state?.currentTrack?.title;
+      // let backSpeakerArt =
+      //   this.state.data[1].coordinator?.state?.currentTrack?.albumArtUri;
 
 
 
