@@ -47,13 +47,14 @@ class Sonos extends React.Component {
 
 
           return (
-            <div className=" text-gray-700 rounded-full items-center text-3xl ">
-              <div className="bg-gradient-to-r from-green-400 to-blue-500  ">
+            <div className=" rounded-full items-center text-3xl ">
+              <div className="">
                 <div className="text-4xl font-semibold">
                   {frontSpeakerName}
+                  <br />
                   {frontSpeakerArtist}
                   {frontSpeakerTitle}
-                  {frontSpeakerArt}
+                 
                 </div>
               </div>
             </div>
