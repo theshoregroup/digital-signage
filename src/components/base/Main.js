@@ -10,13 +10,15 @@ export default function MainComponent(props) {
             return (
                 <div className="h-full w-full">
                     <iframe
-                        className="h-full w-full"
+                      width="1200"
+                      height="675"
+                        className=""
                         src="https://www.youtube.com/embed/9Auq9mYxFEE?autohide=1&autoplay=1&cc_load_policy=1&mute=1"
                         title="YouTube video player"
-                        frameborder="0"
+                        frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen
-                        autoplay="True"
+                        allowFullScreen
+                        autoPlay="True"
 
 
                     />
@@ -24,12 +26,12 @@ export default function MainComponent(props) {
             );
         case 'right':
             return (
-                <div className="absolute h-screen w-screen">
+                <div className="h-screen w-screen">
                 </div>
             );
         default:
             return (
-                <div className="absolute h-screen w-screen">
+                <div className="h-screen w-screen f">
                 </div>
             );
     }
