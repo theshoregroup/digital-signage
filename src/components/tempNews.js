@@ -33,14 +33,18 @@ class News extends React.Component {
     if (this.state.loading) {
       return <Loader />
     }
+
+    else 
+    return (
+       this.state.data.articles).map((item) => (
+          <>
+          <marquee direction="left" behaviour="scroll">
+            <p key={item.title}>{item.title} </p>
+            </marquee>
+          </>
+        ))
+     
     
-    else return (
-      <div>
-       {this.state.data.length > 0 && this.state.data.articles.map((item)=> <h1>{item.title} </h1>)}
-
-
-      </div>
-    )
   }
 }
 
