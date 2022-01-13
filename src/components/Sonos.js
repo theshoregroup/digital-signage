@@ -52,9 +52,9 @@ class Sonos extends React.Component {
                 <div className="text-4xl font-semibold">
                   {frontSpeakerName}
                   <br />
-                  {frontSpeakerArtist}
+                  {frontSpeakerArtist} - 
                   {frontSpeakerTitle}
-                 
+                 <img src={frontSpeakerArt} alt="" height="192" width="192"/>
                 </div>
               </div>
             </div>
