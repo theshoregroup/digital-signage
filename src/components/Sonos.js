@@ -38,12 +38,14 @@ class Sonos extends React.Component {
 
 
 
-        this.state.data.data).map((item) => (
+        this.state.data).map((item) => (
           <>
             <div className=" text-gray-700 rounded-full items-center text-3xl ">
               <div className="bg-gradient-to-r from-green-400 to-blue-500  ">
-                <div className="text-4xl font-semibold"></div>
-                <h1> ADD SPECIFICS </h1>
+                <div className="text-4xl font-semibold">
+                <p key={item.uuid}>{item.uuid}</p>
+
+                </div>
               </div>
             </div>
           </>
