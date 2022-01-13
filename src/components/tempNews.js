@@ -34,17 +34,16 @@ class News extends React.Component {
       return <Loader />
     }
 
-    else 
-    return (
-       this.state.data.articles).map((item) => (
-          <>
-          <marquee direction="left" behaviour="scroll">
-            <p key={item.title}>{item.title} </p>
-            </marquee>
-          </>
-        ))
-     
-    
+    else
+      return (
+        // Disables ES-Lint warning about the use of <marquee>
+        // eslint-disable-next-line
+        <marquee className="space-x-2" scrollamount="10">
+          {this.state.data.articles.map((item) => (
+            <p className="inline text-2xl" key={item.key}>{item.title} </p>
+          ))}
+        </marquee>
+      );
   }
 }
 
