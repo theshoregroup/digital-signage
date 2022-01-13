@@ -6,25 +6,27 @@ export default function Bottom(props) {
     const elementContent = props.content || {
         // This is passed through to the subcomponent.
         // This is an example used for testing, remove for release.
-        'type': 'text',
-        'data': [
-            'Hello!',
-            'This is a marquee!',
-            'Each element is seperated.'
-        ]
+        'type': 'json',
+        'content': {
+            'provider': 'NewsAPI',
+            'feedUrl': 'https://newsapi.org/v2/top-headlines?country=gb&category=sports',
+            'schema': {
+                'to'
+            },
+            'apiKey': '1696bf49a11542e786afeb06b1540cf9'
+        }
     }
-
-    
-
 
     switch (elementType) {
         case 'marquee':
             // This will display ../functional/Marquee.js
             // elementContent should be passed through to this (refrenced above)
 
-            return <Marquee type={elementContent.type} content={elementContent.data} />
+            return <Marquee type={elementContent.type} content={elementContent.content} />
         default:
             return <div>No element selected</div>
     }
+
+    
 
 }

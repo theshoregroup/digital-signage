@@ -1,5 +1,5 @@
 // Imports
-import parser from "../functional/parser";
+import parser from "../functional/Parser";
 
 export default function Marquee(props) {
     // Available props
