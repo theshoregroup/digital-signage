@@ -15,6 +15,7 @@ import logo from "./images/shoreLogo.png";
 import { Sonos } from "./components/Sonos"
 import { Compost } from "./components/API"
 import News from "./components/tempNews";
+import ExcelPage from "./components/ExcelTest/ExcelTest";
 
 
 
@@ -50,7 +51,7 @@ function App() {
 
         {/* Main-Right Element */}
         <div className="col-span-3 row-span-3">
-          <Compost />
+         <ExcelPage/>
         </div>
 
         {/* Bottom-Right Element */}
