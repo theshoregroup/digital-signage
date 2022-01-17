@@ -47,12 +47,12 @@ function App() {
 
         {/* Main-Left */}
         <div className="col-span-6 row-span-4 row-start-2">
-        <Main state="left"/>
+        <Main state="right"/>
         </div>
 
         {/* Main-Right Element */}
         <div className="col-span-3 row-span-3">
-        <ExcelPage/>
+        <Compost/>
         </div>
 
         {/* Bottom-Right Element */}
