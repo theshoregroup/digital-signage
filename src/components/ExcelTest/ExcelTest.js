@@ -159,7 +159,7 @@ export default class ExcelPage extends Component {
             </Button>
           </Upload>
         </div>
-        <Table className="text-2xl"
+        <Table className="text-4xl"
             dataSource={this.state.rows}
             columns={columns}
             Table/>
