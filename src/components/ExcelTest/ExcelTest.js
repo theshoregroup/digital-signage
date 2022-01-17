@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Table, Button,  Row, Col, Upload } from "antd";
 import { Icon } from "@ant-design/compatible";
-import { ExcelRenderer } from "react-excel-renderer";
+import { ExcelRenderer, OutTable } from "react-excel-renderer";
 
 
 export default class ExcelPage extends Component {
@@ -132,7 +132,6 @@ export default class ExcelPage extends Component {
   };
 
   render() {
-
     const columns = this.state.columns.map((col) => {
       if (!col.editable) {
         return col;
@@ -140,10 +139,8 @@ export default class ExcelPage extends Component {
       return {
         ...col,
         onCell: (record) => ({
-          record,
-          dataIndex: col.dataIndex,
+
           title: col.title,
-          handleSave: this.handleSave,
         }),
       };
     });
@@ -162,10 +159,11 @@ export default class ExcelPage extends Component {
             </Button>
           </Upload>
         </div>
-          <Table className="text-2xl"
+        <Table className="text-2xl"
             dataSource={this.state.rows}
             columns={columns}
             Table/>
+
       </>
     );
   }

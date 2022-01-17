@@ -16,7 +16,6 @@ import { Sonos } from "./components/Sonos"
 import { Compost } from "./components/API"
 import News from "./components/tempNews";
 import ExcelPage from "./components/ExcelTest/ExcelTest";
-import MainComponent from "./components/base/Main";
 
 
 
@@ -36,7 +35,7 @@ function App() {
       <div className="h-screen w-screen grid grid-cols-9 grid-rows-6 gap-2 p-5 max-w-screen max-h-screen ">
         {/* Header */}
         <div className="col-span-7 row-start-1">
-          <Header location="Brighton" />
+          <Header locatiom="Brighton" />
 
 
         </div>
@@ -48,7 +47,7 @@ function App() {
 
         {/* Main-Left */}
         <div className="col-span-6 row-span-4 row-start-2">
-         <Main state="left"/>
+        <Main state="left"/>
         </div>
 
         {/* Main-Right Element */}
