@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from "react";
-
 import defaultWeatherData from "../../data/defaultWeatherData";
-
 
 export default function Header() {
   // Define date
   const [currentDate, setDateState] = useState(new Date());
-  const [currentWeather, setWeatherState] = useState(defaultWeatherData)
-
-  
- 
+  const [currentWeather, setWeatherState] = useState(defaultWeatherData);
 
   // Set UseEffect to update every 1000ms (1s)
   useEffect(() => {
@@ -22,8 +17,8 @@ export default function Header() {
       console.log("json", responseJson);
       setWeatherState(responseJson);
     };
-    setInterval(getWeatherFromApi, 10000)
-  }, [])
+    setInterval(getWeatherFromApi, 10000);
+  }, []);
 
   return (
     <div className="h-full w-full flex justify-between">
@@ -47,7 +42,7 @@ export default function Header() {
         </span>
         <span className="text-2xl ">
           <img src={currentWeather.current.condition.icon} alt="" />
-          {currentWeather.location.name} -{" "}
+          Today -{" "}
           {currentWeather.current.condition.text}
         </span>
       </div>
@@ -60,7 +55,7 @@ export default function Header() {
             src={currentWeather.forecast.forecastday[1].day.condition.icon}
             alt="icon"
           />
-          {currentWeather.location.name} -{" "}
+          Tomorrow -{" "}
           {currentWeather.forecast.forecastday[1].day.condition.text}
         </span>
       </div>
@@ -73,11 +68,10 @@ export default function Header() {
             src={currentWeather.forecast.forecastday[2].day.condition.icon}
             alt="icon"
           />
-          {currentWeather.location.name} -{" "}
+          {currentWeather.forecast.forecastday[2].date} -{" "}
           {currentWeather.forecast.forecastday[2].day.condition.text}
         </span>
       </div>
-      
     </div>
   );
 }

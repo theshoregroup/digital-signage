@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { Table, Button, Popconfirm, Row, Col,  Upload } from "antd";
-import { Icon } from '@ant-design/compatible';
+import { Table, Button,  Row, Col, Upload } from "antd";
+import { Icon } from "@ant-design/compatible";
 import { ExcelRenderer } from "react-excel-renderer";
-import { EditableFormRow, EditableCell } from "./editable";
+
 
 export default class ExcelPage extends Component {
   constructor(props) {
@@ -13,51 +13,29 @@ export default class ExcelPage extends Component {
       errorMessage: null,
       columns: [
         {
-          title: "NAME",
-          dataIndex: "name",
-          editable: true
+          title: "DURATION",
+          dataIndex: "duration",
+          editable: true,
         },
         {
-          title: "AGE",
-          dataIndex: "age",
-          editable: true
+          title: "CLIENT NAME",
+          dataIndex: "clientName",
+          editable: true,
         },
         {
-          title: "GENDER",
-          dataIndex: "gender",
-          editable: true
+          title: "SITE NAME",
+          dataIndex: "siteName",
+          editable: true,
         },
         {
-          title: "Action",
-          dataIndex: "action",
-          render: (text, record) =>
-            this.state.rows.length >= 1 ? (
-              <Popconfirm
-                title="Sure to delete?"
-                onConfirm={() => this.handleDelete(record.key)}
-              >
-                <Icon
-                  type="delete"
-                  theme="filled"
-                  style={{ color: "red", fontSize: "20px" }}
-                />
-              </Popconfirm>
-            ) : null
-        }
-      ]
+          title: "REQUIREMENT",
+          dataIndex: "requirement",
+          editable: true,
+        },
+      ],
     };
   }
 
-  handleSave = row => {
-    const newData = [...this.state.rows];
-    const index = newData.findIndex(item => row.key === item.key);
-    const item = newData[index];
-    newData.splice(index, 1, {
-      ...item,
-      ...row
-    });
-    this.setState({ rows: newData });
-  };
 
   checkFile(file) {
     let errorMessage = "";
@@ -80,12 +58,12 @@ export default class ExcelPage extends Component {
     return errorMessage;
   }
 
-  fileHandler = fileList => {
+  fileHandler = (fileList) => {
     console.log("fileList", fileList);
     let fileObj = fileList;
     if (!fileObj) {
       this.setState({
-        errorMessage: "No file uploaded!"
+        errorMessage: "No file uploaded!",
       });
       return false;
     }
@@ -98,7 +76,7 @@ export default class ExcelPage extends Component {
       )
     ) {
       this.setState({
-        errorMessage: "Unknown file format. Only Excel files are uploaded!"
+        errorMessage: "Unknown file format. Only Excel files are uploaded!",
       });
       return false;
     }
@@ -108,27 +86,28 @@ export default class ExcelPage extends Component {
         console.log(err);
       } else {
         let newRows = [];
-        // eslint-disable-next-line array-callback-return
         resp.rows.slice(1).map((row, index) => {
           if (row && row !== "undefined") {
             newRows.push({
               key: index,
-              name: row[0],
-              age: row[1],
-              gender: row[2]
+              duration: row[0],
+              clientName: row[1],
+              siteName: row[2],
+              requirement: row[6],
+              
             });
           }
         });
         if (newRows.length === 0) {
           this.setState({
-            errorMessage: "No data found in file!"
+            errorMessage: "No data found in file!",
           });
           return false;
         } else {
           this.setState({
             cols: resp.cols,
             rows: newRows,
-            errorMessage: null
+            errorMessage: null,
           });
         }
       }
@@ -136,109 +115,42 @@ export default class ExcelPage extends Component {
     return false;
   };
 
-  handleSubmit = async () => {
-    console.log("submitting: ", this.state.rows);
-    //submit to API
-    //if successful, banigate and clear the data
-    //this.setState({ rows: [] })
-  };
 
-  handleDelete = key => {
-    const rows = [...this.state.rows];
-    this.setState({ rows: rows.filter(item => item.key !== key) });
-  };
+ 
   handleAdd = () => {
     const { count, rows } = this.state;
     const newData = {
       key: count,
       name: "User's name",
       age: "22",
-      gender: "Female"
+      gender1: "Female",
     };
     this.setState({
       rows: [newData, ...rows],
-      count: count + 1
+      count: count + 1,
     });
   };
 
   render() {
-    const components = {
-      body: {
-        row: EditableFormRow,
-        cell: EditableCell
-      }
-    };
-    const columns = this.state.columns.map(col => {
+
+    const columns = this.state.columns.map((col) => {
       if (!col.editable) {
         return col;
       }
       return {
         ...col,
-        onCell: record => ({
+        onCell: (record) => ({
           record,
-          editable: col.editable,
           dataIndex: col.dataIndex,
           title: col.title,
-          handleSave: this.handleSave
-        })
+          handleSave: this.handleSave,
+        }),
       };
     });
     return (
       <>
-        <h1>Importing Excel Component</h1>
-        <Row gutter={16}>
-          <Col
-            span={8}
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              marginBottom: "5%"
-            }}
-          >
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <div className="page-title">Upload User Data</div>
-            </div>
-          </Col>
-          <Col span={8}>
-            <a
-              href="https://res.cloudinary.com/bryta/raw/upload/v1562751445/Sample_Excel_Sheet_muxx6s.xlsx"
-              target="_blank"
-              rel="noopener noreferrer"
-              download
-            >
-              Sample excel sheet
-            </a>
-          </Col>
-          <Col
-            span={8}
-            align="right"
-            style={{ display: "flex", justifyContent: "space-between" }}
-          >
-            {this.state.rows.length > 0 && (
-              <>
-                <Button
-                  onClick={this.handleAdd}
-                  size="large"
-                  type="info"
-                  style={{ marginBottom: 16 }}
-                >
-                  <Icon type="plus" />
-                  Add a row
-                </Button>{" "}
-                <Button
-                  onClick={this.handleSubmit}
-                  size="large"
-                  type="primary"
-                  style={{ marginBottom: 16, marginLeft: 10 }}
-                >
-                  Submit Data
-                </Button>
-              </>
-            )}
-          </Col>
-        </Row>
-        <div>
+    
+        <div className="text-red-500">
           <Upload
             name="file"
             beforeUpload={this.fileHandler}
@@ -246,18 +158,14 @@ export default class ExcelPage extends Component {
             multiple={false}
           >
             <Button>
-              <Icon type="upload" /> Click to Upload Excel File
+              <Icon type="upload" />
             </Button>
           </Upload>
         </div>
-        <div style={{ marginTop: 20 }}>
-          <Table
-            components={components}
-            rowClassName={() => "editable-row"}
+          <Table className="text-2xl"
             dataSource={this.state.rows}
             columns={columns}
-          />
-        </div>
+            Table/>
       </>
     );
   }
