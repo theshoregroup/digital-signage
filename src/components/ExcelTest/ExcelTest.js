@@ -115,6 +115,7 @@ export default class ExcelPage extends Component {
     return false;
   };
 
+  
 
  
   handleAdd = () => {
@@ -145,6 +146,8 @@ export default class ExcelPage extends Component {
       };
     });
     return (
+     
+   
       <>
     
         <div className="text-red-500">
@@ -159,12 +162,17 @@ export default class ExcelPage extends Component {
             </Button>
           </Upload>
         </div>
+        <h1></h1>
         <Table className="text-4xl"
             dataSource={this.state.rows}
             columns={columns}
+            
             Table/>
+      
+           
 
       </>
+      
     );
   }
 }
