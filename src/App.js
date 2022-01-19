@@ -1,7 +1,7 @@
 // Old import statements to be brought over to new elements
 // import Weather from "./components/Weather";
 // import Clock from "./components/Clock";
-// //import "./App.css";
+// import "./App.css";
 // import logo from "./images/shoreLogo.png";
 // import News from "./components/News";
 // import RenderView from "./components/RenderView";
@@ -12,7 +12,6 @@ import Main from "./components/base/Main";
 import Header from "./components/base/Header"
 // import Bottom from "./components/base/Bottom";
 import logo from "./images/shoreLogo.png";
-import { Sonos } from "./components/Sonos"
 import { Compost } from "./components/API"
 import News from "./components/tempNews";
 
@@ -30,21 +29,19 @@ function App() {
   return (
     <>
       {/* Main content wrapper */}
-      <div className="h-screen w-screen grid grid-cols-9 grid-rows-6 gap-2 p-5 max-w-screen max-h-screen ">
+      <div className="h-screen w-screen grid grid-cols-9 grid-rows-9 gap-2 p-5 max-w-screen max-h-screen ">
         {/* Header */}
         <div className="col-span-7 row-start-1">
-          <Header locatiom="Brighton" />
-
-
+          <Header location="Brighton" />
         </div>
 
         {/*LOGO*/}
-        <div className="col-span-2 ">
+        <div className="col-span-2 col-start-8 row-start-1">
           <img src={logo} alt="logo" height="128" width="300"></img>
         </div>
 
         {/* Main-Left */}
-        <div className="col-span-6 row-span-4 row-start-2">
+        <div className="col-span-6 row-span-7 row-start-2">
           <Main state="left" />
         </div>
 
@@ -53,12 +50,7 @@ function App() {
           <Compost />
         </div>
 
-        {/* Bottom-Right Element */}
-        <div className="col-span-3 row-start-5 row-span-2">
-          <Sonos />
-        </div>
-
-        {/*Bottom-left element*/}
+        {/*Bottom element*/}
         <div className="col-start-1 col-span-6" >
           <News />
         </div>
