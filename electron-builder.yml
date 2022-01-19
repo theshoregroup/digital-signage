@@ -6,6 +6,15 @@ productName: "Digital Signage"
 appId: "com.theshoregroup.digital-signage"
 artifactName: '${productName}-${version}-${os}-${arch}.${ext}'
 copyright: "Copyright © 2021 The Shore Group"
+publish: [
+  {
+    provider: "github",
+    owner: "theshoregroup",
+    repo: "digital-signage",
+    private: false,
+    releaseType: "release"
+  }
+]
 
 mac:
   target: "default"
@@ -18,7 +27,7 @@ linux:
   executableName: '${appId}'
   target: "AppImage"
 
-# // Publish to github
+# Publish to github
 # publish:
 #   provider: github
 #   owner: theshoregroup
