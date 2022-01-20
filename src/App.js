@@ -12,7 +12,7 @@ import Main from "./components/base/Main";
 import Header from "./components/base/Header"
 // import Bottom from "./components/base/Bottom";
 import logo from "./images/shoreLogo.png";
-import { Sonos } from "./components/Sonos"
+
 import { Compost } from "./components/API"
 import News from "./components/tempNews";
 import ExcelPage from "./components/ExcelTest/ExcelTest";
@@ -58,7 +58,7 @@ function App() {
 
         {/* Bottom-Right Element */}
         <div className="col-span-3 row-start-5 row-span-2">
-          <Sonos />
+         
         </div>
 
         {/*Bottom-left element*/}
