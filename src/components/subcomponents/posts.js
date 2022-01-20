@@ -22,14 +22,15 @@ export const Anim = () => {
     React.useEffect(() => {
       const intervalId = setInterval(() =>
         setIndex(index => index + 1),
-        10000 // every 3 seconds
+        10000 // every 10 seconds
       );
       return () => clearTimeout(intervalId);
     }, []);
   
     return (
-      <h1>
-        <TextTransition
+      <h1 className=" text-center"> 
+      <div className="font-semibold text-6xl"> TITLE</div>
+        <TextTransition className="text-3xl"
           text={ post[index % post.length] }
           springConfig={ presets.wobbly }
         />
