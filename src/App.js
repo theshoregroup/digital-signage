@@ -16,6 +16,7 @@ import { Sonos } from "./components/Sonos"
 import { Compost } from "./components/API"
 import News from "./components/tempNews";
 import ExcelPage from "./components/ExcelTest/ExcelTest";
+import {Anim} from "./components/subcomponents/posts";
 
 
 
@@ -47,12 +48,12 @@ function App() {
 
         {/* Main-Left */}
         <div className="col-span-6 row-span-4 row-start-2">
-        <Main state="right"/>
+        <Main state="left"/>
         </div>
 
         {/* Main-Right Element */}
         <div className="col-span-3 row-span-3">
-        <Compost/>
+        <Anim/>
         </div>
 
         {/* Bottom-Right Element */}
@@ -61,7 +62,7 @@ function App() {
         </div>
 
         {/*Bottom-left element*/}
-        <div className="col-start-1 col-span-6" >
+        <div className="col-start-1 col-span-6 text-3xl" >
           <News />
         </div>
 
