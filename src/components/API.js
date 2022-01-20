@@ -27,46 +27,17 @@ class Compost extends React.Component {
     if (this.state.loading) {
       return <Loader />;
     } else {
-
-      
-   
-      let body0 = this.state.data.data[0].body;
-      let title0 = this.state.data.data[0].title;
-      let posted_By0 = this.state.data.data[0].posted_by;
-      //
- 
-      let body1 = this.state.data.data[1].body;
-      let title1 = this.state.data.data[1].title;
-      let posted_By1 = this.state.data.data[1].posted_by;
-      //
- 
-      let body2 = this.state.data.data[2].body;
-      let title2 = this.state.data.data[2].title;
-      let posted_By2 = this.state.data.data[2].posted_by;
-      //
- 
-      let body3 = this.state.data.data[3].body;
-      let title3 = this.state.data.data[3].title;
-      let posted_By3 = this.state.data.data[3].posted_by;
-      //
-    
-      let body4 = this.state.data.data[4].body;
-      let title4 = this.state.data.data[4].title;
-      let posted_By4 = this.state.data.data[4].posted_by;
-      //
-   
-      let body5 = this.state.data.data[5].body;
-      let title5 = this.state.data.data[5].title;
-      let posted_By5 = this.state.data.data[5].posted_by;
-      
-      
-
+      let specificBody = this.state.data.data.map((body) => {
+        return body.availability
+      });
+      let specificTitle = this.state.data.data[1].title;
+      let specificPosted_By = this.state.data.data[1].posted_by;
 
       return (
         <div className="text-center">
-          <div className="font-semibold text-4xl">{title2}</div>
-          <div className="text-2xl"> {body2}</div>
-          <div className="text-3xl font-semibold">-{posted_By2}</div>
+          <div className="font-semibold text-4xl animate-fade-in-up">{specificTitle}</div>
+          <div className="text-2xl animate-fade-in-down"> {specificBody}</div>
+          <div className="text-3xl font-semibold">-{specificPosted_By}</div>
         </div>
       );
       }
