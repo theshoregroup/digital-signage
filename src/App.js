@@ -9,17 +9,14 @@
 
 // Imports for components
 import Main from "./components/base/Main";
-import Header from "./components/base/Header"
+import Header from "./components/base/Header";
 // import Bottom from "./components/base/Bottom";
 import logo from "./images/shoreLogo.png";
 
-import { Compost } from "./components/API"
+import { Compost } from "./components/API";
 import News from "./components/tempNews";
 import ExcelPage from "./components/ExcelTest/ExcelTest";
-import {Anim} from "./components/subcomponents/posts";
-
-
-
+import { Anim } from "./components/subcomponents/posts";
 
 // What this file does
 // This is the main view of the App.
@@ -28,6 +25,7 @@ import {Anim} from "./components/subcomponents/posts";
 // Set background *not yet implmented*
 // Check to see if app is connected to backend *not yet implmented*
 // Display other views (like setup / device Health / device Status / device Health) if various perameters are met *not yet implmented*
+let SalesReport = "123,000"
 
 function App() {
   return (
@@ -37,8 +35,6 @@ function App() {
         {/* Header */}
         <div className="col-span-7 row-start-1">
           <Header locatiom="Brighton" />
-
-
         </div>
 
         {/*LOGO*/}
@@ -48,25 +44,24 @@ function App() {
 
         {/* Main-Left */}
         <div className="col-span-6 row-span-4 row-start-2">
-        <Main state="left"/>
+          <Main state="left" />
         </div>
 
         {/* Main-Right Element */}
-        <div className="col-span-3 row-span-3">
-        <Anim/>
-        </div>
-
-        {/* Bottom-Right Element */}
-        <div className="col-span-3 row-start-5 row-span-2">
-         
+        <div className="col-span-3 row-span-3 ">
+          <Compost />
         </div>
 
         {/*Bottom-left element*/}
-        <div className="col-start-1 col-span-6 text-3xl" >
+        <div className="col-start-1 col-span-6 text-3xl ">
           <News />
         </div>
 
-
+        {/* Bottom-Right Element */}
+        <div className="col-span-3 row-span-1  text-center col-start-7">
+          <h1 className="font-semibold text-6xl">£{SalesReport}</h1>
+          <h2 className="text-3xl">Sales this week</h2>
+        </div>
       </div>
     </>
   );
