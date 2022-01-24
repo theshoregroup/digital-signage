@@ -12,13 +12,14 @@ class Sonos extends React.Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:5005/zones").then((res) => {
-      let data = res.data;
-      console.log(data);
-
-      this.setState({ data, loading: false });
-      console.log(data);
-    });
+    this.interval = setInterval(() => {
+      axios.get("http://localhost:5005/zones").then((res) => {
+        let data = res.data;
+        console.log(data);
+        this.setState({ data, loading: false });
+        console.log(data);
+      });
+    }, 5000);
   }
 
   render() {
@@ -34,7 +35,7 @@ class Sonos extends React.Component {
       let frontSpeakerArt =
         this.state.data[0].coordinator?.state?.currentTrack?.albumArtUri;
 
-        // Commented out to fix no-unused-vars - @liamdoyle
+      // Commented out to fix no-unused-vars - @liamdoyle
       // //Back office speaker variables
       // let backSpeakerName = this.state.data[1].coordinator?.roomName;
       // let backSpeakerArtist =
@@ -44,24 +45,20 @@ class Sonos extends React.Component {
       // let backSpeakerArt =
       //   this.state.data[1].coordinator?.state?.currentTrack?.albumArtUri;
 
-
-
-          return (
-            <div className=" rounded-full items-center text-3xl ">
-              <div className="">
-                <div className="text-4xl font-semibold">
-                  {frontSpeakerName}
-                  <br />
-                  {frontSpeakerArtist} - 
-                  {frontSpeakerTitle}
-                 <img src={frontSpeakerArt} alt="" height="192" width="192"/>
-                </div>
-              </div>
+      return (
+        <div className=" rounded-full items-center text-3xl ">
+          <div className="">
+            <div className="text-4xl font-semibold">
+              {frontSpeakerName}
+              <br />
+              {frontSpeakerArtist} -{frontSpeakerTitle}
+              <img src={frontSpeakerArt} alt="" height="192" width="192" />
             </div>
-          );
-          
-          }
-}
+          </div>
+        </div>
+      );
+    }
+  }
 }
 
 export { Sonos };

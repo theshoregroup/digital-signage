@@ -3,6 +3,8 @@
 // 2. right - means it will be rendered in right side of the screen
 // default - means it will be rendered as the largest element overtop of everything else
 
+
+
 export default function MainComponent(props) {
     // Currently just a switch statement to choose what 'version' of the component to render
     switch (props.state) {
@@ -26,7 +28,8 @@ export default function MainComponent(props) {
             );
         case 'right':
             return (
-                <div className="h-screen w-screen">
+                <div className="h-full w-full">
+                 
                 </div>
             );
         default:

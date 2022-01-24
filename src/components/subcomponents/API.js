@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
-import { Loader } from "./functional/Loader";
+import { Loader } from "../functional/Loader";
+
 
 class Compost extends React.Component {
   constructor(props) {
@@ -27,14 +28,22 @@ class Compost extends React.Component {
     if (this.state.loading) {
       return <Loader />;
     } else {
-      let specificBody = this.state.data.data[1].body;
-      let specificTitle = this.state.data.data[1].title;
-      let specificPosted_By = this.state.data.data[1].posted_by;
+      function Index(index) {
+        for (index = 0; index < 8; index++) return index;
+        console.log(index);
+      }
+      setInterval(Index, 5000);
+
+      let specificBody = this.state.data.data[0].body; //loop through different elements of array on timer
+      let specificTitle = this.state.data.data[0].title;
+      let specificPosted_By = this.state.data.data[0].posted_by;
 
       return (
         <div className="text-center">
-          <div className="font-semibold text-4xl">{specificTitle}</div>
-          <div className="text-2xl"> {specificBody}</div>
+          <div className="font-semibold text-4xl animate-fade-in-up">
+            {specificTitle}
+          </div>
+          <div className="text-2xl animate-fade-in-down"> {specificBody}</div>
           <div className="text-3xl font-semibold">-{specificPosted_By}</div>
         </div>
       );

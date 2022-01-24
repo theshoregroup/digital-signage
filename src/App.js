@@ -1,7 +1,7 @@
 // Old import statements to be brought over to new elements
 // import Weather from "./components/Weather";
 // import Clock from "./components/Clock";
-// import "./App.css";
+// //import "./App.css";
 // import logo from "./images/shoreLogo.png";
 // import News from "./components/News";
 // import RenderView from "./components/RenderView";
@@ -9,13 +9,14 @@
 
 // Imports for components
 import Main from "./components/base/Main";
-import Header from "./components/base/Header"
+import Header from "./components/base/Header";
 // import Bottom from "./components/base/Bottom";
 import logo from "./images/shoreLogo.png";
-import { Compost } from "./components/API"
-import News from "./components/tempNews";
 
+import News from "./components/subcomponents/tempNews";
 
+import { Anim } from "./components/subcomponents/posts";
+import SalesReport from "./components/subcomponents/SalesReport";
 
 // What this file does
 // This is the main view of the App.
@@ -29,33 +30,40 @@ function App() {
   return (
     <>
       {/* Main content wrapper */}
-      <div className="h-screen w-screen grid grid-cols-9 grid-rows-9 gap-2 p-5 max-w-screen max-h-screen ">
+      <div className="h-screen w-screen grid grid-cols-9 grid-rows-9 max-w-screen max-h-screen bg-gradient-to-l from-gray-900  to-black">
         {/* Header */}
-        <div className="col-span-7 row-start-1">
+        <div className="col-span-6 row-start-1 p-4 text-white font-display">
           <Header location="Brighton" />
         </div>
 
+        {/*FILLER*/}
+        <div className="col-span-1 " />
+
         {/*LOGO*/}
-        <div className="col-span-2 col-start-8 row-start-1">
-          <img src={logo} alt="logo" height="128" width="300"></img>
+        <div className="col-span-3 col-start-8 row-span-2  ">
+          <img src={logo} alt="logo" height="220" width="220"></img>
         </div>
 
         {/* Main-Left */}
-        <div className="col-span-6 row-span-7 row-start-2">
+        <div className="col-span-6 row-span-4 row-start-2 p-4">
           <Main state="left" />
         </div>
 
         {/* Main-Right Element */}
-        <div className="col-span-3 row-span-3">
-          <Compost />
+        <div className="col-span-3 row-start-3 p-4 text-center text-2xl text-white font-display">
+          <h1>-</h1>
+          <Anim />
         </div>
 
-        {/*Bottom element*/}
-        <div className="col-start-1 col-span-6" >
+        {/*Bottom-left element*/}
+        <div className="col-start-1 col-span-6 text-3xl p-5 text-white font-display ">
           <News />
         </div>
 
-
+        {/* Bottom-Right Element */}
+        <div className=" items-center col-start-8 row-start-6 p-5 text-white font-display">
+          <SalesReport />
+        </div>
       </div>
     </>
   );

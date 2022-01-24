@@ -1,9 +1,9 @@
 import axios from "axios";
-import { Loader } from "./functional/Loader"
+import { Loader } from "../functional/Loader";
 import React from "react";
 
 
-
+let Source = "News" //Pull from API
 
 class News extends React.Component {
   constructor(props) {
@@ -29,6 +29,7 @@ class News extends React.Component {
       });
   }
 
+
   render() {
     if (this.state.loading) {
       return <Loader />
@@ -36,13 +37,17 @@ class News extends React.Component {
 
     else
       return (
-        // Disables ES-Lint warning about the use of <marquee>
-        // eslint-disable-next-line
+   
+        <div>
+        <h1>{Source} </h1>
+        
+        {/* eslint-disable-next-line jsx-a11y/no-distracting-elements*/}
         <marquee className="space-x-2" scrollamount="10">
           {this.state.data.articles.map((item) => (
-            <p className="inline text-2xl" key={item.key}>{item.title} </p>
+            <p className="inline text-5xl" key={item.key}>{item.title} </p>
           ))}
         </marquee>
+        </div>
       );
   }
 }
