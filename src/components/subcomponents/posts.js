@@ -1,39 +1,37 @@
 //ANIMATION TEST
-import React                       from "react";
+import React from "react";
 import TextTransition, { presets } from "react-text-transition";
 
 const post = [
-
-    "The Big news this week coming from Chris Ransom with the Winvic purchase order confirmation. This is potentially an enormous win for the group, so fair play to Chris with the support of Will for getting this one over the line. Chloe May and Adam Miller have come back with strong figures, Lola has received loads of orders this week and Dan Branch has received some positive news with regards to a new huge project with McLaren. Ross Donnelly has done a fantastic job with the help of Will in gaining us access to the Osbourne PSL, and I’m led to believe that Ian and Will have some positive meetings coming up with both Kier and Bloor Homes, so on the whole I’m really pleased.",
-  
-    "Feedback from Dan and the team is that business levels remain very positive and we’re predicting a very busy year ahead. The challenges will remain the lack of labour, but the team are doing their best and it’s important that the whole group continue to support the retail division. All worker referrals are very welcome, so if anyone has any family or friends looking for additional work please let the retail team know. ",
-
-    "Fantastic week for team with the news that we have won an additional 2 Data Centre projects with T Clarke. In addition we have been asked to tender for one of Overbury’s largest projects in London, so I can’t be any happier with progress.",
-
-    "Chloe P looks like she’s going to have a very positive start to the week with one of her clients potentially taking on two of her candidates. Ross looks like he’s finally got one of his retained search assignments finally over the line, and the pipe line is looking very strong. ,",
-  
-    "Back office, Resourcing, and compliance teams as always have been brilliant this week, and big thanks to Lily Pryke who is currently doing the work of 2 if not 3 people. ",
+  "The new software at Boost is now fully operational and delivering real benefits to us and to operatives. This includes the operative portal and on-line signing, which should be fully live in the next couple of weeks. Numbers outside of The Shore Group are very strong at the moment, and improving each week, which is very encouraging.  Great work Eileen, Steve, Andy and Team.",
+  "We now have a significant amount work formally allocated for 2022, and are working hard to secure staff to fill the roles – there is further potential for additional work, if we can secure more retail operatives! This year we will be working with most of the major retailers,",
+  "The team are already ahead of budget, with a strong start to the year from Overbury, Loughtons and GBE among others, and the activity levels are clearly producing results – good work Josh and team!",
+  "The office is looking better, and will continue to look better in the coming weeks – hopefully we can all take pride in our improving HQ. The results and client wins look encouraging -  a proper team effort. ",
+  "London is still looking very strong with great results coming from the Data Centre projects, and new client wins.",
+  "Client wins keep coming from Winvic and Kier, and large numbers of PSLs being completed for Cala, Blanchard Wells and ISG. Marti making strides forward north of the border. ",
+  "Alan and the team are very busy pricing a number of new jobs, in addition to the 2 Data Centres already secured. At the last count this was 5, but we’re are getting new enquiries almost daily, which is fantastic. Massive welcome to Mihaela who joins the team this week!",
+  "We’re invoicing clients this week, and the pipeline looks strong for the remainder of Q1, and into Q2 – watch this space (and the sales report!)",
 ];
 
-
 export const Anim = () => {
-    const [index, setIndex] = React.useState(0);
-  
-    React.useEffect(() => {
-      const intervalId = setInterval(() =>
-        setIndex(index => index + 1),
-        10000 // every 10 seconds
-      );
-      return () => clearTimeout(intervalId);
-    }, []);
-  
-    return (
-      <h1 className=" text-center"> 
-      <div className="font-semibold text-6xl"> TITLE</div>
-        <TextTransition className="text-3xl"
-          text={ post[index % post.length] }
-          springConfig={ presets.wobbly }
-        />
-      </h1>
+  const [index, setIndex] = React.useState(0);
+
+  React.useEffect(() => {
+    const intervalId = setInterval(
+      () => setIndex((index) => index + 1),
+      10000 // every 10 seconds
     );
-  };
+    return () => clearTimeout(intervalId);
+  }, []);
+
+  return (
+    <h1 className=" text-center">
+    
+      <TextTransition
+        className="text-3xl"
+        text={post[index % post.length]}
+        springConfig={presets.wobbly}
+      />
+    </h1>
+  );
+};

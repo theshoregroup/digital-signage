@@ -1,7 +1,7 @@
-
 import React from "react";
 import axios from "axios";
 import { Loader } from "./functional/Loader";
+
 
 class Compost extends React.Component {
   constructor(props) {
@@ -28,11 +28,15 @@ class Compost extends React.Component {
     if (this.state.loading) {
       return <Loader />;
     } else {
-      let index = 0;
+      function Index(index) {
+        for (index = 0; index < 8; index++) return index;
+        console.log(index);
+      }
+      setInterval(Index, 5000);
 
-      let specificBody = this.state.data.data[index].body; //loop through different elements of array on timer
-      let specificTitle = this.state.data.data[index].title;
-      let specificPosted_By = this.state.data.data[index].posted_by;
+      let specificBody = this.state.data.data[0].body; //loop through different elements of array on timer
+      let specificTitle = this.state.data.data[0].title;
+      let specificPosted_By = this.state.data.data[0].posted_by;
 
       return (
         <div className="text-center">

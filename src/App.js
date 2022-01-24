@@ -12,7 +12,7 @@ import Main from "./components/base/Main";
 import Header from "./components/base/Header";
 // import Bottom from "./components/base/Bottom";
 import logo from "./images/shoreLogo.png";
-
+import { Index } from "./components/subcomponents/Index";
 import { Compost } from "./components/API";
 import News from "./components/tempNews";
 import ExcelPage from "./components/ExcelTest/ExcelTest";
@@ -34,12 +34,12 @@ function App() {
       {/* Main content wrapper */}
       <div className="h-screen w-screen grid grid-cols-9 grid-rows-9 gap-2 p-5 max-w-screen max-h-screen ">
         {/* Header */}
-        <div className="col-span-7 row-start-1">
+        <div className="col-span-6 row-start-1">
           <Header location="Brighton" />
         </div>
 
         {/*LOGO*/}
-        <div className="col-span-2  ">
+        <div className="col-span-2 col-start-8  ">
           <img src={logo} alt="logo" height="192" width="192"></img>
         </div>
 
@@ -50,7 +50,7 @@ function App() {
 
         {/* Main-Right Element */}
         <div className="col-span-3 row-start-3">
-         <Compost/>
+         <Anim/>
         </div>
 
         {/*Bottom-left element*/}
