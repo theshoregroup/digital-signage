@@ -2,6 +2,7 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
   darkMode: "class", // or 'media' or 'class'
   theme: {
+
     fontFamily: {
       mono: [
         "IBM Plex Mono",
@@ -13,6 +14,7 @@ module.exports = {
       ],
       sans: ["IBM Plex Sans", "Helvetica Neue", "Arial", "sans-serif"],
       serif: ["IBM Plex Serif", "Georgia", "Times", "serif"],
+      display : ["Bahnschrift"]
     },
     extend: {
       keyframes: {

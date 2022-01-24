@@ -32,36 +32,40 @@ function App() {
   return (
     <>
       {/* Main content wrapper */}
-      <div className="h-screen w-screen grid grid-cols-9 grid-rows-9 gap-2 p-5 max-w-screen max-h-screen ">
+      <div className="h-screen w-screen grid grid-cols-9 grid-rows-9 max-w-screen max-h-screen bg-gradient-to-l from-gray-900  to-black">
         {/* Header */}
-        <div className="col-span-6 row-start-1">
+        <div className="col-span-6 row-start-1 p-4 text-white font-display">
           <Header location="Brighton" />
         </div>
 
+      {/*FILLER*/}
+        <div className="col-span-1 "/>
+
         {/*LOGO*/}
-        <div className="col-span-2 col-start-8  ">
-          <img src={logo} alt="logo" height="192" width="192"></img>
+        <div className="col-span-3 col-start-8 row-span-2  ">
+          <img src={logo} alt="logo" height="220" width="220"></img>
         </div>
 
         {/* Main-Left */}
-        <div className="col-span-6 row-span-4 row-start-2">
+        <div className="col-span-6 row-span-4 row-start-2 p-4">
           <Main state="left" />
         </div>
 
         {/* Main-Right Element */}
-        <div className="col-span-3 row-start-3">
+        <div className="col-span-3 row-start-3 p-4 text-center text-2xl text-white font-display">
+          <h1>-</h1>
          <Anim/>
         </div>
 
         {/*Bottom-left element*/}
-        <div className="col-start-1 col-span-6 text-3xl ">
+        <div className="col-start-1 col-span-6 text-3xl p-5 text-white font-display ">
           <News />
         </div>
 
         {/* Bottom-Right Element */}
-        <div className=" text-center col-start-8 row-start-6">
-          <h1 className="font-semibold text-6xl">£{SalesReport}</h1>
-          <h2 className="text-3xl">Sales this week</h2>
+        <div className=" text-center col-start-8 row-start-6 p-5 text-white font-display">
+          <h1 className="font-semibold text-6xl ">£{SalesReport}</h1>
+          <h2 className="text-2xl">Sales this week</h2>
         </div>
       </div>
     </>
