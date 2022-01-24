@@ -3,7 +3,7 @@
   "description": "A powerful Digital Signage solution, built with React, Electron & TailwindCSS",
   "repository": {
     "type": "git",
-    "url": "https://github.com/theshoregroup/digital-signage.git"
+    "url": "https://github.com/theshoregroup/digital-signage"
   },
   "author": {
     "name": "The Shore Group",
@@ -26,7 +26,7 @@
     "build:react": "react-scripts build",
     "build:css": "tailwind build public/tailwind.css -o public/style.css",
     "build:electron": "electron-builder",
-    "build": "yarn build:react",
+    "build": "yarn build:react && yarn build:electron",
     "release": "yarn refresh && yarn version:patch && yarn build --publish=always",
     "test:react": "react-scripts test --env=jsdom",
     "version:patch": "versiony package.json --patch",
@@ -72,6 +72,7 @@
     "axios": "^0.24.0",
     "cross-env": "^7.0.3",
     "electron-is-dev": "^2.0.0",
+    "electron-log": "^4.4.4",
     "electron-updater": "^4.3.9",
     "postcss": "^8.4.5",
     "postcss-loader": "^6.2.1",
