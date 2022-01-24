@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Loader } from "./functional/Loader"
+import { Loader } from "../functional/Loader";
 import React from "react";
 
 

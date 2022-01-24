@@ -13,8 +13,8 @@ import Header from "./components/base/Header";
 // import Bottom from "./components/base/Bottom";
 import logo from "./images/shoreLogo.png";
 import { Index } from "./components/subcomponents/Index";
-import { Compost } from "./components/API";
-import News from "./components/tempNews";
+import { Compost } from "./components/subcomponents/API";
+import News from "./components/subcomponents/tempNews";
 import ExcelPage from "./components/ExcelTest/ExcelTest";
 import { Anim } from "./components/subcomponents/posts";
 import SalesReport from "./components/subcomponents/SalesReport"

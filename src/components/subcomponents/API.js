@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Loader } from "./functional/Loader";
+import { Loader } from "../functional/Loader";
 
 
 class Compost extends React.Component {
