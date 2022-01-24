@@ -25,21 +25,22 @@ import { Anim } from "./components/subcomponents/posts";
 // Set background *not yet implmented*
 // Check to see if app is connected to backend *not yet implmented*
 // Display other views (like setup / device Health / device Status / device Health) if various perameters are met *not yet implmented*
-let SalesReport = "123,000"
+
+let SalesReport = "123,000" //Make own component and editable from backend
 
 function App() {
   return (
     <>
       {/* Main content wrapper */}
-      <div className="h-screen w-screen grid grid-cols-9 grid-rows-6 gap-2 p-5 max-w-screen max-h-screen ">
+      <div className="h-screen w-screen grid grid-cols-9 grid-rows-9 gap-2 p-5 max-w-screen max-h-screen ">
         {/* Header */}
         <div className="col-span-7 row-start-1">
-          <Header locatiom="Brighton" />
+          <Header location="Brighton" />
         </div>
 
         {/*LOGO*/}
-        <div className="col-span-2 ">
-          <img src={logo} alt="logo" height="128" width="300"></img>
+        <div className="col-span-2  ">
+          <img src={logo} alt="logo" height="192" width="192"></img>
         </div>
 
         {/* Main-Left */}
@@ -48,8 +49,8 @@ function App() {
         </div>
 
         {/* Main-Right Element */}
-        <div className="col-span-3 row-span-3 ">
-          <Compost />
+        <div className="col-span-3 row-start-3">
+         <Compost/>
         </div>
 
         {/*Bottom-left element*/}
@@ -58,7 +59,7 @@ function App() {
         </div>
 
         {/* Bottom-Right Element */}
-        <div className="col-span-3 row-span-1  text-center col-start-7">
+        <div className=" text-center col-start-8 row-start-6">
           <h1 className="font-semibold text-6xl">£{SalesReport}</h1>
           <h2 className="text-3xl">Sales this week</h2>
         </div>

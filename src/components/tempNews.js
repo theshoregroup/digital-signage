@@ -40,7 +40,7 @@ class News extends React.Component {
         // eslint-disable-next-line
         <marquee className="space-x-2" scrollamount="10">
           {this.state.data.articles.map((item) => (
-            <p className="inline text-6xl font-semibold" key={item.key}>{item.title} </p>
+            <p className="inline text-5xl" key={item.key}>{item.title} </p>
           ))}
         </marquee>
       );
