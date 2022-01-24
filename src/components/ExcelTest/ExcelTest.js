@@ -1,3 +1,5 @@
+/*
+
 import React, { Component } from "react";
 import { Table, Button,  Row, Col, Upload } from "antd";
 import { Icon } from "@ant-design/compatible";
@@ -176,3 +178,5 @@ export default class ExcelPage extends Component {
     );
   }
 }
+
+*/

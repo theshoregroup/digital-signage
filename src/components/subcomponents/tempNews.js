@@ -41,6 +41,7 @@ class News extends React.Component {
         <div>
         <h1>{Source} </h1>
         
+        {/* eslint-disable-next-line jsx-a11y/no-distracting-elements*/}
         <marquee className="space-x-2" scrollamount="10">
           {this.state.data.articles.map((item) => (
             <p className="inline text-5xl" key={item.key}>{item.title} </p>
