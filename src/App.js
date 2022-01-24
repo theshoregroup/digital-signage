@@ -17,6 +17,7 @@ import { Compost } from "./components/API";
 import News from "./components/tempNews";
 import ExcelPage from "./components/ExcelTest/ExcelTest";
 import { Anim } from "./components/subcomponents/posts";
+import SalesReport from "./components/subcomponents/SalesReport"
 
 // What this file does
 // This is the main view of the App.
@@ -26,7 +27,7 @@ import { Anim } from "./components/subcomponents/posts";
 // Check to see if app is connected to backend *not yet implmented*
 // Display other views (like setup / device Health / device Status / device Health) if various perameters are met *not yet implmented*
 
-let SalesReport = "123,000" //Make own component and editable from backend
+
 
 function App() {
   return (
@@ -63,9 +64,8 @@ function App() {
         </div>
 
         {/* Bottom-Right Element */}
-        <div className=" text-center col-start-8 row-start-6 p-5 text-white font-display">
-          <h1 className="font-semibold text-6xl ">£{SalesReport}</h1>
-          <h2 className="text-2xl">Sales this week</h2>
+        <div className=" items-center col-start-8 row-start-6 p-5 text-white font-display">
+         <SalesReport/>
         </div>
       </div>
     </>
