@@ -12,7 +12,7 @@ import Main from "./components/base/Main";
 import Header from "./components/base/Header";
 // import Bottom from "./components/base/Bottom";
 import logo from "./images/shoreLogo.png";
-
+import { Graph } from "./components/subcomponents/Graph";
 import News from "./components/subcomponents/tempNews";
 
 import { Anim } from "./components/subcomponents/posts";
@@ -61,8 +61,10 @@ function App() {
         </div>
 
         {/* Bottom-Right Element */}
-        <div className=" items-center col-start-8 row-start-6 p-5 text-white font-display">
-          <SalesReport />
+        <div className="  col-start-8  row-start-5  text-white font-display">
+        <Graph/>
+        
+          
         </div>
       </div>
     </>
