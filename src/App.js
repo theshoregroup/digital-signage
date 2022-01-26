@@ -12,11 +12,11 @@ import Main from "./components/base/Main";
 import Header from "./components/base/Header";
 // import Bottom from "./components/base/Bottom";
 import logo from "./images/shoreLogo.png";
-import { Graph } from "./components/subcomponents/Graph";
+
 import News from "./components/subcomponents/tempNews";
 
 import { Anim } from "./components/subcomponents/posts";
-import SalesReport from "./components/subcomponents/SalesReport";
+
 
 // What this file does
 // This is the main view of the App.

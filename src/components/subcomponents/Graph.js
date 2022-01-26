@@ -13,7 +13,7 @@ import {
   BarElement
 } from "chart.js";
 
-import { Doughnut, Pie, Bar, Line, Chart } from "react-chartjs-2";
+import {  Pie, Line,  } from "react-chartjs-2";
 import SalesReport from "./SalesReport";
 
 

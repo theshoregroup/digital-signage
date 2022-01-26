@@ -12,7 +12,7 @@ import {
   BarElement,
 } from "chart.js";
 
-import { Doughnut, Chart } from "react-chartjs-2";
+import { Doughnut } from "react-chartjs-2";
 
 ChartJS.register(
   CategoryScale,
