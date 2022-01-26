@@ -57,6 +57,7 @@ export const newRegions = {
 //ALL DATA PULLED FROM EXTERNAL JSON
 
 
+
 const salesReport = {
   labels: [
     'Week One',
@@ -78,7 +79,8 @@ const salesReport = {
     data: [135000, 135000, 135000, 135000],
     fill: false,
     borderColor: 'rgb(54, 162, 235)'
-  }]
+  }],
+  text: '23%'
 };
 
 export function Graph() {
@@ -94,7 +96,7 @@ export function Graph() {
       </div>
       <div className="text-center font-display text-white text-2xl row-span-1 col-span-1">
         <h1>SEND ME MORE DATA</h1>
-        <Doughnut data={newRegions} />
+        <Doughnut data={newRegions}  />
       </div>
     </div>
   );
