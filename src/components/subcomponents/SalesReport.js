@@ -43,7 +43,7 @@ function targetPercentage(partialValue, totalValue) {
   return ((100 * partialValue) / totalValue).toFixed(0);
 }
 
-const bruv = targetPercentage(salesSoFar, salesTarget);
+const percentage = targetPercentage(salesSoFar, salesTarget);
 
 console.log(targetPercentage);
 
@@ -65,7 +65,7 @@ export default function SalesReport() {
   return (
     <div className="text-center">
          <h1>Monthly Sales</h1>
-      <h1>{bruv}% of target</h1>
+      <h1>{percentage}% of target</h1>
       <Doughnut data={salesReport} />
 
    

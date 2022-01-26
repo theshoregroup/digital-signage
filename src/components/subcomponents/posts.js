@@ -20,7 +20,7 @@ export const Anim = () => {
   React.useEffect(() => {
     const intervalId = setInterval(
       () => setIndex((index) => index + 1),
-      20000 
+      20000 // 20 seconds i think
     );
     return () => clearTimeout(intervalId);
   }, []);
