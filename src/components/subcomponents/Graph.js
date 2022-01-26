@@ -1,24 +1,45 @@
 import React from "react";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import { Doughnut } from "react-chartjs-2";
-import { Line } from "react-chartjs-2";
-import { Chart } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+  ArcElement,
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+  BarElement
+} from "chart.js";
+
+import { Doughnut, Pie, Bar, Line, Chart } from "react-chartjs-2";
+
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+  ArcElement,
+  BarElement
+);
+
 
 export const newRegions = {
-  labels: ["NEW REIGONS", "CONSTRUCTION", "M&E"],
+  labels: ["NEW REGIONS", "CONSTRUCTION", "M&E"],
   datasets: [
     {
       label: "# of Votes",
       data: [22, 33, 45],
       backgroundColor: [
-        "rgba(255, 99, 132, 0.2)",
-        "rgba(54, 162, 235, 0.2)",
-        "rgba(255, 206, 86, 0.2)",
-        "rgba(75, 192, 192, 0.2)",
-        "rgba(153, 102, 255, 0.2)",
-        "rgba(255, 159, 64, 0.2)",
+        "rgba(255, 99, 132, 0.6)",
+        "rgba(54, 162, 235, 0.6)",
+        "rgba(255, 206, 86, 0.6)",
+       
       ],
       borderColor: [
         "rgba(255, 99, 132, 1)",
@@ -33,24 +54,48 @@ export const newRegions = {
   ],
 };
 
-const labels = ["December", "January"];
+//ALL DATA PULLED FROM EXTERNAL JSON
+
+
 const salesReport = {
-  labels: labels,
-  datasets: [
-    {
-      label: "My First Dataset",
-      data: [65, 59, 80, 81, 56, 55, 40],
-      fill: false,
-      borderColor: "rgb(75, 192, 192)",
-      tension: 0.1,
-    },
+  labels: [
+    'Week One',
+    'Week Two',
+    'Week Three',
+    'Week Four'
   ],
+  datasets: [{
+    type: 'bar',
+    label: 'Sales',
+    data: [94406, 123000, 30, 40],
+    borderColor:   "rgba(255, 99, 132, 1)",
+    
+    backgroundColor:   "rgba(255, 99, 132, 0.6)",
+    order: 1
+  }, {
+    type: 'line',
+    label: 'Target',
+    data: [135000, 135000, 135000, 135000],
+    fill: false,
+    borderColor: 'rgb(54, 162, 235)'
+  }]
 };
 
 export function Graph() {
   return (
-    <div>
-      <Doughnut data={newRegions} />
+    <div className="grid grid-cols-6 grid-rows-9">
+      <div className="col-span-5 row-span-2 text-center font-display text-white text-2xl">
+      <h1>WEEKLY SALES</h1>
+        <Line data={salesReport} />
+      </div>
+      <div className="text-center font-display text-white text-2xl row-span-1 col-span-1">
+        <h1>NEW BUSINESS WINS BY SECTOR</h1>
+        <Pie data={newRegions} />
+      </div>
+      <div className="text-center font-display text-white text-2xl row-span-1 col-span-1">
+        <h1>SEND ME MORE DATA</h1>
+        <Doughnut data={newRegions} />
+      </div>
     </div>
   );
 }

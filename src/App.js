@@ -45,8 +45,8 @@ function App() {
         </div>
 
         {/* Main-Left */}
-        <div className="col-span-6 row-span-4 row-start-2 p-4">
-          <Main state="left" />
+        <div className="col-span-6 row-span-4 row-start-2 p-4 px-10">
+          <Main state="1" />
         </div>
 
         {/* Main-Right Element */}
@@ -61,8 +61,8 @@ function App() {
         </div>
 
         {/* Bottom-Right Element */}
-        <div className="  col-start-8  row-start-5  text-white font-display">
-        <Graph/>
+        <div className="  col-start-8 row-start-6 p-  text-white font-display">
+        <SalesReport/>
         
           
         </div>

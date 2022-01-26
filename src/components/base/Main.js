@@ -2,18 +2,20 @@
 // 1. left - means it will be rendered in left side of the screen
 // 2. right - means it will be rendered in right side of the screen
 // default - means it will be rendered as the largest element overtop of everything else
-
+import { Graph } from "../subcomponents/Graph";
 
 
 export default function MainComponent(props) {
     // Currently just a switch statement to choose what 'version' of the component to render
+
+
     switch (props.state) {
-        case 'left':
+        case '0':
             return (
-                <div className="h-full w-full">
+                <div className="h-full w-full p-5">
                     <iframe
-                      width="1200"
-                      height="675"
+                      width="1050"
+                      height="591"
                         className=""
                         src="https://www.youtube.com/embed/9Auq9mYxFEE?autohide=1&autoplay=1&cc_load_policy=1&mute=1"
                         title="YouTube video player"
@@ -26,10 +28,10 @@ export default function MainComponent(props) {
                     />
                 </div>
             );
-        case 'right':
+        case '1':
             return (
                 <div className="h-full w-full">
-                 
+                 <Graph/>
                 </div>
             );
         default:
