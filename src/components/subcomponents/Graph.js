@@ -14,6 +14,7 @@ import {
 } from "chart.js";
 
 import { Doughnut, Pie, Bar, Line, Chart } from "react-chartjs-2";
+import SalesReport from "./SalesReport";
 
 
 ChartJS.register(
@@ -118,6 +119,7 @@ export function Graph() {
       <div className="text-center font-display text-white text-2xl row-start-2 row-span-1 col-start-6 col-span-1">
         <h1>NEW BUSINESS WINS BY SECTOR</h1>
         <Pie data={newRegions} />
+        <SalesReport/>
       </div>
       
     </div>

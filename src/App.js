@@ -30,7 +30,7 @@ function App() {
   return (
     <>
       {/* Main content wrapper */}
-      <div className="h-screen w-screen grid grid-cols-9 grid-rows-6 max-w-screen max-h-screen bg-gradient-to-l from-gray-900  to-black">
+      <div className="h-screen w-screen grid grid-cols-9 grid-rows-9 max-w-screen max-h-screen bg-gradient-to-l from-gray-900  to-black">
         {/* Header */}
         <div className="col-span-6 row-start-1 p-4 text-white font-display">
           <Header location="Brighton" />
@@ -38,12 +38,12 @@ function App() {
 
 
         {/*LOGO*/}
-        <div className="col-span-3 col-start-8 row-span-1  ">
+        <div className="col-span-3 col-start-8 row-span-2  ">
           <img src={logo} alt="logo" height="220" width="220"></img>
         </div>
 
         {/* Main-Left */}
-        <div className="col-span-6 row-span-4 p-10 ">
+        <div className="col-span-6 row-span-5 p-10 ">
           <Main state="1" />
         </div>
 
@@ -54,13 +54,13 @@ function App() {
         </div>
 
         {/*Bottom-left element*/}
-        <div className="col-start-1 col-span-6 row-start-6 text-3xl p-10 text-white font-display ">
+        <div className="col-start-1 col-span-9 row-start-9 text-3xl p-10 text-white font-display ">
           <News />
         </div>
 
         {/* Bottom-Right Element */}
-        <div className="  col-start-8 row-start-5 text-white font-display text-3xl">
-          <SalesReport />
+        <div className="  col-start-8 row-start-6 text-white font-display text-3xl">
+  
         </div>
       </div>
     </>

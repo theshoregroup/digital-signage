@@ -64,10 +64,11 @@ export const salesReport = {
 export default function SalesReport() {
   return (
     <div className="text-center">
+         <h1>Monthly Sales</h1>
+      <h1>{bruv}% of target</h1>
       <Doughnut data={salesReport} />
 
-      <h1>Monthly Sales</h1>
-      <h1>{bruv}% of target</h1>
+   
     </div>
   );
 }
