@@ -28,7 +28,29 @@ ChartJS.register(
   BarElement
 );
 
+//declare monthly sales target values. route ALL values through backend when connection is established.
+const salesTarget = 607500;
+const jan = {
+  weekOne : 94000,
+  weekTwo : 123000,
+  weekThree: 0,
+  weekFour: 0,
+  weekFive: 0
 
+} 
+const salesSoFar = jan.weekOne + jan.weekTwo + jan.weekThree + jan.weekFour + jan.weekFive
+const remainingTarget = salesTarget - salesSoFar
+
+console.log(salesSoFar)
+console.log(remainingTarget)
+
+
+
+
+
+
+
+//new regions setup block
 export const newRegions = {
   labels: ["NEW REGIONS", "CONSTRUCTION", "M&E"],
   datasets: [
@@ -50,15 +72,16 @@ export const newRegions = {
         "rgba(255, 159, 64, 1)",
       ],
       borderWidth: 1,
+
     },
   ],
 };
 
-//ALL DATA PULLED FROM EXTERNAL JSON
 
 
 
-const salesReport = {
+//sales report set-up block
+export const salesReport = {
   labels: [
     'Week One',
     'Week Two',
@@ -83,6 +106,8 @@ const salesReport = {
   text: '23%'
 };
 
+
+//render block
 export function Graph() {
   return (
     <div className="grid grid-cols-6 grid-rows-9">
@@ -90,14 +115,11 @@ export function Graph() {
       <h1>WEEKLY SALES</h1>
         <Line data={salesReport} />
       </div>
-      <div className="text-center font-display text-white text-2xl row-span-1 col-span-1">
+      <div className="text-center font-display text-white text-2xl row-start-2 row-span-1 col-start-6 col-span-1">
         <h1>NEW BUSINESS WINS BY SECTOR</h1>
         <Pie data={newRegions} />
       </div>
-      <div className="text-center font-display text-white text-2xl row-span-1 col-span-1">
-        <h1>SEND ME MORE DATA</h1>
-        <Doughnut data={newRegions}  />
-      </div>
+      
     </div>
   );
 }

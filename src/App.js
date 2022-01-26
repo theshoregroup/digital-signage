@@ -30,41 +30,37 @@ function App() {
   return (
     <>
       {/* Main content wrapper */}
-      <div className="h-screen w-screen grid grid-cols-9 grid-rows-9 max-w-screen max-h-screen bg-gradient-to-l from-gray-900  to-black">
+      <div className="h-screen w-screen grid grid-cols-9 grid-rows-6 max-w-screen max-h-screen bg-gradient-to-l from-gray-900  to-black">
         {/* Header */}
         <div className="col-span-6 row-start-1 p-4 text-white font-display">
           <Header location="Brighton" />
         </div>
 
-        {/*FILLER*/}
-        <div className="col-span-1 " />
 
         {/*LOGO*/}
-        <div className="col-span-3 col-start-8 row-span-2  ">
+        <div className="col-span-3 col-start-8 row-span-1  ">
           <img src={logo} alt="logo" height="220" width="220"></img>
         </div>
 
         {/* Main-Left */}
-        <div className="col-span-6 row-span-4 row-start-2 p-4 px-10">
+        <div className="col-span-6 row-span-4 p-10 ">
           <Main state="1" />
         </div>
 
         {/* Main-Right Element */}
-        <div className="col-span-3 row-start-3 p-4 text-center text-2xl text-white font-display">
+        <div className="col-start-7 col-span-3  p-10 text-center text-2xl text-white font-display">
           <h1>-</h1>
           <Anim />
         </div>
 
         {/*Bottom-left element*/}
-        <div className="col-start-1 col-span-6 text-3xl p-5 text-white font-display ">
+        <div className="col-start-1 col-span-6 row-start-6 text-3xl p-10 text-white font-display ">
           <News />
         </div>
 
         {/* Bottom-Right Element */}
-        <div className="  col-start-8 row-start-6 p-  text-white font-display">
-        <SalesReport/>
-        
-          
+        <div className="  col-start-8 row-start-5 text-white font-display text-3xl">
+          <SalesReport />
         </div>
       </div>
     </>

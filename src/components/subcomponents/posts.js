@@ -11,6 +11,7 @@ const post = [
   "Client wins keep coming from Winvic and Kier, and large numbers of PSLs being completed for Cala, Blanchard Wells and ISG. Marti making strides forward north of the border. ",
   "Alan and the team are very busy pricing a number of new jobs, in addition to the 2 Data Centres already secured. At the last count this was 5, but we’re are getting new enquiries almost daily, which is fantastic. Massive welcome to Mihaela who joins the team this week!",
   "We’re invoicing clients this week, and the pipeline looks strong for the remainder of Q1, and into Q2 – watch this space (and the sales report!)",
+  
 ];
 
 export const Anim = () => {
@@ -19,7 +20,7 @@ export const Anim = () => {
   React.useEffect(() => {
     const intervalId = setInterval(
       () => setIndex((index) => index + 1),
-      10000 // every 10 seconds
+      20000 
     );
     return () => clearTimeout(intervalId);
   }, []);

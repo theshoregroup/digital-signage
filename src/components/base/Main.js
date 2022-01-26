@@ -12,10 +12,10 @@ export default function MainComponent(props) {
     switch (props.state) {
         case '0':
             return (
-                <div className="h-full w-full p-5">
+                <div className="h-full w-full  ">
                     <iframe
-                      width="1050"
-                      height="591"
+                      width="1280"
+                      height="555"
                         className=""
                         src="https://www.youtube.com/embed/9Auq9mYxFEE?autohide=1&autoplay=1&cc_load_policy=1&mute=1"
                         title="YouTube video player"
@@ -30,7 +30,7 @@ export default function MainComponent(props) {
             );
         case '1':
             return (
-                <div className="h-full w-full">
+                <div className="h-full w-full ">
                  <Graph/>
                 </div>
             );
