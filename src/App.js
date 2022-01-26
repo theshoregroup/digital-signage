@@ -16,7 +16,7 @@ import logo from "./images/shoreLogo.png";
 import News from "./components/subcomponents/tempNews";
 
 import { Anim } from "./components/subcomponents/posts";
-import SalesReport from "./components/subcomponents/SalesReport";
+
 
 // What this file does
 // This is the main view of the App.
@@ -36,8 +36,6 @@ function App() {
           <Header location="Brighton" />
         </div>
 
-        {/*FILLER*/}
-        <div className="col-span-1 " />
 
         {/*LOGO*/}
         <div className="col-span-3 col-start-8 row-span-2  ">
@@ -45,24 +43,24 @@ function App() {
         </div>
 
         {/* Main-Left */}
-        <div className="col-span-6 row-span-4 row-start-2 p-4">
-          <Main state="left" />
+        <div className="col-span-6 row-span-5 p-10 ">
+          <Main state="1" />
         </div>
 
         {/* Main-Right Element */}
-        <div className="col-span-3 row-start-3 p-4 text-center text-2xl text-white font-display">
+        <div className="col-start-7 col-span-3  p-10 text-center text-2xl text-white font-display">
           <h1>-</h1>
           <Anim />
         </div>
 
         {/*Bottom-left element*/}
-        <div className="col-start-1 col-span-6 text-3xl p-5 text-white font-display ">
+        <div className="col-start-1 col-span-9 row-start-9 text-3xl p-10 text-white font-display ">
           <News />
         </div>
 
         {/* Bottom-Right Element */}
-        <div className=" items-center col-start-8 row-start-6 p-5 text-white font-display">
-          <SalesReport />
+        <div className="  col-start-8 row-start-6 text-white font-display text-3xl">
+  
         </div>
       </div>
     </>

@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import defaultWeatherData from "../../data/defaultWeatherData";
+import moment from "moment";
 
 export default function Header() {
   // Define date
   const [currentDate, setDateState] = useState(new Date());
   const [currentWeather, setWeatherState] = useState(defaultWeatherData);
+  const tomorrow = moment().add(1,'days').format('dddd');
+  const dayAfter = moment().add(2,'days').format('dddd');
 
   // Set UseEffect to update every 1000ms (1s)
   useEffect(() => {
@@ -55,7 +58,7 @@ export default function Header() {
             src={currentWeather.forecast.forecastday[1].day.condition.icon}
             alt="icon"
           />
-          Tomorrow -{" "}
+          {tomorrow} -{" "}
           {currentWeather.forecast.forecastday[1].day.condition.text}
         </span>
       </div>
@@ -68,7 +71,7 @@ export default function Header() {
             src={currentWeather.forecast.forecastday[2].day.condition.icon}
             alt="icon"
           />
-          {currentWeather.forecast.forecastday[2].date} -{" "}
+          {dayAfter} -{" "}
           {currentWeather.forecast.forecastday[2].day.condition.text}
         </span>
       </div>
