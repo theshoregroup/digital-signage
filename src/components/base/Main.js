@@ -2,7 +2,7 @@
 // 1. left - means it will be rendered in left side of the screen
 // 2. right - means it will be rendered in right side of the screen
 // default - means it will be rendered as the largest element overtop of everything else
-import { Graph } from "../subcomponents/Graph";
+import { Graph } from "../Graphs/Graph";
 
 
 export default function MainComponent(props) {
@@ -31,7 +31,7 @@ export default function MainComponent(props) {
         case '1':
             return (
                 <div className="h-full w-full ">
-                 <Graph/>
+                 <Graph state="construction"/>
                 </div>
             );
         default:

@@ -26,6 +26,9 @@ import { Anim } from "./components/subcomponents/posts";
 // Check to see if app is connected to backend *not yet implmented*
 // Display other views (like setup / device Health / device Status / device Health) if various perameters are met *not yet implmented*
 
+
+const index = "1"
+
 function App() {
   return (
     <>
@@ -44,7 +47,7 @@ function App() {
 
         {/* Main-Left */}
         <div className="col-span-6 row-span-5 p-10 ">
-          <Main state="1" />
+          <Main state={index} />
         </div>
 
         {/* Main-Right Element */}

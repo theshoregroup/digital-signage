@@ -14,6 +14,8 @@ import {
 
 import { Doughnut } from "react-chartjs-2";
 
+//update target to reflect actual numbers 
+
 ChartJS.register(
   CategoryScale,
   LinearScale,
