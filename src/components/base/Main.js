@@ -5,12 +5,22 @@
 import { Graph } from "../Graphs/Graph";
 
 
-let counter=1
+let counter=0
+let counterOut = 5
+
+function timeOut(){
+    if (counter === counterOut){
+        counter=0
+    } else {
+        counter+= 1
+    }
+}
+
 
 export default function MainComponent(props) {
   // Currently just a switch statement to choose what 'version' of the component to render
 
-  for (counter; counter < 5; counter++) {
+  
     switch (counter) {
       case 0:
         console.log(counter);
@@ -69,4 +79,6 @@ export default function MainComponent(props) {
         );
     }
   }
-}
+
+
+setInterval(timeOut, 60000)
