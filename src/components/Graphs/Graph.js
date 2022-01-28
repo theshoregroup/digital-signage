@@ -32,9 +32,6 @@ import {
 
 import { Pie, Line, Doughnut } from "react-chartjs-2";
 
-
-import { MANDE } from "./M&E";
-
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -65,16 +62,21 @@ const salesSoFar =
   jan.weekOne + jan.weekTwo + jan.weekThree + jan.weekFour + jan.weekFive;
 const remainingTarget = salesTarget - salesSoFar;
 
-
 //Construction values
-let constructionTotalSalesSoFar = 57839;
+let constructionTotalSalesSoFar = 89001;
 let constructionTotalSalesTarget = 103062;
-let constructionRemainingTarget = constructionTotalSalesSoFar - constructionTotalSalesTarget;
+let constructionRemainingTarget =
+  constructionTotalSalesSoFar - constructionTotalSalesTarget;
 
 //M&E values
-let mAndETotalSalesSoFar = 46341;
+let mAndETotalSalesSoFar = 79124;
 let mAndETotalSalesTarget = 85789;
-let mAndERemainingTarget = mAndETotalSalesSoFar - mAndETotalSalesTarget
+let mAndERemainingTarget = mAndETotalSalesSoFar - mAndETotalSalesTarget;
+
+//Fit out vales
+let fitOutTotalSalesSoFar = 27643;
+let fitOutTotalSalesTarget = 39662;
+let fitOutRemainingTarget = fitOutTotalSalesSoFar - fitOutTotalSalesTarget
 
 //new regions setup block
 export const newRegions = {
@@ -144,7 +146,21 @@ export const percentageOfMANDETarget = {
   datasets: [
     {
       label: "# of Votes",
-      data: [constructionTotalSalesSoFar, constructionRemainingTarget],
+      data: [mAndETotalSalesSoFar, mAndERemainingTarget],
+      backgroundColor: ["rgba(30, 255, 99, 0.6)", "rgba(255, 50, 50, 0.8)"],
+      borderColor: ["rgba(30, 255, 99, 1)", "rgba(255, 50, 50, 1)"],
+      borderWidth: 1,
+    },
+  ],
+};
+
+//Fitout reamining target doughnut graph
+export const percentageOfFitOutTarget = {
+  labels: ["Sales this month", "Target"],
+  datasets: [
+    {
+      label: "# of Votes",
+      data: [fitOutTotalSalesSoFar, fitOutRemainingTarget],
       backgroundColor: ["rgba(30, 255, 99, 0.6)", "rgba(255, 50, 50, 0.8)"],
       borderColor: ["rgba(30, 255, 99, 1)", "rgba(255, 50, 50, 1)"],
       borderWidth: 1,
@@ -179,6 +195,37 @@ export function MenWorkingByDepartment() {
   );
 }
 
+//M&E Sales vs target
+const mAndESales = {
+  labels: [
+    "George Surry",
+    "Tommy Tripp",
+    "Matt Watts",
+    "Phil Navichas",
+    "Alfie Herbert",
+    "Ella Durrant",
+    "Luke Guainiere",
+  ],
+  datasets: [
+    {
+      type: "bar",
+      label: "Sales",
+      data: [25277, 21092, 6777, 1956, 10145, 6143, 7735],
+      borderColor: "rgba(255, 99, 132, 1)",
+
+      backgroundColor: "rgba(255, 99, 132, 0.6)",
+      order: 1,
+    },
+    {
+      type: "line",
+      label: "Target",
+      data: [15633, 24608, 10422, 0, 19686, 4825, 10615],
+      fill: false,
+      borderColor: "rgb(54, 162, 235)",
+    },
+  ],
+};
+
 //Construction sales vs target
 const constructionSales = {
   labels: [
@@ -194,7 +241,7 @@ const constructionSales = {
     {
       type: "bar",
       label: "Sales",
-      data: [10018, 14225, 6941, 7109, 6496, 3948, 9102],
+      data: [15455, 22832, 11663, 10518, 10002, 6975, 11557],
       borderColor: "rgba(255, 99, 132, 1)",
 
       backgroundColor: "rgba(255, 99, 132, 0.6)",
@@ -210,11 +257,55 @@ const constructionSales = {
   ],
 };
 
-export function ConstructionSales() {
+//Fit-out sales vs targets
+const fitOutSales = {
+  labels: ["Charlotte Carr", "Lola Meredith", "Rebecca Colmer"],
+  datasets: [
+    {
+      type: "bar",
+      label: "Sales",
+      data: [16388, 2016, 9240],
+      borderColor: "rgba(255, 99, 132, 1)",
+
+      backgroundColor: "rgba(255, 99, 132, 0.6)",
+      order: 1,
+    },
+    {
+      type: "line",
+      label: "Target",
+      data: [25476, 3764, 10422],
+      fill: false,
+      borderColor: "rgb(54, 162, 235)",
+    },
+  ],
+};
+
+//Construction graph component
+export function ConstructionGraph() {
   return (
     <div>
       <h1>Construction sales</h1>
       <Line data={constructionSales} />
+    </div>
+  );
+}
+
+//M&E graph component
+export function MANDEGraph() {
+  return (
+    <div>
+      <h1> M&E Sales</h1>
+      <Line data={mAndESales} />
+    </div>
+  );
+}
+
+//Fit-out graph component
+export function FitOutGraph() {
+  return (
+    <div>
+      <h1> Fit Out Sales</h1>
+      <Line data={fitOutSales} />
     </div>
   );
 }
@@ -229,31 +320,41 @@ export function Graph(props) {
       return (
         <div className="grid grid-cols-6 grid-rows-9">
           <div className="col-span-5 row-span-2 text-center font-display text-white text-2xl">
-            <ConstructionSales />
+            <ConstructionGraph />
           </div>
           <div className="text-center font-display text-white text-2xl row-start-2 row-span-1 col-start-6 col-span-1">
-      
             <h1>{constructionPercentage}% of target</h1>
             <Doughnut data={percentageOfConstructionTarget} />
           </div>
         </div>
       );
-    case "M&E":
-    let mAndE = targetPercentage(
-      mAndETotalSalesSoFar,
-      mAndETotalSalesTarget
-    )
+    case "mne":
+      let mAndE = targetPercentage(mAndETotalSalesSoFar, mAndETotalSalesTarget);
       return (
         <div className="grid grid-cols-6 grid-rows-9">
           <div className="col-span-5 row-span-2 text-center font-display text-white text-2xl">
-            <MANDE />
+            <MANDEGraph />
           </div>
           <div className="text-center font-display text-white text-2xl row-start-2 row-span-1 col-start-6 col-span-1">
-          <h1>{mAndE}% of target</h1>
+            <h1>{mAndE}% of target</h1>
             <Doughnut data={percentageOfMANDETarget} />
           </div>
         </div>
       );
+      case "fitout" :
+        let fitOutPercentage = targetPercentage(fitOutTotalSalesSoFar, fitOutTotalSalesTarget)
+        return (
+          <div className="grid grid-cols-6 grid-rows-9">
+            <div className="col-span-5 row-span-2 text-center font-display text-white text-2xl">
+              <FitOutGraph />
+            </div>
+            <div className="text-center font-display text-white text-2xl row-start-2 row-span-1 col-start-6 col-span-1">
+              <h1>{fitOutPercentage}% of target</h1>
+              <Doughnut data={percentageOfFitOutTarget} />
+            </div>
+          </div>
+        );
+        
     default:
       return null;
   }

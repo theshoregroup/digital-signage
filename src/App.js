@@ -12,11 +12,10 @@ import Main from "./components/base/Main";
 import Header from "./components/base/Header";
 // import Bottom from "./components/base/Bottom";
 import logo from "./images/shoreLogo.png";
-
+import React, { useEffect, useState } from "react";
 import News from "./components/subcomponents/tempNews";
-
+import axios from "axios";
 import { Anim } from "./components/subcomponents/posts";
-
 
 // What this file does
 // This is the main view of the App.
@@ -26,10 +25,24 @@ import { Anim } from "./components/subcomponents/posts";
 // Check to see if app is connected to backend *not yet implmented*
 // Display other views (like setup / device Health / device Status / device Health) if various perameters are met *not yet implmented*
 
+//Call API
 
-const index = "1"
+const ApiControl = [{ data: [{ id: 5, Graph: "construction" }] }];
 
 function App() {
+  const [apiControl, setApiControl] = useState(ApiControl);
+  useEffect(() => {
+    const getApiControl = async () => {
+      const response = await fetch(
+        "https://cms.theshoregroup.co.uk/items/screenControl?access_token=w3vytpbZvEf69LZmiyoNX8h"
+      );
+      const responseJson = await response.json();
+      console.log("json", responseJson);
+      setApiControl(responseJson);
+    };
+    setInterval(getApiControl, 1000);
+  }, []);
+
   return (
     <>
       {/* Main content wrapper */}
@@ -39,20 +52,18 @@ function App() {
           <Header location="Brighton" />
         </div>
 
-
         {/*LOGO*/}
         <div className="col-span-3 col-start-8 row-span-2  ">
           <img src={logo} alt="logo" height="220" width="220"></img>
         </div>
 
         {/* Main-Left */}
-        <div className="col-span-6 row-span-5 p-10 ">
-          <Main state={index} />
+        <div className="col-span-6 row-span-5 p-10 text-white">
+          <Main state="youtube" />
         </div>
 
         {/* Main-Right Element */}
         <div className="col-start-7 col-span-3  p-10 text-center text-2xl text-white font-display">
-          <h1>-</h1>
           <Anim />
         </div>
 
@@ -62,9 +73,7 @@ function App() {
         </div>
 
         {/* Bottom-Right Element */}
-        <div className="  col-start-8 row-start-6 text-white font-display text-3xl">
-  
-        </div>
+        <div className="  col-start-8 row-start-6 text-white font-display text-3xl"></div>
       </div>
     </>
   );
