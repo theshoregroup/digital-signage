@@ -84,6 +84,9 @@ let mAndEMW = 269
 let fitOutMW = 173
 let newRegionsMW = 89
 
+//total non-compliance per person? 
+
+
 //new regions setup block
 export const newRegions = {
   labels: ["NEW REGIONS", "CONSTRUCTION", "M&E"],
