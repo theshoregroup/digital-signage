@@ -12,9 +12,9 @@ import Main from "./components/base/Main";
 import Header from "./components/base/Header";
 // import Bottom from "./components/base/Bottom";
 import logo from "./images/shoreLogo.png";
-import React, { useEffect, useState } from "react";
+
 import News from "./components/subcomponents/tempNews";
-import axios from "axios";
+
 import { Anim } from "./components/subcomponents/posts";
 
 // What this file does
@@ -27,22 +27,7 @@ import { Anim } from "./components/subcomponents/posts";
 
 //Call API
 
-const ApiControl = [{ data: [{ id: 5, Graph: "construction" }] }];
-
 function App() {
-  const [apiControl, setApiControl] = useState(ApiControl);
-  useEffect(() => {
-    const getApiControl = async () => {
-      const response = await fetch(
-        "https://cms.theshoregroup.co.uk/items/screenControl?access_token=w3vytpbZvEf69LZmiyoNX8h"
-      );
-      const responseJson = await response.json();
-      console.log("json", responseJson);
-      setApiControl(responseJson);
-    };
-    setInterval(getApiControl, 1000);
-  }, []);
-
   return (
     <>
       {/* Main content wrapper */}
