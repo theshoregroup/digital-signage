@@ -22,7 +22,9 @@ export default function MainComponent(props) {
 
   
     switch (counter) {
+      
       case 0:
+        counter = 10
         console.log(counter);
         return (
           <div className="h-full w-full  ">
@@ -67,9 +69,9 @@ export default function MainComponent(props) {
 
       default:
         return (
-          <div className="h-full w-full  ">
+          <div className="h-full w-full px-10 ">
             <iframe
-              width="1280"
+              width="1000"
               height="555"
               className=""
               src="https://www.youtube.com/embed/9Auq9mYxFEE?autohide=1&autoplay=1&cc_load_policy=1&mute=1"
