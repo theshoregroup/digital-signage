@@ -76,7 +76,13 @@ let mAndERemainingTarget = mAndETotalSalesSoFar - mAndETotalSalesTarget;
 //Fit out vales
 let fitOutTotalSalesSoFar = 27643;
 let fitOutTotalSalesTarget = 39662;
-let fitOutRemainingTarget = fitOutTotalSalesSoFar - fitOutTotalSalesTarget
+let fitOutRemainingTarget = fitOutTotalSalesSoFar - fitOutTotalSalesTarget;
+
+//Men working vales
+let constructionMW = 342
+let mAndEMW = 269
+let fitOutMW = 173
+let newRegionsMW = 89
 
 //new regions setup block
 export const newRegions = {
@@ -168,7 +174,6 @@ export const percentageOfFitOutTarget = {
   ],
 };
 
-
 //Men working ordered by department
 const menWorkingByDepartment = {
   labels: ["Construction", "M&E", "Fit Out", "New Regions"],
@@ -176,7 +181,7 @@ const menWorkingByDepartment = {
     {
       type: "bar",
       label: "Sales",
-      data: [609, 482, 312, 129],
+      data: [constructionMW, mAndEMW, fitOutMW, newRegionsMW],
       borderColor: "rgba(255, 99, 132, 1)",
 
       backgroundColor: "rgba(255, 99, 132, 0.6)",
@@ -189,7 +194,7 @@ const menWorkingByDepartment = {
 export function MenWorkingByDepartment() {
   return (
     <div>
-      <h1> Men Working </h1>
+      <h1> Total Men Working </h1>
       <Line data={menWorkingByDepartment} />
     </div>
   );
@@ -341,20 +346,31 @@ export function Graph(props) {
           </div>
         </div>
       );
-      case "fitout" :
-        let fitOutPercentage = targetPercentage(fitOutTotalSalesSoFar, fitOutTotalSalesTarget)
-        return (
-          <div className="grid grid-cols-6 grid-rows-9">
-            <div className="col-span-5 row-span-2 text-center font-display text-white text-2xl">
-              <FitOutGraph />
-            </div>
-            <div className="text-center font-display text-white text-2xl row-start-2 row-span-1 col-start-6 col-span-1">
-              <h1>{fitOutPercentage}% of target</h1>
-              <Doughnut data={percentageOfFitOutTarget} />
-            </div>
+    case "fitout":
+      let fitOutPercentage = targetPercentage(
+        fitOutTotalSalesSoFar,
+        fitOutTotalSalesTarget
+      );
+      return (
+        <div className="grid grid-cols-6 grid-rows-9">
+          <div className="col-span-5 row-span-2 text-center font-display text-white text-2xl">
+            <FitOutGraph />
           </div>
-        );
-        
+          <div className="text-center font-display text-white text-2xl row-start-2 row-span-1 col-start-6 col-span-1">
+            <h1>{fitOutPercentage}% of target</h1>
+            <Doughnut data={percentageOfFitOutTarget} />
+          </div>
+        </div>
+      );
+    case "menWorkingByDept":
+      return (
+        <div className="grid grid-cols-6 grid-rows-9">
+          <div className="col-span-5 row-span-2 text-center font-display text-white text-2xl">
+            <MenWorkingByDepartment />
+          </div>
+        </div>
+      );
+
     default:
       return null;
   }

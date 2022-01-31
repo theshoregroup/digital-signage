@@ -6,7 +6,7 @@ import { Graph } from "../Graphs/Graph";
 
 
 let counter=0
-let counterOut = 5
+let counterOut = 15
 
 function timeOut(){
     if (counter === counterOut){
@@ -26,17 +26,7 @@ export default function MainComponent(props) {
         console.log(counter);
         return (
           <div className="h-full w-full  ">
-            <iframe
-              width="1280"
-              height="555"
-              className=""
-              src="https://www.youtube.com/embed/9Auq9mYxFEE?autohide=1&autoplay=1&cc_load_policy=1&mute=1"
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              autoPlay="True"
-            />
+      <Graph state="menWorkingByDept"/>
           </div>
         );
       case 1:
@@ -60,6 +50,20 @@ export default function MainComponent(props) {
             <Graph state="fitout" />
           </div>
         );
+        case 4:
+          console.log(counter);
+          return (
+            <div className="h-full w-full ">
+              <Graph state="fitout" />
+            </div>
+          );
+          case 5:
+            console.log(counter);
+            return (
+              <div className="h-full w-full ">
+                <Graph state="fitout" />
+              </div>
+            );
 
       default:
         return (
@@ -81,4 +85,5 @@ export default function MainComponent(props) {
   }
 
 
-setInterval(timeOut, 60000)
+
+  setInterval(timeOut, 20000)
