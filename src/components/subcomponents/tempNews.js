@@ -15,6 +15,7 @@ class News extends React.Component {
   }
 
   componentDidMount() {
+    this.interval = setInterval(() => {
     axios
       .get(
         "https://newsapi.org/v2/top-headlines?country=gb&category=sports&apiKey=1696bf49a11542e786afeb06b1540cf9"
@@ -27,6 +28,7 @@ class News extends React.Component {
 
         console.log(data)
       });
+  }, 60000);
   }
 
 
