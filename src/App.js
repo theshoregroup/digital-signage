@@ -65,11 +65,11 @@ function App() {
 
         {/* Main-Right Element */}
         <div className="col-start-7 col-span-3  p-10 text-center text-2xl text-white font-display">
-     
+         <Anim />
         </div>
 
         {/*Bottom-left element*/}
-        <div className="col-start-1 col-span-9 row-start-8 text-3xl p-10 text-white font-display ">
+        <div className="col-start-1 col-span-9 row-start-8 text-3xl text-white font-display ">
           <News />
         </div>
 

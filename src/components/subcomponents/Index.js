@@ -1,6 +1,18 @@
+import React from "react"
+import { useState } from "react"
 
-export function Index(index)
-     {for (index = 0; index < 8; index++)
-      return index}
 
-export let index
+export function Index() {
+      // Declare a new state variable, which we'll call "count"
+      const [index, setIndex] = useState(0);
+      console.log(index)
+
+return {index}
+
+}
+
+
+
+
+
+
