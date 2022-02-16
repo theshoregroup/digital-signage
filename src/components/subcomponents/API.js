@@ -3,6 +3,7 @@ import axios from "axios";
 import { Loader } from "../functional/Loader";
 
 
+
 class Compost extends React.Component {
   constructor(props) {
     super(props);
@@ -11,6 +12,8 @@ class Compost extends React.Component {
       data: [],
     };
   }
+
+  
 
   componentDidMount() {
     axios
@@ -28,11 +31,7 @@ class Compost extends React.Component {
     if (this.state.loading) {
       return <Loader />;
     } else {
-      function Index(index) {
-        for (index = 0; index < 8; index++) return index;
-        console.log(index);
-      }
-      setInterval(Index, 5000);
+    
 
       let specificBody = this.state.data.data[0].body; //loop through different elements of array on timer
       let specificTitle = this.state.data.data[0].title;
