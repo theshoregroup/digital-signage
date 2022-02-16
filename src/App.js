@@ -16,6 +16,7 @@ import React, { useEffect, useState } from "react";
 import News from "./components/subcomponents/tempNews";
 import axios from "axios";
 import { Anim } from "./components/subcomponents/posts";
+import { Compost } from './components/subcomponents/API'
 
 // What this file does
 // This is the main view of the App.
@@ -64,16 +65,15 @@ function App() {
 
         {/* Main-Right Element */}
         <div className="col-start-7 col-span-3  p-10 text-center text-2xl text-white font-display">
-          <Anim />
+     
         </div>
 
         {/*Bottom-left element*/}
-        <div className="col-start-1 col-span-9 row-start-9 text-3xl p-10 text-white font-display ">
+        <div className="col-start-1 col-span-9 row-start-8 text-3xl p-10 text-white font-display ">
           <News />
         </div>
 
-        {/* Bottom-Right Element */}
-        <div className="  col-start-8 row-start-6 text-white font-display text-3xl"></div>
+
       </div>
     </>
   );

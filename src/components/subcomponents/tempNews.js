@@ -18,7 +18,7 @@ class News extends React.Component {
     this.interval = setInterval(() => {
     axios
       .get(
-        "https://newsapi.org/v2/top-headlines?country=gb&category=sports&apiKey=1696bf49a11542e786afeb06b1540cf9"
+        "https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=be5b5ec5bfa345388ac8db5692953db2"
       )
       .then((res) => {
         var data = res.data
@@ -28,7 +28,7 @@ class News extends React.Component {
 
         console.log(data)
       });
-  }, 60000);
+  }, 1500);
   }
 
 
@@ -41,13 +41,11 @@ class News extends React.Component {
       return (
    
         <div>
-        <h1>{Source} </h1>
-        
+        <h1>{this.state.data.articles[0].source.name} </h1>
         {/* eslint-disable-next-line jsx-a11y/no-distracting-elements*/}
-        <marquee className="space-x-2" scrollamount="10">
-          {this.state.data.articles.map((item) => (
-            <p className="inline text-5xl" key={item.key}>{item.title} </p>
-          ))}
+        <marquee className="space-x-2" scrollamount="10"> 
+            <p className="text-5xl"> {this.state.data.articles[0].title} </p>
+
         </marquee>
         </div>
       );
