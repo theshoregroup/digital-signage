@@ -1,14 +1,20 @@
-import { useState } from 'react'
-import React from 'react';
+import { useState, useEffect } from "react";
+import React from "react";
 
-function Index() {
-    let [index, setIndex] = useState(0);
-    const increment = () => {
-      setIndex(index + 1);
-    };
-    const reset = () => {
-      setIndex((index = 0));
-    };
-  
+export default function Index() {
+  const initialCounterValue = 0;
+  let [index, setIndex] = useState(initialCounterValue);
+
+  const increment = useEffect(() => {
+    setIndex(index + 1);
+  }, [setIndex, index]);
+
+  setInterval(increment, 1000);
+  if (index >= 4) {
+    index = initialCounterValue;
   }
+  console.log(index);
+ return index
+}
 
+export let index = 0

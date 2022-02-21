@@ -3,11 +3,10 @@
 // 2. right - means it will be rendered in right side of the screen
 // default - means it will be rendered as the largest element overtop of everything else
 import { Graph } from "../Graphs/Graph";
-import React,{ useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 export default function Main(props) {
-  const initialCounterValue = 0;
-  let [index, setIndex] = useState(initialCounterValue);
+  let [index, setIndex] = useState(0);
 
   const increment = () => {
     setIndex(index + 1);
@@ -15,43 +14,45 @@ export default function Main(props) {
 
   const reset = () => {
     setIndex((index = 0));
+    console.log(index);
   };
 
-  setInterval(increment, 90000);
+  console.log(index);
 
   // Currently just a switch statement to choose what 'version' of the component to render
-  console.log(index);
+
   switch (index) {
     case 0:
-      console.log(index);
+      setTimeout(increment, 15000);
       return (
         <div className="h-full w-full  ">
           <Graph state="menWorkingByDept" />
         </div>
       );
     case 1:
-      console.log(index);
+      setTimeout(increment, 15000);
       return (
         <div className="h-full w-full ">
           <Graph state="mne" />
         </div>
       );
     case 2:
-      console.log(index);
+      setTimeout(increment, 15000);
       return (
         <div className="h-full w-full ">
           <Graph state="construction" />
         </div>
       );
     case 3:
-      console.log(index);
+      setTimeout(increment, 15000);
       return (
         <div className="h-full w-full ">
           <Graph state="fitout" />
         </div>
       );
 
-    case 4:
+    default:
+      setTimeout(reset, 90000);
       return (
         <div className="h-full w-full  ">
           <iframe
@@ -67,7 +68,5 @@ export default function Main(props) {
           />
         </div>
       );
-    default:
-      reset();
   }
 }
