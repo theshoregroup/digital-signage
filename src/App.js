@@ -8,7 +8,7 @@
 // import Marquee from "react-fast-marquee";
 
 // Imports for components
-import {Main }from "./components/base/Main";
+import  Main from "./components/base/Main";
 import Header from "./components/base/Header";
 // import Bottom from "./components/base/Bottom";
 import logo from "./images/shoreLogo.png";
@@ -17,6 +17,7 @@ import News from "./components/subcomponents/tempNews";
 import axios from "axios";
 import { Anim } from "./components/subcomponents/posts";
 import { Compost } from './components/subcomponents/API'
+
 
 
 
