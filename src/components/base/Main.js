@@ -52,7 +52,7 @@ export default function Main(props) {
       );
 
     default:
-      setTimeout(reset, 90000);
+      setTimeout(reset, 60000);
       return (
         <div className="h-full w-full  ">
           <iframe
