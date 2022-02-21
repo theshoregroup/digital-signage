@@ -8,7 +8,7 @@
 // import Marquee from "react-fast-marquee";
 
 // Imports for components
-import Main from "./components/base/Main";
+import {Main }from "./components/base/Main";
 import Header from "./components/base/Header";
 // import Bottom from "./components/base/Bottom";
 import logo from "./images/shoreLogo.png";
@@ -17,6 +17,8 @@ import News from "./components/subcomponents/tempNews";
 import axios from "axios";
 import { Anim } from "./components/subcomponents/posts";
 import { Compost } from './components/subcomponents/API'
+
+
 
 // What this file does
 // This is the main view of the App.
@@ -28,21 +30,10 @@ import { Compost } from './components/subcomponents/API'
 
 //Call API
 
-const ApiControl = [{ data: [{ id: 5, Graph: "construction" }] }];
 
 function App() {
-  const [apiControl, setApiControl] = useState(ApiControl);
-  useEffect(() => {
-    const getApiControl = async () => {
-      const response = await fetch(
-        "https://cms.theshoregroup.co.uk/items/screenControl?access_token=w3vytpbZvEf69LZmiyoNX8h"
-      );
-      const responseJson = await response.json();
-      console.log("json", responseJson);
-      setApiControl(responseJson);
-    };
-    setInterval(getApiControl, 1000);
-  }, []);
+
+
 
   return (
     <>
@@ -60,12 +51,12 @@ function App() {
 
         {/* Main-Left */}
         <div className="col-span-6 row-span-5 p-10 text-white">
-          <Main state="youtube" />
+          <Main />
         </div>
 
         {/* Main-Right Element */}
         <div className="col-start-7 col-span-3  p-10 text-center text-2xl text-white font-display">
-         <Compost />
+         <Anim />
         </div>
 
         {/*Bottom-left element*/}

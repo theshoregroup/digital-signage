@@ -3,71 +3,57 @@
 // 2. right - means it will be rendered in right side of the screen
 // default - means it will be rendered as the largest element overtop of everything else
 import { Graph } from "../Graphs/Graph";
+import React, { useState } from "react";
 
+let index = 1 // CHANGE SOON
 
-let counter=0
-let counterOut = 15
-
-function timeOut(){
-    if (counter === counterOut){
-        counter=0
-    } else {
-        counter+= 1
-    }
-}
-
-
-export default function MainComponent(props) {
+ export function Main(props) {
   // Currently just a switch statement to choose what 'version' of the component to render
 
-  
-    switch (counter) {
-      
+ 
+
+    
+
+    switch (index) {
       case 0:
-        counter = 10
-        console.log(counter);
+   
         return (
           <div className="h-full w-full  ">
-      <Graph state="menWorkingByDept"/>
+            <Graph state="menWorkingByDept" />
           </div>
         );
       case 1:
-        console.log(counter);
+
         return (
           <div className="h-full w-full ">
             <Graph state="mne" />
           </div>
         );
       case 2:
-        console.log(counter);
+    
         return (
           <div className="h-full w-full ">
             <Graph state="construction" />
           </div>
         );
       case 3:
-        console.log(counter);
+    
         return (
           <div className="h-full w-full ">
             <Graph state="fitout" />
           </div>
         );
-        case 4:
-          console.log(counter);
-          return (
-            <div className="h-full w-full ">
-              <Graph state="fitout" />
-            </div>
-          );
-          case 5:
-            console.log(counter);
-            return (
-              <div className="h-full w-full ">
-                <Graph state="fitout" />
-              </div>
-            );
+      case 4:
+      
+        return (
+          <div className="h-full w-full ">
+            <Graph state="fitout" />
+          </div>
+        );
+  
 
       default:
+       
         return (
           <div className="h-full w-full px-10 ">
             <iframe
@@ -87,5 +73,3 @@ export default function MainComponent(props) {
   }
 
 
-
-  setInterval(timeOut, 20000)

@@ -64,6 +64,7 @@
   "dependencies": {
     "@ant-design/compatible": "^1.1.0",
     "@ant-design/icons": "^4.7.0",
+    "@apollo/client": "^3.5.9",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -72,8 +73,10 @@
     "axios": "^0.24.0",
     "chart.js": "^3.7.0",
     "cross-env": "^7.0.3",
+    "dotenv": "^16.0.0",
     "electron-is-dev": "^2.0.0",
     "electron-updater": "^4.3.9",
+    "graphql": "^16.3.0",
     "moment": "^2.29.1",
     "postcss": "^8.4.5",
     "postcss-loader": "^6.2.1",

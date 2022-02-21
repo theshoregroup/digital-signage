@@ -4,6 +4,10 @@ import React from "react";
 import { Index } from './Index'
 
 
+let API_KEY="be5b5ec5bfa345388ac8db5692953db2"
+
+
+
 
 class News extends React.Component {
   constructor(props) {
@@ -17,21 +21,16 @@ class News extends React.Component {
 
 
 
+
+
+
   componentDidMount() {
 
-    var config = {
-      method: 'GET',
-      params: { q: 'Elon Musk', lang: 'en' },
-      headers: {
-        'x-rapidapi-host': 'free-news.p.rapidapi.com',
-        'x-rapidapi-key': 'c2360d4b84msh4ddad2a91e9582bp17ff3ajsne0727e2854a9'
-      },
-
-    };
+ 
 
     axios
       .get(
-        "https://free-news.p.rapidapi.com/v1/search", config
+        "https://newsapi.org/v2/top-headlines?country=gb&apiKey="+API_KEY
       )
       .then((res) => {
         var data = res.data
@@ -53,7 +52,7 @@ class News extends React.Component {
       return (
 
         <div>
-          <h1>{this.state.data.articles[0].clean_url} </h1>
+          <h1>{this.state.data.articles[0].source.name} </h1>
           {/* eslint-disable-next-line jsx-a11y/no-distracting-elements*/}
           <marquee className="" scrollamount="10">
             <p className="text-5xl"> {this.state.data.articles[0].title} </p>
