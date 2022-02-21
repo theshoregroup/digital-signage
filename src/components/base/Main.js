@@ -3,7 +3,7 @@
 // 2. right - means it will be rendered in right side of the screen
 // default - means it will be rendered as the largest element overtop of everything else
 import { Graph } from "../Graphs/Graph";
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState} from "react";
 
 export default function Main(props) {
   let [index, setIndex] = useState(0);
