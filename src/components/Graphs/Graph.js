@@ -53,26 +53,26 @@ function targetPercentage(partialValue, totalValue) {
 
 
 //Construction values - for construction doughnut graph
-let constructionTotalSalesSoFar = 74048;
+let constructionTotalSalesSoFar = 110053;
 let constructionTotalSalesTarget = 127900;
 let constructionRemainingTarget =
   constructionTotalSalesSoFar - constructionTotalSalesTarget;
 
 //M&E values
-let mAndETotalSalesSoFar = 63073;
+let mAndETotalSalesSoFar = 139195;
 let mAndETotalSalesTarget = 111100;
 let mAndERemainingTarget = mAndETotalSalesSoFar - mAndETotalSalesTarget;
 
 //Fit out vales
-let fitOutTotalSalesSoFar = 20144;
+let fitOutTotalSalesSoFar = 29944;
 let fitOutTotalSalesTarget = 39600;
 let fitOutRemainingTarget = fitOutTotalSalesSoFar - fitOutTotalSalesTarget;
 
 //Men working vales
-let constructionMW = 835
-let mAndEMW = 526
-let fitOutMW = 318
-let newRegionsMW = 183
+let constructionMW = 1261
+let mAndEMW = 767
+let fitOutMW = 482
+let newRegionsMW = 283
 
 
 //Construction target doughnut graph
@@ -137,7 +137,7 @@ const menWorkingByDepartment = {
 export function MenWorkingByDepartment() {
   return (
     <div>
-      <h1> Total Men Working - Feburary Week Two </h1>
+      <h1> Total Men Working - Feburary Week Three </h1>
       <Line data={menWorkingByDepartment} />
     </div>
   );
@@ -158,7 +158,7 @@ const mAndESales = {
     {
       type: "bar",
       label: "Sales",
-      data: [20594, 21420, 5473, 335, 7124, 3337, 4791],
+      data: [74349, 28939, 7675, 5494, 10970, 4829, 6940],
       borderColor: "rgba(255, 99, 132, 1)",
 
       backgroundColor: "rgba(255, 99, 132, 0.6)",
@@ -189,7 +189,7 @@ const constructionSales = {
     {
       type: "bar",
       label: "Sales",
-      data: [12583, 19833, 11656, 10232, 7856, 7497, 4482],
+      data: [17636, 29867, 17502, 15513, 11980, 11529, 6026],
       borderColor: "rgba(255, 99, 132, 1)",
 
       backgroundColor: "rgba(255, 99, 132, 0.6)",
@@ -212,7 +212,7 @@ const fitOutSales = {
     {
       type: "bar",
       label: "Sales",
-      data: [12256,  7889],
+      data: [18905,  11038],
       borderColor: "rgba(255, 99, 132, 1)",
 
       backgroundColor: "rgba(255, 99, 132, 0.6)",
@@ -232,7 +232,7 @@ const fitOutSales = {
 export function ConstructionGraph() {
   return (
     <div>
-      <h1>Construction Sales - Feburary Week Two</h1>
+      <h1>Construction Sales - Feburary Week Three</h1>
       <Line data={constructionSales} />
     </div>
   );
@@ -242,7 +242,7 @@ export function ConstructionGraph() {
 export function MANDEGraph() {
   return (
     <div>
-      <h1> M&E Sales - Feburary Week Two </h1>
+      <h1> M&E Sales - Feburary Week Three </h1>
       <Line data={mAndESales} />
     </div>
   );
@@ -252,7 +252,7 @@ export function MANDEGraph() {
 export function FitOutGraph() {
   return (
     <div>
-      <h1> Fit Out Sales - Feburary Week Two</h1>
+      <h1> Fit Out Sales - Feburary Week Three</h1>
       <Line data={fitOutSales} />
     </div>
   );

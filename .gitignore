@@ -35,3 +35,4 @@ package-lock.json
 todo
 src/data/Hove.xlsx
 *.xlsx
+.env

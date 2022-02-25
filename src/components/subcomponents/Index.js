@@ -16,5 +16,3 @@ export default function Index() {
   console.log(index);
  return index
 }
-
-export let index = 0
