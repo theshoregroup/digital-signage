@@ -17,7 +17,7 @@ import News from "./components/subcomponents/tempNews";
 import axios from "axios";
 import { Anim } from "./components/subcomponents/posts";
 import { Compost } from './components/subcomponents/API'
-
+import {Sonos} from './components/subcomponents/Sonos'
 
 
 
@@ -51,7 +51,7 @@ function App() {
         </div>
 
         {/* Main-Left */}
-        <div className="col-span-6 row-span-5 p-10 text-white">
+        <div className="col-span-6 row-span-6 p-10 text-white">
           <Main />
         </div>
 
@@ -64,6 +64,7 @@ function App() {
         <div className="col-start-1 col-span-9 row-start-8 text-3xl text-white font-display ">
           <News />
         </div>
+      
 
 
       </div>

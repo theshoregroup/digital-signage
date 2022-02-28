@@ -18,6 +18,7 @@ export default function Main(props) {
   };
 
   console.log(index);
+  index = 1
 
   // Currently just a switch statement to choose what 'version' of the component to render
 
@@ -56,8 +57,8 @@ export default function Main(props) {
       return (
         <div className="h-full w-full  ">
           <iframe
-            width="1280"
-            height="555"
+            width="1040"
+            height="585"
             className=""
             src="https://www.youtube.com/embed/9Auq9mYxFEE?autohide=1&autoplay=1&cc_load_policy=1&mute=1"
             title="YouTube video player"

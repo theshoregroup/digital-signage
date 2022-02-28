@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Loader } from "./functional/Loader";
+import { Loader } from "../functional/Loader";
 
 class Sonos extends React.Component {
   constructor(props) {
@@ -27,13 +27,13 @@ class Sonos extends React.Component {
       return <Loader />;
     } else {
       //Front office speaker variables
-      let frontSpeakerName = this.state.data[0].coordinator?.roomName;
+      let frontSpeakerName = this.state.data[1].coordinator?.roomName;
       let frontSpeakerArtist =
-        this.state.data[0].coordinator?.state?.currentTrack?.artist;
+        this.state.data[1].coordinator?.state?.currentTrack?.artist;
       let frontSpeakerTitle =
-        this.state.data[0].coordinator?.state?.currentTrack?.title;
+        this.state.data[1].coordinator?.state?.currentTrack?.title;
       let frontSpeakerArt =
-        this.state.data[0].coordinator?.state?.currentTrack?.albumArtUri;
+        this.state.data[1].coordinator?.state?.currentTrack?.albumArtUri;
 
       // Commented out to fix no-unused-vars - @liamdoyle
       // //Back office speaker variables

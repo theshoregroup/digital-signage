@@ -57,16 +57,27 @@ let constructionTotalSalesSoFar = 110053;
 let constructionTotalSalesTarget = 127900;
 let constructionRemainingTarget =
   constructionTotalSalesSoFar - constructionTotalSalesTarget;
+  if (constructionTotalSalesSoFar >= constructionTotalSalesTarget){
+    constructionRemainingTarget = 0
+  }
 
 //M&E values
 let mAndETotalSalesSoFar = 139195;
 let mAndETotalSalesTarget = 111100;
-let mAndERemainingTarget = mAndETotalSalesSoFar - mAndETotalSalesTarget;
+let mAndERemainingTarget = mAndETotalSalesTarget - mAndETotalSalesSoFar
+if (mAndETotalSalesSoFar >= mAndETotalSalesTarget){
+  mAndERemainingTarget = 0
+}
+
 
 //Fit out vales
 let fitOutTotalSalesSoFar = 29944;
 let fitOutTotalSalesTarget = 39600;
-let fitOutRemainingTarget = fitOutTotalSalesSoFar - fitOutTotalSalesTarget;
+let fitOutRemainingTarget = fitOutTotalSalesTarget - fitOutTotalSalesSoFar
+if (fitOutTotalSalesSoFar >= fitOutTotalSalesTarget){
+  fitOutRemainingTarget = 0
+}
+
 
 //Men working vales
 let constructionMW = 1261
