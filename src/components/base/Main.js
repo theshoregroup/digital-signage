@@ -18,7 +18,7 @@ export default function Main(props) {
   };
 
   console.log(index);
-  index = 1
+ 
 
   // Currently just a switch statement to choose what 'version' of the component to render
 
