@@ -3,7 +3,7 @@
 // 2. right - means it will be rendered in right side of the screen
 // default - means it will be rendered as the largest element overtop of everything else
 import { Graph } from "../Graphs/Graph";
-import React, { useState} from "react";
+import React, { useState } from "react";
 
 export default function Main(props) {
   let [index, setIndex] = useState(0);
@@ -18,7 +18,6 @@ export default function Main(props) {
   };
 
   console.log(index);
- 
 
   // Currently just a switch statement to choose what 'version' of the component to render
 
@@ -46,11 +45,25 @@ export default function Main(props) {
       );
     case 3:
       setTimeout(increment, 15000);
-      return (
-        <div className="h-full w-full ">
-          <Graph state="fitout" />
-        </div>
-      );
+      return <Graph state="fitout" />;
+    case 4:
+      setTimeout(increment, 15000);
+      return <Graph state="newRegionsMVB" />;
+    case 5:
+      setTimeout(increment, 15000);
+      return <Graph state="mAndEMVB" />;
+    case 6:
+      setTimeout(increment, 15000);
+      return <Graph state="constructionMVB" />;
+    case 7:
+      setTimeout(increment, 15000);
+      return <Graph state="fitOutMVB" />;
+    case 8:
+      setTimeout(increment, 15000);
+      return <Graph state="logisticsMVB" />;
+    case 9:
+      setTimeout(increment, 15000);
+      return <Graph state="retailMVB" />;
 
     default:
       setTimeout(reset, 60000);

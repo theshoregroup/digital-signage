@@ -16,6 +16,7 @@
 
 //jobs filled ratio ?
 
+
 import React from "react";
 import {
   Chart as ChartJS,
@@ -31,6 +32,7 @@ import {
 } from "chart.js";
 
 import { Pie, Line, Doughnut } from "react-chartjs-2";
+import { values } from "lodash";
 
 ChartJS.register(
   CategoryScale,
@@ -48,6 +50,11 @@ ChartJS.register(
 function targetPercentage(partialValue, totalValue) {
   return ((100 * partialValue) / totalValue).toFixed(0);
 }
+
+//declare graph colour scheme
+let lime = "rgba(203, 225, 30, 0.8)"
+let blue = "rgba(30, 203, 225, 0.8)"
+let pink = "rgba(225, 30, 203, 0.8)"
 
 //declare monthly sales target values. route ALL values through backend when connection is established.
 
@@ -93,8 +100,8 @@ export const percentageOfConstructionTarget = {
     {
       label: "# of Votes",
       data: [constructionTotalSalesSoFar, constructionRemainingTarget],
-      backgroundColor: ["rgba(30, 255, 99, 0.6)", "rgba(255, 50, 50, 0.8)"],
-      borderColor: ["rgba(30, 255, 99, 1)", "rgba(255, 50, 50, 1)"],
+      backgroundColor: [blue, lime],
+      borderColor: [blue, lime],
       borderWidth: 1,
     },
   ],
@@ -107,7 +114,7 @@ export const percentageOfMANDETarget = {
     {
       label: "# of Votes",
       data: [mAndETotalSalesSoFar, mAndERemainingTarget],
-      backgroundColor: ["rgba(30, 255, 99, 0.6)", "rgba(255, 50, 50, 0.8)"],
+      backgroundColor: [blue, pink],
       borderColor: ["rgba(30, 255, 99, 1)", "rgba(255, 50, 50, 1)"],
       borderWidth: 1,
     },
@@ -121,7 +128,7 @@ export const percentageOfFitOutTarget = {
     {
       label: "# of Votes",
       data: [fitOutTotalSalesSoFar, fitOutRemainingTarget],
-      backgroundColor: ["rgba(30, 255, 99, 0.6)", "rgba(255, 50, 50, 0.8)"],
+      backgroundColor: [blue, lime],
       borderColor: ["rgba(30, 255, 99, 1)", "rgba(255, 50, 50, 1)"],
       borderWidth: 1,
     },
@@ -138,7 +145,7 @@ const menWorkingByDepartment = {
       data: [constructionMW, mAndEMW, fitOutMW, newRegionsMW],
       borderColor: "rgba(255, 99, 132, 1)",
 
-      backgroundColor: "rgba(255, 99, 132, 0.6)",
+      backgroundColor: lime,
       order: 1,
     },
   ],
@@ -172,7 +179,7 @@ const mAndESales = {
       data: [74349, 28939, 7675, 5494, 10970, 4829, 6940],
       borderColor: "rgba(255, 99, 132, 1)",
 
-      backgroundColor: "rgba(255, 99, 132, 0.6)",
+      backgroundColor: blue,
       order: 1,
     },
     {
@@ -180,7 +187,7 @@ const mAndESales = {
       label: "Target",
       data: [18000, 30600, 14400, 3400, 25500, 6000, 13200],
       fill: false,
-      borderColor: "rgb(54, 162, 235)",
+      borderColor: lime,
     },
   ],
 };
@@ -201,7 +208,7 @@ const constructionSales = {
       type: "bar",
       label: "Sales",
       data: [17636, 29867, 17502, 15513, 11980, 11529, 6026],
-      borderColor: "rgba(255, 99, 132, 1)",
+      borderColor: blue,
 
       backgroundColor: "rgba(255, 99, 132, 0.6)",
       order: 1,
@@ -211,7 +218,7 @@ const constructionSales = {
       label: "Target",
       data: [21000, 31500, 18000, 24000, 18400, 6000, 9000],
       fill: false,
-      borderColor: "rgb(54, 162, 235)",
+      borderColor: lime,
     },
   ],
 };
@@ -224,9 +231,9 @@ const fitOutSales = {
       type: "bar",
       label: "Sales",
       data: [18905,  11038],
-      borderColor: "rgba(255, 99, 132, 1)",
+      borderColor: blue,
 
-      backgroundColor: "rgba(255, 99, 132, 0.6)",
+      backgroundColor: blue ,
       order: 1,
     },
     {
@@ -234,7 +241,152 @@ const fitOutSales = {
       label: "Target",
       data: [25476,  10422],
       fill: false,
+      borderColor: lime,
+      backgroundColor: lime,
+    },
+  ],
+};
+
+//New regions margin v budget
+const newRegionsMVB = {
+  labels: ["January",  "Feburary", "March"],
+  datasets: [
+    {
+      type: "bar",
+      label: "Margin",
+      data: [6435,  8547, 10034],
+      borderColor: blue,
+
+      backgroundColor: blue,
+      order: 1,
+    },
+    {
+      type: "bar",
+      label: "Target",
+      data: [7032,  10253, 12378],
+      fill: false,
+      borderColor: lime,
+      backgroundColor: lime,
+    },
+  ],
+};
+
+//New regions margin v budget
+const mAndEMVB = {
+  labels: ["January",  "Feburary", "March"],
+  datasets: [
+    {
+      type: "bar",
+      label: "Budget",
+      data: [28008,  30550, 35200],
+      borderColor: "rgba(255, 99, 132, 1)",
+
+      backgroundColor: blue,
+      order: 1,
+    },
+    {
+      type: "bar",
+      label: "Actual",
+      data: [27000,  33000, 32000],
+      fill: false,
       borderColor: "rgb(54, 162, 235)",
+      backgroundColor: lime,
+    },
+  ],
+};
+
+//Construction margin v budget
+const constructionMVB = {
+  labels: ["January",  "Feburary", "March"],
+  datasets: [
+    {
+      type: "bar",
+      label: "Budget",
+      data: [31389,  31350, 34000],
+      borderColor: "rgba(255, 99, 132, 1)",
+
+      backgroundColor: blue,
+      order: 1,
+    },
+    {
+      type: "bar",
+      label: "Actual",
+      data: [27000,  33000, 34000],
+      fill: false,
+      borderColor: "rgb(54, 162, 235)",
+      backgroundColor: lime,
+    },
+  ],
+};
+
+//Fit out margin v budget
+const fitOutMVB = {
+  labels: ["January",  "Feburary", "March"],
+  datasets: [
+    {
+      type: "bar",
+      label: "Budget",
+      data: [8867,  9300, 9550],
+      borderColor: "rgba(255, 99, 132, 1)",
+
+      backgroundColor: blue,
+      order: 1,
+    },
+    {
+      type: "bar",
+      label: "Actual",
+      data: [6860, 7200, 7350],
+      fill: false,
+      borderColor: "rgb(54, 162, 235)",
+      backgroundColor: lime,
+    },
+  ],
+};
+
+//Logistics margin v budget
+const logisticsMVB = {
+  labels: ["January",  "Feburary", "March"],
+  datasets: [
+    {
+      type: "bar",
+      label: "Budget",
+      data: [2055,  2000, 2500],
+      borderColor: "rgba(255, 99, 132, 1)",
+
+      backgroundColor: blue,
+      order: 1,
+    },
+    {
+      type: "bar",
+      label: "Actual",
+      data: [1900, 2300, 2600],
+      fill: false,
+      borderColor: "rgb(54, 162, 235)",
+      backgroundColor: lime,
+    },
+  ],
+};
+
+//Retail margin v budget
+const retailMVB = {
+  labels: ["January",  "Feburary", "March"],
+  datasets: [
+    {
+      type: "bar",
+      label: "Budget",
+      data: [25952,  26250, 26000],
+      borderColor: "rgba(255, 99, 132, 1)",
+
+      backgroundColor: blue,
+      order: 1,
+    },
+    {
+      type: "bar",
+      label: "Actual",
+      data: [23000,  25000, 25000],
+      fill: false,
+      borderColor: "rgb(54, 162, 235)",
+      backgroundColor: lime,
     },
   ],
 };
@@ -269,6 +421,62 @@ export function FitOutGraph() {
   );
 }
 
+//NEW REGION MARGIN V BUDGET COMPONENT
+export function NewRegionMVBGraph() {
+  return (
+    <div>
+      <h1>New Regions - Margin V Budget</h1>
+      <Line data={newRegionsMVB} />
+    </div>
+  );
+}
+
+export function MANDEMVBGraph() {
+  return (
+    <div>
+      <h1>M&E - Margin V Budget</h1>
+      <Line data={mAndEMVB} />
+    </div>
+  );
+}
+
+export function ConstructionMVBGraph() {
+  return (
+    <div>
+      <h1>Construction - Margin V Budget</h1>
+      <Line data={constructionMVB} />
+    </div>
+  );
+}
+
+export function FitOutMVBGraph() {
+  return (
+    <div>
+      <h1>Fit Out - Margin V Budget</h1>
+      <Line data={fitOutMVB} />
+    </div>
+  );
+}
+
+export function LogisticsMVBGraph() {
+  return (
+    <div>
+      <h1>Logistics - Margin V Budget</h1>
+      <Line data={logisticsMVB} />
+    </div>
+  );
+}
+
+export function RetailMVBGraph() {
+  return (
+    <div>
+      <h1>Retail - Margin V Budget</h1>
+      <Line data={retailMVB} />
+    </div>
+  );
+}
+
+//SWITCHER COMPONENT ----- COMBINE WITH MAIN 
 export function Graph(props) {
   switch (props.state) {
     case "construction":
@@ -324,6 +532,58 @@ export function Graph(props) {
           </div>
         </div>
       );
+      case "newRegionsMVB":
+        return(
+          <div className="grid grid-cols-6 grid-rows-9">
+          <div className="col-span-5 row-span-2 text-center font-display text-white text-2xl">
+            <NewRegionMVBGraph/>
+          </div>
+        </div>
+        )
+        case "mAndEMVB":
+        return(
+          <div className="grid grid-cols-6 grid-rows-9">
+          <div className="col-span-5 row-span-2 text-center font-display text-white text-2xl">
+          <MANDEMVBGraph/>
+          </div>
+        </div>
+
+        )
+        case "constructionMVB":
+        return(
+          <div className="grid grid-cols-6 grid-rows-9">
+          <div className="col-span-5 row-span-2 text-center font-display text-white text-2xl">
+            <ConstructionMVBGraph/>
+          </div>
+        </div>
+
+        )
+        case "fitOutMVB":
+        return(
+          <div className="grid grid-cols-6 grid-rows-9">
+          <div className="col-span-5 row-span-2 text-center font-display text-white text-2xl">
+            <FitOutMVBGraph/>
+          </div>
+        </div>
+
+        )
+        case "logisticsMVB":
+        return(
+          <div className="grid grid-cols-6 grid-rows-9">
+          <div className="col-span-5 row-span-2 text-center font-display text-white text-2xl">
+            <LogisticsMVBGraph/>
+          </div>
+        </div>
+        )
+        case "retailMVB":
+          return(
+            <div className="grid grid-cols-6 grid-rows-9">
+            <div className="col-span-5 row-span-2 text-center font-display text-white text-2xl">
+              <RetailMVBGraph/>
+            </div>
+          </div>
+          )
+  
 
     default:
       return null;
