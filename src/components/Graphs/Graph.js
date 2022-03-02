@@ -213,7 +213,7 @@ const constructionSales = {
       data: [17636, 29867, 17502, 15513, 11980, 11529, 6026],
       borderColor: blue,
 
-      backgroundColor: "rgba(255, 99, 132, 0.6)",
+      backgroundColor: lime,
       order: 1,
     },
     {
@@ -234,9 +234,9 @@ const fitOutSales = {
       type: "bar",
       label: "Sales",
       data: [18905,  11038],
-      borderColor: blue,
+      borderColor: lime,
 
-      backgroundColor: blue ,
+      backgroundColor: lime ,
       order: 1,
     },
     {
@@ -258,9 +258,9 @@ const newRegionsMVB = {
       type: "bar",
       label: "Margin",
       data: [6435,  8547, 10034],
-      borderColor: blue,
+      borderColor: lime,
 
-      backgroundColor: blue,
+      backgroundColor: lime ,
       order: 1,
     },
     {
@@ -268,8 +268,8 @@ const newRegionsMVB = {
       label: "Target",
       data: [7032,  10253, 12378],
       fill: false,
-      borderColor: lime,
-      backgroundColor: lime,
+      borderColor: pink,
+      backgroundColor: pink,
     },
   ],
 };
@@ -308,7 +308,7 @@ const constructionMVB = {
       data: [31389,  31350, 34000],
       borderColor: "rgba(255, 99, 132, 1)",
 
-      backgroundColor: blue,
+      backgroundColor: pink,
       order: 1,
     },
     {
@@ -332,7 +332,7 @@ const fitOutMVB = {
       data: [8867,  9300, 9550],
       borderColor: "rgba(255, 99, 132, 1)",
 
-      backgroundColor: blue,
+      backgroundColor: pink,
       order: 1,
     },
     {
@@ -356,7 +356,7 @@ const logisticsMVB = {
       data: [2055,  2000, 2500],
       borderColor: "rgba(255, 99, 132, 1)",
 
-      backgroundColor: blue,
+      backgroundColor: pink,
       order: 1,
     },
     {
@@ -380,7 +380,7 @@ const retailMVB = {
       data: [25952,  26250, 26000],
       borderColor: "rgba(255, 99, 132, 1)",
 
-      backgroundColor: blue,
+      backgroundColor: pink,
       order: 1,
     },
     {
