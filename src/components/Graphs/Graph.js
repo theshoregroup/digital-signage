@@ -51,10 +51,13 @@ function targetPercentage(partialValue, totalValue) {
   return ((100 * partialValue) / totalValue).toFixed(0);
 }
 
-//declare graph colour scheme
-let lime = "rgba(203, 225, 30, 0.8)"
-let blue = "rgba(30, 203, 225, 0.8)"
-let pink = "rgba(225, 30, 203, 0.8)"
+//declare graph colour scheme CHANGE VAR NAMES
+let lime = "rgba(255, 218, 54, 0.9)"
+let blue = "rgba(54, 201, 225, 0.7)"
+let pink = "rgba(225, 54, 128, 0.7)"
+
+let green = "rgba(76, 255, 36, 0.7)"
+let red = "rgba(255, 36, 76, 0.7)"
 
 //declare monthly sales target values. route ALL values through backend when connection is established.
 
@@ -100,8 +103,8 @@ export const percentageOfConstructionTarget = {
     {
       label: "# of Votes",
       data: [constructionTotalSalesSoFar, constructionRemainingTarget],
-      backgroundColor: [blue, lime],
-      borderColor: [blue, lime],
+      backgroundColor: [green, red],
+      borderColor: [green, red],
       borderWidth: 1,
     },
   ],
@@ -114,7 +117,7 @@ export const percentageOfMANDETarget = {
     {
       label: "# of Votes",
       data: [mAndETotalSalesSoFar, mAndERemainingTarget],
-      backgroundColor: [blue, pink],
+      backgroundColor: [green, red],
       borderColor: ["rgba(30, 255, 99, 1)", "rgba(255, 50, 50, 1)"],
       borderWidth: 1,
     },
@@ -128,7 +131,7 @@ export const percentageOfFitOutTarget = {
     {
       label: "# of Votes",
       data: [fitOutTotalSalesSoFar, fitOutRemainingTarget],
-      backgroundColor: [blue, lime],
+      backgroundColor: [green, red],
       borderColor: ["rgba(30, 255, 99, 1)", "rgba(255, 50, 50, 1)"],
       borderWidth: 1,
     },
@@ -187,7 +190,7 @@ const mAndESales = {
       label: "Target",
       data: [18000, 30600, 14400, 3400, 25500, 6000, 13200],
       fill: false,
-      borderColor: lime,
+      borderColor: pink,
     },
   ],
 };
@@ -218,7 +221,7 @@ const constructionSales = {
       label: "Target",
       data: [21000, 31500, 18000, 24000, 18400, 6000, 9000],
       fill: false,
-      borderColor: lime,
+      borderColor: pink,
     },
   ],
 };
@@ -241,8 +244,8 @@ const fitOutSales = {
       label: "Target",
       data: [25476,  10422],
       fill: false,
-      borderColor: lime,
-      backgroundColor: lime,
+      borderColor: pink,
+      backgroundColor: pink,
     },
   ],
 };
