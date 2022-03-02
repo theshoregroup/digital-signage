@@ -182,7 +182,7 @@ const mAndESales = {
       data: [74349, 28939, 7675, 5494, 10970, 4829, 6940],
       borderColor: "rgba(255, 99, 132, 1)",
 
-      backgroundColor: blue,
+      backgroundColor: lime,
       order: 1,
     },
     {
@@ -211,7 +211,7 @@ const constructionSales = {
       type: "bar",
       label: "Sales",
       data: [17636, 29867, 17502, 15513, 11980, 11529, 6026],
-      borderColor: blue,
+
 
       backgroundColor: lime,
       order: 1,
