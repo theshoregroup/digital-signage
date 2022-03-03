@@ -1,6 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import axios from "axios";
 import { Loader } from "../functional/Loader";
+
+
+  
 
 
 
@@ -13,12 +16,24 @@ class Compost extends React.Component {
     };
   }
 
+
   
 
+
+
+
   componentDidMount() {
+    let config = {
+      headers: {
+        Authorization: "Bearer ade8861266b7a17189efa08eb21f9acfb4938b7290b0a26480e99a610d219bacd5e24cf0945b7c0e36c0e24e31c6e5ec6523a9a2564a89e1510f73d42958f7efeb7aac7867ae68bf30794397aaed10888e96c804a5aeb60810225592240f0111661c992f1da85ffea2f849244faa92106db77ebb4a1e8d8fc0f6a4e8e94c1514"
+    }
+  }
+    
+  
+
     axios
       .get(
-        "https://cms.theshoregroup.co.uk/items/posts?access_token=w3vytpbZvEf69LZmiyoNX8h"
+        "http://localhost:1337/api/posts", config
       )
       .then((res) => {
         let data = res.data;
@@ -31,23 +46,25 @@ class Compost extends React.Component {
     if (this.state.loading) {
       return <Loader />;
     } else {
-    
+     let index =2
+      
+      
+      
 
-      let specificBody = this.state.data.data[0].body; //loop through different elements of array on timer
-      let specificTitle = this.state.data.data[0].title;
-      let specificPosted_By = this.state.data.data[0].posted_by;
 
       return (
-        <div className="text-center">
+        <div className="text-center text-white">
           <div className="font-semibold text-4xl animate-fade-in-up">
-            {specificTitle}
+          { this.state.data.data[index].attributes.Title}
           </div>
-          <div className="text-2xl animate-fade-in-down"> {specificBody}</div>
-          <div className="text-3xl font-semibold">-{specificPosted_By}</div>
+          <div className="text-3xl animate-fade-in-down"></div>
+          { this.state.data.data[index].attributes.Body}
+          <div className="text-3xl font-semibold"></div>
         </div>
       );
     }
   }
 }
+
 
 export { Compost };

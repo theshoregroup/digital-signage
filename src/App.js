@@ -57,7 +57,7 @@ function App() {
 
         {/* Main-Right Element */}
         <div className="col-start-7 col-span-3  p-10 text-center text-2xl text-white font-display">
-         <Anim />
+         <Compost />
         </div>
 
         {/*Bottom-left element*/}
