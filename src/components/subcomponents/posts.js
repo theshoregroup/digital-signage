@@ -4,7 +4,7 @@ import TextTransition, { presets } from "react-text-transition";
 import { Loader } from "../functional/Loader";
 
 export const Anim = () => {
-  const [index, setIndex] = React.useState(0);
+  const [index, setIndex] = useState(0);
   let [loader, setLoader] = useState(true);
   let [data, setData] = useState();
 
@@ -28,7 +28,7 @@ export const Anim = () => {
 
   console.log(data);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const intervalId = setInterval(
       () => setIndex((index) => index + 1),
       25000 // 20 seconds i think
