@@ -116,37 +116,6 @@ export function MenWorkingByDepartment() {
   );
 }
 
-//M&E Sales vs target
-const mAndESales = {
-  labels: [
-    "George Surry",
-    "Tommy Tripp",
-    "Matt Watts",
-    "Phil Navichas",
-    "Alfie Herbert",
-    "Ella Durrant",
-    "Luke Guainiere",
-  ],
-  datasets: [
-    {
-      type: "bar",
-      label: "Sales",
-      data: [74349, 28939, 7675, 5494, 10970, 4829, 6940],
-      borderColor: "rgba(255, 99, 132, 1)",
-
-      backgroundColor: lime,
-      order: 1,
-    },
-    {
-      type: "line",
-      label: "Target",
-      data: [18000, 30600, 14400, 3400, 25500, 6000, 13200],
-      fill: false,
-      borderColor: pink,
-    },
-  ],
-};
-
 //New regions margin v budget
 const newRegionsMVB = {
   labels: ["January", "Feburary", "March"],
@@ -215,7 +184,37 @@ export function MANDEGraph() {
   return (
     <div>
       <h1> M&E Sales - Feburary Week Three </h1>
-      <Line data={mAndESales} />
+      <Line
+        data={{
+          labels: [
+            "George Surry",
+            "Tommy Tripp",
+            "Matt Watts",
+            "Phil Navichas",
+            "Alfie Herbert",
+            "Ella Durrant",
+            "Luke Guainiere",
+          ],
+          datasets: [
+            {
+              type: "bar",
+              label: "Sales",
+              data: [74349, 28939, 7675, 5494, 10970, 4829, 6940],
+              borderColor: "rgba(255, 99, 132, 1)",
+
+              backgroundColor: lime,
+              order: 1,
+            },
+            {
+              type: "line",
+              label: "Target",
+              data: [18000, 30600, 14400, 3400, 25500, 6000, 13200],
+              fill: false,
+              borderColor: pink,
+            },
+          ],
+        }}
+      />
     </div>
   );
 }
