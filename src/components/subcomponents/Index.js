@@ -1,18 +1,15 @@
 import { useState, useEffect } from "react";
 import React from "react";
+let index = 0
 
-export default function Index() {
-  const initialCounterValue = 0;
-  let [index, setIndex] = useState(initialCounterValue);
-
-  const increment = useEffect(() => {
-    setIndex(index + 1);
-  }, [setIndex, index]);
-
-  setInterval(increment, 1000);
-  if (index >= 4) {
-    index = initialCounterValue;
-  }
-  console.log(index);
- return index
+export default function Increment(){
+if (index < 5){
+  setTimeout(index++, 5000)
 }
+else {
+  index = 0
+}
+}
+
+
+export {index}

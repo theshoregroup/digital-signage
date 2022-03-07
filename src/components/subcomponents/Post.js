@@ -1,12 +1,21 @@
-//ANIMATION TEST
-import React, { useEffect, useState } from "react";
-import TextTransition, { presets } from "react-text-transition";
 import { Loader } from "../functional/Loader";
+import React, { useEffect, useState } from "react";
 
-export const Anim = () => {
-  const [index, setIndex] = React.useState(0);
+export default function Posts(props) {
   let [loader, setLoader] = useState(true);
+  let [index, setIndex] = useState(0);
   let [data, setData] = useState();
+
+  const increment = () => {
+    setIndex(index + 1);
+  };
+
+  const reset = () => {
+    setIndex((index = 0));
+    console.log(index);
+  };
+
+  console.log(index);
 
   useEffect(() => {
     const config = {
@@ -21,36 +30,24 @@ export const Anim = () => {
       const responseJson = await response.json();
       console.log("json", responseJson);
       setData(responseJson);
-      setLoader(false);
     };
-    setTimeout(getPostsFromApi, 3000)
-  }, []);
-
-  console.log(data);
-
-  React.useEffect(() => {
-    const intervalId = setInterval(
-      () => setIndex((index) => index + 1),
-      25000 // 20 seconds i think
-    );
-    return () => clearTimeout(intervalId);
+    setInterval(getPostsFromApi, 10000);
+    setLoader(false);
   }, []);
 
   if (loader === true) {
     return <Loader />;
-  } else 
-  var body = data.data.map((post) => post.attributes.Body);
- 
-  console.log(body);
-  return (
-    <h1 className=" text-center">
-    
-    <TextTransition
-      className="text-3xl"
-      text={body[index % body.length]}
-      springConfig={presets.wobbly}
-    />
-  </h1>
-  )
-};
+  } else {
+    console.log(data);
+    return (
+      <div className="text-center text-white">
+        <div className="font-semibold text-4xl animate-fade-in-up">
+          {data.data.id}
+        </div>
+        <div className="text-3xl animate-fade-in-down"></div>
 
+        <div className="text-3xl font-semibold"></div>
+      </div>
+    );
+  }
+}

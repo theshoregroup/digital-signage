@@ -18,6 +18,7 @@ import axios from "axios";
 import { Anim } from "./components/subcomponents/posts";
 import { Compost } from './components/subcomponents/API'
 import {Sonos} from './components/subcomponents/Sonos'
+import Post from "./components/subcomponents/Post";
 
 
 
@@ -57,7 +58,7 @@ function App() {
 
         {/* Main-Right Element */}
         <div className="col-start-7 col-span-3  p-10 text-center text-2xl text-white font-display">
-         <Compost />
+         <Anim/>
         </div>
 
         {/*Bottom-left element*/}

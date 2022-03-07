@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Loader } from "../functional/Loader";
 import React from "react";
-import { Index } from "./Index";
+
 
 let API_KEY = "be5b5ec5bfa345388ac8db5692953db2";
 
