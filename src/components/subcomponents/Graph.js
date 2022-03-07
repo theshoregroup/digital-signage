@@ -1,22 +1,4 @@
-//MEN WORKING per department ? bar graph
-//
-
-//Targets vs actuals PER DEPARTMENT bar graph with line
-//
-
-//different view for every department showing relevant stats ?
-//men working + targets v actuals per person
-
-// compliance - total compliant percentage -
-//animated total compliance percantage in doughnut graph with number in middle
-
-// VIEW FOR EVERY DEPARTMENT
-//Bar graph showing performance per person with
-//Doughnut graph with number in middle showing percentage of target achieved
-
-//jobs filled ratio ?
-
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -31,7 +13,7 @@ import {
 } from "chart.js";
 
 import { Pie, Line, Doughnut } from "react-chartjs-2";
-import { values } from "lodash";
+import Loader from "../functional/Loader";
 
 ChartJS.register(
   CategoryScale,
@@ -61,7 +43,7 @@ let red = "rgba(255, 36, 76, 0.7)";
 //declare monthly sales target values. route ALL values through backend when connection is established.
 
 //Construction values - for construction doughnut graph
-let constructionTotalSalesSoFar = 110053;
+let constructionTotalSalesSoFar = 147970;
 let constructionTotalSalesTarget = 127900;
 let constructionRemainingTarget =
   constructionTotalSalesSoFar - constructionTotalSalesTarget;
@@ -70,7 +52,7 @@ if (constructionTotalSalesSoFar >= constructionTotalSalesTarget) {
 }
 
 //M&E values
-let mAndETotalSalesSoFar = 139195;
+let mAndETotalSalesSoFar = 174175;
 let mAndETotalSalesTarget = 111100;
 let mAndERemainingTarget = mAndETotalSalesTarget - mAndETotalSalesSoFar;
 if (mAndETotalSalesSoFar >= mAndETotalSalesTarget) {
@@ -78,7 +60,7 @@ if (mAndETotalSalesSoFar >= mAndETotalSalesTarget) {
 }
 
 //Fit out vales
-let fitOutTotalSalesSoFar = 29944;
+let fitOutTotalSalesSoFar = 39379;
 let fitOutTotalSalesTarget = 39600;
 let fitOutRemainingTarget = fitOutTotalSalesTarget - fitOutTotalSalesSoFar;
 if (fitOutTotalSalesSoFar >= fitOutTotalSalesTarget) {
@@ -86,15 +68,15 @@ if (fitOutTotalSalesSoFar >= fitOutTotalSalesTarget) {
 }
 
 //Men working vales
-let constructionMW = 1261;
-let mAndEMW = 767;
-let fitOutMW = 482;
-let newRegionsMW = 283;
+let constructionMW = 1698;
+let mAndEMW = 1034;
+let fitOutMW = 646;
+let newRegionsMW = 387;
 
-export function MenWorkingByDepartment() {
+function MenWorkingByDepartment() {
   return (
     <div>
-      <h1> Total Men Working - Feburary Week Three </h1>
+      <h1> Total Men Working - Feburary Week Four </h1>
       <Line
         data={{
           labels: ["Construction", "M&E", "Fit Out", "New Regions"],
@@ -141,7 +123,7 @@ const newRegionsMVB = {
 };
 
 //Construction graph component
-export function ConstructionGraph() {
+function ConstructionGraph() {
   return (
     <div>
       <h1>Construction Sales - Feburary Week Three</h1>
@@ -160,7 +142,7 @@ export function ConstructionGraph() {
             {
               type: "bar",
               label: "Sales",
-              data: [17636, 29867, 17502, 15513, 11980, 11529, 6026],
+              data: [24131, 40259, 22249, 21236, 16226, 16226, 7463],
 
               backgroundColor: lime,
               order: 1,
@@ -180,10 +162,10 @@ export function ConstructionGraph() {
 }
 
 //M&E graph component
-export function MANDEGraph() {
+function MANDEGraph() {
   return (
     <div>
-      <h1> M&E Sales - Feburary Week Three </h1>
+      <h1> M&E Sales - Feburary Week Four </h1>
       <Line
         data={{
           labels: [
@@ -199,7 +181,7 @@ export function MANDEGraph() {
             {
               type: "bar",
               label: "Sales",
-              data: [74349, 28939, 7675, 5494, 10970, 4829, 6940],
+              data: [83315, 38602, 15327, 5494, 11050, 10156,10232],
               borderColor: "rgba(255, 99, 132, 1)",
 
               backgroundColor: lime,
@@ -220,10 +202,10 @@ export function MANDEGraph() {
 }
 
 //Fit-out graph component
-export function FitOutGraph() {
+function FitOutGraph() {
   return (
     <div>
-      <h1> Fit Out Sales - Feburary Week Three</h1>
+      <h1> Fit Out Sales - Feburary Week Four</h1>
       <Line
         data={{
           labels: ["Charlotte Carr", "Rebecca Colmer"],
@@ -231,7 +213,7 @@ export function FitOutGraph() {
             {
               type: "bar",
               label: "Sales",
-              data: [18905, 11038],
+              data: [21353, 14622],
               borderColor: lime,
 
               backgroundColor: lime,
@@ -253,7 +235,7 @@ export function FitOutGraph() {
 }
 
 //NEW REGION MARGIN V BUDGET COMPONENT
-export function NewRegionMVBGraph() {
+function NewRegionMVBGraph() {
   return (
     <div>
       <h1>New Regions - Margin V Budget</h1>
@@ -262,7 +244,7 @@ export function NewRegionMVBGraph() {
   );
 }
 
-export function MANDEMVBGraph() {
+function MANDEMVBGraph() {
   return (
     <div>
       <h1>M&E - Margin V Budget</h1>
@@ -294,7 +276,7 @@ export function MANDEMVBGraph() {
   );
 }
 
-export function ConstructionMVBGraph() {
+function ConstructionMVBGraph() {
   return (
     <div>
       <h1>Construction - Margin V Budget</h1>
@@ -326,7 +308,7 @@ export function ConstructionMVBGraph() {
   );
 }
 
-export function FitOutMVBGraph() {
+function FitOutMVBGraph() {
   return (
     <div>
       <h1>Fit Out - Margin V Budget</h1>
@@ -358,7 +340,7 @@ export function FitOutMVBGraph() {
   );
 }
 
-export function LogisticsMVBGraph() {
+function LogisticsMVBGraph() {
   return (
     <div>
       <h1>Logistics - Margin V Budget</h1>
@@ -390,7 +372,7 @@ export function LogisticsMVBGraph() {
   );
 }
 
-export function RetailMVBGraph() {
+function RetailMVBGraph() {
   return (
     <div>
       <h1>Retail - Margin V Budget</h1>
@@ -424,6 +406,31 @@ export function RetailMVBGraph() {
 
 //SWITCHER COMPONENT ----- COMBINE WITH MAIN
 export function Graph(props) {
+  let [loader, setLoader] = useState(true);
+  let [data, setData] = useState();
+
+  useEffect(() => {
+    const config = {
+      headers: {
+        Authorization:
+          "Bearer ade8861266b7a17189efa08eb21f9acfb4938b7290b0a26480e99a610d219bacd5e24cf0945b7c0e36c0e24e31c6e5ec6523a9a2564a89e1510f73d42958f7efeb7aac7867ae68bf30794397aaed10888e96c804a5aeb60810225592240f0111661c992f1da85ffea2f849244faa92106db77ebb4a1e8d8fc0f6a4e8e94c1514",
+      },
+    };
+
+    const getGraphsFromApi = async () => {
+      const response = await fetch(
+        "http://localhost:1337/api/departments",
+        config
+      );
+      const responseJson = await response.json();
+      console.log("json", responseJson);
+      setData(responseJson);
+      setLoader(false);
+    };
+    setTimeout(getGraphsFromApi, 3000);
+  }, []);
+
+  console.log(data);
   switch (props.state) {
     case "construction":
       let constructionPercentage = targetPercentage(
