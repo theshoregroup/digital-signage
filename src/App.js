@@ -14,11 +14,9 @@ import Header from "./components/base/Header";
 import logo from "./images/shoreLogo.png";
 import React, { useEffect, useState } from "react";
 import News from "./components/subcomponents/tempNews";
-import axios from "axios";
+
 import { Anim } from "./components/subcomponents/posts";
-import { Compost } from './components/subcomponents/API'
-import {Sonos} from './components/subcomponents/Sonos'
-import Post from "./components/subcomponents/Post";
+
 
 
 

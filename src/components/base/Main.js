@@ -2,7 +2,7 @@
 // 1. left - means it will be rendered in left side of the screen
 // 2. right - means it will be rendered in right side of the screen
 // default - means it will be rendered as the largest element overtop of everything else
-import { Graph } from "../Graphs/Graph";
+import { Graph } from "../subcomponents/Graph";
 import React, { useState } from "react";
 
 export default function Main(props) {
