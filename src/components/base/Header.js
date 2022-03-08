@@ -33,7 +33,7 @@ export default function Header() {
     return (
       <div className="h-full w-full flex justify-between ">
         <div className="px-4 py-5 text-white">
-          <span className="block text-7xl font-semibold">
+          <span className="block text-8xl font-semibold">
             {currentDate.toLocaleString("en-US", {
               hour: "numeric",
               minute: "numeric",
