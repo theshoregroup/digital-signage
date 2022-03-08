@@ -23,7 +23,8 @@ export const Anim = () => {
       setData(responseJson);
       setLoader(false);
     };
-    setTimeout(getPostsFromApi, 3000)
+    getPostsFromApi()
+    setTimeout(getPostsFromApi, 5000)
   }, []);
 
   console.log(data);
