@@ -14,7 +14,7 @@ export default function Header() {
     setInterval(() => setDateState(new Date()), 1000);
     const getWeatherFromApi = async () => {
       const response = await fetch(
-        "http://api.weatherapi.com/v1/forecast.json?key=ac517e0edf3142a6ae282635211410&q=Brighton&days=3&aqi=no&alerts=yes"
+        "http://api.weatherapi.com/v1/forecast.json?"+ process.env.REACT_APP_WEATHER_API_KEY
       );
       const responseJson = await response.json();
       console.log("json", responseJson);

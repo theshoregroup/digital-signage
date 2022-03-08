@@ -12,7 +12,7 @@ export const Anim = () => {
     const config = {
       headers: {
         Authorization:
-          "Bearer ade8861266b7a17189efa08eb21f9acfb4938b7290b0a26480e99a610d219bacd5e24cf0945b7c0e36c0e24e31c6e5ec6523a9a2564a89e1510f73d42958f7efeb7aac7867ae68bf30794397aaed10888e96c804a5aeb60810225592240f0111661c992f1da85ffea2f849244faa92106db77ebb4a1e8d8fc0f6a4e8e94c1514",
+         process.env.REACT_APP_BACKEND_API_KEY,
       },
     };
 
@@ -41,7 +41,7 @@ export const Anim = () => {
   } else 
   var body = data.data.map((post) => post.attributes.Body);
  
-  console.log(body);
+
   return (
     <h1 className=" text-center">
     
