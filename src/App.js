@@ -27,7 +27,7 @@ function App() {
   return (
     <>
       {/* Main content wrapper */}
-      <div className="h-screen w-screen grid grid-cols-9 grid-rows-9 max-w-screen max-h-screen bg-gradient-to-l from-gray-900  to-black">
+      <div className="h-screen w-screen grid grid-cols-9 grid-rows-9 max-w-screen max-h-screen bg-gradient-to-bl from-gray-900  to-black">
         {/* Header */}
         <div className="col-span-7 row-start-1 p-4 text-white font-display">
           <Header location="Brighton" />

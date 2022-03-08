@@ -3,19 +3,20 @@
 // 2. right - means it will be rendered in right side of the screen
 // default - means it will be rendered as the largest element overtop of everything else
 import { Graph } from "../subcomponents/Graph";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
+let delay = 20000
 
 export default function Main(props) {
   let [index, setIndex] = useState(0);
 
-  const increment = () => {
-    setIndex(index + 1);
-  };
-
-  const reset = () => {
-    setIndex((index = 0));
-    console.log(index);
-  };
+  useEffect(() => {
+    const intervalId = setInterval(
+      () => setIndex((index) => index + 1),
+      delay
+    );
+    return () => clearTimeout(intervalId)
+  }, []);
 
   console.log(index);
 
@@ -23,50 +24,40 @@ export default function Main(props) {
 
   switch (index) {
     case 0:
-      setTimeout(increment, 15000);
       return (
         <div className="h-full w-full  ">
           <Graph state="menWorkingByDept" />
         </div>
       );
     case 1:
-      setTimeout(increment, 15000);
       return (
         <div className="h-full w-full ">
           <Graph state="mne" />
         </div>
       );
     case 2:
-      setTimeout(increment, 15000);
       return (
         <div className="h-full w-full ">
           <Graph state="construction" />
         </div>
       );
     case 3:
-      setTimeout(increment, 15000);
       return <Graph state="fitout" />;
     case 4:
-      setTimeout(increment, 15000);
       return <Graph state="newRegionsMVB" />;
     case 5:
-      setTimeout(increment, 15000);
       return <Graph state="mAndEMVB" />;
     case 6:
-      setTimeout(increment, 15000);
       return <Graph state="constructionMVB" />;
     case 7:
-      setTimeout(increment, 15000);
       return <Graph state="fitOutMVB" />;
     case 8:
-      setTimeout(increment, 15000);
       return <Graph state="logisticsMVB" />;
     case 9:
-      setTimeout(increment, 15000);
       return <Graph state="retailMVB" />;
 
     default:
-      setTimeout(reset, 60000);
+      setTimeout(setIndex((index)=> 0), delay)
       return (
         <div className="h-full w-full  ">
           <iframe
