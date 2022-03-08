@@ -181,7 +181,7 @@ function MANDEGraph() {
             {
               type: "bar",
               label: "Sales",
-              data: [83315, 38602, 15327, 5494, 11050, 10156,10232],
+              data: [83315, 38602, 15327, 5494, 11050, 10156, 10232],
               borderColor: "rgba(255, 99, 132, 1)",
 
               backgroundColor: lime,
@@ -408,31 +408,37 @@ function RetailMVBGraph() {
 export function Graph(props) {
   let [loader, setLoader] = useState(true);
   let [data, setData] = useState();
+  let [index, setIndex] = useState();
+
+  const config = {
+    headers: {
+      Authorization: process.env.REACT_APP_BACKEND_API_KEY,
+    },
+  };
 
   useEffect(() => {
-    const config = {
-      headers: {
-        Authorization:
-          "Bearer ade8861266b7a17189efa08eb21f9acfb4938b7290b0a26480e99a610d219bacd5e24cf0945b7c0e36c0e24e31c6e5ec6523a9a2564a89e1510f73d42958f7efeb7aac7867ae68bf30794397aaed10888e96c804a5aeb60810225592240f0111661c992f1da85ffea2f849244faa92106db77ebb4a1e8d8fc0f6a4e8e94c1514",
-      },
-    };
-
-    const getGraphsFromApi = async () => {
-      const response = await fetch(
-        "http://localhost:1337/api/departments",
-        config
-      );
-      const responseJson = await response.json();
-      console.log("json", responseJson);
-      setData(responseJson);
-      setLoader(false);
-    };
-    setTimeout(getGraphsFromApi, 3000);
+    const intervalId = setInterval(
+      () => setIndex((index) => index + 1),
+      10000 // 20 seconds i think
+    );
+    return () => clearTimeout(intervalId);
   }, []);
-
+/*
+  const getGraphsFromApi = async () => {
+    const response = await fetch(
+      "http://localhost:1337/api/departments",
+      config
+    );
+    const responseJson = await response.json();
+    console.log("json", responseJson);
+    setData(responseJson);
+    setLoader(false);
+  };
+  setTimeout(getGraphsFromApi, 3000);
+*/
   console.log(data);
-  switch (props.state) {
-    case "construction":
+  switch (index) {
+    case 0:
       let constructionPercentage = targetPercentage(
         constructionTotalSalesSoFar,
         constructionTotalSalesTarget
@@ -464,7 +470,7 @@ export function Graph(props) {
           </div>
         </div>
       );
-    case "mne":
+    case 1:
       let mAndE = targetPercentage(mAndETotalSalesSoFar, mAndETotalSalesTarget);
       return (
         <div className="grid grid-cols-6 grid-rows-9">
@@ -493,7 +499,7 @@ export function Graph(props) {
           </div>
         </div>
       );
-    case "fitout":
+    case 2:
       let fitOutPercentage = targetPercentage(
         fitOutTotalSalesSoFar,
         fitOutTotalSalesTarget
@@ -525,7 +531,7 @@ export function Graph(props) {
           </div>
         </div>
       );
-    case "menWorkingByDept":
+    case 3:
       return (
         <div className="grid grid-cols-6 grid-rows-9">
           <div className="col-span-5 row-span-2 text-center font-display text-white text-2xl">
@@ -533,7 +539,7 @@ export function Graph(props) {
           </div>
         </div>
       );
-    case "newRegionsMVB":
+    case 4:
       return (
         <div className="grid grid-cols-6 grid-rows-9">
           <div className="col-span-5 row-span-2 text-center font-display text-white text-2xl">
@@ -541,7 +547,7 @@ export function Graph(props) {
           </div>
         </div>
       );
-    case "mAndEMVB":
+    case 5:
       return (
         <div className="grid grid-cols-6 grid-rows-9">
           <div className="col-span-5 row-span-2 text-center font-display text-white text-2xl">
@@ -549,7 +555,7 @@ export function Graph(props) {
           </div>
         </div>
       );
-    case "constructionMVB":
+    case 6:
       return (
         <div className="grid grid-cols-6 grid-rows-9">
           <div className="col-span-5 row-span-2 text-center font-display text-white text-2xl">
@@ -557,7 +563,7 @@ export function Graph(props) {
           </div>
         </div>
       );
-    case "fitOutMVB":
+    case 7:
       return (
         <div className="grid grid-cols-6 grid-rows-9">
           <div className="col-span-5 row-span-2 text-center font-display text-white text-2xl">
@@ -565,7 +571,7 @@ export function Graph(props) {
           </div>
         </div>
       );
-    case "logisticsMVB":
+    case 8:
       return (
         <div className="grid grid-cols-6 grid-rows-9">
           <div className="col-span-5 row-span-2 text-center font-display text-white text-2xl">
@@ -573,7 +579,7 @@ export function Graph(props) {
           </div>
         </div>
       );
-    case "retailMVB":
+    case 9:
       return (
         <div className="grid grid-cols-6 grid-rows-9">
           <div className="col-span-5 row-span-2 text-center font-display text-white text-2xl">
@@ -583,6 +589,7 @@ export function Graph(props) {
       );
 
     default:
+      setIndex((index) => 0);
       return null;
   }
 }
