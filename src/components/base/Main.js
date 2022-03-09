@@ -3,6 +3,7 @@
 // 2. right - means it will be rendered in right side of the screen
 // default - means it will be rendered as the largest element overtop of everything else
 import { Graph } from "../subcomponents/Graph";
+import YoutubePlayer from "../subcomponents/YoutubePlayer";
 import React, { useState, useEffect } from "react";
 
 let delay = 60000
@@ -34,17 +35,7 @@ export default function Main(props) {
     case 1:
       return (
         <div className="h-full w-full  ">
-        <iframe
-          width="1040"
-          height="585"
-          className=""
-          src="https://www.youtube.com/embed/9Auq9mYxFEE?autohide=1&autoplay=1&cc_load_policy=1&mute=1"
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          autoPlay="True"
-        />
+       <YoutubePlayer/>
       </div>
       );
  

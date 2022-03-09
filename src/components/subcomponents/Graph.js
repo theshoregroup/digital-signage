@@ -98,30 +98,6 @@ function MenWorkingByDepartment() {
   );
 }
 
-//New regions margin v budget
-const newRegionsMVB = {
-  labels: ["January", "Feburary", "March"],
-  datasets: [
-    {
-      type: "bar",
-      label: "Margin",
-      data: [6435, 8547, 10034],
-      borderColor: lime,
-
-      backgroundColor: lime,
-      order: 1,
-    },
-    {
-      type: "bar",
-      label: "Target",
-      data: [7032, 10253, 12378],
-      fill: false,
-      borderColor: pink,
-      backgroundColor: pink,
-    },
-  ],
-};
-
 //Construction graph component
 function ConstructionGraph() {
   return (
@@ -239,8 +215,32 @@ function NewRegionMVBGraph() {
   return (
     <div>
       <h1>New Regions - Margin V Budget</h1>
-      <Line data={newRegionsMVB} />
-    </div>
+      <Line
+        data={
+          {
+            labels: ["January", "Feburary", "March"],
+            datasets: [
+              {
+                type: "bar",
+                label: "Margin",
+                data: [6435, 8547, 10034],
+                borderColor: lime,
+
+                backgroundColor: lime,
+                order: 1,
+              },
+              {
+                type: "bar",
+                label: "Target",
+                data: [7032, 10253, 12378],
+                fill: false,
+                borderColor: pink,
+                backgroundColor: pink,
+              },
+            ],
+          }}
+        />
+      </div>
   );
 }
 
@@ -258,7 +258,7 @@ function MANDEMVBGraph() {
               data: [28008, 30550, 35200],
               borderColor: "rgba(255, 99, 132, 1)",
 
-              backgroundColor: blue,
+              backgroundColor: pink,
               order: 1,
             },
             {
@@ -423,7 +423,7 @@ export function Graph(props) {
     );
     return () => clearTimeout(intervalId);
   }, []);
-/*
+  /*
   const getGraphsFromApi = async () => {
     const response = await fetch(
       "http://localhost:1337/api/departments",
