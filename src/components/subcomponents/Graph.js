@@ -34,7 +34,6 @@ function targetPercentage(partialValue, totalValue) {
 
 //declare graph colour scheme CHANGE VAR NAMES
 let lime = "rgba(58, 216, 255, 0.7)";
-let blue = "rgba(54, 201, 255, 0.7)";
 let pink = "rgba(255, 68, 58, 0.7)";
 
 let green = "rgba(137, 255, 58, 0.7)";

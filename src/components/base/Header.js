@@ -27,7 +27,7 @@ export default function Header() {
     };
     getWeatherFromApi();
     setInterval(getWeatherFromApi, 20000);
-  }, []);
+  }, [location]);
 
   if (loader === true) {
     return <Loader />;

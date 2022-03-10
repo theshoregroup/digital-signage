@@ -4,9 +4,9 @@ import Header from "./components/base/Header";
 // import Bottom from "./components/base/Bottom";
 import logo from "./images/shoreLogo.png";
 import React from "react";
-import News from "./components/subcomponents/tempNews";
+import News from "./components/subcomponents/TempNews";
 
-import { Anim } from "./components/subcomponents/posts";
+import { Anim } from "./components/subcomponents/Posts";
 
 // What this file does
 // This is the main view of the App.
