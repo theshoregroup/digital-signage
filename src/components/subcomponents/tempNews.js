@@ -25,17 +25,18 @@ class News extends React.Component {
     };
   }
 
+
   indexer(){
-    while(this.state.index < 4)
+    if(this.state.index < this.state.urlData.data.length-1){
     this.setState({index: this.state.index + 1})
     console.log(this.state.index)
-
+    }
+    else {
+      this.setState({index: 0})
+    }
   }
 
-  reset() {
-
-    this.setState({index: 0})
-  }
+ 
 
  
 
@@ -66,7 +67,7 @@ class News extends React.Component {
         console.log(this.state.urlData.data.length)
         this.timerID = setInterval(
           () => this.indexer(),
-          10000
+          1000
         );
 
       
@@ -74,6 +75,8 @@ class News extends React.Component {
       .catch((error) => console.log(error.response));
      
   }
+
+  
 
   render() {
     if (this.state.loading) {
