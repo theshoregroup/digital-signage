@@ -26,7 +26,7 @@ class News extends React.Component {
   }
 
   indexer(){
-    while(this.state.index < 3)
+    while(this.state.index < 4)
     this.setState({index: this.state.index + 1})
     console.log(this.state.index)
 

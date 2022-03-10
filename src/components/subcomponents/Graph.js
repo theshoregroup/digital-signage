@@ -33,12 +33,12 @@ function targetPercentage(partialValue, totalValue) {
 }
 
 //declare graph colour scheme CHANGE VAR NAMES
-let lime = "rgba(255, 218, 54, 0.9)";
-let blue = "rgba(54, 201, 225, 0.7)";
-let pink = "rgba(225, 54, 128, 0.7)";
+let lime = "rgba(0, 255, 187, 0.7)";
+let blue = "rgba(54, 201, 255, 0.7)";
+let pink = "rgba(255, 0, 68, 0.7)";
 
 let green = "rgba(76, 255, 36, 0.7)";
-let red = "rgba(255, 36, 76, 0.7)";
+let red = "rgba(255, 0, 68, 0.7)";
 
 //declare monthly sales target values. route ALL values through backend when connection is established.
 
@@ -436,7 +436,7 @@ export function Graph(props) {
   };
   setTimeout(getGraphsFromApi, 3000);
 */
-  
+  console.log(data);
   switch (index) {
     case 0:
       let constructionPercentage = targetPercentage(

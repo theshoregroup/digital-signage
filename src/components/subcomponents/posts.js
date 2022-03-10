@@ -33,7 +33,7 @@ export const Anim = () => {
   useEffect(() => {
     const intervalId = setInterval(
       () => setIndex((index) => index + 1),
-      25000 // 20 seconds i think
+      30000 // 30 seconds
     );
     return () => clearTimeout(intervalId);
   }, []);

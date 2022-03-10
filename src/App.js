@@ -33,7 +33,7 @@ function App() {
         </div>
 
         {/* Main-Right Element */}
-        <div className="col-start-7 col-span-3  text-center text-3xl text-white font-display">
+        <div className="col-start-7 col-span-3  text-center text-3xl text-white font-display p-10">
           <Anim />
         </div>
 
