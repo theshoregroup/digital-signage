@@ -33,12 +33,12 @@ function targetPercentage(partialValue, totalValue) {
 }
 
 //declare graph colour scheme CHANGE VAR NAMES
-let lime = "rgba(0, 255, 187, 0.7)";
+let lime = "rgba(58, 216, 255, 0.7)";
 let blue = "rgba(54, 201, 255, 0.7)";
-let pink = "rgba(255, 0, 68, 0.7)";
+let pink = "rgba(255, 68, 58, 0.7)";
 
-let green = "rgba(76, 255, 36, 0.7)";
-let red = "rgba(255, 0, 68, 0.7)";
+let green = "rgba(137, 255, 58, 0.7)";
+let red = "rgba(255, 68, 58, 0.7)";
 
 //declare monthly sales target values. route ALL values through backend when connection is established.
 

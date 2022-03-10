@@ -67,7 +67,7 @@ class News extends React.Component {
         console.log(this.state.urlData.data.length)
         this.timerID = setInterval(
           () => this.indexer(),
-          1000
+          60000
         );
 
       
