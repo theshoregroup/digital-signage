@@ -4,12 +4,15 @@ import React from "react";
 
 const config = {
   headers: {
-    Authorization:
-     process.env.REACT_APP_BACKEND_API_KEY,
+    Authorization: process.env.REACT_APP_BACKEND_API_KEY,
   },
 };
 
-let API_KEY = process.env.REACT_APP_NEWS_API_KEY
+const header = {
+  headers: {
+    "Ocp-Apim-Subscription-Key": process.env.REACT_APP_BING_API_KEY,
+  },
+};
 
 class News extends React.Component {
   constructor(props) {
@@ -18,41 +21,84 @@ class News extends React.Component {
       loading: true,
       urlData: [],
       newsData: [],
+      index: 0,
     };
   }
 
+  indexer(){
+    while(this.state.index < 3)
+    this.setState({index: this.state.index + 1})
+    console.log(this.state.index)
+
+  }
+
+  reset() {
+
+    this.setState({index: 0})
+  }
+
+ 
+
   componentDidMount() {
+
+   
     axios
-      .get("http://localhost:1337/api/news-feeds", config)
+      .get("http://localhost:1337/api/news", config)
       .then((response) => {
         this.setState({ urlData: response.data });
         console.log(this.state.urlData);
       })
       .then((response) => {
-        return axios.get(this.state.urlData.data[0].attributes.url + API_KEY);
+        return axios.get(
+          "https://api.bing.microsoft.com/v7.0/news/search" +
+            "?q=" +
+            this.state.urlData.data[this.state.index].attributes.Query,
+
+          header
+        );
       })
       .then((response) => {
         this.setState({ newsData: response.data });
         console.log(this.state.newsData);
-        this.setState({loading: false})
+        this.setState({ loading: false });
+       
+        //compare index to available elements
+        console.log(this.state.urlData.data.length)
+        this.timerID = setInterval(
+          () => this.indexer(),
+          10000
+        );
+
+      
       })
       .catch((error) => console.log(error.response));
+     
   }
+
   render() {
     if (this.state.loading) {
-      return <Loader />;
+      return (
+        <div>
+          <div className="text-semibold "> News </div> <Loader />
+        </div>
+      );
     } //get articles titles as "headlines"
     else
-      var headlines = this.state.newsData.articles.map((articles) => {
-        return articles.title;
+      var headlines = this.state.newsData.value.map((articles) => {
+        return articles.name;
       });
-    var join = headlines.join(" - "); // "seperate headlines "
-
+    var joined = headlines.join(" - "); // "seperate headlines "
+    console.log(headlines);
+   
     return (
       <div>
+        <div className="text-semibold">
+          {" "}
+          News - {this.state.urlData.data[this.state.index].attributes.Query}
+        </div>
         {/* eslint-disable-next-line jsx-a11y/no-distracting-elements*/}
-        <marquee className="" scrollamount="10">
-          <p className="text-5xl"> {join} </p>
+        <marquee className="text-5xl" scrollamount="10">
+          <p className=""> {joined} </p>
         </marquee>
       </div>
     );

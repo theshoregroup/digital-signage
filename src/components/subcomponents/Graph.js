@@ -436,7 +436,7 @@ export function Graph(props) {
   };
   setTimeout(getGraphsFromApi, 3000);
 */
-  console.log(data);
+  
   switch (index) {
     case 0:
       let constructionPercentage = targetPercentage(

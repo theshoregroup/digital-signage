@@ -9,13 +9,15 @@ export default function Header() {
   const [currentWeather, setWeatherState] = useState([]);
   const tomorrow = moment().add(1, "days").format("dddd");
   const dayAfter = moment().add(2, "days").format("dddd");
+  let location ="q=Brighton"
+  
 
   // Set UseEffect to update every 1000ms (1s)
   useEffect(() => {
     setInterval(() => setDateState(new Date()), 1000);
     const getWeatherFromApi = async () => {
       const response = await fetch(
-        "http://api.weatherapi.com/v1/forecast.json?" +
+        "http://api.weatherapi.com/v1/forecast.json?" + location + "&days=3" +
           process.env.REACT_APP_WEATHER_API_KEY
       );
       const responseJson = await response.json();

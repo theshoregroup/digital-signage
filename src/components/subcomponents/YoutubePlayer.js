@@ -1,6 +1,6 @@
 export default function YoutubePlayer(){
     return (
-        <div className="h-full w-full  ">
+        <div className="px-10 ">
         <iframe
           width="1040"
           height="585"

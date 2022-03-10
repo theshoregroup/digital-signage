@@ -25,6 +25,7 @@ export const Anim = () => {
     };
     getPostsFromApi()
     setTimeout(getPostsFromApi, 5000)
+    
   }, []);
 
   console.log(data);

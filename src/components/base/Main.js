@@ -28,13 +28,13 @@ export default function Main(props) {
   switch (index) {
     case 0:
       return (
-        <div className="h-full w-full  ">
+        <div className=" ">
           <Graph/>
         </div>
       );
     case 1:
       return (
-        <div className="h-full w-full  ">
+        <div className="">
        <YoutubePlayer/>
       </div>
       );
