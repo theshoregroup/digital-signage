@@ -26,23 +26,23 @@ class News extends React.Component {
   }
 
 
-  indexer(){
-    if(this.state.index < this.state.urlData.data.length-1){
-    this.setState({index: this.state.index + 1})
-    console.log(this.state.index)
+  indexer() {
+    if (this.state.index < this.state.urlData.data.length - 1) {
+      this.setState({ index: this.state.index + 1 })
+      console.log(this.state.index)
     }
     else {
-      this.setState({index: 0})
+      this.setState({ index: 0 })
     }
   }
 
- 
 
- 
+
+
 
   componentDidMount() {
 
-   
+
     axios
       .get("http://localhost:1337/api/news", config)
       .then((response) => {
@@ -52,17 +52,21 @@ class News extends React.Component {
       .then((response) => {
         return axios.get(
           "https://api.bing.microsoft.com/v7.0/news/search" +
-            "?q=" +
-            this.state.urlData.data[this.state.index].attributes.Query,
+          "?q=" +
+          this.state.urlData.data[this.state.index].attributes.Query,
 
           header
         );
       })
       .then((response) => {
-        this.setState({ newsData: response.data });
+        var headlines = response.data.value.map((articles) => {
+          return articles.name;
+        });
+        var joined = headlines.join(" - "); // "seperate headlines "
+        this.setState({ newsData: joined });
         console.log(this.state.newsData);
         this.setState({ loading: false });
-       
+
         //compare index to available elements
         console.log(this.state.urlData.data.length)
         this.timerID = setInterval(
@@ -70,13 +74,13 @@ class News extends React.Component {
           60000
         );
 
-      
+
       })
       .catch((error) => console.log(error.response));
-     
+
   }
 
-  
+
 
   render() {
     if (this.state.loading) {
@@ -87,24 +91,20 @@ class News extends React.Component {
       );
     } //get articles titles as "headlines"
     else
-      var headlines = this.state.newsData.value.map((articles) => {
-        return articles.name;
-      });
-    var joined = headlines.join(" - "); // "seperate headlines "
-    console.log(headlines);
-   
-    return (
-      <div>
-        <div className="text-semibold">
-          {" "}
-          News - {this.state.urlData.data[this.state.index].attributes.Query}
+
+
+      return (
+        <div>
+          <div className="text-semibold">
+            {" "}
+            News - {this.state.urlData.data[this.state.index].attributes.Query}
+          </div>
+          {/* eslint-disable-next-line jsx-a11y/no-distracting-elements*/}
+          <marquee className="text-5xl" scrollamount="10">
+            <p className=""> {this.state.newsData} </p>
+          </marquee>
         </div>
-        {/* eslint-disable-next-line jsx-a11y/no-distracting-elements*/}
-        <marquee className="text-5xl" scrollamount="10">
-          <p className=""> {joined} </p>
-        </marquee>
-      </div>
-    );
+      );
   }
 }
 
