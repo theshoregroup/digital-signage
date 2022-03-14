@@ -30,7 +30,7 @@ export const Anim = () => {
 
     };
     getPostsFromApi()
-    setTimeout(getPostsFromApi, 5000)
+    setInterval(getPostsFromApi, 5000)
 
   }, []);
 
