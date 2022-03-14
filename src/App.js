@@ -4,8 +4,8 @@ import Header from "./components/base/Header";
 // import Bottom from "./components/base/Bottom";
 import logo from "./images/shoreLogo.png";
 import React from "react";
-import News from "./components/subcomponents/TempNews";
-
+import {News} from "./components/subcomponents/NewsFeed";
+import { Sheet } from "./components/subcomponents/Sheet";
 import { Anim } from "./components/subcomponents/Posts";
 
 // What this file does
