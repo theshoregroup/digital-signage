@@ -32,9 +32,10 @@ tsconfig.tsbuildinfo
 
 # Prevent NPM package-lock files being committed as this project is not using NPM
 package-lock.json
-todo
+
+# Remove any Excel files
 src/data/Hove.xlsx
 *.xlsx
-.env
-.env
+
+# Remove enviroment variable files
 .env
