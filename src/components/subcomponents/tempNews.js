@@ -94,7 +94,7 @@ class News extends React.Component {
 
 
       return (
-        <div>
+        <div className="p-4">
           <div className="text-semibold text-6xl">
             {" "}
             News - {this.state.urlData.data[this.state.index].attributes.Query}

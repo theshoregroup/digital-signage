@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
 import { Loader } from "../functional/Loader";
+import logo from "../../images/shoreLogo.png";
 
 export default function Header() {
   // Define date
@@ -68,7 +69,7 @@ export default function Header() {
         </div>
         <div className="px-4 py-5 ">
           <span className="text-3xl text-semibold">
-          {dayAfter}
+            {dayAfter}
             <div className="text-2xl">
               {" "}
               {currentWeather.forecast.forecastday[1].day.condition.text}
@@ -79,7 +80,7 @@ export default function Header() {
                 src={currentWeather.forecast.forecastday[1].day.condition.icon}
                 alt=""
               />
-           {currentWeather.forecast.forecastday[1].day.avgtemp_c}°C
+              {currentWeather.forecast.forecastday[1].day.avgtemp_c}°C
             </span>
           </span>
         </div>
@@ -96,12 +97,13 @@ export default function Header() {
                 src={currentWeather.forecast.forecastday[2].day.condition.icon}
                 alt=""
               />
-               {currentWeather.forecast.forecastday[2].day.avgtemp_c}°C
+              {currentWeather.forecast.forecastday[2].day.avgtemp_c}°C
             </span>
           </span>
         </div>
-      
-     
+        <div>
+          <img className="px-4 " src={logo} alt="logo" height="250" width="250"></img>
+        </div>
       </div>
     );
 }
