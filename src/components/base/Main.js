@@ -6,7 +6,11 @@ import { Graph } from "../subcomponents/Graph";
 import YoutubePlayer from "../subcomponents/YoutubePlayer";
 import React, { useState, useEffect } from "react";
 
-let delay = 60000
+let delay = 30000
+
+
+
+
 
 export default function Main(props) {
   let [index, setIndex] = useState(0);

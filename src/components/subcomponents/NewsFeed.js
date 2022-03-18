@@ -56,7 +56,7 @@ export const News = () => {
       setLoader(false);
     };
     getNewsFromApi();
-    setInterval(getNewsFromApi, 5000);
+    setInterval(getNewsFromApi, 20000);
   }, [data, index, urlData]);
   if (loader === true) {
     return (

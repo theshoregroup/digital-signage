@@ -2,8 +2,8 @@ export default function YoutubePlayer(){
     return (
         <div className="px-10 ">
         <iframe
-          width="1040"
-          height="585"
+          width="1100"
+          height="619"
           className=""
           src="https://www.youtube.com/embed/9Auq9mYxFEE?autohide=1&autoplay=1&cc_load_policy=1&mute=1"
           title="YouTube video player"

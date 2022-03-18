@@ -4,19 +4,58 @@ import Header from "./components/base/Header";
 // import Bottom from "./components/base/Bottom";
 import logo from "./images/shoreLogo.png";
 import React from "react";
-import {News} from "./components/subcomponents/NewsFeed";
+import News  from "./components/subcomponents/TempNews";
 import { Sheet } from "./components/subcomponents/Sheet";
 import { Anim } from "./components/subcomponents/Posts";
+import { GetPosts } from "./components/subcomponents/GraphQL/GetPosts";
+
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  HttpLink,
+  from,
+} from "@apollo/client";
+import { onError } from "@apollo/client/link/error";
+
+const errorLink = onError(({ graphqlErrors, networkError }) => {
+  if (graphqlErrors) {
+    graphqlErrors.map(({ message, location, path }) => {
+      alert(`GRAPHQL ERROR ${message}`);
+    });
+  }
+});
+
+
+  const config = {
+    headers: {
+      "Access-Control-Allow-Origin": "*"
+    },
+  };
+
+
+const link = from([
+  errorLink, 
+  new HttpLink({
+    uri: "https://tsgcms.azurewebsites.net/api/graphql/", config
+  }),
+]);
+
+const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  link: link,
+});
 
 // What this file does
 // This is the main view of the App.
 // Handle the look and feel of all subcomponents *partially implmented*
 
-function App() {
+export default function App() {
   return (
-    <>
+    <ApolloProvider client={client}>
+
       {/* Main content wrapper */}
-      <div className="h-screen w-screen grid grid-cols-9 grid-rows-9 max-w-screen max-h-screen bg-gradient-to-bl from-gray-900  to-black p-5 ">
+      <div className="h-screen w-screen grid grid-cols-9 grid-rows-9 max-w-screen max-h-screen bg-gradient-to-bl from-gray-900  to-black ">
         {/* Header */}
         <div className="col-span-7 row-start-1 p-4 text-white font-display">
           <Header location="Brighton" />
@@ -42,8 +81,8 @@ function App() {
           <News />
         </div>
       </div>
-    </>
+    </ApolloProvider>
   );
 }
 
-export default App;
+
