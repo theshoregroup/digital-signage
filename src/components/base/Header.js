@@ -35,7 +35,7 @@ export default function Header() {
     return <Loader />;
   } else
     return (
-      <div className="h-full w-full flex justify-between text-center">
+      <div className="h-full w-full flex justify-between text-center ">
         <div className="px-4 py-5 text-white">
           <span className="block text-9xl font-semibold">
             {currentDate.toLocaleString("en-US", {
