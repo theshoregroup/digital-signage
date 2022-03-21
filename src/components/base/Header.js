@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Weather from "../subcomponents/Weather";
+
 
 export default function Header() {
   // Define date
@@ -12,8 +12,8 @@ export default function Header() {
   }, [location]);
 
   return (
-    <div className="grid grid-cols-">
-      <div className="h-full w-full flex justify-between 9 ">
+    <div>
+      <div className="h-full w-full flex justify-between ">
         <div className="px-4 py-5 text-white col-start-1 col-span-3">
           <span className="block text-9xl font-semibold">
             {currentDate.toLocaleString("en-US", {
@@ -28,10 +28,6 @@ export default function Header() {
             })}
           </span>
         </div>
-        
-      </div>
-      <div className="col-start-3 col-span-5">
-        <Weather />
       </div>
     </div>
   );

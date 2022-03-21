@@ -6,31 +6,34 @@ import moment from "moment";
 export default function Weather(props) {
   const [loader, setLoader] = useState(true);
   const [currentWeather, setWeatherState] = useState([]);
-  let location = "Brighton";
+  const config = process.env.REACT_APP_WEATHER_API_KEY
+  let location = "&q=Brighton";
   let tomorrow = moment().add(1, "days").format("dddd");
   let dayAfter = moment().add(2, "days").format("dddd");
+  
 
   // Set UseEffect to update every 1000ms (1s)
   useEffect(() => {
     const getWeatherFromApi = async () => {
       const response = await fetch(
-        "http://api.weatherapi.com/v1/forecast.json?" +
-          location +
-          "&days=3" +
-          process.env.REACT_APP_WEATHER_API_KEY
+        "http://api.weatherapi.com/v1/forecast.json?" + config + location + "&days=3"
+        
       );
       const responseJson = await response.json();
       console.log("json", responseJson);
       setWeatherState(responseJson);
-      setLoader(false);
+      if (currentWeather != null) {
+        setLoader(false);
+      }
     };
     getWeatherFromApi();
-    setInterval(getWeatherFromApi, 20000);
-  }, [location]);
-  if (currentWeather !== null) {
+
+  }, [currentWeather, location, config]);
+  console.log(currentWeather);
+  if (loader === true) {
     return (
       <div className="h-full w-full flex justify-between ">
-        <div className="px-4 py-5 ">
+        <div className="px-4 py-5  ">
           <span className="text-3xl text-semibold">
             Today{" "}
             <div className="text-2xl">
@@ -69,7 +72,7 @@ export default function Weather(props) {
     );
   } else {
     return (
-      <div>
+      <div className="h-full w-full flex justify-between ">
         <div className="px-4 py-5 ">
           <span className="text-3xl text-semibold">
             Today{" "}
