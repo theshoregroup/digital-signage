@@ -2,63 +2,30 @@
 import React, { useEffect, useState } from "react";
 import TextTransition, { presets } from "react-text-transition";
 import { Loader } from "../functional/Loader";
+import { useQuery, gql } from "@apollo/client";
+import { LOAD_POSTS } from "../subcomponents/GraphQL/Queries";
 
 export const Anim = () => {
+  const { error, loading, data } = useQuery(LOAD_POSTS);
   const [index, setIndex] = useState(0);
-  let [loader, setLoader] = useState(true);
-  let [data, setData] = useState()
-
-
-
-
+  const [body, setBody] = useState();
 
   useEffect(() => {
-    const config = {
-      headers: {
-        Authorization:
-          process.env.REACT_APP_BACKEND_API_KEY,
-      },
-    };
-
-    const getPostsFromApi = async () => {
-      const response = await fetch("http://localhost:1337/api/posts", config);
-      const responseJson = await response.json();
-      console.log("json", responseJson);
-      setData(responseJson.data.map((post) => post.attributes.Body));
-
-      setLoader(false);
-
-    };
-    getPostsFromApi()
-    setInterval(getPostsFromApi, 5000)
-
+    while (index <= 1) {
+      const intervalId = setInterval(
+        () => setIndex((index) => index + 1),
+        5000 // 10 seconds
+      );
+      return () => clearTimeout(intervalId);
+    }
   }, []);
 
-  console.log(data);
-
-  useEffect(() => {
-    const intervalId = setInterval(
-      () => setIndex((index) => index + 1),
-      5000 // 30 seconds
+  if (loading) return <Loader />;
+  if (error) return `Error! ${error.message}`;
+  else {
+    var text = data.posts[0].content.document.map((document) =>
+      document.children.map((children) => children.text)
     );
-    return () => clearTimeout(intervalId);
-  }, []);
-
-  if (loader === true) {
-    return <Loader />;
-  } else
-
-
-
-    return (
-      <h1 className=" text-center">
-
-        <TextTransition
-          className="text-3xl"
-          text={data[index % data.length]}
-          springConfig={presets.wobbly}
-        />
-      </h1>
-    )
+    return <h1>{text}</h1>;
+  }
 };
-

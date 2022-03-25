@@ -10,6 +10,7 @@ import { Anim } from "./components/subcomponents/posts";
 import { GetPosts } from "./components/subcomponents/GraphQL/GetPosts";
 import Weather from "./components/subcomponents/Weather";
 
+
 import {
   ApolloClient,
   InMemoryCache,
@@ -63,8 +64,8 @@ export default function App() {
         </div>
 
         {/* Main-Right Element */}
-        <div className="col-start-7 col-span-3  text-center text-3xl  p-10">
-          <Anim />
+        <div className="col-start-7 col-span-3 text-center text-3xl  p-10">
+          <Anim/>
         </div>
 
         {/*Bottom-left element*/}

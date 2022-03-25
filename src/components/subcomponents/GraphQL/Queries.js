@@ -5,6 +5,9 @@ export const LOAD_POSTS = gql`
     posts {
       id
       title
+      content{
+        document
+      }
     }
   }
 `;

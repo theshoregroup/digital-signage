@@ -22,13 +22,15 @@ export default function Weather(props) {
       const responseJson = await response.json();
       console.log("json", responseJson);
       setWeatherState(responseJson);
-      if (currentWeather != null) {
-        setLoader(false);
-      }
-    };
-    getWeatherFromApi();
+      setLoader(false)
 
-  }, [currentWeather, location, config]);
+    };
+    getWeatherFromApi()
+   
+
+  }, [location, config]);
+
+ 
   console.log(currentWeather);
   if (loader === true) {
     return (
