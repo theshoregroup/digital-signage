@@ -4,7 +4,7 @@ import Header from "./components/base/Header";
 // import Bottom from "./components/base/Bottom";
 import logo from "./images/shoreLogo.png";
 import React from "react";
-import News from "./components/subcomponents/tempNews";
+import {News }from "./components/subcomponents/NewsFeed";
 import { Sheet } from "./components/subcomponents/Sheet";
 import { Anim } from "./components/subcomponents/posts";
 import { GetPosts } from "./components/subcomponents/GraphQL/GetPosts";

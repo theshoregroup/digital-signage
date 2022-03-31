@@ -6,10 +6,14 @@ import { useQuery, gql } from "@apollo/client";
 import { LOAD_POSTS } from "../subcomponents/GraphQL/Queries";
 
 export const Anim = () => {
-  const { error, loading, data } = useQuery(LOAD_POSTS);
+  const { error, loading, data } = useQuery(LOAD_POSTS, {
+    pollInterval: 1000,
+  });
   const [index, setIndex] = useState(0);
-  const [body, setBody] = useState();
+  const [body, setBody] = useState([]);
 
+
+  //FIX USEEFFECT
   useEffect(() => {
     if (index <= 1) {
       const intervalId = setInterval(
@@ -26,10 +30,12 @@ export const Anim = () => {
   if (loading) return <Loader />;
   if (error) return `Error! ${error.message}`;
   else {
-    var text = data.posts[index].content.document.map((document) =>
-      document.children.map((children) => children.text)
+    let body = data.posts[index].content.document.map((document) =>
+      document.children.map((children) => children.text))
+  
  
-    );
-    return <h1 className="fade-in-down">{text.join(" ")}</h1>;
+    
+    console.log(body)
+    return <h1 className="fade-in-down">{body.join(" ")}</h1>;
   }
 };
