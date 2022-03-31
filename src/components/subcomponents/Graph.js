@@ -13,7 +13,7 @@ import {
 } from "chart.js";
 
 import { Pie, Line, Doughnut } from "react-chartjs-2";
-import Loader from "../functional/Loader";
+
 
 ChartJS.register(
   CategoryScale,
@@ -33,11 +33,11 @@ function targetPercentage(partialValue, totalValue) {
 }
 
 //declare graph colour scheme CHANGE VAR NAMES
-let lime = "rgba(58, 216, 255, 0.7)";
-let pink = "rgba(255, 68, 58, 0.7)";
+let lime = "rgba(219, 255, 51, 1)";
+let pink = "rgba(255, 87, 51, 1)";
 
-let green = "rgba(137, 255, 58, 0.7)";
-let red = "rgba(255, 68, 58, 0.7)";
+let green = "rgba(117, 255, 51, 1)";
+let red = "rgba(255, 87, 51, 1)";
 
 //declare monthly sales target values. route ALL values through backend when connection is established.
 
