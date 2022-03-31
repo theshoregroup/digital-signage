@@ -11,21 +11,25 @@ export const Anim = () => {
   const [body, setBody] = useState();
 
   useEffect(() => {
-    while (index <= 1) {
+    if (index <= 1) {
       const intervalId = setInterval(
         () => setIndex((index) => index + 1),
         5000 // 10 seconds
       );
       return () => clearTimeout(intervalId);
     }
-  }, []);
+    else {
+      setIndex((index)=> 0)
+    }
+  }, [index]);
 
   if (loading) return <Loader />;
   if (error) return `Error! ${error.message}`;
   else {
-    var text = data.posts[0].content.document.map((document) =>
+    var text = data.posts[index].content.document.map((document) =>
       document.children.map((children) => children.text)
+ 
     );
-    return <h1>{text}</h1>;
+    return <h1 className="fade-in-down">{text.join(" ")}</h1>;
   }
 };

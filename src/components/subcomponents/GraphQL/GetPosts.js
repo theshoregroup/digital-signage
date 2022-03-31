@@ -3,7 +3,8 @@ import { useQuery, gql } from "@apollo/client";
 import { LOAD_POSTS } from "./Queries";
 import { Loader } from "../../functional/Loader";
 import TextTransition, { presets } from "react-text-transition";
-import { Children } from "react/cjs/react.production.min";
+
+
 
 export const GetPosts = () => {
   const { error, loading, data } = useQuery(LOAD_POSTS);
