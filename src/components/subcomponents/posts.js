@@ -15,27 +15,28 @@ export const Anim = () => {
 
   //FIX USEEFFECT
   useEffect(() => {
-    if (index <= 1) {
+    if (index <= data.posts.length -2) {
       const intervalId = setInterval(
         () => setIndex((index) => index + 1),
-        5000 // 10 seconds
+        10000 // 10 seconds
       );
       return () => clearTimeout(intervalId);
     }
     else {
       setIndex((index)=> 0)
     }
-  }, [index]);
+  }, [index, data.posts.length]);
 
   if (loading) return <Loader />;
   if (error) return `Error! ${error.message}`;
   else {
+    console.log(data.posts)
     let body = data.posts[index].content.document.map((document) =>
       document.children.map((children) => children.text))
   
  
     
-    console.log(body)
+    console.log(data.posts.length)
     return <h1 className="fade-in-down">{body.join(" ")}</h1>;
   }
 };
