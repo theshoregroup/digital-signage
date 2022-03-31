@@ -8,6 +8,9 @@ export const LOAD_POSTS = gql`
       content{
         document
       }
+      author{
+        name
+      }
     }
   }
 `;
