@@ -27,8 +27,8 @@ export const Anim = () => {
       );
       return () => clearTimeout(intervalId);
     }
-   //reset loop
-     else {
+    //reset loop
+    else {
       setIndex(limit);
     }
   }, [index, limit]);
@@ -39,13 +39,21 @@ export const Anim = () => {
     //set limit only if posts have been successfully pulled.
     limit = data.posts.length - 1;
     //map posts to array
+    let title = data.posts[index].title;
     let body = data.posts[index].content.document.map((document) =>
       document.children.map((children) => children.text)
     );
+
     console.log(body);
     console.log(limit);
     console.log(index);
+    console.log(data);
     //render
-    return <h1 className="fade-in-down">{body.join(" ")}</h1>;
+    return (
+      <div>
+        <h1 className="font-semibold text-4xl">{title}</h1>
+        <h1 className="fade-in-down">{body.join(" ")}</h1>
+      </div>
+    );
   }
 };
