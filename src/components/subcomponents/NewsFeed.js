@@ -46,7 +46,7 @@ export const News = () => {
   useEffect(()=> {
     axios
     .get(
-          "https://api.bing.microsoft.com/v7.0/news/search?q=",
+          "https://api.bing.microsoft.com/v7.0/news/search?count=100",
           header
         )
       .then((response) => {
@@ -57,15 +57,13 @@ export const News = () => {
         setData(joined);
         console.log(data);
 
-        //compare index to available elements
-        console.log(urlData.data.length);
      
       })
       .catch((error) => console.log(error.response));
 
 
     setLoader(false);
-  })
+  }, [data])
   
 
   if (loader === true) {
