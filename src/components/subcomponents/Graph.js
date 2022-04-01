@@ -42,7 +42,7 @@ let red = "rgba(255, 87, 51, 1)";
 //declare monthly sales target values. route ALL values through backend when connection is established.
 
 //Construction values - for construction doughnut graph
-let constructionTotalSalesSoFar = 116606;
+let constructionTotalSalesSoFar = 152238;
 let constructionTotalSalesTarget = 165125;
 let constructionRemainingTarget =
   constructionTotalSalesSoFar - constructionTotalSalesTarget;
@@ -51,7 +51,7 @@ if (constructionTotalSalesSoFar >= constructionTotalSalesTarget) {
 }
 
 //M&E values
-let mAndETotalSalesSoFar = 79904;
+let mAndETotalSalesSoFar = 130252;
 let mAndETotalSalesTarget = 163000;
 let mAndERemainingTarget = mAndETotalSalesTarget - mAndETotalSalesSoFar;
 if (mAndETotalSalesSoFar >= mAndETotalSalesTarget) {
@@ -59,7 +59,7 @@ if (mAndETotalSalesSoFar >= mAndETotalSalesTarget) {
 }
 
 //Fit out vales
-let fitOutTotalSalesSoFar = 30432;
+let fitOutTotalSalesSoFar = 40023;
 let fitOutTotalSalesTarget = 50875;
 let fitOutRemainingTarget = fitOutTotalSalesTarget - fitOutTotalSalesSoFar;
 if (fitOutTotalSalesSoFar >= fitOutTotalSalesTarget) {
@@ -67,15 +67,15 @@ if (fitOutTotalSalesSoFar >= fitOutTotalSalesTarget) {
 }
 
 //Men working vales
-let constructionMW = 1281;
-let mAndEMW = 711;
-let fitOutMW = 489;
-let newRegionsMW = 303;
+let constructionMW = 1710;
+let mAndEMW = 963;
+let fitOutMW = 659;
+let newRegionsMW = 392;
 
 function MenWorkingByDepartment() {
   return (
     <div>
-      <h1> Total Men Working - March Week Three </h1>
+      <h1> Total Men Working - March Week Four </h1>
       <Line
         data={{
           labels: ["Construction", "M&E", "Fit Out", "New Regions"],
@@ -101,7 +101,7 @@ function MenWorkingByDepartment() {
 function ConstructionGraph() {
   return (
     <div>
-      <h1>Construction Sales - March Week Three</h1>
+      <h1>Construction Sales - March Week Four</h1>
       <Line
         data={{
           labels: [
@@ -117,7 +117,7 @@ function ConstructionGraph() {
             {
               type: "bar",
               label: "Sales",
-              data: [17594, 31708, 17196, 15275, 13793, 11993, 9046],
+              data: [23436, 40309, 22439, 20961, 17999, 16334, 10759],
 
               backgroundColor: lime,
               order: 1,
@@ -140,7 +140,7 @@ function ConstructionGraph() {
 function MANDEGraph() {
   return (
     <div>
-      <h1> M&E Sales - March Week Three </h1>
+      <h1> M&E Sales - March Week Four </h1>
       <Line
         data={{
           labels: [
@@ -156,7 +156,7 @@ function MANDEGraph() {
             {
               type: "bar",
               label: "Sales",
-              data: [26871, 24302, 10320, 4571, 0, 5093, 8748],
+              data: [51477, 32576, 15912, 11401, 13, 6839, 12035],
               borderColor: "rgba(255, 99, 132, 1)",
 
               backgroundColor: lime,
@@ -180,7 +180,7 @@ function MANDEGraph() {
 function FitOutGraph() {
   return (
     <div>
-      <h1> Fit Out Sales - March Week Three</h1>
+      <h1> Fit Out Sales - March Week Four</h1>
       <Line
         data={{
           labels: ["Charlotte Carr", "Rebecca Colmer"],
@@ -188,7 +188,7 @@ function FitOutGraph() {
             {
               type: "bar",
               label: "Sales",
-              data: [20794, 9639],
+              data: [27108, 12915],
               borderColor: lime,
 
               backgroundColor: lime,
