@@ -10,38 +10,10 @@ const header = {
 };
 
 export const News = () => {
-  const [index, setIndex] = useState(0);
   let [loader, setLoader] = useState(true);
   let [data, setData] = useState();
-  let [urlData, setUrlData] = useState();
-  /*
-
-  const getNewsFromApi = async () => {
-    axios
-    .get(
-          "https://api.bing.microsoft.com/v7.0/news/search?q=",
-          header
-        )
-      .then((response) => {
-        var headlines = response.data.value.map((articles) => {
-          return articles.name;
-        });
-        var joined = headlines.join(" - "); // "seperate headlines "
-        setData(joined);
-        console.log(data);
-
-        //compare index to available elements
-        console.log(urlData.data.length);
-     
-      })
-      .catch((error) => console.log(error.response));
-
-
-    setLoader(false);
-  };
-  getNewsFromApi();
-  setInterval(getNewsFromApi, 20000);
-  */
+ 
+ 
 
   useEffect(()=> {
     axios

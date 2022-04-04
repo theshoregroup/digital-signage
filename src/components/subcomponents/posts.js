@@ -23,7 +23,7 @@ export const Anim = () => {
     if (index > 0) {
       const intervalId = setInterval(
         () => setIndex((index) => index - 1),
-        10000 // post displays for 10 seconds
+        7000 // post displays for 10 seconds
       );
       return () => clearTimeout(intervalId);
     }
