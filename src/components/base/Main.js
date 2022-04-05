@@ -6,7 +6,7 @@ import { Graph } from "../subcomponents/Graph";
 import YoutubePlayer from "../subcomponents/YoutubePlayer";
 import React, { useState, useEffect } from "react";
 
-let delay = 80000
+let delay = 50000
 
 
 

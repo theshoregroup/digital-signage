@@ -436,7 +436,7 @@ export function Graph(props) {
   useEffect(() => {
     const intervalId = setInterval(
       () => setIndex((index) => index + 1),
-      8000 // 10 seconds 
+      10000 // 10 seconds 
     );
     return () => clearTimeout(intervalId);
   }, []);
@@ -542,56 +542,8 @@ export function Graph(props) {
             <MenWorkingByDepartment />
           </div>
         </div>
-      );
-    case 4:
-      return (
-        <div className="grid grid-cols-6 grid-rows-9">
-          <div className="col-span-5 row-span-2 text-center font-display text-white text-2xl">
-            <NewRegionMVBGraph />
-          </div>
-        </div>
-      );
-    case 5:
-      return (
-        <div className="grid grid-cols-6 grid-rows-9">
-          <div className="col-span-5 row-span-2 text-center font-display text-white text-2xl">
-            <MANDEMVBGraph />
-          </div>
-        </div>
-      );
-    case 6:
-      return (
-        <div className="grid grid-cols-6 grid-rows-9">
-          <div className="col-span-5 row-span-2 text-center font-display text-white text-2xl">
-            <ConstructionMVBGraph />
-          </div>
-        </div>
-      );
-    case 7:
-      return (
-        <div className="grid grid-cols-6 grid-rows-9">
-          <div className="col-span-5 row-span-2 text-center font-display text-white text-2xl">
-            <FitOutMVBGraph />
-          </div>
-        </div>
-      );
-    case 8:
-      return (
-        <div className="grid grid-cols-6 grid-rows-9">
-          <div className="col-span-5 row-span-2 text-center font-display text-white text-2xl">
-            <LogisticsMVBGraph />
-          </div>
-        </div>
-      );
-    case 9:
-      return (
-        <div className="grid grid-cols-6 grid-rows-9">
-          <div className="col-span-5 row-span-2 text-center font-display text-white text-2xl">
-            <RetailMVBGraph />
-          </div>
-        </div>
-      );
-      case 10:
+      ); 
+      case 4:
         return (
           <div className="grid grid-cols-6 grid-rows-9">
             <div className="col-span-5 row-span-2 text-center font-display text-white text-2xl">
