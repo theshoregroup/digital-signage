@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -10,10 +11,10 @@ import {
   Legend,
   ArcElement,
   BarElement,
+  BarController,
 } from "chart.js";
 
-import { Pie, Line, Doughnut } from "react-chartjs-2";
-
+import { Line, Doughnut } from "react-chartjs-2";
 
 ChartJS.register(
   CategoryScale,
@@ -24,7 +25,8 @@ ChartJS.register(
   Tooltip,
   Legend,
   ArcElement,
-  BarElement
+  BarElement,
+  BarController
 );
 
 //Calculate percentage function
