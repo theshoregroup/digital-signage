@@ -99,6 +99,31 @@ function MenWorkingByDepartment() {
   );
 }
 
+function NonComp() {
+  return (
+    <div>
+      <h1> Non-Compliance Per Consultant </h1>
+      <Line
+        data={{
+          labels: ["Adam Miller", "Charlotte Carr", "Sarah Sheehan", "Retail", "Lucy Smith"],
+          datasets: [
+            {
+              type: "bar",
+              label: "Sales",
+              data: [2, 5, 5, 3, 2],
+              borderColor: "rgba(255, 99, 132, 1)",
+
+              backgroundColor: lime,
+              order: 1,
+            },
+          ],
+          text: "23%",
+        }}
+      />
+    </div>
+  );
+}
+
 //Construction graph component
 function ConstructionGraph() {
   return (
@@ -404,14 +429,14 @@ function RetailMVBGraph() {
   );
 }
 
-//SWITCHER COMPONENT ----- COMBINE WITH MAIN
+
 export function Graph(props) {
   let [index, setIndex] = useState();
 
   useEffect(() => {
     const intervalId = setInterval(
       () => setIndex((index) => index + 1),
-      10000 // 10 seconds 
+      8000 // 10 seconds 
     );
     return () => clearTimeout(intervalId);
   }, []);
@@ -566,6 +591,14 @@ export function Graph(props) {
           </div>
         </div>
       );
+      case 10:
+        return (
+          <div className="grid grid-cols-6 grid-rows-9">
+            <div className="col-span-5 row-span-2 text-center font-display text-white text-2xl">
+              <NonComp />
+            </div>
+          </div>
+        );
 
     default:
       setIndex((index) => 0);
