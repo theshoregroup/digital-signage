@@ -406,37 +406,16 @@ function RetailMVBGraph() {
 
 //SWITCHER COMPONENT ----- COMBINE WITH MAIN
 export function Graph(props) {
-  let [loader, setLoader] = useState(true);
-  let [data, setData] = useState();
   let [index, setIndex] = useState();
-
-  const config = {
-    headers: {
-      Authorization: process.env.REACT_APP_BACKEND_API_KEY,
-    },
-  };
 
   useEffect(() => {
     const intervalId = setInterval(
       () => setIndex((index) => index + 1),
-      10000 // 20 seconds i think
+      10000 // 10 seconds 
     );
     return () => clearTimeout(intervalId);
   }, []);
-  /*
-  const getGraphsFromApi = async () => {
-    const response = await fetch(
-      "http://localhost:1337/api/departments",
-      config
-    );
-    const responseJson = await response.json();
-    console.log("json", responseJson);
-    setData(responseJson);
-    setLoader(false);
-  };
-  setTimeout(getGraphsFromApi, 3000);
-*/
-  console.log(data);
+
   switch (index) {
     case 0:
       let constructionPercentage = targetPercentage(
