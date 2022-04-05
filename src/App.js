@@ -2,10 +2,10 @@
 import Main from "./components/base/Main";
 import Header from "./components/base/Header";
 // import Bottom from "./components/base/Bottom";
-import logo from "./images/shoreLogo.png";
+
 import React from "react";
 import {News }from "./components/subcomponents/NewsFeed";
-import { Sheet } from "./components/subcomponents/Sheet";
+
 import { Anim } from "./components/subcomponents/posts";
 
 import Weather from "./components/subcomponents/Weather";
@@ -22,6 +22,7 @@ import { onError } from "@apollo/client/link/error";
 
 const errorLink = onError(({ graphqlErrors, networkError }) => {
   if (graphqlErrors) {
+    //eslint-disable-next-line
     graphqlErrors.map(({ message, location, path }) => {
       alert(`GRAPHQL ERROR ${message}`);
     });
