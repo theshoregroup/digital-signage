@@ -436,7 +436,7 @@ export function Graph(props) {
   useEffect(() => {
     const intervalId = setInterval(
       () => setIndex((index) => index + 1),
-      10000 // 10 seconds 
+      8000 // 80 seconds 
     );
     return () => clearTimeout(intervalId);
   }, []);
@@ -541,14 +541,35 @@ export function Graph(props) {
           <div className="col-span-5 row-span-2 text-center font-display text-white text-2xl">
             <MenWorkingByDepartment />
           </div>
+         
         </div>
       ); 
       case 4:
+        let compliancePercentage = 100
         return (
           <div className="grid grid-cols-6 grid-rows-9">
             <div className="col-span-5 row-span-2 text-center font-display text-white text-2xl">
               <NonComp />
+             
             </div>
+            <div className="text-center font-display text-white text-2xl row-start-2 row-span-1 col-start-6 col-span-1">
+            <h1>{compliancePercentage}% compliant</h1>
+            <Doughnut
+              data={{
+                labels: ["Compliance", "Target"],
+                datasets: [
+                  {
+                    label: "# of Votes",
+                    data: [100, 0],
+                    backgroundColor: [green, red],
+                    borderColor: [green, red],
+                    borderWidth: 1,
+                  },
+                ],
+              }}
+            />
+          </div>
+          
           </div>
         );
 
