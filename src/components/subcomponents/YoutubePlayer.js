@@ -1,3 +1,6 @@
+// 6.4.2021
+// Simply returns Sky News youtube news stream
+
 export default function YoutubePlayer(){
     return (
         <div className="px-10 ">
