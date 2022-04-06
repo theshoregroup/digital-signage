@@ -95,7 +95,6 @@ function MenWorkingByDepartment() {
               order: 1,
             },
           ],
-          text: "23%",
         }}
       />
     </div>
@@ -240,6 +239,7 @@ function FitOutGraph() {
 }
 
 //NEW REGION MARGIN V BUDGET COMPONENT
+/*
 function NewRegionMVBGraph() {
   return (
     <div>
@@ -431,6 +431,7 @@ function RetailMVBGraph() {
     </div>
   );
 }
+*/
 
 
 export function Graph(props) {

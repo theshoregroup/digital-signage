@@ -13,7 +13,7 @@ import {
   from,
 } from "@apollo/client";
 import { onError } from "@apollo/client/link/error";
-import { Sonos } from "./components/subcomponents/Sonos";
+
 
 const errorLink = onError(({ graphqlErrors, networkError }) => {
   if (graphqlErrors) {
