@@ -436,7 +436,7 @@ export function Graph(props) {
   useEffect(() => {
     const intervalId = setInterval(
       () => setIndex((index) => index + 1),
-      8000 // 80 seconds 
+      8000 // 8 seconds 
     );
     return () => clearTimeout(intervalId);
   }, []);
