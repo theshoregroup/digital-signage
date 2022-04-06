@@ -1,3 +1,6 @@
+// 6.4.2021
+// Defines graphs and handles any calculations related to graph operations.
+
 import React, { useState, useEffect } from "react";
 
 import {

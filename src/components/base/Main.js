@@ -1,8 +1,11 @@
-//Main component
+// 6.4.2021
+// Main component handles what is rendered in the center of the screen
+//
 
 import YoutubePlayer from "../subcomponents/YoutubePlayer";
 import React, { useState, useEffect } from "react";
 
+//decides how long element stays on screen
 let delay = 50000
 
 
@@ -12,6 +15,7 @@ let delay = 50000
 export default function Main(props) {
   let [index, setIndex] = useState(0);
 
+  //index incrememnts automatically.
   useEffect(() => {
     const intervalId = setInterval(
       () => setIndex((index) => index + 1),

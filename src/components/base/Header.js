@@ -1,3 +1,6 @@
+// 6.4.2021 
+// Header component handles 
+
 import React, { useState, useEffect } from "react";
 
 
