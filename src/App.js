@@ -1,16 +1,10 @@
 // Imports for components
 import Main from "./components/base/Main";
 import Header from "./components/base/Header";
-// import Bottom from "./components/base/Bottom";
-
 import React from "react";
-import {News }from "./components/subcomponents/NewsFeed";
-
+import { News } from "./components/subcomponents/NewsFeed";
 import { Anim } from "./components/subcomponents/posts";
-
 import Weather from "./components/subcomponents/Weather";
-
-
 import {
   ApolloClient,
   InMemoryCache,
@@ -19,6 +13,7 @@ import {
   from,
 } from "@apollo/client";
 import { onError } from "@apollo/client/link/error";
+import { Sonos } from "./components/subcomponents/Sonos";
 
 const errorLink = onError(({ graphqlErrors, networkError }) => {
   if (graphqlErrors) {
@@ -66,13 +61,15 @@ export default function App() {
 
         {/* Main-Right Element */}
         <div className="col-start-7 col-span-3 text-center text-3xl  p-10">
-          <Anim/>
+          <Anim />
         </div>
 
         {/*Bottom-left element*/}
         <div className="col-start-1 col-span-9  text-4xl  ">
           <News />
         </div>
+
+        
       </div>
     </ApolloProvider>
   );
