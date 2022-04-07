@@ -47,7 +47,7 @@ let red = "rgba(255, 0, 72, 1)";
 //declare monthly sales target values. route ALL values through backend when connection is established.
 
 //Construction values - for construction doughnut graph
-let constructionTotalSalesSoFar = 152238;
+let constructionTotalSalesSoFar = 188749;
 let constructionTotalSalesTarget = 165125;
 let constructionRemainingTarget =
   constructionTotalSalesSoFar - constructionTotalSalesTarget;
@@ -56,7 +56,7 @@ if (constructionTotalSalesSoFar >= constructionTotalSalesTarget) {
 }
 
 //M&E values
-let mAndETotalSalesSoFar = 130252;
+let mAndETotalSalesSoFar = 145035;
 let mAndETotalSalesTarget = 163000;
 let mAndERemainingTarget = mAndETotalSalesTarget - mAndETotalSalesSoFar;
 if (mAndETotalSalesSoFar >= mAndETotalSalesTarget) {
@@ -64,23 +64,31 @@ if (mAndETotalSalesSoFar >= mAndETotalSalesTarget) {
 }
 
 //Fit out vales
-let fitOutTotalSalesSoFar = 40023;
+let fitOutTotalSalesSoFar = 51245;
 let fitOutTotalSalesTarget = 50875;
 let fitOutRemainingTarget = fitOutTotalSalesTarget - fitOutTotalSalesSoFar;
 if (fitOutTotalSalesSoFar >= fitOutTotalSalesTarget) {
   fitOutRemainingTarget = 0;
 }
 
+//New regions values
+let newRegionsTotalSalesSoFar = 46563;
+let newRegionsTotalSalesTarget = 61889;
+let newRegionsRemainingTarget = newRegionsTotalSalesTarget - newRegionsTotalSalesSoFar;
+if (newRegionsTotalSalesSoFar >= newRegionsTotalSalesTarget) {
+  newRegionsRemainingTarget = 0;
+}
+
 //Men working vales
-let constructionMW = 1710;
-let mAndEMW = 963;
-let fitOutMW = 659;
-let newRegionsMW = 392;
+let constructionMW = 2111;
+let mAndEMW = 1204;
+let fitOutMW = 829;
+let newRegionsMW = 504;
 
 function MenWorkingByDepartment() {
   return (
     <div>
-      <h1> Total Men Working - March Week Four </h1>
+      <h1> Total Men Working - March Week Five </h1>
       <Line
         data={{
           labels: ["Construction", "M&E", "Fit Out", "New Regions"],
@@ -130,7 +138,7 @@ function NonComp() {
 function ConstructionGraph() {
   return (
     <div>
-      <h1>Construction Sales - March Week Four</h1>
+      <h1>Construction Sales - March Week Five</h1>
       <Line
         data={{
           labels: [
@@ -146,7 +154,7 @@ function ConstructionGraph() {
             {
               type: "bar",
               label: "Sales",
-              data: [23436, 40309, 22439, 20961, 17999, 16334, 10759],
+              data: [29864, 49859, 28548, 25840, 22680, 20118, 12020],
 
               backgroundColor: lime,
               order: 1,
@@ -169,7 +177,7 @@ function ConstructionGraph() {
 function MANDEGraph() {
   return (
     <div>
-      <h1> M&E Sales - March Week Four </h1>
+      <h1> M&E Sales - March Week Five </h1>
       <Line
         data={{
           labels: [
@@ -185,7 +193,7 @@ function MANDEGraph() {
             {
               type: "bar",
               label: "Sales",
-              data: [51477, 32576, 15912, 11401, 13, 6839, 12035],
+              data: [58575, 39784, 19739, 3291, 13, 8429, 15205],
               borderColor: "rgba(255, 99, 132, 1)",
 
               backgroundColor: lime,
@@ -209,7 +217,7 @@ function MANDEGraph() {
 function FitOutGraph() {
   return (
     <div>
-      <h1> Fit Out Sales - March Week Four</h1>
+      <h1> Fit Out Sales - March Week Five</h1>
       <Line
         data={{
           labels: ["Charlotte Carr", "Rebecca Colmer"],
@@ -217,7 +225,7 @@ function FitOutGraph() {
             {
               type: "bar",
               label: "Sales",
-              data: [27108, 12915],
+              data: [35006, 16239],
               borderColor: lime,
 
               backgroundColor: lime,
@@ -238,7 +246,40 @@ function FitOutGraph() {
   );
 }
 
-//NEW REGION MARGIN V BUDGET COMPONENT
+//New Regions graph component
+function NewRegionsGraph() {
+  return (
+    <div>
+      <h1> New Region Sales - March Week Five</h1>
+      <Line
+        data={{
+          labels: ["Luke Wing", "Marti Pollock", "Will Keenan", "Chris Ransom", "Sam Mondey"],
+          datasets: [
+            {
+              type: "bar",
+              label: "Sales",
+              data: [11077, 9017, 1640, 19411, 5417],
+              borderColor: lime,
+
+              backgroundColor: lime,
+              order: 1,
+            },
+            {
+              type: "line",
+              label: "Target",
+              data: [22500, 11000, 11250, 10139, 7000],
+              fill: false,
+              borderColor: pink,
+              backgroundColor: pink,
+            },
+          ],
+        }}
+      />
+    </div>
+  );
+}
+
+//NEW REGION MARGIN V BUDGET COMPONENT  - AWAITING NEW DATA FROM WOODY. REMOVE IF THIS NEVER COMES.
 /*
 function NewRegionMVBGraph() {
   return (
@@ -576,6 +617,38 @@ export function Graph(props) {
           
           </div>
         );
+        case 5:
+          let newRegionsPercentage = targetPercentage(
+            newRegionsTotalSalesSoFar,
+            newRegionsTotalSalesTarget
+          );
+          return (
+            <div className="grid grid-cols-6 grid-rows-9">
+              <div className="col-span-5 row-span-2 text-center font-display text-white text-2xl">
+                <NewRegionsGraph />
+              </div>
+              <div className="text-center font-display text-white text-2xl row-start-2 row-span-1 col-start-6 col-span-1">
+                <h1>{newRegionsPercentage}% of target</h1>
+                <Doughnut
+                  data={{
+                    labels: ["Sales this month", "Target"],
+                    datasets: [
+                      {
+                        label: "# of Votes",
+                        data: [newRegionsTotalSalesSoFar, newRegionsRemainingTarget],
+                        backgroundColor: [green, red],
+                        borderColor: [
+                          "rgba(30, 255, 99, 1)",
+                          "rgba(255, 50, 50, 1)",
+                        ],
+                        borderWidth: 1,
+                      },
+                    ],
+                  }}
+                />
+              </div>
+            </div>
+          );
 
     default:
       setIndex((index) => 0);
