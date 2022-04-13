@@ -47,8 +47,8 @@ let red = "rgba(255, 0, 72, 1)";
 //declare monthly sales target values. route ALL values through backend when connection is established.
 
 //Construction values - for construction doughnut graph
-let constructionTotalSalesSoFar = 188749;
-let constructionTotalSalesTarget = 165125;
+let constructionTotalSalesSoFar = 39885;
+let constructionTotalSalesTarget = 128247;
 let constructionRemainingTarget =
   constructionTotalSalesSoFar - constructionTotalSalesTarget;
 if (constructionTotalSalesSoFar >= constructionTotalSalesTarget) {
@@ -56,34 +56,34 @@ if (constructionTotalSalesSoFar >= constructionTotalSalesTarget) {
 }
 
 //M&E values
-let mAndETotalSalesSoFar = 145035;
-let mAndETotalSalesTarget = 163000;
+let mAndETotalSalesSoFar = 25364;
+let mAndETotalSalesTarget = 129642;
 let mAndERemainingTarget = mAndETotalSalesTarget - mAndETotalSalesSoFar;
 if (mAndETotalSalesSoFar >= mAndETotalSalesTarget) {
   mAndERemainingTarget = 0;
 }
 
 //Fit out vales
-let fitOutTotalSalesSoFar = 51245;
-let fitOutTotalSalesTarget = 50875;
+let fitOutTotalSalesSoFar = 10017;
+let fitOutTotalSalesTarget = 37851;
 let fitOutRemainingTarget = fitOutTotalSalesTarget - fitOutTotalSalesSoFar;
 if (fitOutTotalSalesSoFar >= fitOutTotalSalesTarget) {
   fitOutRemainingTarget = 0;
 }
 
 //New regions values
-let newRegionsTotalSalesSoFar = 46563;
-let newRegionsTotalSalesTarget = 61889;
+let newRegionsTotalSalesSoFar = 10083;
+let newRegionsTotalSalesTarget = 51888;
 let newRegionsRemainingTarget = newRegionsTotalSalesTarget - newRegionsTotalSalesSoFar;
 if (newRegionsTotalSalesSoFar >= newRegionsTotalSalesTarget) {
   newRegionsRemainingTarget = 0;
 }
 
 //Men working vales
-let constructionMW = 2111;
-let mAndEMW = 1204;
-let fitOutMW = 829;
-let newRegionsMW = 504;
+let constructionMW = 382;
+let mAndEMW = 248;
+let fitOutMW = 163;
+let newRegionsMW = 107;
 
 function MenWorkingByDepartment() {
   return (
@@ -138,7 +138,7 @@ function NonComp() {
 function ConstructionGraph() {
   return (
     <div>
-      <h1>Construction Sales - March Week Five</h1>
+      <h1>Construction Sales - April Week One</h1>
       <Line
         data={{
           labels: [
@@ -154,7 +154,7 @@ function ConstructionGraph() {
             {
               type: "bar",
               label: "Sales",
-              data: [29864, 49859, 28548, 25840, 22680, 20118, 12020],
+              data: [4807, 9300, 5780, 4689, 4427, 3250, 7633],
 
               backgroundColor: lime,
               order: 1,
@@ -177,7 +177,7 @@ function ConstructionGraph() {
 function MANDEGraph() {
   return (
     <div>
-      <h1> M&E Sales - March Week Five </h1>
+      <h1> M&E Sales - April Week One </h1>
       <Line
         data={{
           labels: [
@@ -193,7 +193,7 @@ function MANDEGraph() {
             {
               type: "bar",
               label: "Sales",
-              data: [58575, 39784, 19739, 3291, 13, 8429, 15205],
+              data: [8335, 8408, 4027, 0, 0, 1441, 3153],
               borderColor: "rgba(255, 99, 132, 1)",
 
               backgroundColor: lime,
@@ -202,7 +202,7 @@ function MANDEGraph() {
             {
               type: "line",
               label: "Target",
-              data: [27000, 38250, 20250, 6375, 42550, 9375, 19250],
+              data: [27762, 28458, 22740, 6324, 19620, 8370, 16368],
               fill: false,
               borderColor: pink,
             },
@@ -217,7 +217,7 @@ function MANDEGraph() {
 function FitOutGraph() {
   return (
     <div>
-      <h1> Fit Out Sales - March Week Five</h1>
+      <h1> Fit Out Sales - April Week One</h1>
       <Line
         data={{
           labels: ["Charlotte Carr", "Rebecca Colmer"],
@@ -225,7 +225,7 @@ function FitOutGraph() {
             {
               type: "bar",
               label: "Sales",
-              data: [35006, 16239],
+              data: [6702, 3314],
               borderColor: lime,
 
               backgroundColor: lime,
@@ -234,7 +234,7 @@ function FitOutGraph() {
             {
               type: "line",
               label: "Target",
-              data: [34375, 16500],
+              data: [25575, 16500],
               fill: false,
               borderColor: pink,
               backgroundColor: pink,
@@ -258,7 +258,7 @@ function NewRegionsGraph() {
             {
               type: "bar",
               label: "Sales",
-              data: [11077, 9017, 1640, 19411, 5417],
+              data: [3231, 1760, 297, 3865, 930],
               borderColor: lime,
 
               backgroundColor: lime,
@@ -267,7 +267,7 @@ function NewRegionsGraph() {
             {
               type: "line",
               label: "Target",
-              data: [22500, 11000, 11250, 10139, 7000],
+              data: [16740, 9207, 11160, 90512, 5729],
               fill: false,
               borderColor: pink,
               backgroundColor: pink,
