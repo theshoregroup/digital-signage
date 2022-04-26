@@ -1,0 +1,20 @@
+/* Styling file, ./global.css - super-lamp */
+/* Liam Doyle/limegorilla 2022 */
+
+/* Tailwind config */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base config */
+@layer base {
+  html {
+    @apply bg-white dark:bg-black tracking-tighter;
+  }
+}
+
+@layer components {
+  body {
+    @apply text-black dark:text-white;
+  }
+}
