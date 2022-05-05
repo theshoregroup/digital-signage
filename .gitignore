@@ -36,3 +36,5 @@ todo
 src/data/Hove.xlsx
 *.xlsx
 .env
+
+.next/

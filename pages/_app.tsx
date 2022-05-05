@@ -2,7 +2,6 @@ import "../styles/global.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { SessionProvider } from "next-auth/react";
-import Navigation from "../components/Navigation";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
@@ -13,7 +12,6 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
       </Head>
 
       <SessionProvider session={session}>
-        <Navigation />
         <Component {...pageProps} />
       </SessionProvider>
     </>

@@ -7,8 +7,7 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      sans: ["aileron"],
-      // TODO: Add in more fonts
+      sans: ["metropolis", "sans-serif"],
     },
     extend: {}
   },
