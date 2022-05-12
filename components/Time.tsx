@@ -43,6 +43,15 @@ export default function Time() {
     },
   };
 
+  function putOnEnd() {
+    // This function puts the correct ending on the day
+    if (time.getDate() > 4 || time.getDate() < 20) {
+      return timeData.endNumber[4];
+    } else {
+      return timeData.endNumber[time.getDate() % 10];
+    }
+  }
+
   return (
     <div className="my-auto">
       <span className="block text-5xl font-bold">
@@ -54,7 +63,7 @@ export default function Time() {
           timeData.days[time.getDay()],
           ", ",
           time.getDate(),
-          timeData.endNumber[time.getDate() % 10],
+          putOnEnd(),
           " of ",
           timeData.months[time.getMonth()],
           " ",
