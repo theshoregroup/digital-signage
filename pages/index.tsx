@@ -78,7 +78,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     return {
       redirect: {
         permanent: false,
-        destination: "/admin/authNewClient",
+        destination: "/admin/auth/newClient",
       },
       props: {},
     };
@@ -97,7 +97,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     return {
       redirect: {
         permanent: false,
-        destination: "/admin/authNewClient",
+        destination: "/admin/auth/newClient",
       },
       props: {},
     };
