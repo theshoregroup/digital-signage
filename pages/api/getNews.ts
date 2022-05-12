@@ -1,9 +1,4 @@
 const dummyData = {
-    // itMessage: {
-    //     type: 'live', 
-    //     title: "Service Degradation",
-    //     message: "We are currently expressing concern about the service being degraded. Please check back later.",
-    // },
     news: [
         {
             title: "News 1 this is a very long title to see how long they can be",
@@ -88,9 +83,12 @@ const dummyData = {
 import prisma from "../../lib/prisma";
 
 export default async (req: any, res: any) => {
+    // This grabs IT Messages where the end date is in the future
     const itMessages = await prisma.itMessage.findMany({
         where: {
-            type: "live",
+            endsAt: {
+                gte: new Date()
+            }
         },
     });
 
