@@ -4,8 +4,11 @@ import Container from "../components/Container";
 import Time from "../components/Time";
 import Weather from "../components/Weather";
 import NewsFeed from "../components/NewsFeed";
+import { GetServerSideProps } from "next";
+import cookie from "cookie"
+import prisma from "../lib/prisma";
 
-export default function Component() {
+export default function Dashboard() {
 
   return (
     <>
@@ -67,3 +70,45 @@ export default function Component() {
     </>
   );
 }
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  // Attempt to get a cookie from the client
+  const parsedCookies = cookie.parse(context.req.headers.cookie);
+
+  if (!parsedCookies["ds-token"]) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/admin/authNewClient",
+      },
+      props: {},
+    };
+  }
+
+  // If cookie exists, check validation
+  const token = parsedCookies["ds-token"];
+  
+  const isCookieValid = await prisma.clientCookies.findUnique({
+    where: {
+      token: token,
+    },
+  });
+
+  if (!isCookieValid) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/admin/authNewClient",
+      },
+      props: {},
+    };
+  }
+
+  if (isCookieValid) {
+    // If cookie is valid, return props (like OfficeID etc.)
+    return {
+      props: {
+        cookie: "hello",
+      },
+    };
+  }
+};

@@ -65,3 +65,9 @@ model itMessage {
   endsAt     DateTime @default(now())
   contact    String @default("it@theshoregroup.co.uk")
 }
+
+model ClientCookies {
+  id         String @id @default(cuid())
+  token      String @unique
+  expires    DateTime @default(now())
+}
