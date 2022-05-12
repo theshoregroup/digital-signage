@@ -59,6 +59,7 @@ model VerificationToken {
 model itMessage {
   id         String @id @default(cuid())
   type       String
+  title      String
   message    String
   createdAt  DateTime @default(now())
   beginsAt   DateTime @default(now())
