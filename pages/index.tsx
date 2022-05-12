@@ -75,6 +75,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const parsedCookies = cookie.parse(context.req.headers.cookie);
 
   if (!parsedCookies["ds-token"]) {
+    console.log("Redirected cos no cookie", parsedCookies);
     return {
       redirect: {
         permanent: false,
@@ -94,6 +95,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   });
 
   if (!isCookieValid) {
+    console.log("Redirected cos cookie is invalid", isCookieValid, token);
     return {
       redirect: {
         permanent: false,
@@ -104,7 +106,29 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 
   if (isCookieValid) {
-    // If cookie is valid, return props (like OfficeID etc.)
+    // If cookie is valid, update expiry date on cookie & db & return props (like OfficeID etc.)
+
+    // Update expiry date on cookie
+    const newExpiryDate = new Date(Date.now() + 7);
+    console.log(newExpiryDate);
+
+    context.res.setHeader("Set-Cookie", [
+      cookie.serialize("ds-token", token, {
+      maxAge: newExpiryDate,
+      httpOnly: false,
+      path: "/"
+    })
+    ]);
+
+    prisma.clientCookies.update({
+      where: {
+        token: token,
+      },
+      data: {
+        expires: newExpiryDate,
+      },
+    });
+
     return {
       props: {
         cookie: "hello",
