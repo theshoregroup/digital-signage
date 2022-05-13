@@ -28,13 +28,30 @@ export default function AddNewClient(props: any) {
     }
   }
 
+  const url = () => {
+    if (process.env.VERCEL) {
+      //   Application is running on Vercel - we'll use that URL
+      return process.env.VERCEL_URL;
+    } else if (process.env.NODE_ENV === "development") {
+      // Application is running locally in development - we'll try and get a public URL from the env if available
+      try {
+        return process.env.PUBLIC_URL;
+      } catch (e) {
+        console.warn(
+          "No URI has been defined - this has fallen back to localhost"
+        );
+        return "http://localhost:3000";
+      }
+    }
+  };
+
   return (
     <div>
       <h1>Add New Client</h1>
       <div className="h-60 w-60">
         <AwesomeQRCode
           options={{
-            text: `http://shmacbook.local:3000/admin/auth/${props.cookie}`,
+            text: `${url}/admin/auth/${props.cookie}`,
           }}
         />
       </div>
