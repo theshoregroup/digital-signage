@@ -29,7 +29,10 @@ export default function AddNewClient(props: any) {
   }
 
   const baseURL = () => {
-    if (process.env.NEXT_PUBLIC_VERCEL_URL) {
+    if (process.env.NEXT_PUBLIC_URL) {
+      // Application is running on Vercel, but this is a defined ENV - see https://github.com/vercel/next.js/discussions/16429
+      return process.env.NEXT_PUBLIC_URL;
+    } else if (process.env.NEXT_PUBLIC_VERCEL_URL) {
       //   Application is running on Vercel - we'll use that URL
       return process.env.NEXT_PUBLIC_VERCEL_URL;
     } else if (process.env.NODE_ENV === "development") {
