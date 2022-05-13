@@ -7,7 +7,7 @@ import React, { useState } from "react";
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 interface Props {
-  itMessage: any
+  itMessage: any;
 }
 
 export default function AdminDashboard({ itMessage }: Props) {
@@ -47,7 +47,9 @@ export default function AdminDashboard({ itMessage }: Props) {
           <h2 className="text-xl">IT Messages</h2>
           <ul>
             {data.map((item: any) => (
-              <li key={item.id}>{item.title}</li>
+              <li key={item.id}>
+                {item.title} - <span className="italic">{item.message}</span>
+              </li>
             ))}
           </ul>
           <h2 className="text-xl">Create new</h2>
