@@ -67,7 +67,7 @@ export default function Dashboard() {
     </>
   );
 }
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context: any) => {
   // Attempt to get a cookie from the client
   const parsedCookies = cookie.parse(context.req.headers.cookie);
 
@@ -127,8 +127,16 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
     return {
       props: {
-        cookie: "hello",
+        cookie: token,
       },
     };
   }
+
+  return {
+    redirect: {
+      permanent: false,
+      destination: "/admin/auth/newClient",
+    },
+    props: {},
+  };
 };
