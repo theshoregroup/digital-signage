@@ -6,6 +6,7 @@ import { AwesomeQRCode } from "@awesomeqr/react";
 import useSWR from "swr";
 import Router from "next/router";
 import AdminNavbar from "../../../components/admin/Navbar";
+import Link from "next/link";
 
 // @ts-ignore: Rest parameter 'args' implicitly has an 'any[]' type.
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
@@ -65,6 +66,15 @@ export default function AddNewClient(props: any) {
             />
           </div>
           {url}
+
+          <p>
+            Not a client?
+            <Link href={"/admin/"}>
+              <a className="inline-block p-3 bg-slate-600 text-white rounded-md">
+                Go to the Admin dashboard
+              </a>
+            </Link>
+          </p>
         </div>
       </div>
     </>
