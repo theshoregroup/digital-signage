@@ -1,9 +1,10 @@
 import { signIn, useSession } from "next-auth/react";
 import Head from "next/head";
 import AdminNavbar from "../../components/admin/Navbar";
-import useSWR from "swr";
+import useSWR, { Key, Fetcher } from "swr";
 import React, { useState } from "react";
 
+// @ts-ignore: Rest parameter 'args' implicitly has an 'any[]' type.
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 interface Props {
@@ -67,20 +68,22 @@ export default function AdminDashboard({ itMessage }: Props) {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
             />
-            <label htmlFor="beginsAt">Date</label>
-            <input
-              type="date"
-              id="beginsAt"
-              value={beginsAt}
-              onChange={(e) => setBeginsAt(new Date(e.target.value))}
-            />
-            <label htmlFor="endsAt">Ends at</label>
-            <input
-              type="date"
-              id="endsAt"
-              value={endsAt}
-              onChange={(e) => setEndsAt(new Date(e.target.value))}
-            />
+            <div className="block">
+              <label htmlFor="beginsAt">Start date</label>
+              <input
+                type="datetime-local"
+                id="beginsAt"
+                value={new Date(beginsAt).toISOString().substr(0, 16)}
+                onChange={(e) => setBeginsAt(new Date(e.target.value))}
+              />
+              <label htmlFor="endsAt">Ends at</label>
+              <input
+                type="datetime-local"
+                id="endsAt"
+                value={new Date(Date.now() + 7).toISOString().substr(0, 16)}
+                onChange={(e) => setEndsAt(new Date(e.target.value))}
+              />
+            </div>
             <button type="submit">Submit</button>
           </form>
         </div>
