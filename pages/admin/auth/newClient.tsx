@@ -1,10 +1,10 @@
+// @ts-ignore: No type declaration file available
 import cookie from "cookie";
 const { v4: uuidv4 } = require("uuid");
 import { GetServerSideProps } from "next";
 import { AwesomeQRCode } from "@awesomeqr/react";
 import useSWR from "swr";
 import Router from "next/router";
-import token from "../../api/admin/token";
 
 // @ts-ignore: Rest parameter 'args' implicitly has an 'any[]' type.
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
