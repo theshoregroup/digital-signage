@@ -1,5 +1,6 @@
 import useSWR from "swr";
 
+// @ts-ignore: Rest parameter 'args' implicitly has an 'any[]' type.
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function NewsFeed() {
