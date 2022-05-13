@@ -3,20 +3,13 @@ import useSWR from "swr";
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function NewsFeed() {
-  const { data, error } = useSWR("/api/getNews", fetcher, {refreshInterval: 10000, refreshWhenHidden: true});
+  const { data, error } = useSWR("/api/getNews", fetcher, {
+    refreshInterval: 10000,
+    refreshWhenHidden: true,
+  });
 
   if (error || data == undefined) return <div>Failed to load</div>;
   if (!data) return <div>Loading...</div>;
-
-  function isItLive(item: any) {
-    console.log(item.beginsAt, new Date(), typeof(item))
-    if (item.beginsAt > new Date().toUTCString() && item.endsAt < new Date().toUTCString()) {
-      return "LIVE"
-    } else if (item.beginsAt > new Date().toUTCString()) {
-      return "SCHEDULED"
-    }
-  }
-
 
   return (
     <aside className="">
@@ -28,12 +21,8 @@ export default function NewsFeed() {
               <span className="relative inline-flex rounded-full h-5 w-5 bg-red-500"></span>
             </span>
             <div className="overflow-hidden">
-              <span className="text-3xl font-bold truncate">
-                {item.title}
-              </span>
-              <p className="text-xl italic flex-wrap">
-                {item.message}
-              </p>
+              <span className="text-3xl font-bold truncate">{item.title}</span>
+              <p className="text-xl italic flex-wrap">{item.message}</p>
             </div>
           </li>
         ))}
