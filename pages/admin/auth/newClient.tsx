@@ -28,10 +28,10 @@ export default function AddNewClient(props: any) {
     }
   }
 
-  const url = () => {
-    if (process.env.VERCEL) {
+  const baseURL = () => {
+    if (process.env.NEXT_PUBLIC_VERCEL) {
       //   Application is running on Vercel - we'll use that URL
-      return process.env.VERCEL_URL;
+      return process.env.NEXT_PUBLIC_VERCEL_URL;
     } else if (process.env.NODE_ENV === "development") {
       // Application is running locally in development - we'll try and get a public URL from the env if available
       try {
@@ -45,17 +45,19 @@ export default function AddNewClient(props: any) {
     }
   };
 
+  const url = baseURL() + "/admin/auth/" + props.cookie;
+
   return (
     <div>
       <h1>Add New Client</h1>
       <div className="h-60 w-60">
         <AwesomeQRCode
           options={{
-            text: `${url}/admin/auth/${props.cookie}`,
+            text: `${url}`,
           }}
         />
       </div>
-      http://localhost:3000/admin/auth/{props.cookie}
+      ${url}
     </div>
   );
 }
