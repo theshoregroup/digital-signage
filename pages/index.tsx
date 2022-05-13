@@ -5,11 +5,10 @@ import Time from "../components/Time";
 import Weather from "../components/Weather";
 import NewsFeed from "../components/NewsFeed";
 import { GetServerSideProps } from "next";
-import cookie from "cookie"
+import cookie from "cookie";
 import prisma from "../lib/prisma";
 
 export default function Dashboard() {
-
   return (
     <>
       <Head>
@@ -39,9 +38,7 @@ export default function Dashboard() {
         </Container>
 
         {/* Main left - Repeating loop of YouTube videos, live YouTube videos, videos from the admin console, and scrolling internal news posts. */}
-        <Container className="col-start-1 row-start-2">
-          h
-        </Container>
+        <Container className="col-start-1 row-start-2">h</Container>
 
         {/* Right - News feed, coallates a number of sources (defined in admin UI) */}
         <Container className="col-start-2 row-start-2 row-span-2">
@@ -87,7 +84,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   // If cookie exists, check validation
   const token = parsedCookies["ds-token"];
-  
+
   const isCookieValid = await prisma.clientCookies.findUnique({
     where: {
       token: token,
@@ -110,14 +107,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
     // Update expiry date on cookie
     const newExpiryDate = new Date(Date.now() + 7);
-    console.log(newExpiryDate);
 
     context.res.setHeader("Set-Cookie", [
       cookie.serialize("ds-token", token, {
-      maxAge: newExpiryDate,
-      httpOnly: false,
-      path: "/"
-    })
+        maxAge: newExpiryDate,
+        httpOnly: false,
+        path: "/",
+      }),
     ]);
 
     prisma.clientCookies.update({
