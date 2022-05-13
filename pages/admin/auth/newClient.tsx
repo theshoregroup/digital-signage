@@ -5,6 +5,7 @@ import { GetServerSideProps } from "next";
 import { AwesomeQRCode } from "@awesomeqr/react";
 import useSWR from "swr";
 import Router from "next/router";
+import AdminNavbar from "../../../components/admin/Navbar";
 
 // @ts-ignore: Rest parameter 'args' implicitly has an 'any[]' type.
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
@@ -38,7 +39,7 @@ export default function AddNewClient(props: any) {
     } else if (process.env.NODE_ENV === "development") {
       // Application is running locally in development - we'll try and get a public URL from the env if available
       try {
-        return process.env.PUBLIC_URL;
+        return "shmacbook.local:3000";
       } catch (e) {
         console.warn(
           "No URI has been defined - this has fallen back to localhost"
@@ -51,19 +52,22 @@ export default function AddNewClient(props: any) {
   const url = "https://" + baseURL() + "/admin/auth/" + props.cookie;
 
   return (
-    <div className="grid place-items-center">
-      <div>
-        <h1>Add New Client</h1>
-        <div className="h-72 w-72">
-          <AwesomeQRCode
-            options={{
-              text: url,
-            }}
-          />
+    <>
+      <AdminNavbar />
+      <div className="grid place-items-center">
+        <div>
+          <h1>Add New Client</h1>
+          <div className="h-72 w-72">
+            <AwesomeQRCode
+              options={{
+                text: url,
+              }}
+            />
+          </div>
+          {url}
         </div>
-        {url}
       </div>
-    </div>
+    </>
   );
 }
 
