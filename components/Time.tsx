@@ -48,24 +48,28 @@ export default function Time() {
     if (time.getDate() > 4 || time.getDate() < 20) {
       return timeData.endNumber[4];
     } else {
-      return timeData.endNumber[time.getDate() % 10];
+      return timeData.endNumber[
+        (time.getDate() % 10) as keyof typeof timeData.endNumber
+      ];
     }
   }
 
   return (
     <div className="my-auto">
       <span className="block text-5xl font-bold">
-        {time.getHours()}<span className="animate-pulse">:</span>{time.getMinutes() < 10 ? `0${time.getMinutes()}` : time.getMinutes()}
+        {time.getHours()}
+        <span className="animate-pulse">:</span>
+        {time.getMinutes() < 10 ? `0${time.getMinutes()}` : time.getMinutes()}
       </span>
 
       <span className="block text-3xl italic">
         {[
-          timeData.days[time.getDay()],
+          timeData.days[time.getDay() as keyof typeof timeData.days],
           ", ",
           time.getDate(),
           putOnEnd(),
           " of ",
-          timeData.months[time.getMonth()],
+          timeData.months[time.getMonth() as keyof typeof timeData.months],
           " ",
           time.getFullYear(),
         ]}

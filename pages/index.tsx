@@ -5,6 +5,7 @@ import Time from "../components/Time";
 import Weather from "../components/Weather";
 import NewsFeed from "../components/NewsFeed";
 import { GetServerSideProps } from "next";
+// @ts-ignore: no type definition for module
 import cookie from "cookie";
 import prisma from "../lib/prisma";
 
