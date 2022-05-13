@@ -29,7 +29,7 @@ export default function AddNewClient(props: any) {
   }
 
   const baseURL = () => {
-    if (process.env.NEXT_PUBLIC_VERCEL) {
+    if (process.env.NEXT_PUBLIC_VERCEL_URL) {
       //   Application is running on Vercel - we'll use that URL
       return process.env.NEXT_PUBLIC_VERCEL_URL;
     } else if (process.env.NODE_ENV === "development") {
@@ -53,11 +53,11 @@ export default function AddNewClient(props: any) {
       <div className="h-60 w-60">
         <AwesomeQRCode
           options={{
-            text: `${url}`,
+            text: url,
           }}
         />
       </div>
-      ${url}
+      {url}
     </div>
   );
 }
