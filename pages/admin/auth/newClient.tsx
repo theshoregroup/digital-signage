@@ -48,16 +48,18 @@ export default function AddNewClient(props: any) {
   const url = "https://" + baseURL() + "/admin/auth/" + props.cookie;
 
   return (
-    <div>
-      <h1>Add New Client</h1>
-      <div className="h-60 w-60">
-        <AwesomeQRCode
-          options={{
-            text: url,
-          }}
-        />
+    <div className="grid place-items-center">
+      <div>
+        <h1>Add New Client</h1>
+        <div className="h-72 w-72">
+          <AwesomeQRCode
+            options={{
+              text: url,
+            }}
+          />
+        </div>
+        {url}
       </div>
-      {url}
     </div>
   );
 }
