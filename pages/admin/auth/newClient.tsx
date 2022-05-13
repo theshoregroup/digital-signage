@@ -45,7 +45,7 @@ export default function AddNewClient(props: any) {
     }
   };
 
-  const url = baseURL() + "/admin/auth/" + props.cookie;
+  const url = "https://" + baseURL() + "/admin/auth/" + props.cookie;
 
   return (
     <div>
