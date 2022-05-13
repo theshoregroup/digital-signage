@@ -43,16 +43,40 @@ export default function AdminDashboard({ itMessage }: Props) {
           <title>Admin Dashboard | Digital Signage</title>
         </Head>
         <AdminNavbar />
-        <div>
-          <h1 className="text-3xl font-bold">Welcome to the dashboard</h1>
+        <div className="w-11/12 mx-auto mt-10">
+          <h1 className="text-3xl md:text-5xl font-bold">
+            Welcome to the dashboard
+          </h1>
           <h2 className="text-xl">IT Messages</h2>
-          <ul>
-            {data.map((item: any) => (
-              <li key={item.id}>
-                {item.title} - <span className="italic">{item.message}</span>
-              </li>
-            ))}
-          </ul>
+          <table className="w-full table-fixed">
+            <thead>
+              <tr className="text-left">
+                <th className="whitespace-nowrap">Title</th>
+                <th className="flex-grow">Message</th>
+                <th className="whitespace-nowrap"></th>
+                {/* <th>Begins At</th>
+                <th>Ends At</th> */}
+              </tr>
+            </thead>
+            <tbody>
+              {data &&
+                data.map((itMessage: any) => (
+                  <tr
+                    className="overflow-hidden whitespace-nowrap"
+                    key={itMessage.id}
+                  >
+                    <td className="whitespace-nowrap">{itMessage.title}</td>
+                    <td className="overflow-hidden flex-grow">
+                      {itMessage.message}
+                    </td>
+                    <td className="text-right whitespace-nowrap">Open</td>
+                    {/* <td>{itMessage.beginsAt}</td>
+                    <td>{itMessage.endsAt}</td> */}
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+
           <h2 className="text-xl">Create new</h2>
           <form onSubmit={submitNewMessage}>
             <label htmlFor="title">Title</label>
