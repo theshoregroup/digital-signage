@@ -87,15 +87,17 @@ export default async (req: any, res: any) => {
     const itMessages = await prisma.itMessage.findMany({
         where: {
             endsAt: {
+                // Where ends at is GreaTEr Than now (GTE)
                 gte: new Date()
             }
         },
     });
 
+    // Add data into an object
     const toSend = {
-        news: dummyData.news,
+        news: dummyData.news, //Currently just dummy data (above)
         itMessage: itMessages,
     };
-    
+
     return res.status(200).json(toSend);
 }
