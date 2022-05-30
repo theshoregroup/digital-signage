@@ -57,7 +57,7 @@ export default function AddNewClient(props: any) {
       <AdminNavbar />
       <div className="grid place-items-center">
         <div>
-          <h1>Add New Client</h1>
+          <h1 className="text-3xl font-bold">Add New Client</h1>
           <div className="h-72 w-72">
             <AwesomeQRCode
               options={{
@@ -68,9 +68,9 @@ export default function AddNewClient(props: any) {
           {url}
 
           <p>
-            Not a client?
+            Not a client?{" "}
             <Link href={"/admin/"}>
-              <a className="inline-block p-3 bg-slate-600 text-white rounded-md">
+              <a className="text-blue-700 underline">
                 Go to the Admin dashboard
               </a>
             </Link>
