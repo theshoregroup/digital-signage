@@ -25,7 +25,7 @@ class PageDocument extends Document {
       <Html lang="en">
         <Head>
           <meta charSet="utf-8" />
-          
+          <meta name="theme-color" content="#e2e8f0" />
         </Head>
         <body>
           <Main />
