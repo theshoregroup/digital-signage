@@ -4,6 +4,7 @@ import AdminNavbar from "../../components/admin/Navbar";
 import useSWR, { Key, Fetcher, useSWRConfig } from "swr";
 import React, { useState, Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
+import { redirect } from "next/dist/server/api-utils";
 
 // @ts-ignore: Rest parameter 'args' implicitly has an 'any[]' type.
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
@@ -282,12 +283,56 @@ export default function AdminDashboard({ itMessage }: Props) {
         </Transition>
       </>
     );
+  } else {
+    return (
+      <>
+        <span className="absolute">
+          <AdminNavbar />
+        </span>
+        <div className="grid place-items-center h-screen bg-red-100">
+          <div className="grid place-items-center bg-white px-5 py-10 rounded-lg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-24 w-24 text-red-500"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M13.477 14.89A6 6 0 015.11 6.524l8.367 8.368zm1.414-1.414L6.524 5.11a6 6 0 018.367 8.367zM18 10a8 8 0 11-16 0 8 8 0 0116 0z"
+                clipRule="evenodd"
+              />
+            </svg>
+            <h1 className="text-5xl font-bold mt-7 mx-5 block text-red-500">
+              Authorization required
+            </h1>
+            <p>You need to be logged in to see this page</p>
+            <button
+              className="bg-blue-100 text-blue-500 mt-3 p-2 rounded-lg"
+              onClick={() => signIn()}
+            >
+              Sign in now{" "}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 inline"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+                  clipRule="evenodd"
+                />
+                <path
+                  fillRule="evenodd"
+                  d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </>
+    );
   }
-
-  return (
-    <>
-      <p>You are not signed in.</p>
-      <button onClick={() => signIn()}>Sign in!</button>
-    </>
-  );
 }
