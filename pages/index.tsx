@@ -69,7 +69,19 @@ export default function Dashboard() {
   );
 }
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
-  // Attempt to get a cookie from the client
+  // First need to check if there are cookies
+  if (!context.req.headers.cookie) {
+    // No Cookies present - automatically redirect
+    console.log("No cookies on client");
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/admin/auth/newClient",
+      },
+      props: {},
+    };
+  }
+
   const parsedCookies = cookie.parse(context.req.headers.cookie);
 
   if (!parsedCookies["ds-token"]) {

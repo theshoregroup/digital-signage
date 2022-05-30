@@ -43,7 +43,7 @@ export default function AdminNavbar() {
                 <span className="hidden sm:inline-block">
                   Signed in as{" "}
                   <span className="font-bold tracking-normal">
-                    {session.user?.name}
+                    {session?.user?.name}
                   </span>
                 </span>
                 <span className="sm:hidden">
@@ -100,7 +100,7 @@ export default function AdminNavbar() {
                   </Dialog.Title>
                   <div className="mt-2">
                     <p className="text-sm text-gray-500">
-                      Currently logged in as {session!.user?.name} (
+                      Currently logged in as {session?.user?.name} (
                       {session?.user?.email})
                     </p>
                   </div>
