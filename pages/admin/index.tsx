@@ -1,10 +1,9 @@
 import { signIn, useSession } from "next-auth/react";
 import Head from "next/head";
 import AdminNavbar from "../../components/admin/Navbar";
-import useSWR, { Key, Fetcher, useSWRConfig } from "swr";
+import useSWR, { useSWRConfig } from "swr";
 import React, { useState, Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { redirect } from "next/dist/server/api-utils";
 
 // @ts-ignore: Rest parameter 'args' implicitly has an 'any[]' type.
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
@@ -18,6 +17,7 @@ export default function AdminDashboard({ itMessage }: Props) {
 
   const { data: session, status } = useSession();
   const [createDialog, setCreateDialog] = useState(false);
+  const [deleteModal, setDeleteModal] = useState(false);
 
   const { data, error } = useSWR("/api/admin/itMsg", fetcher, {
     refreshInterval: 10000,
@@ -39,19 +39,25 @@ export default function AdminDashboard({ itMessage }: Props) {
         body: JSON.stringify(body),
       });
       console.log(body);
-      closeModal();
+      setCreateDialog(false);
       mutate("/api/admin/itMsg");
     } catch (error) {
       console.error(error);
     }
   };
 
-  function openModal() {
-    setCreateDialog(true);
-  }
-
-  function closeModal() {
-    setCreateDialog(false);
+  async function deleteAllMessages() {
+    try {
+      await fetch("/api/admin/itMsg", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ "delete-type": "all" }),
+      });
+      mutate("/api/admin/itMsg");
+      setDeleteModal(false);
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   if (status === "authenticated") {
@@ -70,7 +76,7 @@ export default function AdminDashboard({ itMessage }: Props) {
               <h2 className="inline-block text-2xl">IT Alerts</h2>
               <button
                 type="button"
-                onClick={openModal}
+                onClick={() => setCreateDialog(true)}
                 className="rounded-md bg-blue-700 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
               >
                 Create new{" "}
@@ -117,13 +123,25 @@ export default function AdminDashboard({ itMessage }: Props) {
                     ))}
                 </tbody>
               </table>
+              <div>
+                <button
+                  className="mt-3 text-red-500"
+                  onClick={() => setDeleteModal(true)}
+                >
+                  Delete all
+                </button>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Dialog */}
+        {/* Dialog - Add new */}
         <Transition appear show={createDialog} as={Fragment}>
-          <Dialog as="div" className="relative z-10" onClose={closeModal}>
+          <Dialog
+            as="div"
+            className="relative z-10"
+            onClose={() => setCreateDialog(false)}
+          >
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -262,7 +280,7 @@ export default function AdminDashboard({ itMessage }: Props) {
                       <div className="mt-6 space-x-4">
                         <button
                           className="inline-flex justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 text-sm font-medium text-red-900 hover:bg-red-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
-                          onClick={closeModal}
+                          onClick={() => setCreateDialog(false)}
                           type="reset"
                         >
                           Clear
@@ -275,6 +293,74 @@ export default function AdminDashboard({ itMessage }: Props) {
                         </button>
                       </div>
                     </form>
+                  </Dialog.Panel>
+                </Transition.Child>
+              </div>
+            </div>
+          </Dialog>
+        </Transition>
+
+        {/* Dialog - Delete all confirmation */}
+        <Transition appear show={deleteModal} as={Fragment}>
+          <Dialog
+            as="div"
+            className="relative z-10"
+            onClose={() => setDeleteModal(false)}
+          >
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+            >
+              <div className="fixed inset-0 bg-slate-600 bg-opacity-75 backdrop-blur" />
+            </Transition.Child>
+
+            <div className="fixed inset-0 overflow-y-auto">
+              <div className="flex min-h-full items-center justify-center p-4 text-center">
+                <Transition.Child
+                  as={Fragment}
+                  enter="ease-out duration-300"
+                  enterFrom="opacity-0 scale-95 backdrop-blur-none"
+                  enterTo="opacity-100 scale-100 backdrop-blur"
+                  leave="ease-in duration-200"
+                  leaveFrom="opacity-100 scale-100 backdrop-blur"
+                  leaveTo="opacity-0 scale-95 backdrop-blur-none"
+                >
+                  <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                    <Dialog.Title
+                      as="h3"
+                      className="text-lg font-medium leading-6 text-red-500"
+                    >
+                      Are you sure?
+                    </Dialog.Title>
+                    <div className="mt-2">
+                      <p className="text-sm text-gray-500">
+                        You are going to be deleting{" "}
+                        <span className="text-red-500">all</span> {data.length}{" "}
+                        messages from the database.{" "}
+                        <span className="text-red-500 font-bold block">
+                          This action cannot be undone
+                        </span>
+                      </p>
+                    </div>
+                    <div className="space-x-3">
+                      <button
+                        className="mt-3 inline-flex justify-center rounded-md border border-transparent bg-sky-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-sky-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                        onClick={() => setDeleteModal(false)}
+                      >
+                        I am stupid
+                      </button>
+                      <button
+                        className="mt-3 inline-flex justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 text-sm font-medium text-red-900 hover:bg-red-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
+                        onClick={() => deleteAllMessages()}
+                      >
+                        I know what I'm doing
+                      </button>
+                    </div>
                   </Dialog.Panel>
                 </Transition.Child>
               </div>
