@@ -369,6 +369,8 @@ export default function AdminDashboard({ itMessage }: Props) {
         </Transition>
       </>
     );
+  } else if (status === "loading") {
+    return <div className="flex justify-center items-center h-full"></div>;
   } else {
     return (
       <>
