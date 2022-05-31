@@ -15,7 +15,13 @@ interface Props {
 export default function AdminDashboard({ itMessage }: Props) {
   const { mutate } = useSWRConfig();
 
-  const { data: session, status } = useSession();
+  const { status } = useSession({
+    required: true,
+    onUnauthenticated() {
+      signIn();
+    },
+  });
+
   const [createDialog, setCreateDialog] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
 
@@ -340,7 +346,7 @@ export default function AdminDashboard({ itMessage }: Props) {
                     <div className="mt-2">
                       <p className="text-sm text-gray-500">
                         You are going to be deleting{" "}
-                        <span className="text-red-500">all</span> {data.length}{" "}
+                        <span className="text-red-500">all</span> {data?.length}{" "}
                         messages from the database.{" "}
                         <span className="text-red-500 font-bold block">
                           This action cannot be undone

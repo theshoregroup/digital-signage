@@ -7,6 +7,7 @@ import useSWR from "swr";
 import Router from "next/router";
 import AdminNavbar from "../../../components/admin/Navbar";
 import Link from "next/link";
+import { useSession, signIn } from "next-auth/react";
 
 // @ts-ignore: Rest parameter 'args' implicitly has an 'any[]' type.
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
@@ -20,8 +21,6 @@ export default function AddNewClient(props: any) {
       refreshWhenHidden: true,
     }
   );
-
-  console.log(data);
 
   if (data) {
     if (data.token) {
@@ -54,8 +53,10 @@ export default function AddNewClient(props: any) {
 
   return (
     <>
-      <AdminNavbar />
-      <div className="grid place-items-center">
+      <span className="absolute">
+        <AdminNavbar />
+      </span>
+      <div className="grid place-items-center h-screen">
         <div>
           <h1 className="text-3xl font-bold">Add New Client</h1>
           <div className="h-72 w-72">
