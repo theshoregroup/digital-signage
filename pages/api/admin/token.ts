@@ -24,10 +24,11 @@ export default async (req: any, res: any) => {
             );
         }
     } else if (req.method === "POST") {
-        const { token } = req.body;
+        const { token, officeId } = req.body;
         const newMessage = await prisma.clientCookies.create({
             data: {
                 token,
+                officeId,
                 expires: new Date(Date.now() + 7),
             },
         });

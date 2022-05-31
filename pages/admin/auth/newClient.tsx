@@ -84,17 +84,15 @@ export default function AddNewClient(props: any) {
 
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
   // Attempt to get a cookie from the client
-  const parsedCookies = cookie.parse(context.req.headers.cookie);
-
-  // We know that the cookie state right now is either missing or invalid
-  if (parsedCookies["ds-token"]) {
-    // If cookie exists, delete it
-    context.res.setHeader("Set-Cookie", [
-      cookie.serialize("ds-token", "", {
-        maxAge: -1,
-      }),
-    ]);
-  }
+  const parsedCookies = () => {
+    if (!context.req.headers.cookie) {
+      // No Cookies present - automatically redirect
+      console.log("No cookies on client");
+      return {};
+    } else {
+      return cookie.parse(context.req.headers.cookie);
+    }
+  };
 
   // Generate a brand new cookie
   const generatedToken = uuidv4();

@@ -106,7 +106,6 @@ export default function AdminDashboard({ itMessage }: Props) {
               <thead>
                 <tr className="text-left">
                   <th className="whitespace-nowrap">Title</th>
-                  <th className="flex-grow">Message</th>
                   <th>Ends At</th>
                   <th className="whitespace-nowrap"></th>
                 </tr>
@@ -119,11 +118,15 @@ export default function AdminDashboard({ itMessage }: Props) {
                       key={itMessage.id}
                     >
                       <td className="whitespace-nowrap">{itMessage.title}</td>
-                      <td className="overflow-hidden flex-grow">
-                        {itMessage.message}
-                      </td>
                       <td>{itMessage.endsAt}</td>
-                      <td className="text-right whitespace-nowrap">Open</td>
+                      <td className="text-right whitespace-nowrap space-x-2">
+                        <button className="p-1 rounded-lg text-blue-700 hover:underline hover:text-blue-500 transition-all duration-100">
+                          Edit
+                        </button>
+                        <button className="p-1 rounded-lg text-red-700 hover:underline hover:text-red-500 transition-all duration-100">
+                          Delete
+                        </button>
+                      </td>
                     </tr>
                   ))}
               </tbody>
