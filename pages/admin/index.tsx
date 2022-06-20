@@ -13,8 +13,10 @@ interface Props {
 }
 
 export default function AdminDashboard({ itMessage }: Props) {
+  // useSWR mutate - https://swr.vercel.app/docs/mutation - used to revalidate data
   const { mutate } = useSWRConfig();
 
+  // Basic session management. Redirects to login screen if no session is present
   const { status } = useSession({
     required: true,
     onUnauthenticated() {
@@ -22,16 +24,24 @@ export default function AdminDashboard({ itMessage }: Props) {
     },
   });
 
+  // Dialog states for creating, editing and deleting messages
+  // Todo: Create better naming scheme / convert all of these into a single modal (or two - could use create & edit + delete?)
   const [createDialog, setCreateDialog] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
 
+  // useSWR hook for getting IT Messages
   const { data, error } = useSWR("/api/admin/itMsg", fetcher, {
     refreshInterval: 10000,
     refreshWhenHidden: true,
   });
+  // TODO: Error handling
 
+  // Submit a new message to the database
   const submitNewMessage = async (event: any) => {
+    // Prevent default values - also handled at the database level
     event.preventDefault();
+
+    // Pushes data to API endpoint
     try {
       const body = {
         title: event?.target?.title?.value,
@@ -44,14 +54,15 @@ export default function AdminDashboard({ itMessage }: Props) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
-      console.log(body);
       setCreateDialog(false);
       mutate("/api/admin/itMsg");
     } catch (error) {
+      // TODO: Better error handling
       console.error(error);
     }
   };
 
+  // Deletes all messages from the database
   async function deleteAllMessages() {
     try {
       await fetch("/api/admin/itMsg", {
@@ -62,6 +73,7 @@ export default function AdminDashboard({ itMessage }: Props) {
       mutate("/api/admin/itMsg");
       setDeleteModal(false);
     } catch (error) {
+      // TODO: Better error handling
       console.error(error);
     }
   }
@@ -75,7 +87,10 @@ export default function AdminDashboard({ itMessage }: Props) {
 
       <div className="w-5/6 mx-auto pt-5">
         <h1 className="text-3xl font-bold">Your Dashboard</h1>
-        {/* TODO: Add in blurb */}
+        <p className="text-slate-500">
+          Here you can manage your digital signage solution, change settings and
+          apperance and more.
+        </p>
         <div className="py-5">
           <div className="space-x-5">
             <h2 className="inline-block text-2xl">IT Alerts</h2>
