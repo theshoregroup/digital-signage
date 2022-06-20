@@ -33,16 +33,11 @@ export default function Dashboard() {
           <Weather location="Brighton" />
         </Container>
 
-        {/* Top right - Current events, weather */}
-        <Container className="col-start-2 row-start-1 flex justify-between">
-          test
-        </Container>
-
         {/* Main left - Repeating loop of YouTube videos, live YouTube videos, videos from the admin console, and scrolling internal news posts. */}
         <Container className="col-start-1 row-start-2">h</Container>
 
         {/* Right - News feed, coallates a number of sources (defined in admin UI) */}
-        <Container className="col-start-2 row-start-2 row-span-2">
+        <Container className="col-start-2 row-start-1 row-span-3">
           <NewsFeed />
         </Container>
 
