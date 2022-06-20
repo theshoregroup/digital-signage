@@ -3,7 +3,7 @@ import Link from "next/link";
 import Container from "../components/Container";
 import Time from "../components/Time";
 import Weather from "../components/Weather";
-import NewsFeed from "../components/NewsFeed";
+import CurrentEvents from "../components/CurrentEvents";
 import { GetServerSideProps } from "next";
 // @ts-ignore: no type definition for module
 import cookie from "cookie";
@@ -38,7 +38,7 @@ export default function Dashboard() {
 
         {/* Right - News feed, coallates a number of sources (defined in admin UI) */}
         <Container className="col-start-2 row-start-1 row-span-3">
-          <NewsFeed />
+          <CurrentEvents />
         </Container>
 
         {/* Bottom left - sales data feed */}
