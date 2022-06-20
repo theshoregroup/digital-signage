@@ -70,8 +70,8 @@ model ClientCookies {
   id       String   @id @default(cuid())
   token    String   @unique
   expires  DateTime @default(now())
-  office   Offices  @relation(fields: [officeId], references: [id], onDelete: Cascade)
-  officeId String
+  office   Offices? @relation(fields: [officeId], references: [id], onDelete: Cascade)
+  officeId String?
 }
 
 model Offices {
