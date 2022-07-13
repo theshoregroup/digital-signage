@@ -1,4 +1,5 @@
 const colors = require('tailwindcss/colors')
+const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
   content: [
@@ -6,10 +7,13 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    fontFamily: {
-      sans: ["metropolis", "sans-serif"],
-    },
-    extend: {}
+    extend: {
+      fontFamily: {
+        sans: ["metropolis", "sans-serif"],
+        ...defaultTheme.fontFamily.serif,
+        ...defaultTheme.fontFamily.mono,
+      },
+    }
   },
   plugins: [],
 }
