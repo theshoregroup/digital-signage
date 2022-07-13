@@ -48,6 +48,27 @@ model User {
   sessions      Session[]
 }
 
+model ClientCookies {
+  id       String   @id @default(cuid())
+  nickname String?
+  token    String   @unique
+  expires  DateTime @default(now())
+  office   Offices? @relation(fields: [officeId], references: [id], onDelete: Cascade)
+  officeId String?
+}
+
+model Offices {
+  id                  String          @id @default(cuid())
+  name                String
+  address             String
+  city                String
+  postcode            String
+  country             String
+  ClientCookies       ClientCookies[]
+  SelectedNewsSources newsQuery[]
+  salesData           salesData[]
+}
+
 model VerificationToken {
   identifier String
   token      String   @unique
@@ -66,20 +87,30 @@ model itMessage {
   contact   String   @default("it@theshoregroup.co.uk")
 }
 
-model ClientCookies {
-  id       String   @id @default(cuid())
-  token    String   @unique
-  expires  DateTime @default(now())
-  office   Offices? @relation(fields: [officeId], references: [id], onDelete: Cascade)
-  officeId String?
+model newsQuery {
+  id             String   @id @default(cuid())
+  query          String?
+  description    String?
+  endpoint       String
+  language       String   @default("en")
+  lastSync       DateTime @default(now())
+  isGlobalSource Boolean  @default(false)
+  lastSyncResult String   @default("new")
+  // Optional fields
+  country        String?
+  domains        String?
+  exDomains      String?
+  sources        String?
+  // Date
+  from           String?
+  // Connected to Office
+  officeId       String?
+  office         Offices? @relation(fields: [officeId], references: [id], onDelete: Cascade)
 }
 
-model Offices {
-  id            String          @id @default(cuid())
-  name          String
-  address       String
-  city          String
-  postcode      String
-  country       String
-  ClientCookies ClientCookies[]
+model salesData {
+  id       String   @id @default(cuid())
+  officeId String?
+  office   Offices? @relation(fields: [officeId], references: [id], onDelete: Cascade)
+
 }

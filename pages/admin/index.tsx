@@ -4,15 +4,13 @@ import AdminNavbar from "../../components/admin/Navbar";
 import useSWR, { useSWRConfig } from "swr";
 import React, { useState, Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
+import ActiveSessions from "../../components/admin/blocks/ActiveSessions";
+import NewsSync from "../../lib/newsParse";
 
 // @ts-ignore: Rest parameter 'args' implicitly has an 'any[]' type.
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
-interface Props {
-  itMessage: any;
-}
-
-export default function AdminDashboard({ itMessage }: Props) {
+export default function AdminDashboard() {
   // useSWR mutate - https://swr.vercel.app/docs/mutation - used to revalidate data
   const { mutate } = useSWRConfig();
 
@@ -77,6 +75,10 @@ export default function AdminDashboard({ itMessage }: Props) {
       console.error(error);
     }
   }
+  async function testNews() {
+    const res = await fetch("/api/News");
+    console.log(res);
+  }
 
   return (
     <>
@@ -91,6 +93,8 @@ export default function AdminDashboard({ itMessage }: Props) {
           Here you can manage your digital signage solution, change settings and
           apperance and more.
         </p>
+
+        {/* IT Messages */}
         <div className="py-5">
           <div className="space-x-5">
             <h2 className="inline-block text-2xl">IT Alerts</h2>
@@ -113,50 +117,54 @@ export default function AdminDashboard({ itMessage }: Props) {
                 />
               </svg>
             </button>
-          </div>
 
-          {/* Table */}
-          <div className="bg-slate-200 mt-4 py-4 px-7 inline-block rounded-xl overflow-scroll w-full">
-            <table className="w-full">
-              <thead>
-                <tr className="text-left">
-                  <th className="whitespace-nowrap">Title</th>
-                  <th>Ends At</th>
-                  <th className="whitespace-nowrap"></th>
-                </tr>
-              </thead>
-              <tbody className="space-x-2">
-                {data &&
-                  data.map((itMessage: any) => (
-                    <tr
-                      className="overflow-hidden whitespace-nowrap"
-                      key={itMessage.id}
-                    >
-                      <td className="whitespace-nowrap">{itMessage.title}</td>
-                      <td>{itMessage.endsAt}</td>
-                      <td className="text-right whitespace-nowrap space-x-2">
-                        <button className="p-1 rounded-lg text-blue-700 hover:underline hover:text-blue-500 transition-all duration-100">
-                          Edit
-                        </button>
-                        <button className="p-1 rounded-lg text-red-700 hover:underline hover:text-red-500 transition-all duration-100">
-                          Delete
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-              </tbody>
-            </table>
-            <div>
-              <button
-                className="mt-3 text-red-500"
-                onClick={() => setDeleteModal(true)}
-              >
-                Delete all
-              </button>
+            {/* Table */}
+            <div className="bg-slate-200 mt-4 py-4 px-7 inline-block rounded-xl overflow-scroll w-full">
+              <table className="w-full">
+                <thead>
+                  <tr className="text-left">
+                    <th className="whitespace-nowrap">Title</th>
+                    <th>Ends At</th>
+                    <th className="whitespace-nowrap"></th>
+                  </tr>
+                </thead>
+                <tbody className="space-x-2">
+                  {data &&
+                    data.map((itMessage: any) => (
+                      <tr
+                        className="overflow-hidden whitespace-nowrap"
+                        key={itMessage.id}
+                      >
+                        <td className="whitespace-nowrap">{itMessage.title}</td>
+                        <td>{itMessage.endsAt}</td>
+                        <td className="text-right whitespace-nowrap space-x-2">
+                          <button className="p-1 rounded-lg text-blue-700 hover:underline hover:text-blue-500 transition-all duration-100">
+                            Edit
+                          </button>
+                          <button className="p-1 rounded-lg text-red-700 hover:underline hover:text-red-500 transition-all duration-100">
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                </tbody>
+              </table>
+              <div>
+                <button
+                  className="mt-3 text-red-500"
+                  onClick={() => setDeleteModal(true)}
+                >
+                  Delete all
+                </button>
+              </div>
             </div>
           </div>
         </div>
+
+        <ActiveSessions />
       </div>
+
+      <button onClick={() => testNews()}>NEWS SYNC</button>
 
       {/* Dialog - Add new */}
       <Transition appear show={createDialog} as={Fragment}>
