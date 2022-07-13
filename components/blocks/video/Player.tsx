@@ -1,42 +1,28 @@
-// Produces a client-side video player.
+// import { useCallback, useEffect, useState } from "react";
+// import videojs from "video.js";
 
-import { useEffect, useRef } from "react";
-import videojs from "video.js";
+// function VideoPlayer(props) {
+//   const [videoEl, setVideoEl] = useState(null);
+//   const onVideo = useCallback((el) => {
+//     setVideoEl(el);
+//   }, []);
 
-export const DefaultVideoPlayer = (props: any) => {
-  const videoRef = useRef(null);
-  const playerRef = useRef(null);
-  const { options, onReady } = props;
+//   useEffect(() => {
+//     if (videoEl == null) return;
+//     const player = videojs(videoEl, props);
+//     return () => {
+//       player.dispose();
+//     };
+//   }, [props, videoEl]);
 
-  useEffect(() => {
-    if (!playerRef.current) {
-      const videoElement = videoRef.current;
+//   return (
+//     <div data-vjs-player>
+//       <video
+//         ref={onVideo}
+//         className="video-js vjs-default-skin vjs-big-play-centered"
+//       />
+//     </div>
+//   );
+// }
 
-      if (!videoElement) return;
-
-      const player = (playerRef.current = videojs(videoElement, options, () => {
-        videojs.log("Player Ready");
-        onReady && onReady(player);
-      }));
-    }
-  }, [options, videoRef]);
-
-  useEffect(() => {
-    const player = playerRef.current;
-
-    return () => {
-      if (player) {
-        player.dispose();
-        playerRef.current = null;
-      }
-    };
-  }, [playerRef]);
-
-  return (
-    <div data-vjs-player>
-      <video ref={videoRef} className="video-js vjs-big-play-centered" />
-    </div>
-  );
-};
-
-export default DefaultVideoPlayer;
+// export default VideoPlayer;

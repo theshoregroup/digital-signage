@@ -9,38 +9,8 @@ import { GetServerSideProps } from "next";
 import cookie from "cookie";
 import prisma from "../lib/prisma";
 import MainGraph from "../components/blocks/graphs/MainGraph";
-import Player, { DefaultVideoPlayer } from "../components/blocks/video/Player";
-import videojs from "video.js";
-import { useRef } from "react";
 
 export default function Dashboard() {
-  const playerRef = useRef(null);
-
-  const videoJsOptions = {
-    autoplay: true,
-    controls: true,
-
-    sources: [
-      {
-        src: "http://192.168.50.221/hls/mac.m3u8",
-        type: "application/vnd.apple.mpegurl",
-      },
-    ],
-  };
-
-  const handlePlayerReady = (player: any) => {
-    playerRef.current = player;
-
-    // You can handle player events here, for example:
-    player.on("waiting", () => {
-      videojs.log("player is waiting");
-    });
-
-    player.on("dispose", () => {
-      videojs.log("player will dispose");
-    });
-  };
-
   return (
     <>
       <Head>
@@ -66,10 +36,7 @@ export default function Dashboard() {
 
         {/* Main left - Repeating loop of YouTube videos, live YouTube videos, videos from the admin console, and scrolling internal news posts. */}
         <Container className="col-start-1 row-start-2">
-          <DefaultVideoPlayer
-            options={videoJsOptions}
-            onReady={handlePlayerReady}
-          />
+          {/* <VideoPlayer playerOptions={playerOptions} /> */}
         </Container>
 
         {/* Right - News feed, coallates a number of sources (defined in admin UI) */}
