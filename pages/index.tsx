@@ -8,6 +8,8 @@ import { GetServerSideProps } from "next";
 // @ts-ignore: no type definition for module
 import cookie from "cookie";
 import prisma from "../lib/prisma";
+import MainGraph from "../components/blocks/graphs/MainGraph";
+import Player from "../components/blocks/video/Player";
 
 export default function Dashboard() {
   return (
@@ -34,7 +36,9 @@ export default function Dashboard() {
         </Container>
 
         {/* Main left - Repeating loop of YouTube videos, live YouTube videos, videos from the admin console, and scrolling internal news posts. */}
-        <Container className="col-start-1 row-start-2">h</Container>
+        <Container className="col-start-1 row-start-2">
+          <Player />
+        </Container>
 
         {/* Right - News feed, coallates a number of sources (defined in admin UI) */}
         <Container className="col-start-2 row-start-1 row-span-3">
@@ -42,7 +46,9 @@ export default function Dashboard() {
         </Container>
 
         {/* Bottom left - sales data feed */}
-        <Container className="col-start-1 row-start-3"> d</Container>
+        <Container className="col-start-1 row-start-3">
+          <MainGraph />
+        </Container>
       </div>
 
       {/* If display size is too small */}
