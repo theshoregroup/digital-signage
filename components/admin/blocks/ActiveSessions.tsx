@@ -50,10 +50,7 @@ export default function ActiveSessions() {
             </tbody>
           </table>
           <div>
-            <button
-              className="mt-3 text-red-500"
-              onClick={() => setDeleteModal(true)}
-            >
+            <button className="mt-3 text-red-500" onClick={}>
               Delete all
             </button>
           </div>
