@@ -5,7 +5,7 @@ import useSWR, { useSWRConfig } from "swr";
 import React, { useState, Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import ActiveSessions from "../../components/admin/blocks/ActiveSessions";
-import NewsSync from "../../lib/newsParse";
+// import NewsSync from "../../lib/newsParse";
 
 // @ts-ignore: Rest parameter 'args' implicitly has an 'any[]' type.
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
