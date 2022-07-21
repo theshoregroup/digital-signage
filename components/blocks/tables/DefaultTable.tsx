@@ -40,12 +40,7 @@ export default function Table({ data, actions }: any) {
         </tbody>
       </table>
       <div>
-        <button
-          className="mt-3 text-red-500"
-          onClick={() => setDeleteModal(true)}
-        >
-          Delete all
-        </button>
+        <button className="mt-3 text-red-500">Delete all</button>
       </div>
     </div>
   );
