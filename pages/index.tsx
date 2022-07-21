@@ -9,6 +9,7 @@ import { GetServerSideProps } from "next";
 import cookie from "cookie";
 import prisma from "../lib/prisma";
 import MainGraph from "../components/blocks/graphs/MainGraph";
+import Player from "../components/blocks/video/Player";
 
 export default function Dashboard() {
   return (
@@ -36,7 +37,7 @@ export default function Dashboard() {
 
         {/* Main left - Repeating loop of YouTube videos, live YouTube videos, videos from the admin console, and scrolling internal news posts. */}
         <Container className="col-start-1 row-start-2">
-          {/* <VideoPlayer playerOptions={playerOptions} /> */}
+          <Player src={"http://192.168.50.105:8088/hls/stream.m3u8"} />
         </Container>
 
         {/* Right - News feed, coallates a number of sources (defined in admin UI) */}
