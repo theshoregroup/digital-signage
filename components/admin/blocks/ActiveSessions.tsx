@@ -50,9 +50,7 @@ export default function ActiveSessions() {
             </tbody>
           </table>
           <div>
-            <button className="mt-3 text-red-500" onClick={}>
-              Delete all
-            </button>
+            <button className="mt-3 text-red-500">Delete all</button>
           </div>
         </div>
       </div>
