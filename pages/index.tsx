@@ -38,9 +38,7 @@ export default function Dashboard() {
         {/* Main left - Repeating loop of YouTube videos, live YouTube videos, videos from the admin console, and scrolling internal news posts. */}
         <Container className="col-start-1 row-start-2">
           <Player
-            src={
-              "http://hove-media.cloud.theshoregroup.co.uk:8088/hls/stream.m3u8"
-            }
+            src={"https://stream.theshoregroup.co.uk:8088/hls/stream.m3u8"}
           />
         </Container>
 
