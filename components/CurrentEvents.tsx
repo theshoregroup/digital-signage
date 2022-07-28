@@ -19,7 +19,7 @@ export default function CurrentEvents() {
         {data.itMessage.map((item: any) => (
           <li
             key={item.title}
-            className="flex p-2 mb-5 bg-white drop-shadow-md rounded-lg"
+            className="flex p-2 mb-5 bg-slate-600 drop-shadow-md rounded-lg"
           >
             <span className="flex h-5 w-5 relative mr-3 mt-1">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
