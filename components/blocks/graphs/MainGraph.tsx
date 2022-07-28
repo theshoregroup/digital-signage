@@ -3,25 +3,19 @@ import "chart.js/auto";
 import { Line } from "react-chartjs-2";
 
 const data = {
-  labels: [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-    22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
-  ],
+  labels: [28, 29, 30, 31, 32],
   datasets: [
     {
       id: 1,
       label: "margin",
-      data: [
-        20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170,
-        180, 190, 200, 210, 220, 230, 240, 250, 260, 270, 280, 290, 300, 310,
-      ],
+      data: [144444, 144682],
       backgroundColor: "rgba(172, 248, 175, 0.8)",
       borderColor: "rgba(37, 207, 44, 0.8)",
     },
     {
       id: 0,
       label: "target",
-      data: [10, 15, 20, 30, 40, 70, 100, 300, 400],
+      data: [135000, 270000],
       borderColor: "rgba(255, 24, 35, 0.8)",
       backgroundColor: "rgba(255, 148, 148, 0.8)",
       fill: "start",
@@ -50,7 +44,13 @@ const options = {
     yAxis: {
       display: false,
     },
+    xAxis: {
+      grid: {
+        color: "rgba(255,255,255,0.6)",
+      },
+    },
   },
+  maintainAspectRatio: false,
 };
 
 export default function MainGraph() {
@@ -63,15 +63,15 @@ export default function MainGraph() {
   }
 
   return (
-    <div className="relative">
-      <div className="absolute font-mono m-3 p-2 bg-slate-200 bg-opacity-70 rounded-md">
+    <div className="">
+      <div className="absolute font-mono m-3 p-2 z-10 bg-slate-500 bg-opacity-70 rounded-md">
         <span className="block text-6xl font-bold">
           £{data.datasets[0].data[getWeekNumber() - 1]}
         </span>
         <span>Last week's sales</span>
       </div>
-      <div className="h-[30vh]">
-        <Line datasetIdKey="id" height={60} options={options} data={data} />
+      <div className="block relative h-52 w-full">
+        <Line datasetIdKey="id" options={options} data={data} />
       </div>
     </div>
   );
