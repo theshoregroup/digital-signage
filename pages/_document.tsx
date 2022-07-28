@@ -22,7 +22,7 @@ class PageDocument extends Document {
 
   render(): ReactElement {
     return (
-      <Html lang="en">
+      <Html lang="en" className="dark">
         <Head>
           <meta charSet="utf-8" />
           <meta name="theme-color" content="#e2e8f0" />
