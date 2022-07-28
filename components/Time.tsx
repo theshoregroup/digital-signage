@@ -56,13 +56,13 @@ export default function Time() {
 
   return (
     <div className="my-auto">
-      <span className="block text-5xl font-bold">
+      <span className="block text-6xl font-bold">
         {time.getHours()}
         <span className="animate-pulse">:</span>
         {time.getMinutes() < 10 ? `0${time.getMinutes()}` : time.getMinutes()}
       </span>
 
-      <span className="block text-3xl italic">
+      <span className="block text-4xl italic">
         {[
           timeData.days[time.getDay() as keyof typeof timeData.days],
           ", ",

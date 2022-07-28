@@ -26,10 +26,10 @@ export default function CurrentEvents() {
               <span className="relative inline-flex rounded-full h-5 w-5 bg-red-500"></span>
             </span>
             <div className="overflow-hidden">
-              <span className="text-3xl font-bold w-full flex-wrap">
+              <span className="text-4xl font-bold w-full flex-wrap">
                 {item.title}
               </span>
-              <p className="text-xl italic flex-wrap">{item.message}</p>
+              <p className="text-2xl italic flex-wrap">{item.message}</p>
             </div>
           </li>
         ))}

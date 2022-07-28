@@ -27,10 +27,10 @@ export default function Weather({ location }: Props) {
   return (
     <div className="my-auto flex space-x-4">
       <div>
-        <span className="text-5xl font-bold block text-right">
+        <span className="text-6xl font-bold block text-right">
           {data.current.temp_c}&#176;
         </span>
-        <span className="text-xl">
+        <span className="text-2xl">
           Feels like {data.current.feelslike_c}&#176;
         </span>
       </div>
