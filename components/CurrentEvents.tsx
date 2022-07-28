@@ -30,9 +30,7 @@ export default function CurrentEvents() {
               <span className="text-4xl font-bold w-full flex-wrap">
                 {item.title}
               </span>
-              <p className="text-3xl italic font-mono font-semibold flex-wrap">
-                {item.message}
-              </p>
+              <p className="text-3xl italic flex-wrap">{item.message}</p>
             </div>
           </li>
         ))}
