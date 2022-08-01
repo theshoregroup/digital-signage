@@ -45,7 +45,9 @@ export default function Time() {
 
   function putOnEnd() {
     // This function puts the correct ending on the day
-    if (time.getDate() > 4 || time.getDate() < 20) {
+    if (time.getDate() == 1) {
+      return timeData.endNumber[1];
+    } else if (time.getDate() > 4 || time.getDate() < 20) {
       return timeData.endNumber[4];
     } else {
       return timeData.endNumber[
@@ -64,7 +66,7 @@ export default function Time() {
 
       <span className="block text-4xl italic">
         {[
-          timeData.days[time.getDay() as keyof typeof timeData.days],
+          timeData.days[(time.getDay() - 1) as keyof typeof timeData.days],
           ", ",
           time.getDate(),
           putOnEnd(),
