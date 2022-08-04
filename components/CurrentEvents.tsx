@@ -46,7 +46,7 @@ export default function CurrentEvents() {
 
     console.log(data)
 
-    if (error || data[1].status !== "success")
+    if (error)
       return (
         <div className="grid place-items-center">
           <div className="text-red-300 p-5 rounded-lg">
