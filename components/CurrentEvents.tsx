@@ -39,12 +39,14 @@ export default function CurrentEvents() {
   }
 
   function news() {
-    const { data, error } = useSWR("/api/news", fetcher, {
+    const { data, error } = useSWR("/api/v1/content/news", fetcher, {
       refreshInterval: 1000000,
       refreshWhenHidden: true,
     });
 
-    if (error)
+    console.log(data)
+
+    if (error || data[1].status !== "success")
       return (
         <div className="grid place-items-center">
           <div className="text-red-300 p-5 rounded-lg">
@@ -70,11 +72,11 @@ export default function CurrentEvents() {
 
     return (
       <>
-        {data.articles.map((item: any) => (
+        {data[1].results.map((item: any) => (
           <li className="flex" key={item.title}>
             <div className="h-full my-auto ml-1 mr-4 flex-shrink-0">
               <img
-                src={item.urlToImage || "https://placeholder.pics/svg/30x30"}
+                src={item.image_url || "https://placeholder.pics/svg/30x30"}
                 alt={item.title}
                 onError={(e) => {
                   e.currentTarget.src = "https://placeholder.pics/svg/30x30";
@@ -84,7 +86,7 @@ export default function CurrentEvents() {
             </div>
             <div className="overflow-hidden flex-shrink">
               <span className="text-xl font-bold block">{item.title}</span>
-              <span className="text-xl block truncate">{item.source.name}</span>
+              <span className="text-xl block truncate">{item.source_id}</span>
             </div>
           </li>
         ))}
