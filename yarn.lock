@@ -15,10 +15,17 @@
     core-js-pure "^3.20.2"
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.10.2", "@babel/runtime@^7.16.3":
+"@babel/runtime@^7.10.2":
   version "7.17.9"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.17.9.tgz#d19fbf802d01a8cb6cf053a64e472d42c434ba72"
   integrity sha512-lSiBBvodq29uShpWGNbgFdKYNiFDo5/HIYsaCEY9ff4sb10x9jizo2+pRrSyF4jKZCXqgzuqBOQKbUm90gQwJg==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
+"@babel/runtime@^7.16.3":
+  version "7.18.9"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.18.9.tgz#b4fcfce55db3d2e5e080d2490f608a3b9f407f4a"
+  integrity sha512-lkqXDcvlFT5rvEjiu6+QYO+1GXrEHRo2LOtS7E4GtX5ESIZOgepqsZBVIj6Pv+a6zqsya9VCgiK1KAK4BvJDAw==
   dependencies:
     regenerator-runtime "^0.13.4"
 
@@ -1306,9 +1313,9 @@ isexe@^2.0.0:
   integrity sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=
 
 jose@^4.1.4, jose@^4.3.7:
-  version "4.8.1"
-  resolved "https://registry.yarnpkg.com/jose/-/jose-4.8.1.tgz#dc7c2660b115ba29b44880e588c5ac313c158247"
-  integrity sha512-+/hpTbRcCw9YC0TOfN1W47pej4a9lRmltdOVdRLz5FP5UvUq3CenhXjQK7u/8NdMIIShMXYAh9VLPhc7TjhvFw==
+  version "4.8.3"
+  resolved "https://registry.yarnpkg.com/jose/-/jose-4.8.3.tgz#5a754fb4aa5f2806608d083f438e6916b11087da"
+  integrity sha512-7rySkpW78d8LBp4YU70Wb7+OTgE3OwAALNVZxhoIhp4Kscp+p/fBkdpxGAMKxvCAMV4QfXBU9m6l9nX/vGwd2g==
 
 "js-tokens@^3.0.0 || ^4.0.0":
   version "4.0.0"
@@ -1463,9 +1470,9 @@ newsapi@^2.4.1:
     node-fetch "^2.6.0"
 
 next-auth@^4.9.0:
-  version "4.9.0"
-  resolved "https://registry.yarnpkg.com/next-auth/-/next-auth-4.9.0.tgz#0d8cabcb22a976744131a2e68d5f08756f322593"
-  integrity sha512-/4S5dFeyNg2nXlD7g/Sh5A4WZWnUMDpEf8x/x+gzmAf5cAY2SjDM6sLk9u4XRmsndsxQpIMWDw03sUTAD+Yzog==
+  version "4.10.3"
+  resolved "https://registry.yarnpkg.com/next-auth/-/next-auth-4.10.3.tgz#0a952dd5004fd2ac2ba414c990922cf9b33951a3"
+  integrity sha512-7zc4aXYc/EEln7Pkcsn21V1IevaTZsMLJwapfbnKA4+JY0+jFzWbt5p/ljugesGIrN4VOZhpZIw50EaFZyghJQ==
   dependencies:
     "@babel/runtime" "^7.16.3"
     "@panva/hkdf" "^1.0.1"
@@ -1525,7 +1532,7 @@ normalize-range@^0.1.2:
 oauth@^0.9.15:
   version "0.9.15"
   resolved "https://registry.yarnpkg.com/oauth/-/oauth-0.9.15.tgz#bd1fefaf686c96b75475aed5196412ff60cfb9c1"
-  integrity sha1-vR/vr2hslrdUda7VGWQS/2DPucE=
+  integrity sha512-a5ERWK1kh38ExDEfoO6qUHJb32rd7aYmPHuyCu3Fta/cnICvYmgd2uhuKXvPD+PXB+gCEYYEaQdIRAjCOwAKNA==
 
 object-assign@^4.1.1:
   version "4.1.1"
@@ -1610,9 +1617,9 @@ once@^1.3.0:
     wrappy "1"
 
 openid-client@^5.1.0:
-  version "5.1.5"
-  resolved "https://registry.yarnpkg.com/openid-client/-/openid-client-5.1.5.tgz#cac1e50015937e5af70be45e1ae5b1cb113f1f74"
-  integrity sha512-m41p7V/iXyqc0WZeo20uwKk8NPDAtYd3JS0uWjttcqwvFo4YNYAKegMAMea1qG5RClddQ6rV9ec/TP6ZvsCrYw==
+  version "5.1.8"
+  resolved "https://registry.yarnpkg.com/openid-client/-/openid-client-5.1.8.tgz#3a24910288b32c32f548fb6e391f44178ce6370f"
+  integrity sha512-EPxJY6bT7YIYQEXSGxRC5flQ3GUhLy98ufdto6+BVBrFGPmwjUpy4xBcYuU/Wt9nPkO/3EgljBrr6Ezx4lp1RQ==
   dependencies:
     jose "^4.1.4"
     lru-cache "^6.0.0"
@@ -1757,16 +1764,16 @@ postcss@^8.4.12:
     source-map-js "^1.0.2"
 
 preact-render-to-string@^5.1.19:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/preact-render-to-string/-/preact-render-to-string-5.2.0.tgz#3d3c4f9c570229b76d33353ed02ce662bd13dec1"
-  integrity sha512-+RGwSW78Cl+NsZRUbFW1MGB++didsfqRk+IyRVTaqy+3OjtpKK/6HgBtfszUX0YXMfo41k2iaQSseAHGKEwrbg==
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/preact-render-to-string/-/preact-render-to-string-5.2.1.tgz#71f3e8cda65f33dbc8ad8d904ff58e3f532e59f3"
+  integrity sha512-Wp3ner1aIVBpKg02C4AoLdBiw4kNaiFSYHr4wUF+fR7FWKAQzNri+iPfPp31sEhAtBfWoJrSxiEFzd5wp5zCgQ==
   dependencies:
     pretty-format "^3.8.0"
 
 preact@^10.6.3:
-  version "10.7.1"
-  resolved "https://registry.yarnpkg.com/preact/-/preact-10.7.1.tgz#bdd2b2dce91a5842c3b9b34dfe050e5401068c9e"
-  integrity sha512-MufnRFz39aIhs9AMFisonjzTud1PK1bY+jcJLo6m2T9Uh8AqjD77w11eAAawmjUogoGOnipECq7e/1RClIKsxg==
+  version "10.10.0"
+  resolved "https://registry.yarnpkg.com/preact/-/preact-10.10.0.tgz#7434750a24b59dae1957d95dc0aa47a4a8e9a180"
+  integrity sha512-fszkg1iJJjq68I4lI8ZsmBiaoQiQHbxf1lNq+72EmC/mZOsFF5zn3k1yv9QGoFgIXzgsdSKtYymLJsrJPoamjQ==
 
 prelude-ls@^1.2.1:
   version "1.2.1"
@@ -1776,7 +1783,7 @@ prelude-ls@^1.2.1:
 pretty-format@^3.8.0:
   version "3.8.0"
   resolved "https://registry.yarnpkg.com/pretty-format/-/pretty-format-3.8.0.tgz#bfbed56d5e9a776645f4b1ff7aa1a3ac4fa3c385"
-  integrity sha1-v77VbV6ad2ZF9LH/eqGjrE+jw4U=
+  integrity sha512-WuxUnVtlWL1OfZFQFuqvnvs6MiAGk9UNsBostyBOB0Is9wb5uRESevA6rnl/rkksXaGX3GzZhPup5d6Vp1nFew==
 
 prisma@^3.13.0:
   version "3.13.0"
