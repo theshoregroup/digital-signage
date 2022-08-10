@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 import { NewspaperIcon } from "@heroicons/react/solid";
 import useSWR from "swr";
 
@@ -39,12 +41,22 @@ export default function CurrentEvents() {
   }
 
   function news() {
+    const [spotlight, setSpotlight] = useState(0)
+
     const { data, error } = useSWR("/api/v1/content/news", fetcher, {
       refreshInterval: 1000000,
       refreshWhenHidden: true,
     });
 
-    console.log(data)
+        // Spotlight
+        useEffect(() => {
+          if (data && spotlight >= data[1].results.length) {
+            setSpotlight(0)
+          }
+          const int = setInterval(() => setSpotlight(spotlight + 1), 10000)
+    
+          return () => clearInterval(int)
+        })
 
     if (error)
       return (
@@ -70,9 +82,24 @@ export default function CurrentEvents() {
       );
     if (!data) return <div>Loading...</div>;
 
-    return (
-      <>
-        {data[1].results.map((item: any) => (
+    function renderNewsArticle(item: any, index: number) {
+      if (index === spotlight) {
+        return (
+          <li className="flex relative w-full h-44 bg-gradient-to-r from-green-400 to-blue-500">
+            <img
+            className="z-0 object-cover h-full w-full rounded-md"
+            src={item.image_url} alt={item.title}
+            onError={(e) => {
+              e.currentTarget.src = ""
+            }}
+            />
+            <div className="absolute z-10 bg-black bg-opacity-50 w-full h-full grid place-items-center">
+              <span className="text-2xl font-bold w-5/6">{item.title}</span>
+            </div>
+          </li>
+        )
+      } else {
+        return (
           <li className="flex" key={item.title}>
             <div className="h-full my-auto ml-1 mr-4 flex-shrink-0">
               <img
@@ -89,8 +116,16 @@ export default function CurrentEvents() {
               <span className="text-xl block truncate">{item.source_id}</span>
             </div>
           </li>
+        )
+      }
+    }
+
+    return (
+      <div className="max-h-screen space-y-5">
+        {data[1].results.map((item: any, index: number) => (
+          renderNewsArticle(item, index)
         ))}
-      </>
+      </div>
     );
   }
 
