@@ -43,6 +43,16 @@ export default function CurrentEvents() {
   function news() {
     const [spotlight, setSpotlight] = useState(0)
 
+    // These should be added to the admin UI @ some point
+    const newsFallbackImages = () => {
+      const arr = [
+        "https://images.unsplash.com/photo-1581067141051-a7b799ba6814?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8",
+
+      ]
+
+      return arr[0]
+    }
+
     const { data, error } = useSWR("/api/v1/content/news", fetcher, {
       refreshInterval: 1000000,
       refreshWhenHidden: true,
@@ -90,11 +100,11 @@ export default function CurrentEvents() {
             className="z-0 object-cover h-full w-full rounded-md"
             src={item.image_url} alt={item.title}
             onError={(e) => {
-              e.currentTarget.src = ""
+              e.currentTarget.src = newsFallbackImages()
             }}
             />
             <div className="absolute z-10 bg-black bg-opacity-50 w-full h-full grid place-items-center">
-              <span className="text-2xl font-bold w-5/6">{item.title}</span>
+              <span className="text-4xl font-bold w-5/6">{item.title}</span>
             </div>
           </li>
         )
@@ -102,14 +112,6 @@ export default function CurrentEvents() {
         return (
           <li className="flex" key={item.title}>
             <div className="h-full my-auto ml-1 mr-4 flex-shrink-0">
-              <img
-                src={item.image_url || "https://placeholder.pics/svg/30x30"}
-                alt={item.title}
-                onError={(e) => {
-                  e.currentTarget.src = "https://placeholder.pics/svg/30x30";
-                }}
-                className="w-10"
-              />
             </div>
             <div className="overflow-hidden flex-shrink">
               <span className="text-xl font-bold block">{item.title}</span>
