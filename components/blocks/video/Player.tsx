@@ -28,14 +28,12 @@ export default function VideoPlayer({ src }) {
     const options = {
       muted: true,
       autoplay: true,
-      controls: true,
     };
     if (video.canPlayType("application/vnd.apple.mpegurl")) {
       // This will run in safari, where HLS is supported natively
       video.src = src;
     } else if (Hls.isSupported()) {
       // This will run in all other modern browsers
-
       const hls = new Hls();
       hls.loadSource(src);
       const player = new Plyr(video, options);
