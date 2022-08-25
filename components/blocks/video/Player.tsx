@@ -10,10 +10,12 @@
 // }
 // @ts-nocheck
 
+import "plyr/dist/plyr.css";
+
 import { useEffect, useRef } from "react";
+
 import Hls from "hls.js";
 import Plyr from "plyr";
-import "plyr/dist/plyr.css";
 
 export default function VideoPlayer({ src }) {
   const videoRef = useRef(null);
@@ -26,7 +28,7 @@ export default function VideoPlayer({ src }) {
     const options = {
       muted: true,
       autoplay: true,
-      controls: false,
+      controls: true,
     };
     if (video.canPlayType("application/vnd.apple.mpegurl")) {
       // This will run in safari, where HLS is supported natively
