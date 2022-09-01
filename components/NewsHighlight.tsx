@@ -39,5 +39,7 @@ export default function NewsHighlight() {
                 }}></img>
             </div>
         )
+    } else {
+        return <></>
     }
 }

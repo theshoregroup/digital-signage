@@ -3,7 +3,7 @@ import CurrentEvents from "../components/CurrentEvents";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
-import MainGraph from "../components/NewsHighlight";
+import NewsHighlight from "../components/NewsHighlight";
 import Player from "../components/blocks/video/Player";
 import Time from "../components/Time";
 import Weather from "../components/Weather";
@@ -49,7 +49,7 @@ export default function Dashboard() {
 
         {/* Bottom left - sales data feed */}
         <Container className="col-start-1 row-start-3">
-          <MainGraph />
+          <NewsHighlight />
         </Container>
       </div>
 
