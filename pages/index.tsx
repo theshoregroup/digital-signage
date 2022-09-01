@@ -1,15 +1,15 @@
-import Head from "next/head";
-import Link from "next/link";
 import Container from "../components/Container";
-import Time from "../components/Time";
-import Weather from "../components/Weather";
 import CurrentEvents from "../components/CurrentEvents";
 import { GetServerSideProps } from "next";
+import Head from "next/head";
+import Link from "next/link";
+import MainGraph from "../components/NewsHighlight";
+import Player from "../components/blocks/video/Player";
+import Time from "../components/Time";
+import Weather from "../components/Weather";
 // @ts-ignore: no type definition for module
 import cookie from "cookie";
 import prisma from "../lib/prisma";
-import MainGraph from "../components/blocks/graphs/MainGraph";
-import Player from "../components/blocks/video/Player";
 
 export default function Dashboard() {
   return (
