@@ -17,9 +17,10 @@ export default function NewsHighlight() {
       // Spotlight
         useEffect(() => {
           if (data && spotlight >= data[1].results.length) {
-            setSpotlight(0)
+            setSpotlight(1)
           }
           const int = setInterval(() => setSpotlight(spotlight + 1), 10000)
+          
     
           return () => clearInterval(int)
         })
@@ -29,12 +30,14 @@ export default function NewsHighlight() {
     if (!data) return <div>Loading...</div>;
     
 
-    return (
-        <div className="flex relative w-full h-full">
-            <span className="absolute z-10 bg-black top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-2 py-1 bg-opacity-50 text-3xl font-bold">{data[1].results[spotlight].title}</span>
-            <img className="z-0 object-cover h-full w-full rounded" src={data[1].results[spotlight].image_url} alt={data[1].results[spotlight].title} onError={(e) => {
-                e.currentTarget.src = "https://images.unsplash.com/photo-1581067141051-a7b799ba6814?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8"
-            }}></img>
-        </div>
-    )
+    if (data[1].results[spotlight]) {
+        return (
+            <div className="flex relative w-full h-full">
+                <span className="absolute z-10 bg-black top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-2 py-1 bg-opacity-50 text-3xl font-bold">{data[1].results[spotlight].title}</span>
+                <img className="z-0 object-cover h-full w-full rounded" src={data[1].results[spotlight].image_url} alt={data[1].results[spotlight].title} onError={(e) => {
+                    e.currentTarget.src = "https://images.unsplash.com/photo-1581067141051-a7b799ba6814?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8"
+                }}></img>
+            </div>
+        )
+    }
 }
